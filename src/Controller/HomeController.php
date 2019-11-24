@@ -11,23 +11,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class IndexController
+ * Class HomeController
  * @package App\Controller
  */
-class IndexController extends AbstractController
+class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="pm_index")
+     * @Route("/", name="pm_home")
      *
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function home(Request $request): Response
     {
         // return new Response('Hello world');
 
-        return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
+        return $this->render('home/home.html.twig', [
+            'controller_name' => 'HomeController',
         ]);
     }
 }
