@@ -96,6 +96,9 @@
     "monolog/monolog": {
         "version": "2.0.1"
     },
+    "msbios/msbios": {
+        "version": "v1.0.14"
+    },
     "nikic/php-parser": {
         "version": "v4.3.0"
     },
@@ -519,7 +522,19 @@
     "zendframework/zend-code": {
         "version": "3.4.0"
     },
+    "zendframework/zend-config": {
+        "version": "3.3.0"
+    },
     "zendframework/zend-eventmanager": {
+        "version": "3.2.1"
+    },
+    "zendframework/zend-loader": {
+        "version": "2.6.1"
+    },
+    "zendframework/zend-modulemanager": {
+        "version": "2.8.4"
+    },
+    "zendframework/zend-stdlib": {
         "version": "3.2.1"
     }
 }

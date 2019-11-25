@@ -7,9 +7,9 @@
 namespace App\Tests\Controller;
 
 use App\Controller\HomeController;
-use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Psr\Container\ContainerInterface;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,8 +19,17 @@ use Twig\Environment;
  * Class HomeControllerTest
  * @package App\Tests\Controller
  */
-class HomeControllerTest extends TestCase
+class HomeControllerTest extends WebTestCase
 {
+
+    // public function testHomePage()
+    // {
+    //     /** @var KernelBrowser $client */
+    //     $client = static::createClient();
+    //     $client->request(Request::METHOD_GET, '/');
+    //     $this->assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
+    // }
+
     public function testCallHomeMethod()
     {
         /** @var  $controller */
@@ -58,9 +67,7 @@ class HomeControllerTest extends TestCase
             ->setContainer($container->reveal());
 
         /** @var Response $response */
-        $response = $controller->home(
-            $request->reveal()
-        );
+        $response = $controller->home($request->reveal());
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
