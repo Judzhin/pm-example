@@ -35,7 +35,7 @@ class Handler
         /** @var string $email */
         $email = mb_strtolower($command->email);
 
-        if ($this->em->getRepository()->findOneBy(['email' => $email])) {
+        if ($this->em->getRepository(User::class)->findOneBy(['email' => $email])) {
             throw new \DomainException('User already exists.');
         }
 
