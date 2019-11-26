@@ -32,6 +32,7 @@ class RegistrationController extends AbstractController
      * @param GuardAuthenticatorHandler $guardHandler
      * @param FormLoginAuthenticator $authenticator
      * @return Response
+     * @throws \Exception
      */
     public function register(
         Request $request,

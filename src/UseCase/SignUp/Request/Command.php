@@ -4,11 +4,11 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp;
+namespace App\UseCase\SignUp\Request;
 
 /**
  * Class Command
- * @package App\UseCase\SignUp
+ * @package App\UseCase\SignUp\Request
  */
 class Command
 {

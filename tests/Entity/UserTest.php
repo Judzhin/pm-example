@@ -6,7 +6,9 @@
 namespace App\Tests\Entity;
 
 use App\Entity\User;
+use App\Model\User\Email;
 use PHPUnit\Framework\TestCase;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -17,14 +19,14 @@ class UserTest extends TestCase
 {
     public function testInstance()
     {
-        /** @var UserInterface $user */
-        $user = (new User)
-            ->setEmail($email = 'test@example.com')
+        /** @var UserInterface|User $user */
+        $user = (new User($uuid = Uuid::uuid4()))
+            ->setEmail($email = new Email('test@example.com'))
             ->setPassword($password = 'secret');
 
         $this->assertInstanceOf(UserInterface::class, $user);
-        $this->assertEquals($email, $user->getUsername());
+        $this->assertEquals($uuid, $user->getId());
+        $this->assertEquals($email, $user->getEmail());
         $this->assertEquals($password, $user->getPassword());
-
     }
 }

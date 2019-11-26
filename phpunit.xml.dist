@@ -20,6 +20,8 @@
         <server name="SHELL_VERBOSITY" value="-1" />
         <server name="SYMFONY_PHPUNIT_REMOVE" value="" />
         <server name="SYMFONY_PHPUNIT_VERSION" value="7.5" />
+        <server name="TEST_EMAIL" value="test@example.com" />
+        <server name="TEST_PASSWORD" value="secret" />
     </php>
 
     <testsuites>

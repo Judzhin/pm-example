@@ -4,14 +4,15 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp;
+namespace App\UseCase\SignUp\Confirm;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\SignUp
+ * @package App\UseCase\SignUp\Request
  */
 class Handler
 {
@@ -29,22 +30,16 @@ class Handler
 
     /**
      * @param Command $command
+     * @throws \Exception
      */
     public function handle(Command $command): void
     {
-        /** @var string $email */
-        $email = mb_strtolower($command->email);
-
-        if ($this->em->getRepository(User::class)->findOneBy(['email' => $email])) {
-            throw new \DomainException('User already exists.');
+        /** @var UserInterface|User $user */
+        if (!$user = $this->em->getRepository(User::class)->findOneBy(['token' => $command->token])) {
+            throw new \DomainException('Incorrect or confirmed token.');
         }
 
-        /** @var User $user */
-        $user = (new User)
-            ->setEmail($email)
-            ->setPassword(password_hash($command->password, PASSWORD_ARGON2I, ['cost' => 12]));
-
-        $this->em->persist($user);
+        $user->confirmSignUp();
         $this->em->flush();
     }
 }
