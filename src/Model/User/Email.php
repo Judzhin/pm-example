@@ -41,4 +41,12 @@ class Email
         return $this->value;
     }
 
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getValue();
+    }
+
 }

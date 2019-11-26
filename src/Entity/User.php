@@ -103,103 +103,6 @@ class User implements UserInterface
     }
 
     /**
-     * @param Email $email
-     * @param string $password
-     * @param string $token
-     * @return User
-     */
-    public function signUpByEmail(Email $email, string $password, string $token): self
-    {
-        if (!$this->isUndefined()) {
-            throw new \DomainException('User is already signed up.');
-        }
-
-        $this
-            ->setEmail($email)
-            ->setPassword($password)
-            ->setConfirmToken(EmbeddedToken::create());
-
-        $this->status = self::STATUS_WAIT;
-
-        return $this->setEmail($email);
-    }
-
-    /**
-     * @return User
-     */
-    public function confirmSignUp(): self
-    {
-        if (!$this->isWait()) {
-            throw new \DomainException('User is already confirmed.');
-        }
-
-        $this->status = self::STATUS_DONE;
-        return $this;
-    }
-
-    /**
-     * @param Network $network
-     * @return User
-     */
-    public function signUpByNetwork(Network $network): self
-    {
-        if (!$this->isUndefined()) {
-            throw new \DomainException('User is already signed up.');
-        }
-
-        $this->attachNetwork($network);
-        $this->status = self::STATUS_DONE;
-    }
-
-    /**
-     * @param Network $network
-     * @return User
-     */
-    private function attachNetwork(Network $network): self
-    {
-        /** @var Network $self */
-        foreach ($this->networks as $self) {
-            if ($self->isExists($network)) {
-                throw new \DomainException('Network is already attached.');
-            }
-        }
-
-        $this->networks->add($network->setUser($this));
-        return $this;
-    }
-
-    /**
-     * @param EmbeddedToken $passwordResetToken
-     * @return User
-     */
-    public function requestPasswordReset(EmbeddedToken $passwordResetToken): self
-    {
-        $this->resetToken = $passwordResetToken;
-        return $this;
-    }
-
-    /**
-     * @param \DateTimeImmutable $date
-     * @param $hash
-     * @return User
-     */
-    public function passwordReset(\DateTimeImmutable $date, $hash): self
-    {
-
-        if ($this->resetToken->isEmpty()) {
-            throw new \DomainException('Resetting is not requested');
-        }
-
-        if ($this->resetToken->isExpiredTo($date)) {
-            throw new \DomainException('Reset token is expired.');
-        }
-
-        $this->setPassword($hash);
-        $this->resetToken = null;
-        return $this;
-    }
-
-    /**
      * @return null|UuidInterface
      */
     public function getId(): ?UuidInterface
@@ -313,9 +216,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return EmbeddedToken
+     * @return EmbeddedToken|null
      */
-    public function getResetToken(): EmbeddedToken
+    public function getResetToken(): ?EmbeddedToken
     {
         return $this->resetToken;
     }
@@ -362,7 +265,7 @@ class User implements UserInterface
      */
     public function isUndefined(): bool
     {
-        return self::STATUS_DONE === $this->status;
+        return self::STATUS_NONE === $this->status;
     }
 
     /**
@@ -379,5 +282,103 @@ class User implements UserInterface
     public function isActive(): bool
     {
         return self::STATUS_DONE === $this->status;
+    }
+
+    /**
+     * @param Email $email
+     * @param string $password
+     * @param EmbeddedToken|null $confirmToken
+     * @return User
+     * @throws \Exception
+     */
+    public function signUpByEmail(Email $email, string $password, EmbeddedToken $confirmToken = null): self
+    {
+        if (!$this->isUndefined()) {
+            throw new \DomainException('User is already signed up.');
+        }
+
+        $this
+            ->setEmail($email)
+            ->setPassword($password)
+            ->setConfirmToken($confirmToken ?? EmbeddedToken::create());
+
+        $this->status = self::STATUS_WAIT;
+
+        return $this->setEmail($email);
+    }
+
+    /**
+     * @return User
+     */
+    public function confirmSignUp(): self
+    {
+        if (!$this->isWait()) {
+            throw new \DomainException('User is already confirmed.');
+        }
+
+        $this->status = self::STATUS_DONE;
+        return $this;
+    }
+
+    /**
+     * @param Network $network
+     * @return User
+     */
+    public function signUpByNetwork(Network $network): self
+    {
+        if (!$this->isUndefined()) {
+            throw new \DomainException('User is already signed up.');
+        }
+
+        $this->attachNetwork($network);
+        $this->status = self::STATUS_DONE;
+    }
+
+    /**
+     * @param Network $network
+     * @return User
+     */
+    private function attachNetwork(Network $network): self
+    {
+        /** @var Network $self */
+        foreach ($this->networks as $self) {
+            if ($self->isExists($network)) {
+                throw new \DomainException('Network is already attached.');
+            }
+        }
+
+        $this->networks->add($network->setUser($this));
+        return $this;
+    }
+
+    /**
+     * @param EmbeddedToken $passwordResetToken
+     * @return User
+     */
+    public function requestPasswordReset(EmbeddedToken $passwordResetToken): self
+    {
+        $this->resetToken = $passwordResetToken;
+        return $this;
+    }
+
+    /**
+     * @param \DateTimeImmutable $date
+     * @param $hash
+     * @return User
+     */
+    public function passwordReset(\DateTimeImmutable $date, $hash): self
+    {
+
+        if ($this->resetToken instanceof EmbeddedToken === false || $this->resetToken->isEmpty()) {
+            throw new \DomainException('Resetting is not requested.');
+        }
+
+        if ($this->resetToken->isExpiredTo($date)) {
+            throw new \DomainException('Reset token is expired.');
+        }
+
+        $this->setPassword($hash);
+        $this->resetToken = null;
+        return $this;
     }
 }
