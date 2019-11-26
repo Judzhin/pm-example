@@ -21,7 +21,7 @@ class EmbeddedToken
     /**
      * @var string
      *
-     * @ORM\Column(type="string", nullable=true, name="value")
+     * @ORM\Column(type="string", nullable=true, name="value", unique=true)
      */
     private $value = null;
 
@@ -93,6 +93,7 @@ class EmbeddedToken
     }
 
     /**
+     * @internal for postLoad callback
      * @return bool
      */
     public function isEmpty(): bool
@@ -103,6 +104,7 @@ class EmbeddedToken
     /**
      * @param \DateTimeImmutable $date
      * @return bool
+     * @throws \Exception
      */
     public function isExpiredTo(\DateTimeImmutable $date): bool
     {

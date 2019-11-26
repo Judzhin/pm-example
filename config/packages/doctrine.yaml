@@ -1,7 +1,8 @@
 doctrine:
   dbal:
     types:
-      uuid: Ramsey\Uuid\Doctrine\UuidType
+      email: App\DBAL\Types\EmailType
+      roles: App\DBAL\Types\RolesType
 
     url: '%env(resolve:DATABASE_URL)%'
 

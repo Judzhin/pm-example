@@ -4,15 +4,20 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp\Network;
+namespace App\UseCase\Role;
 
-use App\Entity\Network;
 use App\Entity\User;
+use App\Model\Role;
+use App\Model\User\Email;
+use App\Service\PasswordHasher;
+use App\Service\PasswordResetSender;
+use App\Service\PasswordResetToken;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\SignUp\Request
+ * @package App\UseCase\Role
  */
 class Handler
 {
@@ -34,19 +39,9 @@ class Handler
      */
     public function handle(Command $command): void
     {
-        /** @var Network $network */
-        $network = (new Network)
-            ->setNetwork($command->network)
-            ->setIdentity($command->identity);
-
-        if ($this->em->getRepository(User::class)->findOneByNetwork($network)) {
-            throw new \DomainException('User already exists.');
-        }
-
-        /** @var User $user */
-        $user = User::signUpByNetwork($network);
-
-        $this->em->persist($user);
+        /** @var UserInterface|User $user */
+        $user = $this->em->find(User::class, $command->id);
+        $user->changeRole(new Role($command->role));
         $this->em->flush();
     }
 }

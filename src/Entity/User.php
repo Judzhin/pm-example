@@ -6,6 +6,7 @@
 
 namespace App\Entity;
 
+use App\Model\Role;
 use App\Model\User\Email;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -20,6 +21,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="users")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User implements UserInterface
 {
@@ -34,12 +36,12 @@ class User implements UserInterface
 
     /**
      * @var Email
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="email", length=180, unique=true, nullable=true)
      */
-    private $email;
+    private $email = null;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="roles")
      */
     private $roles = [];
 
@@ -83,7 +85,7 @@ class User implements UserInterface
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Network", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Network", mappedBy="user", orphanRemoval=true, cascade={"persist"})
      */
     private $networks;
 
@@ -121,9 +123,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return Email
+     * @return Email|null
      */
-    public function getEmail(): Email
+    public function getEmail(): ?Email
     {
         return $this->email;
     }
@@ -155,8 +157,7 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
+        $roles[] = Role::user();
         return array_unique($roles);
     }
 
@@ -167,7 +168,6 @@ class User implements UserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
-
         return $this;
     }
 
@@ -291,20 +291,16 @@ class User implements UserInterface
      * @return User
      * @throws \Exception
      */
-    public function signUpByEmail(Email $email, string $password, EmbeddedToken $confirmToken = null): self
+    public static function signUpByEmail(Email $email, string $password, EmbeddedToken $confirmToken = null): self
     {
-        if (!$this->isUndefined()) {
-            throw new \DomainException('User is already signed up.');
-        }
+        /** @var UserInterface $user */
+        $user = new self;
+        $user->email = $email;
+        $user->password = $password;
+        $user->confirmToken = $confirmToken ?? EmbeddedToken::create();
+        $user->status = self::STATUS_WAIT;
 
-        $this
-            ->setEmail($email)
-            ->setPassword($password)
-            ->setConfirmToken($confirmToken ?? EmbeddedToken::create());
-
-        $this->status = self::STATUS_WAIT;
-
-        return $this->setEmail($email);
+        return $user;
     }
 
     /**
@@ -324,14 +320,13 @@ class User implements UserInterface
      * @param Network $network
      * @return User
      */
-    public function signUpByNetwork(Network $network): self
+    public static function signUpByNetwork(Network $network): self
     {
-        if (!$this->isUndefined()) {
-            throw new \DomainException('User is already signed up.');
-        }
+        $user = new self;
+        $user->attachNetwork($network);
+        $user->status = self::STATUS_DONE;
 
-        $this->attachNetwork($network);
-        $this->status = self::STATUS_DONE;
+        return $user;
     }
 
     /**
@@ -354,9 +349,18 @@ class User implements UserInterface
     /**
      * @param EmbeddedToken $passwordResetToken
      * @return User
+     * @throws \Exception
      */
     public function requestPasswordReset(EmbeddedToken $passwordResetToken): self
     {
+        if (!$this->isActive()) {
+            throw new \DomainException('User is not active.');
+        } else if (null === $this->email) {
+            throw new \DomainException('Email is not specified.');
+        } else if ($this->resetToken && !$this->resetToken->isExpiredTo(new \DateTimeImmutable)) {
+            throw new \DomainException('Resetting is already requested.');
+        }
+
         $this->resetToken = $passwordResetToken;
         return $this;
     }
@@ -380,5 +384,19 @@ class User implements UserInterface
         $this->setPassword($hash);
         $this->resetToken = null;
         return $this;
+    }
+
+    /**
+     * @ORM\PostLoad()
+     */
+    public function checkEmbedes()
+    {
+        // if ($this->confirmToken->isEmpty()) {
+        //     $this->confirmToken = null;
+        // }
+
+        if ($this->resetToken->isEmpty()) {
+            $this->resetToken = null;
+        }
     }
 }

@@ -10,6 +10,7 @@ use App\Entity\EmbeddedToken;
 use App\Entity\Network;
 use App\Entity\User;
 use App\Model\User\Email;
+use http\Exception\BadMethodCallException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -37,6 +38,9 @@ class UserBuilder
 
     /** @var \DateTimeImmutable */
     private $createdAt;
+
+    /** @var bool  */
+    private $confirmed = false;
 
     /**
      * UserBuilder constructor.
@@ -82,26 +86,44 @@ class UserBuilder
     }
 
     /**
+     * @return UserBuilder
+     */
+    public function activate(): self
+    {
+        /** @var UserBuilder $clone */
+        $clone = clone $this;
+        $clone->confirmed = true;
+        return $clone;
+    }
+
+    /**
      * @return User
      * @throws \Exception
      */
     public function build(): User
     {
         /** @var UserInterface|User $object */
-        $object = (new User)
-            ->setId($this->id)
-            ->setCreatedAt($this->createdAt);
+        $object = null;
 
         if ($this->email) {
-            $object->signUpByEmail(
+            $object = User::signUpByEmail(
                 $this->email,
                 $this->password,
                 $this->confirmToken
             );
+
+            if ($this->confirmed) {
+                $object->confirmSignUp();
+            }
+
         }
 
         if ($this->network) {
-            $object->signUpByNetwork($this->network);
+            $object = User::signUpByNetwork($this->network);
+        }
+
+        if (!$object) {
+            throw new \BadMethodCallException('Specify via method');
         }
 
         return $object;

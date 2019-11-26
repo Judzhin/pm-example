@@ -6,6 +6,7 @@
 
 namespace App\UseCase\SignUp\Request;
 
+use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Service\PasswordHasher;
@@ -54,9 +55,11 @@ class Handler
         }
 
         /** @var User $user */
-        $user = (new User)
-            ->setEmail($email)
-            ->setPassword($this->hasher->hash($command->password));
+        $user = User::signUpByEmail(
+            $email,
+            $this->hasher->hash($command->password),
+            EmbeddedToken::create()
+        );
 
         $this->em->persist($user);
         $this->sender->send($user);

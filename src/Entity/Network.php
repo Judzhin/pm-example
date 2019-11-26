@@ -14,7 +14,7 @@ use Ramsey\Uuid\UuidInterface;
  * @package App\Entity
  *
  * @ORM\Entity
- * @ORM\Table(name="networks")
+ * @ORM\Table(name="user_networks")
  */
 class Network
 {
@@ -29,7 +29,8 @@ class Network
 
     /**
      * @var User
-     * @ORM\Column(type="string", length=180)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="networks")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $user;
 

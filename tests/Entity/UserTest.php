@@ -11,7 +11,6 @@ use App\Entity\User;
 use App\Model\User\Email;
 use App\Tests\Builder\Entity\UserBuilder;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -26,18 +25,15 @@ class UserTest extends TestCase
     public function testInstance()
     {
         /** @var UserInterface|User $user */
-        $user = (new User($uuid = Uuid::uuid4()))
-            ->setEmail($email = new Email('test@example.com'))
-            ->setRoles($roles = ['ROLE_USER'])
-            ->setPassword($password = 'secret');
-
-        // $user = (new UserBuilder)->viaEmail()->build();
+        $user = $user = (new UserBuilder)->viaEmail(
+            $email = new Email('test@example.com'),
+            $password = 'secret',
+            $confirmToken = EmbeddedToken::create()
+        )->build();
 
         $this->assertInstanceOf(UserInterface::class, $user);
-        $this->assertEquals($uuid, $user->getId());
         $this->assertEquals($email, $user->getEmail());
         $this->assertEquals($email, $user->getUsername());
-        $this->assertEquals($roles, $user->getRoles());
         $this->assertEquals($password, $user->getPassword());
     }
 
@@ -47,7 +43,10 @@ class UserTest extends TestCase
     public function testSuccessResetPassword()
     {
         /** @var UserInterface|User $user */
-        $user = (new UserBuilder)->viaEmail()->build();
+        $user = (new UserBuilder)
+            ->viaEmail()
+            ->activate()
+            ->build();
 
         $user->requestPasswordReset(EmbeddedToken::create());
         $this->assertNotNull($user->getResetToken()->getValue());
@@ -64,7 +63,10 @@ class UserTest extends TestCase
     public function testExpiredToken()
     {
         /** @var UserInterface|User $user */
-        $user = (new UserBuilder)->viaEmail()->build();
+        $user = (new UserBuilder)
+            ->viaEmail()
+            ->activate()
+            ->build();
 
         $user->requestPasswordReset(EmbeddedToken::create(new \DateInterval("P1D")));
         $this->assertNotNull($user->getResetToken()->getValue());
