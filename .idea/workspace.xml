@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Entity/EmbeddedToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Network.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/PasswordResetSender.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/PasswordResetToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Reset/Password/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Reset/Request/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Reset/Request/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/SignUp/Network/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/SignUp/Network/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/UseCase/Reset/RequestTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pm-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pm-example.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/EmbeddedToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/EmbeddedToken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +73,7 @@
           <entry key="env" value="21" />
           <entry key="ini" value="19" />
           <entry key="json" value="2" />
-          <entry key="php" value="12143" />
+          <entry key="php" value="12403" />
           <entry key="twig" value="590" />
           <entry key="txt" value="33" />
           <entry key="yaml" value="392" />
@@ -100,7 +85,7 @@
           <entry key=".env file" value="21" />
           <entry key="Dockerfile" value="94" />
           <entry key="JSON" value="2" />
-          <entry key="PHP" value="12143" />
+          <entry key="PHP" value="12403" />
           <entry key="PLAIN_TEXT" value="217" />
           <entry key="SmartyConfig" value="30" />
           <entry key="Twig" value="590" />
@@ -134,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
+              <caret line="185" column="20" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
               <folding>
                 <element signature="e#112#137#0#PHP" expanded="true" />
                 <element signature="e#1377#1422#0#PHP" />
@@ -190,10 +175,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/EmbeddedToken.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="91" column="10" lean-forward="true" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
+            <state relative-caret-position="253">
+              <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
               <folding>
                 <element signature="e#137#169#0#PHP" expanded="true" />
+                <element signature="e#3447#3478#0#PHP" />
+                <element signature="e#3483#3562#0#PHP" />
               </folding>
             </state>
           </provider>
@@ -229,20 +216,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="5" />
+            <state relative-caret-position="226">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="e#6#87#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/UseCase/Reset/RequestTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            <state relative-caret-position="265">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="e#126#155#0#PHP" expanded="true" />
               </folding>
@@ -345,15 +335,15 @@
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Reset/Request/Command.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Reset/Password/Command.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php" />
         <option value="$PROJECT_DIR$/tests/UseCase/RequestTest.php" />
         <option value="$PROJECT_DIR$/tests/UseCase/PasswordResetTest.php" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/Entity/EmbeddedToken.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Reset/Request/Handler.php" />
         <option value="$PROJECT_DIR$/src/Service/ResetTokenizer.php" />
         <option value="$PROJECT_DIR$/src/Service/PasswordResetToken.php" />
         <option value="$PROJECT_DIR$/tests/UseCase/Reset/RequestTest.php" />
+        <option value="$PROJECT_DIR$/src/Entity/EmbeddedToken.php" />
+        <option value="$PROJECT_DIR$/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php" />
       </list>
     </option>
   </component>
@@ -533,24 +523,22 @@
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+              <item name="UseCase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="UseCase" type="462c0819:PsiDirectoryNode" />
+              <item name="Reset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UseCase" type="462c0819:PsiDirectoryNode" />
+              <item name="Reset" type="462c0819:PsiDirectoryNode" />
+              <item name="Password" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
@@ -611,7 +599,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18311875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18311875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -624,7 +612,7 @@
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.5301205" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.5301205" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -942,16 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/EmbeddedToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="91" column="10" lean-forward="true" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
-          <folding>
-            <element signature="e#137#169#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/UseCase/PasswordResetTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -963,13 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/PasswordResetToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -977,10 +948,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Reset/Request/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#127#147#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/UseCase/Reset/RequestTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="e#126#155#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/EmbeddedToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+          <folding>
+            <element signature="e#137#169#0#PHP" expanded="true" />
+            <element signature="e#3447#3478#0#PHP" />
+            <element signature="e#3483#3562#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
+          <caret line="185" column="20" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
           <folding>
             <element signature="e#112#137#0#PHP" expanded="true" />
             <element signature="e#1377#1422#0#PHP" />
@@ -1032,22 +1035,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Reset/Request/Handler.php">
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="226">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
-            <element signature="e#127#147#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/UseCase/Reset/RequestTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-          <folding>
-            <element signature="e#126#155#0#PHP" expanded="true" />
+            <element signature="e#6#87#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

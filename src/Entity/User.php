@@ -179,12 +179,23 @@ class User implements UserInterface
     }
 
     /**
-     * @param $password
+     * @param \DateTimeImmutable $date
+     * @param $hash
      * @return User
      */
-    public function passwordReset($password): self
+    public function passwordReset(\DateTimeImmutable $date, $hash): self
     {
-        $this->setPassword($password);
+
+        if ($this->resetToken->isEmpty()) {
+            throw new \DomainException('Resetting is not requested');
+        }
+
+        if ($this->resetToken->isExpiredTo($date)) {
+            throw new \DomainException('Reset token is expired.');
+        }
+
+        $this->setPassword($hash);
+        $this->resetToken = null;
         return $this;
     }
 

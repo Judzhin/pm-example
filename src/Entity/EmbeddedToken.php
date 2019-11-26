@@ -99,4 +99,13 @@ class EmbeddedToken
     {
         return empty($this->value);
     }
+
+    /**
+     * @param \DateTimeImmutable $date
+     * @return bool
+     */
+    public function isExpiredTo(\DateTimeImmutable $date): bool
+    {
+        return $this->expires <= $date;
+    }
 }

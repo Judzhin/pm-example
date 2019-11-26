@@ -47,6 +47,7 @@ class Handler
         $user = $this->em->getRepository(User::class)->findOneBy(['resetToken.value' => $command->token]);
 
         $user->passwordReset(
+            new \DateTimeImmutable,
             $this->hasher->hash($command->password)
         );
 
