@@ -27,7 +27,8 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
-        "symfony/yaml": "5.0.*"
+        "symfony/yaml": "5.0.*",
+        "zendframework/zend-math": "^3.2"
     },
     "require-dev": {
         "msbios/msbios": "^1.0",

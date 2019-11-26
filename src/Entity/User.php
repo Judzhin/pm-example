@@ -7,6 +7,7 @@
 namespace App\Entity;
 
 use App\Model\User\Email;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -49,10 +50,19 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @var null
-     * @ORM\Column(type="string", nullable=true)
+     * @var EmbeddedToken
+     * @ORM\Embedded(class="EmbeddedToken", columnPrefix="confirm_token_")
      */
-    private $confirmToken = null;
+    private $confirmToken;
+
+    /**
+     * @var EmbeddedToken
+     * @ORM\Embedded(class="EmbeddedToken", columnPrefix="reset_token_")
+     */
+    private $resetToken;
+
+    /** @const STATUS_NONE */
+    private const STATUS_NONE = 'NONE';
 
     /** @const STATUS_WAIT */
     private const STATUS_WAIT = 'WAIT';
@@ -63,7 +73,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $status = self::STATUS_WAIT;
+    private $status = self::STATUS_NONE;
 
     /**
      * @var \DateTimeImmutable
@@ -72,17 +82,110 @@ class User implements UserInterface
     private $createdAt;
 
     /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Network", mappedBy="user")
+     */
+    private $networks;
+
+    /**
      * User constructor.
      * @param UuidInterface|null $id
      * @throws \Exception
      */
     public function __construct(UuidInterface $id = null)
     {
-        if ($id instanceof UuidInterface) {
-            $this->id = $id;
+        if (null !== $id) {
+            $this->setId($id);
         }
 
         $this->createdAt = new \DateTimeImmutable;
+        $this->networks = new ArrayCollection;
+    }
+
+    /**
+     * @param Email $email
+     * @param string $password
+     * @param string $token
+     * @return User
+     */
+    public function signUpByEmail(Email $email, string $password, string $token): self
+    {
+        if (!$this->isUndefined()) {
+            throw new \DomainException('User is already signed up.');
+        }
+
+        $this
+            ->setEmail($email)
+            ->setPassword($password)
+            ->setConfirmToken(EmbeddedToken::create());
+
+        $this->status = self::STATUS_WAIT;
+
+        return $this->setEmail($email);
+    }
+
+    /**
+     * @return User
+     */
+    public function confirmSignUp(): self
+    {
+        if (!$this->isWait()) {
+            throw new \DomainException('User is already confirmed.');
+        }
+
+        $this->status = self::STATUS_DONE;
+        return $this;
+    }
+
+    /**
+     * @param Network $network
+     * @return User
+     */
+    public function signUpByNetwork(Network $network): self
+    {
+        if (!$this->isUndefined()) {
+            throw new \DomainException('User is already signed up.');
+        }
+
+        $this->attachNetwork($network);
+        $this->status = self::STATUS_DONE;
+    }
+
+    /**
+     * @param Network $network
+     * @return User
+     */
+    private function attachNetwork(Network $network): self
+    {
+        /** @var Network $self */
+        foreach ($this->networks as $self) {
+            if ($self->isExists($network)) {
+                throw new \DomainException('Network is already attached.');
+            }
+        }
+
+        $this->networks->add($network->setUser($this));
+        return $this;
+    }
+
+    /**
+     * @param EmbeddedToken $passwordResetToken
+     * @return User
+     */
+    public function requestPasswordReset(EmbeddedToken $passwordResetToken): self
+    {
+        $this->resetToken = $passwordResetToken;
+        return $this;
+    }
+
+    /**
+     * @param $password
+     * @return User
+     */
+    public function passwordReset($password): self
+    {
+        $this->setPassword($password);
+        return $this;
     }
 
     /**
@@ -91,6 +194,16 @@ class User implements UserInterface
     public function getId(): ?UuidInterface
     {
         return $this->id;
+    }
+
+    /**
+     * @param UuidInterface $id
+     * @return User
+     */
+    public function setId(UuidInterface $id): self
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -133,6 +246,10 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
+    /**
+     * @param array $roles
+     * @return User
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -185,6 +302,24 @@ class User implements UserInterface
     }
 
     /**
+     * @return EmbeddedToken
+     */
+    public function getResetToken(): EmbeddedToken
+    {
+        return $this->resetToken;
+    }
+
+    /**
+     * @param EmbeddedToken $resetToken
+     * @return User
+     */
+    public function setResetToken(EmbeddedToken $resetToken): User
+    {
+        $this->resetToken = $resetToken;
+        return $this;
+    }
+
+    /**
      * @see UserInterface
      */
     public function eraseCredentials()
@@ -214,6 +349,14 @@ class User implements UserInterface
     /**
      * @return bool
      */
+    public function isUndefined(): bool
+    {
+        return self::STATUS_DONE === $this->status;
+    }
+
+    /**
+     * @return bool
+     */
     public function isWait(): bool
     {
         return self::STATUS_WAIT === $this->status;
@@ -225,14 +368,5 @@ class User implements UserInterface
     public function isActive(): bool
     {
         return self::STATUS_DONE === $this->status;
-    }
-
-    /**
-     * @return User
-     */
-    public function confirmSignUp(): self
-    {
-        $this->status = self::STATUS_DONE;
-        return $this;
     }
 }

@@ -3,11 +3,15 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
+
 namespace App\Repository;
 
+use App\Entity\Network;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr\Join;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -45,6 +49,28 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newEncodedPassword);
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    /**
+     * @param Network $network
+     * @return User|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneByNetwork(Network $network): ?User
+    {
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('u');
+
+        $qb
+            ->join('u.networks', 'n', Join::WITH, 'u.id = n.user')
+            ->where($qb->expr()->eq('n.network', ':network'))
+            ->andWhere($qb->expr()->eq('n.identity', ':identity'))
+            ->setParameter('network', $network->getNetwork())
+            ->setParameter('identity', $network->getIdentity());
+
+        return $qb
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     // /**
