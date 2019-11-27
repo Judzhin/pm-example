@@ -2,6 +2,15 @@ version: '3.5'
 
 services:
 
+  # mailer
+  pm-mailer:
+    container_name: pm-mailer
+    image: mailhog/mailhog
+    restart: unless-stopped
+    ports:
+    - "1025:1025"
+    - "8025:8025" # Dashboard
+
   # cli
   pm-php-cli:
     container_name: pm-php-cli
@@ -91,15 +100,6 @@ services:
     depends_on:
       - pm-postgres
 
-#  # mailer
-#  video-mailer:
-#    container_name: video-mailer
-#    image: mailhog/mailhog
-#    restart: unless-stopped
-#    ports:
-#    - "1025:1025"
-#    - "8019:8025"
-#
 #  # zookeeper:
 #  #   container_name: zookeeper
 #  #   image: wurstmeister/zookeeper

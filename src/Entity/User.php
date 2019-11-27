@@ -198,18 +198,18 @@ class User implements UserInterface
     }
 
     /**
-     * @return null|string
+     * @return EmbeddedToken|null
      */
-    public function getConfirmToken(): ?string
+    public function getConfirmToken(): ?EmbeddedToken
     {
         return $this->confirmToken;
     }
 
     /**
-     * @param null $confirmToken
+     * @param EmbeddedToken|null $confirmToken
      * @return User
      */
-    public function setConfirmToken($confirmToken = null): self
+    public function setConfirmToken(EmbeddedToken $confirmToken = null): self
     {
         $this->confirmToken = $confirmToken;
         return $this;

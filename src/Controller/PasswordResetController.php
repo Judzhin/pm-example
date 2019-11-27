@@ -6,7 +6,7 @@
 
 namespace App\Controller;
 
-use App\UseCase\SignUp;
+use App\UseCase\Reset;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -16,10 +16,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * Class RegistrationController
+ * Class PasswordResetController
  * @package App\Controller
  */
-class RegistrationController extends AbstractController
+class PasswordResetController extends AbstractController
 {
     /** @var LoggerInterface */
     protected $logger;
@@ -39,20 +39,20 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="pm_register")
+     * @Route("/reset", name="pm_password_reset")
      *
      * @param Request $request
-     * @param SignUp\Request\Handler $handler
+     * @param Reset\Request\Handler $handler
      * @return Response
      * @throws \Exception
      */
-    public function register(Request $request, SignUp\Request\Handler $handler): Response
+    public function request(Request $request, Reset\Request\Handler $handler): Response
     {
-        /** @var SignUp\Request\Command $command */
-        $command = new SignUp\Request\Command;
+        /** @var Reset\Request\Command $command */
+        $command = new Reset\Request\Command;
 
         /** @var FormInterface $form */
-        $form = $this->createForm(SignUp\Request\FormType::class, $command);
+        $form = $this->createForm(Reset\Request\FormType::class, $command);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -68,28 +68,5 @@ class RegistrationController extends AbstractController
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/signup/{token}", name="pm_register_confirm")
-     *
-     * @param string $token
-     * @param SignUp\Confirm\Handler $handler
-     * @return Response
-     * @throws \Exception
-     */
-    public function confirm(string $token, SignUp\Confirm\Handler $handler): Response
-    {
-        /** @var SignUp\Confirm\Command $command */
-        $command = new SignUp\Confirm\Command($token);
-
-        try {
-            $handler->handle($command);
-            $this->addFlash('success', 'Email is successfully confirmed.');
-        } catch (\DomainException $e) {
-            $this->logger->error($e->getMessage(), ['exception' => $e]);
-        }
-
-        return $this->redirectToRoute('pm_home');
     }
 }

@@ -1,0 +1,50 @@
+#!/usr/bin/env php
+<?php
+/**
+ * @access protected
+ * @author Judzhin Miles <info[woof-woof]msbios.com>
+ */
+
+require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__).'/config/bootstrap.php';
+
+use App\UseCase\SignUp\Request\Command;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Symfony\Component\Translation\Loader\XliffFileLoader;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
+AnnotationRegistry::registerLoader('class_exists');
+
+/** @var Translator $translator */
+$translator = new Translator('ru');
+$translator->addLoader('xlf', new XliffFileLoader);
+$translator->addResource('xlf', __DIR__ . '/../vendor/symfony/validator/Resources/translations/validators.ru.xlf', 'ru', 'validators');
+
+/** @var ValidatorInterface $validator */
+$validator = Validation::createValidatorBuilder()
+    ->enableAnnotationMapping()
+    ->setTranslator($translator)
+    ->setTranslationDomain('validators')
+    ->getValidator();
+
+/** @var Command $command */
+$command = new Command;
+$command->email = 'test@example';
+$command->password = 'pass';
+
+/** @var ConstraintViolationListInterface $validations */
+$validations = $validator->validate($command);
+if ($validations->count()) {
+
+    /** @var ConstraintViolationInterface $validation */
+    foreach ($validations as $validation) {
+        echo $validation->getPropertyPath() . ':' .$validation->getMessage() . PHP_EOL;
+    }
+
+} else {
+    echo 'Command is valid.' . PHP_EOL;
+}

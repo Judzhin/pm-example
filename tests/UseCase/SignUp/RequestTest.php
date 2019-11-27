@@ -9,7 +9,7 @@ namespace App\Tests\UseCase\SignUp;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
-use App\Service\ConfirmSender;
+use App\Service\ConfirmTokenSender;
 use App\Service\PasswordHasher;
 use App\UseCase\SignUp\Request\Command;
 use App\UseCase\SignUp\Request\Handler;
@@ -37,7 +37,7 @@ class RequestTest extends TestCase
     /** @var Handler */
     protected $handler;
 
-    /** @var ConfirmSender */
+    /** @var ConfirmTokenSender */
     protected $sender;
 
     protected function setUp()
@@ -64,7 +64,7 @@ class RequestTest extends TestCase
             ->hash('secret')
             ->willReturn((new PasswordHasher)->hash('secret'));
 
-        $this->sender = $this->prophesize(ConfirmSender::class);
+        $this->sender = $this->prophesize(ConfirmTokenSender::class);
         $this->sender
             ->send(Argument::type(User::class))
             ->willReturn();

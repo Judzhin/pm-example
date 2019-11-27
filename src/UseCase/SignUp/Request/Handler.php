@@ -10,7 +10,7 @@ use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Service\PasswordHasher;
-use App\Service\ConfirmSender;
+use App\Service\ConfirmTokenSender;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -25,16 +25,16 @@ class Handler
     /** @var PasswordHasher */
     protected $hasher;
 
-    /** @var ConfirmSender */
+    /** @var ConfirmTokenSender */
     protected $sender;
 
     /**
      * Handler constructor.
      * @param EntityManagerInterface $em
      * @param PasswordHasher $hasher
-     * @param ConfirmSender $sender
+     * @param ConfirmTokenSender $sender
      */
-    public function __construct(EntityManagerInterface $em, PasswordHasher $hasher, ConfirmSender $sender)
+    public function __construct(EntityManagerInterface $em, PasswordHasher $hasher, ConfirmTokenSender $sender)
     {
         $this->em = $em;
         $this->hasher = $hasher;

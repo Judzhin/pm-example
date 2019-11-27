@@ -6,6 +6,7 @@
 
 namespace App\UseCase\SignUp\Confirm;
 
+use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -35,7 +36,7 @@ class Handler
     public function handle(Command $command): void
     {
         /** @var UserInterface|User $user */
-        if (!$user = $this->em->getRepository(User::class)->findOneBy(['token' => $command->token])) {
+        if (!$user = $this->em->getRepository(User::class)->findOneBy(['confirmToken.value' => $command->token])) {
             throw new \DomainException('Incorrect or confirmed token.');
         }
 

@@ -14,13 +14,11 @@ use App\Entity\EmbeddedToken;
  */
 class PasswordResetToken
 {
-    private $interval = "P3D";
-
     /**
-     * ResetTokenizer constructor.
-     * @param $interval
+     * PasswordResetToken constructor.
+     * @param \DateInterval $interval
      */
-    public function __construct($interval)
+    public function __construct(\DateInterval $interval)
     {
         $this->interval = $interval;
     }
@@ -31,7 +29,7 @@ class PasswordResetToken
      */
     public function generate(): EmbeddedToken
     {
-        return EmbeddedToken::create(new \DateInterval($this->interval));
+        return EmbeddedToken::create($this->interval);
     }
 
 }

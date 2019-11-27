@@ -6,6 +6,7 @@
 
 namespace App\Repository;
 
+use App\Entity\EmbeddedToken;
 use App\Entity\Network;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -73,6 +74,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getOneOrNullResult();
     }
 
+    /**
+     * @param EmbeddedToken $confirmToken
+     * @return User|null
+     * @deprecated
+     */
+    public function findOneByConfirmToken(EmbeddedToken $confirmToken): ?User
+    {
+        return $this->findOneBy(['confirmToken.value' => $confirmToken->getValue()]);
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
