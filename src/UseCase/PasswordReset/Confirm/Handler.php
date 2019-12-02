@@ -21,17 +21,17 @@ class Handler
     protected $em;
 
     /** @var PasswordEncoder */
-    protected $hasher;
+    protected $passwordEncoder;
 
     /**
      * Handler constructor.
      * @param EntityManagerInterface $em
-     * @param PasswordEncoder $hasher
+     * @param PasswordEncoder $passwordEncoder
      */
-    public function __construct(EntityManagerInterface $em, PasswordEncoder $hasher)
+    public function __construct(EntityManagerInterface $em, PasswordEncoder $passwordEncoder)
     {
         $this->em = $em;
-        $this->hasher = $hasher;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     /**
@@ -45,7 +45,7 @@ class Handler
 
         $user->passwordReset(
             new \DateTimeImmutable,
-            $this->hasher->hash($command->plainPassword)
+            $this->passwordEncoder->encodePassword($command->plainPassword)
         );
 
         $this->em->flush();

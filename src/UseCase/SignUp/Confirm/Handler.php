@@ -6,7 +6,6 @@
 
 namespace App\UseCase\SignUp\Confirm;
 
-use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

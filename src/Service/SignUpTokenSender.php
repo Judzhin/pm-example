@@ -10,17 +10,15 @@ use App\Entity\User;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
-use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
 /**
- * Class ConfirmTokenSender
+ * Class SignUpTokenSender
  * @package App\Service
  */
-class ConfirmTokenSender
+class SignUpTokenSender
 {
     /** @var MailerInterface|Mailer */
     protected $mailer;
@@ -62,19 +60,6 @@ class ConfirmTokenSender
                     'expiration_date' => $user->getConfirmToken()->getExpires(),
                 ])
             );
-
-        ///** @var Email $email */
-        //$email = (new TemplatedEmail)
-        //    ->from('some@example.com')
-        //    ->to(new Address($user->getEmail()->getValue()))
-        //    ->subject('Thanks for signing up!')
-        //    // path of the Twig template to render
-        //    ->htmlTemplate('emails/signup.html.twig')
-        //    // pass variables (name => value) to the template
-        //    ->context([
-        //        'token' => $user->getConfirmToken()->getValue(),
-        //        'expiration_date' => $user->getConfirmToken()->getExpires(),
-        //    ]);
 
         $this->mailer->send($email);
     }

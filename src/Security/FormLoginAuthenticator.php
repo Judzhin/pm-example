@@ -32,9 +32,16 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
 {
     use TargetPathTrait;
 
+    /** @var EntityManagerInterface  */
     private $entityManager;
+
+    /** @var UrlGeneratorInterface  */
     private $urlGenerator;
+
+    /** @var CsrfTokenManagerInterface  */
     private $csrfTokenManager;
+
+    /** @var PasswordEncoder|UserPasswordEncoderInterface */
     private $passwordEncoder;
 
     /**
@@ -42,7 +49,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
      * @param EntityManagerInterface $entityManager
      * @param UrlGeneratorInterface $urlGenerator
      * @param CsrfTokenManagerInterface $csrfTokenManager
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param PasswordEncoder $passwordEncoder
      */
     public function __construct(
         EntityManagerInterface $entityManager,

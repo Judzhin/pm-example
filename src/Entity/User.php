@@ -378,11 +378,11 @@ class User implements UserInterface
 
     /**
      * @param \DateTimeImmutable $date
-     * @param $hash
+     * @param string $hash
      * @return User
      * @throws \Exception
      */
-    public function passwordReset(\DateTimeImmutable $date, $hash): self
+    public function passwordReset(\DateTimeImmutable $date, string $hash): self
     {
 
         if ($this->resetToken instanceof EmbeddedToken === false || $this->resetToken->isEmpty()) {

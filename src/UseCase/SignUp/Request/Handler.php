@@ -10,7 +10,7 @@ use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Service\PasswordEncoder;
-use App\Service\ConfirmTokenSender;
+use App\Service\SignUpTokenSender;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -23,27 +23,30 @@ class Handler
     protected $em;
 
     /** @var PasswordEncoder */
-    protected $hasher;
+    protected $passwordEncoder;
 
-    /** @var ConfirmTokenSender */
+    /** @var SignUpTokenSender */
     protected $sender;
 
     /**
      * Handler constructor.
      * @param EntityManagerInterface $em
      * @param PasswordEncoder $hasher
-     * @param ConfirmTokenSender $sender
+     * @param SignUpTokenSender $sender
      */
-    public function __construct(EntityManagerInterface $em, PasswordEncoder $hasher, ConfirmTokenSender $sender)
+    public function __construct(EntityManagerInterface $em, PasswordEncoder $hasher, SignUpTokenSender $sender)
     {
         $this->em = $em;
-        $this->hasher = $hasher;
+        $this->passwordEncoder = $hasher;
         $this->sender = $sender;
     }
 
     /**
      * @param Command $command
-     * @throws \Exception
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function handle(Command $command): void
     {
@@ -57,11 +60,9 @@ class Handler
         /** @var User $user */
         $user = User::signUpByEmail(
             $email,
-            $this->hasher->hash($command->plainPassword),
+            $this->passwordEncoder->encodePassword($command->plainPassword),
             EmbeddedToken::create()
         );
-
-        // dump($user); die;
 
         $this->em->persist($user);
         $this->sender->send($user);

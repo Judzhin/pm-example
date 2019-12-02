@@ -14,12 +14,12 @@ class PasswordResetTokenFactory
 {
     /**
      * @param string $interval
-     * @return PasswordResetToken
+     * @return TokenGenerator
      * @throws \Exception
      */
-    public function create(string $interval): PasswordResetToken
+    public function create(string $interval): TokenGenerator
     {
-        return new PasswordResetToken(
+        return new TokenGenerator(
             new \DateInterval($interval)
         );
     }

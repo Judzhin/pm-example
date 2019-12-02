@@ -9,13 +9,13 @@ namespace App\Service;
 use App\Entity\EmbeddedToken;
 
 /**
- * Class PasswordResetToken
+ * Class TokenGenerator
  * @package App\Service
  */
-class PasswordResetToken
+class TokenGenerator
 {
     /**
-     * PasswordResetToken constructor.
+     * TokenGenerator constructor.
      * @param \DateInterval $interval
      */
     public function __construct(\DateInterval $interval)

@@ -9,7 +9,7 @@ namespace App\UseCase\PasswordReset\Request;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Service\PasswordResetSender;
-use App\Service\PasswordResetToken;
+use App\Service\TokenGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -22,7 +22,7 @@ class Handler
     /** @var EntityManagerInterface */
     protected $em;
 
-    /** @var PasswordResetToken */
+    /** @var TokenGenerator */
     protected $tokenizer;
 
     /** @var PasswordResetSender */
@@ -31,10 +31,10 @@ class Handler
     /**
      * Handler constructor.
      * @param EntityManagerInterface $em
-     * @param PasswordResetToken $tokenizer
+     * @param TokenGenerator $tokenizer
      * @param PasswordResetSender $sender
      */
-    public function __construct(EntityManagerInterface $em, PasswordResetToken $tokenizer, PasswordResetSender $sender)
+    public function __construct(EntityManagerInterface $em, TokenGenerator $tokenizer, PasswordResetSender $sender)
     {
         $this->em = $em;
         $this->tokenizer = $tokenizer;
@@ -44,14 +44,11 @@ class Handler
     /**
      * @param Command $command
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
      */
     public function handle(Command $command): void
     {
         /** @var UserInterface|User $user */
-        $user = $this->em->getRepository(User::class)->findOneBy(['email' => new Email($command->email)]);
+        $user = $this->em->getRepository(User::class)->findOneByEmail(new Email($command->email));
 
         $user->requestPasswordReset(
             $this->tokenizer->generate()

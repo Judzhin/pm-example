@@ -9,7 +9,7 @@ namespace App\Tests\UseCase\SignUp;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
-use App\Service\ConfirmTokenSender;
+use App\Service\SignUpTokenSender;
 use App\Service\PasswordEncoder;
 use App\UseCase\SignUp\Request\Command;
 use App\UseCase\SignUp\Request\Handler;
@@ -37,7 +37,7 @@ class RequestTest extends TestCase
     /** @var Handler */
     protected $handler;
 
-    /** @var ConfirmTokenSender */
+    /** @var SignUpTokenSender */
     protected $sender;
 
     protected function setUp()
@@ -56,7 +56,7 @@ class RequestTest extends TestCase
             ->hash('secret')
             ->willReturn((new PasswordEncoder)->hash('secret'));
 
-        $this->sender = $this->prophesize(ConfirmTokenSender::class);
+        $this->sender = $this->prophesize(SignUpTokenSender::class);
     }
 
     /**

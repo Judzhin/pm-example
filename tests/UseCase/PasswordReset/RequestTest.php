@@ -11,7 +11,7 @@ use App\Entity\User;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
 use App\Service\PasswordResetSender;
-use App\Service\PasswordResetToken;
+use App\Service\TokenGenerator;
 use App\UseCase\PasswordReset\Request\Command;
 use App\UseCase\PasswordReset\Request\Handler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -50,8 +50,8 @@ class RequestTest extends TestCase
             ->findOneBy(['email' => new Email($command->email)])
             ->willReturn($object);
 
-        /** @var PasswordResetToken $passwordResetToken */
-        $passwordResetToken = $this->prophesize(PasswordResetToken::class);
+        /** @var TokenGenerator $passwordResetToken */
+        $passwordResetToken = $this->prophesize(TokenGenerator::class);
         $passwordResetToken
             ->generate()
             ->willReturn($this->prophesize(EmbeddedToken::class));

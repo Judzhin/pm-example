@@ -8,10 +8,6 @@ namespace App\UseCase\Role;
 
 use App\Entity\User;
 use App\Model\Role;
-use App\Model\User\Email;
-use App\Service\PasswordEncoder;
-use App\Service\PasswordResetSender;
-use App\Service\PasswordResetToken;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
