@@ -1,3 +1,12 @@
 framework:
   mailer:
     dsn: '%env(MAILER_DSN)%'
+    transports: {}
+
+#services:
+#
+#  Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport:
+#    $host: 'pm-mailer'
+#    $port: 1025
+#
+#  Symfony\Component\Mailer\Transport\TransportInterface: '@Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport'

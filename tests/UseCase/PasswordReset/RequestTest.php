@@ -4,8 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Tests\UseCase\Reset;
-
+namespace App\Tests\UseCase\PasswordReset;
 
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
@@ -13,8 +12,8 @@ use App\Model\User\Email;
 use App\Repository\UserRepository;
 use App\Service\PasswordResetSender;
 use App\Service\PasswordResetToken;
-use App\UseCase\Reset\Request\Command;
-use App\UseCase\Reset\Request\Handler;
+use App\UseCase\PasswordReset\Request\Command;
+use App\UseCase\PasswordReset\Request\Handler;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;

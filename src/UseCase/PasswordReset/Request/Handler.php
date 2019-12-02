@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Reset\Request;
+namespace App\UseCase\PasswordReset\Request;
 
 use App\Entity\User;
 use App\Model\User\Email;
@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\Reset\Request
+ * @package App\UseCase\PasswordReset\Request
  */
 class Handler
 {
@@ -43,7 +43,10 @@ class Handler
 
     /**
      * @param Command $command
-     * @throws \Exception
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function handle(Command $command): void
     {
@@ -54,7 +57,7 @@ class Handler
             $this->tokenizer->generate()
         );
 
-        $this->em->flush();
         $this->sender->send($user);
+        $this->em->flush();
     }
 }

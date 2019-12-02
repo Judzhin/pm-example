@@ -57,6 +57,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
+                $command->plainPassword = $form->get('plainPassword')->getData();
                 $handler->handle($command);
                 $this->addFlash('success', 'Check your email.');
             } catch (\DomainException $e) {

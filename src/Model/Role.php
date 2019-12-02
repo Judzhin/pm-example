@@ -30,6 +30,8 @@ class Role
             self::USER,
             self::ADMIN
         ]);
+
+        $this->value = $name;
     }
 
     /**

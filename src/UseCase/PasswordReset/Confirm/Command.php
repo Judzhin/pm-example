@@ -4,22 +4,21 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp\Request;
+namespace App\UseCase\PasswordReset\Confirm;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Command
- * @package App\UseCase\SignUp\Request
+ * @package App\UseCase\PasswordReset\Confirm
  */
 class Command
 {
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Email()
      */
-    public $email;
+    public $token;
 
     /**
      * @var string
@@ -27,4 +26,14 @@ class Command
      * @Assert\Length(min=6)
      */
     public $plainPassword;
+
+    /**
+     * Command constructor.
+     * @param string $token
+     */
+    public function __construct(string $token)
+    {
+        $this->token = $token;
+    }
+
 }

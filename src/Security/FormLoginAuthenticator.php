@@ -6,7 +6,7 @@
 
 namespace App\Security;
 
-use App\Entity\User;
+use App\Service\PasswordEncoder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +39,6 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     /**
      * FormLoginAuthenticator constructor.
-     *
      * @param EntityManagerInterface $entityManager
      * @param UrlGeneratorInterface $urlGenerator
      * @param CsrfTokenManagerInterface $csrfTokenManager
@@ -49,7 +48,8 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
         EntityManagerInterface $entityManager,
         UrlGeneratorInterface $urlGenerator,
         CsrfTokenManagerInterface $csrfTokenManager,
-        UserPasswordEncoderInterface $passwordEncoder
+        // UserPasswordEncoderInterface $passwordEncoder
+        PasswordEncoder $passwordEncoder
     )
     {
         $this->entityManager = $entityManager;
@@ -74,11 +74,13 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
      */
     public function getCredentials(Request $request)
     {
+        /** @var array $credentials */
         $credentials = [
             'email' => $request->request->get('email'),
             'password' => $request->request->get('password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
+
         $request->getSession()->set(
             Security::LAST_USERNAME,
             $credentials['email']
@@ -90,37 +92,44 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
     /**
      * @param mixed $credentials
      * @param UserProviderInterface $userProvider
-     * @return null|object|UserInterface
+     * @return null|UserInterface
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
+        /** @var CsrfToken $token */
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
         if (!$this->csrfTokenManager->isTokenValid($token)) {
-            throw new InvalidCsrfTokenException();
+            throw new InvalidCsrfTokenException;
         }
 
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
-
-        if (!$user) {
-            // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+        /** @var UserInterface $user */
+        if ($user = $userProvider->loadUserByUsername($credentials['email'])) {
+            return $user;
         }
 
-        return $user;
+        // fail authentication with a custom error
+        throw new CustomUserMessageAuthenticationException('Email could not be found.');
     }
 
     /**
+     * @inheritdoc
+     *
      * @param mixed $credentials
      * @param UserInterface $user
      * @return bool
      */
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+        return $this->passwordEncoder->isPasswordValid(
+            $user->getPassword(), $credentials['password']
+        );
     }
 
     /**
-     * Used to upgrade (rehash) the user's password automatically over time.
+     * @inheritdoc
+     *
+     * @param $credentials
+     * @return null|string
      */
     public function getPassword($credentials): ?string
     {
@@ -128,6 +137,8 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
     }
 
     /**
+     * @inheritdoc
+     *
      * @param Request $request
      * @param TokenInterface $token
      * @param string $providerKey
@@ -136,13 +147,15 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
+        /** @var string $targetPath */
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
         return new RedirectResponse($this->urlGenerator->generate('pm_home'));
+
+        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     /**

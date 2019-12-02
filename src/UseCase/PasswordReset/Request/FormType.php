@@ -3,7 +3,7 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-namespace App\UseCase\Reset\Request;
+namespace App\UseCase\PasswordReset\Request;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
@@ -12,7 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class FormType
- * @package App\UseCase\Reset\Request
+ * @package App\UseCase\PasswordReset\Request
  */
 class FormType extends AbstractType
 {

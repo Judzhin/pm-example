@@ -83,6 +83,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->findOneBy(['confirmToken.value' => $confirmToken->getValue()]);
     }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

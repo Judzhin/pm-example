@@ -41,7 +41,7 @@ class User implements UserInterface
     private $email = null;
 
     /**
-     * @ORM\Column(type="roles")
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
@@ -70,7 +70,7 @@ class User implements UserInterface
     private const STATUS_WAIT = 'WAIT';
 
     /** @const STATUS_DONE */
-    private const STATUS_DONE = 'DONE';
+    public const STATUS_DONE = 'DONE';
 
     /**
      * @ORM\Column(type="string")
@@ -79,7 +79,7 @@ class User implements UserInterface
 
     /**
      * @var \DateTimeImmutable
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime_immutable")
      */
     private $createdAt;
 
@@ -157,7 +157,8 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = Role::user();
+        // $roles[] = Role::user();
+        $roles[] = 'ROLE_USER';
         return array_unique($roles);
     }
 
@@ -243,6 +244,14 @@ class User implements UserInterface
     }
 
     /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
      * @return \DateTimeImmutable
      */
     public function getCreatedAt(): \DateTimeImmutable
@@ -313,12 +322,14 @@ class User implements UserInterface
         }
 
         $this->status = self::STATUS_DONE;
+        $this->confirmToken = null;
         return $this;
     }
 
     /**
      * @param Network $network
      * @return User
+     * @throws \Exception
      */
     public static function signUpByNetwork(Network $network): self
     {
@@ -369,6 +380,7 @@ class User implements UserInterface
      * @param \DateTimeImmutable $date
      * @param $hash
      * @return User
+     * @throws \Exception
      */
     public function passwordReset(\DateTimeImmutable $date, $hash): self
     {

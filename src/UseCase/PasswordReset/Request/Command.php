@@ -4,11 +4,11 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Reset\Request;
+namespace App\UseCase\PasswordReset\Request;
 
 /**
  * Class Command
- * @package App\UseCase\Reset\Request
+ * @package App\UseCase\PasswordReset\Request
  */
 class Command
 {

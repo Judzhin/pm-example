@@ -1,13 +1,27 @@
-<h1>Welcome {{ email.toName }}!</h1>
+<h1>Welcome {{ username }}!</h1>
 
 <p>
     You signed up as {{ username }} the following email:
 </p>
 <p>
-    <code>{{ email.to[0].address }}</code>
+    <code>{{ username }}</code>
 </p>
 {% set url = url('pm_register_confirm', {'token': token}) %}
 <p>
     <a href="{{ url }}">Click here to activate your account</a>
     (this link is valid until {{ expiration_date|date('F jS') }})
 </p>
+
+{#<h1>Welcome {{ email.toName }}!</h1>#}
+
+{#<p>#}
+    {#You signed up as {{ email.to[0].address }} the following email:#}
+{#</p>#}
+{#<p>#}
+    {#<code>{{ email.to[0].address }}</code>#}
+{#</p>#}
+{#{% set url = url('pm_register_confirm', {'token': token}) %}#}
+{#<p>#}
+    {#<a href="{{ url }}">Click here to activate your account</a>#}
+    {#(this link is valid until {{ expiration_date|date('F jS') }})#}
+{#</p>#}

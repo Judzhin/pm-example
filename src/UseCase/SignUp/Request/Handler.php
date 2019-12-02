@@ -9,7 +9,7 @@ namespace App\UseCase\SignUp\Request;
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Model\User\Email;
-use App\Service\PasswordHasher;
+use App\Service\PasswordEncoder;
 use App\Service\ConfirmTokenSender;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -22,7 +22,7 @@ class Handler
     /** @var EntityManagerInterface */
     protected $em;
 
-    /** @var PasswordHasher */
+    /** @var PasswordEncoder */
     protected $hasher;
 
     /** @var ConfirmTokenSender */
@@ -31,10 +31,10 @@ class Handler
     /**
      * Handler constructor.
      * @param EntityManagerInterface $em
-     * @param PasswordHasher $hasher
+     * @param PasswordEncoder $hasher
      * @param ConfirmTokenSender $sender
      */
-    public function __construct(EntityManagerInterface $em, PasswordHasher $hasher, ConfirmTokenSender $sender)
+    public function __construct(EntityManagerInterface $em, PasswordEncoder $hasher, ConfirmTokenSender $sender)
     {
         $this->em = $em;
         $this->hasher = $hasher;
@@ -57,9 +57,11 @@ class Handler
         /** @var User $user */
         $user = User::signUpByEmail(
             $email,
-            $this->hasher->hash($command->password),
+            $this->hasher->hash($command->plainPassword),
             EmbeddedToken::create()
         );
+
+        // dump($user); die;
 
         $this->em->persist($user);
         $this->sender->send($user);

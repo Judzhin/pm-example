@@ -25,6 +25,7 @@
         "symfony/serializer-pack": "*",
         "symfony/string": "5.0.*",
         "symfony/translation": "5.0.*",
+        "symfony/twig-bundle": "5.0.*",
         "symfony/twig-pack": "*",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
@@ -32,6 +33,7 @@
         "zendframework/zend-math": "^3.2"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "msbios/msbios": "^1.0",
         "symfony/console": "5.0.*",
         "symfony/debug-pack": "*",

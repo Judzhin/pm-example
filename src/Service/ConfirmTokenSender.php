@@ -7,11 +7,9 @@
 namespace App\Service;
 
 use App\Entity\User;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mailer\Messenger\MessageHandler;
 use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Mime\Address;
@@ -24,7 +22,7 @@ use Twig\Environment;
  */
 class ConfirmTokenSender
 {
-    /** @var Mailer */
+    /** @var MailerInterface|Mailer */
     protected $mailer;
 
     /** @var Environment */
@@ -32,44 +30,52 @@ class ConfirmTokenSender
 
     /**
      * ConfirmTokenSender constructor.
-     *
      * @param MailerInterface $mailer
+     * @param Environment $twig
      * @param array $from
      */
-    public function __construct(MailerInterface $mailer, array $from)
+    public function __construct(MailerInterface $mailer, Environment $twig, array $from)
     {
         $this->mailer = $mailer;
+        $this->twig = $twig;
     }
 
     /**
      * @param User $user
      * @throws TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function send(User $user): void
     {
-        // /** @var TransportInterface $transport */
-        // $transport = new EsmtpTransport('pm-mailer', 1025);
-        //
-        // /** @var Mailer $mailer */
-        // $mailer = new Mailer($transport);
-
         /** @var Email $email */
-        $email = (new TemplatedEmail)
-            ->from([new Address('some@example.com')])
+        $email = (new Email)
+            ->from('some@example.com')
             ->to(new Address($user->getEmail()->getValue()))
             ->subject('Thanks for signing up!')
+            ->text('Sending emails is fun again!')
+            ->html(
+                $this->twig->render('emails/signup.html.twig', [
+                    'username' => $user->getUsername(),
+                    'token' => $user->getConfirmToken()->getValue(),
+                    'expiration_date' => $user->getConfirmToken()->getExpires(),
+                ])
+            );
 
-            // path of the Twig template to render
-            ->htmlTemplate('emails/signup.html.twig')
+        ///** @var Email $email */
+        //$email = (new TemplatedEmail)
+        //    ->from('some@example.com')
+        //    ->to(new Address($user->getEmail()->getValue()))
+        //    ->subject('Thanks for signing up!')
+        //    // path of the Twig template to render
+        //    ->htmlTemplate('emails/signup.html.twig')
+        //    // pass variables (name => value) to the template
+        //    ->context([
+        //        'token' => $user->getConfirmToken()->getValue(),
+        //        'expiration_date' => $user->getConfirmToken()->getExpires(),
+        //    ]);
 
-            // pass variables (name => value) to the template
-            ->context([
-                'token' => $user->getConfirmToken()->getValue(),
-                'expiration_date' => $user->getConfirmToken()->getExpires(),
-            ]);
-
-        if (!$this->mailer->send($email)) {
-            throw new \RuntimeException('Unable to send message.');
-        }
+        $this->mailer->send($email);
     }
 }

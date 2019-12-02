@@ -34,7 +34,7 @@ $validator = Validation::createValidatorBuilder()
 /** @var Command $command */
 $command = new Command;
 $command->email = 'test@example';
-$command->password = 'pass';
+$command->plainPassword = 'pass';
 
 /** @var ConstraintViolationListInterface $validations */
 $validations = $validator->validate($command);

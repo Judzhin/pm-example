@@ -4,31 +4,31 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Reset\Password;
+namespace App\UseCase\PasswordReset\Confirm;
 
 use App\Entity\User;
-use App\Service\PasswordHasher;
+use App\Service\PasswordEncoder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\Reset\Request
+ * @package App\UseCase\PasswordReset\Confirm
  */
 class Handler
 {
     /** @var EntityManagerInterface */
     protected $em;
 
-    /** @var PasswordHasher */
+    /** @var PasswordEncoder */
     protected $hasher;
 
     /**
      * Handler constructor.
      * @param EntityManagerInterface $em
-     * @param PasswordHasher $hasher
+     * @param PasswordEncoder $hasher
      */
-    public function __construct(EntityManagerInterface $em, PasswordHasher $hasher)
+    public function __construct(EntityManagerInterface $em, PasswordEncoder $hasher)
     {
         $this->em = $em;
         $this->hasher = $hasher;
@@ -45,7 +45,7 @@ class Handler
 
         $user->passwordReset(
             new \DateTimeImmutable,
-            $this->hasher->hash($command->password)
+            $this->hasher->hash($command->plainPassword)
         );
 
         $this->em->flush();

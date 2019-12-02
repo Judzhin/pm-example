@@ -5,9 +5,7 @@
  */
 namespace App\Tests\UseCase\SignUp;
 
-
 use App\Entity\User;
-use App\Model\User\Email;
 use App\Repository\UserRepository;
 use App\UseCase\SignUp\Confirm\Command;
 use App\UseCase\SignUp\Confirm\Handler;
@@ -49,20 +47,17 @@ class ConfirmTest extends TestCase
     public function testFailure()
     {
         $this->repository
-            ->findOneBy(['token' => 'token'])
+            ->findOneBy(['confirmToken.value' => 'token'])
             ->willReturn(null);
 
         /** @var Command $command */
-        $command = new Command;
-        $command->token = 'token';
+        $command = new Command('token');
 
         $handler = new Handler(
             $this->entityManager->reveal()
         );
 
         $handler->handle($command);
-
-        $this->assertFalse(false);
     }
 
     /**
@@ -77,12 +72,11 @@ class ConfirmTest extends TestCase
             ->willReturn($user);
 
         $this->repository
-            ->findOneBy(['token' => 'token'])
+            ->findOneBy(['confirmToken.value' => 'token'])
             ->willReturn($user);
 
         /** @var Command $command */
-        $command = new Command;
-        $command->token = 'token';
+        $command = new Command('token');
 
         $handler = new Handler(
             $this->entityManager->reveal()

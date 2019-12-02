@@ -87,7 +87,7 @@ class EmbeddedToken
     public static function create(\DateInterval $interval = null): self
     {
         return new self(
-            Rand::getString(10),
+            Rand::getString(10, 'abcdefghijklmnopqrstuvwxyz'),
             (new \DateTimeImmutable)->add($interval ?? new \DateInterval("P3D"))
         );
     }
