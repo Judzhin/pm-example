@@ -41,9 +41,6 @@ class PasswordResetController extends AbstractController
      * @param PasswordReset\Request\Handler $handler
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
      */
     public function request(Request $request, PasswordReset\Request\Handler $handler)
     {
