@@ -1,0 +1,8 @@
+security:
+  encoders:
+    App\Entity\User:
+      algorithm: argon2i
+
+  firewalls:
+    main:
+      http_basic: ~

@@ -6,7 +6,9 @@
 
 namespace App\Security;
 
+use App\Entity\Network;
 use App\Entity\User;
+use App\Model\User\Email;
 use App\Repository\UserRepository;
 use Ramsey\Uuid\Exception\UnsupportedOperationException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
@@ -35,15 +37,24 @@ class UserProvider implements UserProviderInterface
     /**
      * @param string $identity
      * @return User
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     private function findUserByIdentity(string $identity): User
     {
-        /** @var User $user */
-        if (!$user = $this->repository->findOneByEmail($identity)) {
-            throw new UsernameNotFoundException(sprintf('User "%s" not found.', $identity));
+        /** @var array $chunks */
+        $chunks = explode(':', $identity);
+
+        if (2 === count($chunks)
+            && $user = $this->repository->findOneByNetwork(Network::factory($chunks[0], $chunks[1]))){
+            return $user;
         }
 
-        return $user;
+        /** @var User $user */
+        if ($user = $this->repository->findOneByEmail(new Email($identity))) {
+            return $user;
+        }
+
+        throw new UsernameNotFoundException(sprintf('User "%s" not found.', $identity));
     }
 
     /**
@@ -66,6 +77,7 @@ class UserProvider implements UserProviderInterface
      *
      * @param string $username
      * @return UserInterface
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function loadUserByUsername(string $username): UserInterface
     {
@@ -79,6 +91,7 @@ class UserProvider implements UserProviderInterface
      *
      * @param UserInterface $user
      * @return UserIdentity
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function refreshUser(UserInterface $user): UserIdentity
     {

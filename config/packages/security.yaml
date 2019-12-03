@@ -30,6 +30,8 @@ security:
       guard:
         authenticators:
         - App\Security\FormLoginAuthenticator
+        # - App\Security\OAuth\FacebookAuthenticator
+        entry_point: App\Security\FormLoginAuthenticator
 
       remember_me:
         secret: '%kernel.secret%'

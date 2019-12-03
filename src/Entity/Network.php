@@ -7,6 +7,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Self_;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -125,5 +126,20 @@ class Network
     public function isExists(self $network): bool
     {
         return $this->network === $network->getNetwork();
+    }
+
+    /**
+     * @param string $network
+     * @param string $identity
+     * @return Network
+     */
+    public static function factory(string $network, string $identity): self
+    {
+        /** @var self $entity */
+        $entity = new self;
+        $entity->network = $network;
+        $entity->identity = $identity;
+
+        return $entity;
     }
 }

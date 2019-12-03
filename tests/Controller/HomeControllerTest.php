@@ -12,6 +12,7 @@ use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBag;
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -22,14 +23,27 @@ use Twig\Environment;
  */
 class HomeControllerTest extends WebTestCase
 {
-
-    public function testHomePage()
-    {
-        /** @var KernelBrowser $client */
-        $client = static::createClient();
-        $client->request(Request::METHOD_GET, '/');
-        $this->assertEquals(Response::HTTP_FOUND, $client->getResponse()->getStatusCode());
-    }
+    //public function testGuestHomePage()
+    //{
+    //    /** @var KernelBrowser $client */
+    //    $client = static::createClient();
+    //    $client->request(Request::METHOD_GET, '/');
+    //    $this->assertSame(Response::HTTP_FOUND, $client->getResponse()->getStatusCode()); // Redirect
+    //    $this->assertSame('http://localhost/login', $client->getResponse()->headers->get('Location'));
+    //}
+    //
+    //public function testSuccess(): void
+    //{
+    //    /** @var KernelBrowser $client */
+    //    $client = static::createClient([], [
+    //        'PHP_AUTH_USER' => 'demo@example.com',
+    //        'PHP_AUTH_PW' => 'secret'
+    //    ]);
+    //
+    //    /** @var Crawler $crawler */
+    //    $crawler = $client->request(Request::METHOD_GET, '/');
+    //    $this->assertSame(Response::HTTP_OK, $client->getResponse()->getStatusCode());
+    //}
 
     public function testCallHomeMethod()
     {

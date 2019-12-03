@@ -44,38 +44,7 @@ services:
     - "3107:80"
     depends_on:
     - pm-php-fpm
-  #
-  #  # nginx upload
-  #  video-nginx-upload:
-  #    container_name: video-nginx-upload
-  #    build:
-  #      context: ./docker/nginx/upload
-  #      dockerfile: Dockerfile
-  #    volumes:
-  #    - ./data/upload:/var/www
-  #    ports:
-  #    - "1986:80"
-  #
-  #  # nginx static
-  #  video-nginx-static:
-  #    container_name: video-nginx-static
-  #    build:
-  #      context: ./docker/nginx/static
-  #      dockerfile: Dockerfile
-  #    volumes:
-  #    - ./templates/static:/var/www
-  #    ports:
-  #    - "8031:80"
-  #
-  #  # node ws
-  #  video-node-cli:
-  #    container_name: video-node-cli
-  #    image: node:10.11-jessie
-  #    volumes:
-  #    - ./templates/static:/var/www
-  #    working_dir: /var/www
-  #    tty: true # don`t stop
-  #
+
   # postgres host.docker.internal
   pm-postgres:
     container_name: pm-pgsql
@@ -100,25 +69,13 @@ services:
     depends_on:
       - pm-postgres
 
-#  # zookeeper:
-#  #   container_name: zookeeper
-#  #   image: wurstmeister/zookeeper
-#  #   ports:
-#  #   - "2181:2181"
-#
-#  # kafka:
-#  #   container_name: kafka
-#  #   image: wurstmeister/kafka
-#  #   ports:
-#  #   - "9092:9092"
-#  #   depends_on:
-#  #   - zookeeper
-#  #   environment:
-#  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-#  #     KAFRA_CREATE_TOPICS: notifications:1:1 # ,another_topic_name
-#  #     #./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test --config retention.ms=1680000
-#  #     KAFKA_LISTENERS: PLAINTEXT://kafka:9092
-#
+  pm-node:
+    container_name: pm-node
+    image: node:13.2.0-alpine
+    volumes:
+    - ./:/var/www
+    working_dir: /var/www
+
 #  # rabbitmq
 #  video-rabbitmq:
 #    container_name: video-rabbit
