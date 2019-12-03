@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 /**
@@ -32,7 +33,7 @@ class RequestTest extends TestCase
     protected $repository;
 
     /** @var PasswordEncoder */
-    protected $hasher;
+    protected $passwordEncoder;
 
     /** @var Handler */
     protected $handler;
@@ -51,31 +52,43 @@ class RequestTest extends TestCase
             ->getRepository(User::class)
             ->willReturn($this->repository);
 
-        $this->hasher = $this->prophesize(PasswordEncoder::class);
-        $this->hasher
-            ->hash('secret')
-            ->willReturn((new PasswordEncoder)->hash('secret'));
+        $this->passwordEncoder = $this->prophesize(PasswordEncoder::class);
+        $this->passwordEncoder
+            ->encodePassword('secret')
+            ->willReturn((new PasswordEncoder)->encodePassword('secret'));
 
         $this->sender = $this->prophesize(SignUpTokenSender::class);
     }
 
     /**
      * @expectedException \DomainException
+     *
+     * @throws TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testFailure()
     {
+        /** @var User|ObjectProphecy $object */
+        $object = $this->prophesize(User::class);
+
         $this->repository
-            ->findOneBy(['email' => new Email($email = 'test@example.com')])
-            ->willReturn(true);
+            ->findOneByEmail($email = new Email('test@example.com'))
+            ->willReturn($object);
+
+        $this->repository
+            ->findOneBy(['email' => $email])
+            ->willReturn($object);
 
         /** @var Command $command */
         $command = new Command;
-        $command->email = $email;
+        $command->email = $email->getValue();
         $command->plainPassword = 'secret';
 
         $handler = new Handler(
             $this->entityManager->reveal(),
-            $this->hasher->reveal(),
+            $this->passwordEncoder->reveal(),
             $this->sender->reveal()
         );
 
@@ -84,6 +97,11 @@ class RequestTest extends TestCase
 
     /**
      * @throws TransportExceptionInterface
+     *
+     * @throws TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testSuccess()
     {
@@ -96,8 +114,12 @@ class RequestTest extends TestCase
             ->shouldBeCalled();
 
         $this->repository
-            ->findOneBy(['email' => new Email($email = 'test@example.com')])
-            ->willReturn(false);
+            ->findOneByEmail($email =  new Email('test@example.com'))
+            ->willReturn(null);
+
+        $this->repository
+            ->findOneBy(['email' => $email])
+            ->willReturn(null);
 
         $this->sender
             ->send(Argument::type(User::class))
@@ -105,12 +127,12 @@ class RequestTest extends TestCase
 
         /** @var Command $command */
         $command = new Command;
-        $command->email = $email;
+        $command->email = $email->getValue();
         $command->plainPassword = 'secret';
 
         $handler = new Handler(
             $this->entityManager->reveal(),
-            $this->hasher->reveal(),
+            $this->passwordEncoder->reveal(),
             $this->sender->reveal()
         );
 

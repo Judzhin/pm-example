@@ -44,7 +44,10 @@ class RegistrationController extends AbstractController
      * @param Request $request
      * @param SignUp\Request\Handler $handler
      * @return Response
-     * @throws \Exception
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function register(Request $request, SignUp\Request\Handler $handler): Response
     {

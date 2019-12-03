@@ -47,7 +47,11 @@ class RequestTest extends TestCase
         $command->email = 'test@example.com';
 
         $repository
-            ->findOneBy(['email' => new Email($command->email)])
+            ->findOneByEmail($email = new Email($command->email))
+            ->willReturn($object);
+
+        $repository
+            ->findOneBy(['email' => $email])
             ->willReturn($object);
 
         /** @var TokenGenerator $passwordResetToken */

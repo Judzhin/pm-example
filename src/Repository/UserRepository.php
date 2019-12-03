@@ -9,6 +9,7 @@ namespace App\Repository;
 use App\Entity\EmbeddedToken;
 use App\Entity\Network;
 use App\Entity\User;
+use App\Model\User\Email;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr\Join;
@@ -72,6 +73,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb
             ->getQuery()
             ->getOneOrNullResult();
+    }
+
+    /**
+     * @param Email $email
+     * @return User|null
+     */
+    public function findOneByEmail(Email $email): ?User
+    {
+        return $this->findOneBy(['email' => $email]);
     }
 
     /**

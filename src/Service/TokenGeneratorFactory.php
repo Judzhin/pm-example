@@ -7,10 +7,10 @@
 namespace App\Service;
 
 /**
- * Class PasswordResetTokenFactory
+ * Class TokenGeneratorFactory
  * @package App\Service
  */
-class PasswordResetTokenFactory
+class TokenGeneratorFactory
 {
     /**
      * @param string $interval

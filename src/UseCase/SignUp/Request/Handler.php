@@ -30,14 +30,15 @@ class Handler
 
     /**
      * Handler constructor.
+     *
      * @param EntityManagerInterface $em
-     * @param PasswordEncoder $hasher
+     * @param PasswordEncoder $paspasswordEncoder
      * @param SignUpTokenSender $sender
      */
-    public function __construct(EntityManagerInterface $em, PasswordEncoder $hasher, SignUpTokenSender $sender)
+    public function __construct(EntityManagerInterface $em, PasswordEncoder $paspasswordEncoder, SignUpTokenSender $sender)
     {
         $this->em = $em;
-        $this->passwordEncoder = $hasher;
+        $this->passwordEncoder = $paspasswordEncoder;
         $this->sender = $sender;
     }
 
@@ -53,7 +54,7 @@ class Handler
         /** @var Email $email */
         $email = new Email($command->email);
 
-        if ($this->em->getRepository(User::class)->findOneBy(['email' => $email])) {
+        if ($this->em->getRepository(User::class)->findOneByEmail($email)) {
             throw new \DomainException('User already exists.');
         }
 

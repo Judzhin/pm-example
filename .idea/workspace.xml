@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PasswordResetTokenFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TokenGeneratorFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/HomeControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/HomeControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UseCase/PasswordReset/RequestTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UseCase/PasswordReset/RequestTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UseCase/SignUp/RequestTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UseCase/SignUp/RequestTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,17 +40,17 @@
     <session id="-1069879032">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -50,7 +59,7 @@
           <entry key="Makefile" value="2" />
           <entry key="conf" value="1" />
           <entry key="console" value="2" />
-          <entry key="dist" value="5" />
+          <entry key="dist" value="6" />
           <entry key="env" value="8" />
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="3" />
@@ -58,7 +67,7 @@
           <entry key="json" value="5" />
           <entry key="log" value="2" />
           <entry key="mailer_example" value="6" />
-          <entry key="php" value="324" />
+          <entry key="php" value="335" />
           <entry key="php-parse" value="1" />
           <entry key="phpunit" value="1" />
           <entry key="sh" value="2" />
@@ -70,7 +79,7 @@
           <entry key="var-dump-server" value="1" />
           <entry key="xlf" value="1" />
           <entry key="xml" value="3" />
-          <entry key="yaml" value="31" />
+          <entry key="yaml" value="32" />
           <entry key="yml" value="6" />
         </counts>
       </usages-collector>
@@ -82,14 +91,14 @@
           <entry key="Dockerfile" value="3" />
           <entry key="Git file" value="3" />
           <entry key="JSON" value="5" />
-          <entry key="PHP" value="334" />
-          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="PHP" value="345" />
+          <entry key="PLAIN_TEXT" value="14" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="SmartyConfig" value="1" />
           <entry key="Twig" value="33" />
           <entry key="XML" value="6" />
-          <entry key="YAML" value="37" />
+          <entry key="YAML" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -104,12 +113,12 @@
           <entry key="ini" value="19" />
           <entry key="json" value="2" />
           <entry key="mailer_example" value="2" />
-          <entry key="php" value="25178" />
+          <entry key="php" value="25557" />
           <entry key="sh" value="183" />
           <entry key="twig" value="922" />
           <entry key="txt" value="37" />
           <entry key="validator_example" value="167" />
-          <entry key="yaml" value="1137" />
+          <entry key="yaml" value="1147" />
           <entry key="yml" value="242" />
         </counts>
       </usages-collector>
@@ -120,12 +129,12 @@
           <entry key="Dockerfile" value="94" />
           <entry key="HTML" value="14" />
           <entry key="JSON" value="2" />
-          <entry key="PHP" value="25339" />
+          <entry key="PHP" value="25718" />
           <entry key="PLAIN_TEXT" value="234" />
           <entry key="SmartyConfig" value="30" />
           <entry key="Twig" value="922" />
           <entry key="XML" value="90" />
-          <entry key="YAML" value="1379" />
+          <entry key="YAML" value="1389" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -139,92 +148,107 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php">
+        <entry file="file://$PROJECT_DIR$/src/Form/RegistrationFormType.php.dist">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-908">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="e#114#146#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/PostRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-531" />
+            <state relative-caret-position="-502" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1247" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Role.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+            <state relative-caret-position="241">
+              <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/PostType.php">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Command.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-192" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="388" selection-start-line="388" selection-end-line="388" />
+            <state relative-caret-position="293">
+              <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/EmbeddedToken.php">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-87" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Network.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="214">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
-                <element signature="e#112#144#0#PHP" expanded="true" />
+                <element signature="e#127#167#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBAL/Types/EmailType.php">
+        <entry file="file://$PROJECT_DIR$/tests/Controller/HomeControllerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="257">
+              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
               <folding>
-                <element signature="e#116#141#0#PHP" expanded="true" />
+                <element signature="e#122#156#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PasswordResetController.php">
+        <entry file="file://$PROJECT_DIR$/tests/UseCase/SignUp/RequestTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+            <state relative-caret-position="186">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+              <folding>
+                <element signature="e#126#146#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/UseCase/PasswordReset/RequestTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="78" column="27" lean-forward="true" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
+              <folding>
+                <element signature="e#133#162#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+              <folding>
+                <element signature="e#135#155#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="57" column="38" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="38" />
+              <folding>
+                <element signature="e#128#157#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -276,33 +300,23 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/UseCase/Reset/Password/Handler.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/Reset/Request/FormType.php" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Command.php" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Request/FormType.php" />
-        <option value="$PROJECT_DIR$/src/Service/PasswordResetTokenFactory.php" />
-        <option value="$PROJECT_DIR$/tests/UseCase/PasswordReset/RequestTest.php" />
         <option value="$PROJECT_DIR$/tests/UseCase/SignUp/ConfirmTest.php" />
-        <option value="$PROJECT_DIR$/tests/UseCase/SignUp/RequestTest.php" />
         <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/Command.php" />
         <option value="$PROJECT_DIR$/src/Entity/EmbeddedToken.php" />
         <option value="$PROJECT_DIR$/templates/emails/signup.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/templates/password_reset/request.html.twig" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Confirm/Command.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php" />
         <option value="$PROJECT_DIR$/templates/password_reset/confirm.html.twig" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Confirm/FormType.php" />
         <option value="$PROJECT_DIR$/templates/emails/password_reset.html.twig" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/vendor/symfony/security-core/Role/RoleHierarchy.php" />
-        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/src/Mailer/Mailer.php" />
         <option value="$PROJECT_DIR$/bin/mailer_example" />
         <option value="$PROJECT_DIR$/config/packages/mailer.yaml" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/Security/UserIdentitty.php" />
         <option value="$PROJECT_DIR$/src/Service/PasswordHasher.php" />
@@ -313,7 +327,6 @@
         <option value="$PROJECT_DIR$/src/Security/UserProvider.php" />
         <option value="$PROJECT_DIR$/src/Security/UserIdentity.php" />
         <option value="$PROJECT_DIR$/src/Security/UserChecker.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/SignUp/Confirm/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Role/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php" />
@@ -327,6 +340,17 @@
         <option value="$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php" />
         <option value="$PROJECT_DIR$/src/Model/Role.php" />
         <option value="$PROJECT_DIR$/src/Controller/PasswordResetController.php" />
+        <option value="$PROJECT_DIR$/src/Service/PasswordResetTokenFactory.php" />
+        <option value="$PROJECT_DIR$/src/Service/TokenGeneratorFactory.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/Command.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php" />
+        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+        <option value="$PROJECT_DIR$/tests/UseCase/PasswordReset/RequestTest.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/HomeControllerTest.php" />
+        <option value="$PROJECT_DIR$/tests/UseCase/SignUp/RequestTest.php" />
       </list>
     </option>
   </component>
@@ -464,7 +488,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -504,13 +528,36 @@
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="UseCase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="UseCase" type="462c0819:PsiDirectoryNode" />
+              <item name="SignUp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -567,7 +614,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20028612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20314735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -599,55 +646,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Intermediate commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="1" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/security-core/Exception/UsernameNotFoundException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/security-csrf/CsrfToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/RedirectResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/security-core/Encoder/PasswordEncoderInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/security-core/Encoder/UserPasswordEncoderInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/doctrine-bridge/Security/User/EntityUserProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
@@ -673,9 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#36#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,9 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="e#36#65#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,9 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="54" column="23" lean-forward="true" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
-          <folding>
-            <element signature="e#114#134#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,36 +768,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Command.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="e#127#167#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-621">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#128#157#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Network/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-351">
           <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#128#151#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,16 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
-          <folding>
-            <element signature="e#135#155#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Command.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -860,16 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/SignUpTokenSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-384">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="e#113#133#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -900,7 +843,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-908">
+        <state relative-caret-position="240">
           <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#114#146#0#PHP" expanded="true" />
@@ -909,43 +852,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/PostRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-531" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1247" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Role.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+        <state relative-caret-position="1260">
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/PostType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="5685">
           <caret line="388" selection-start-line="388" selection-end-line="388" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/EmbeddedToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Network.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="e#112#144#0#PHP" expanded="true" />
           </folding>
@@ -955,7 +887,7 @@
     <entry file="file://$PROJECT_DIR$/src/DBAL/Types/EmailType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="e#116#141#0#PHP" expanded="true" />
           </folding>
@@ -964,8 +896,118 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PasswordResetController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        <state relative-caret-position="247">
+          <caret line="54" column="17" lean-forward="true" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/SignUpTokenSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="e#113#133#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/TokenGeneratorFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RegistrationFormType.php.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-502" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/FormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#127#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+          <folding>
+            <element signature="e#135#155#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/UseCase/PasswordReset/RequestTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="78" column="27" lean-forward="true" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
+          <folding>
+            <element signature="e#133#162#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Controller/HomeControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+          <folding>
+            <element signature="e#122#156#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="57" column="38" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="38" />
+          <folding>
+            <element signature="e#128#157#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/UseCase/SignUp/RequestTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+          <folding>
+            <element signature="e#126#146#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -9,6 +9,7 @@ namespace App\Tests\Controller;
 use App\Controller\HomeController;
 use Prophecy\Argument;
 use Psr\Container\ContainerInterface;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBag;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,13 +23,13 @@ use Twig\Environment;
 class HomeControllerTest extends WebTestCase
 {
 
-    // public function testHomePage()
-    // {
-    //     /** @var KernelBrowser $client */
-    //     $client = static::createClient();
-    //     $client->request(Request::METHOD_GET, '/');
-    //     $this->assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
-    // }
+    public function testHomePage()
+    {
+        /** @var KernelBrowser $client */
+        $client = static::createClient();
+        $client->request(Request::METHOD_GET, '/');
+        $this->assertEquals(Response::HTTP_FOUND, $client->getResponse()->getStatusCode());
+    }
 
     public function testCallHomeMethod()
     {

@@ -38,7 +38,7 @@ class FormType extends AbstractType
             ->add('plainPassword', Type\PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'mapped' => false,
+                'mapped' => true,
                 'constraints' => [
                     new Constraints\NotBlank([
                         'message' => 'Please enter a password',
