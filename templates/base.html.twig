@@ -11,10 +11,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/pricing/">
 
     {% block stylesheets %}
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+        {#<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">#}
+        {#<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">#}
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
-
 
 </head>
 <body>
@@ -36,17 +36,17 @@
 <div class="container">
     {% block breadcrumbs %}{% endblock %}
 
-    {#{% include '_flashes.html.twig' %}#}
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% for message in app.flashes('error') %}
-        <div class="alert alert-danger">
-            {{ message }}
-        </div>
-    {% endfor %}
+    {% include '_flashes.html.twig' %}
+    {#{% for message in app.flashes('success') %}#}
+        {#<div class="alert alert-success">#}
+            {#{{ message }}#}
+        {#</div>#}
+    {#{% endfor %}#}
+    {#{% for message in app.flashes('error') %}#}
+        {#<div class="alert alert-danger">#}
+            {#{{ message }}#}
+        {#</div>#}
+    {#{% endfor %}#}
 
     {% block body %}{% endblock %}
 
@@ -90,9 +90,11 @@
 </div>
 
 {% block javascripts %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {#<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>#}
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>#}
+    {#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>#}
+
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}
 
 </body>

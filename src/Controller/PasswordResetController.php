@@ -102,7 +102,7 @@ class PasswordResetController extends AbstractController
         }
 
         return $this->render('password_reset/confirm.html.twig', [
-            'passwordChangeForm' => $form->createView(),
+            'passwordConfirmForm' => $form->createView(),
         ]);
     }
 }

@@ -76,6 +76,15 @@ services:
     - ./:/var/www
     working_dir: /var/www
 
+  pm-node-watch:
+    container_name: pm-node-watch
+    image: node:13.2.0-alpine
+    restart: always
+    volumes:
+    - ./:/var/www
+    working_dir: /var/www
+    command: sh -c "until [ -f project.pid ] ; do sleep 1; done && npm run watch"
+
 #  # rabbitmq
 #  video-rabbitmq:
 #    container_name: video-rabbit
