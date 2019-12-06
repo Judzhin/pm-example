@@ -11,7 +11,7 @@ services:
     - "1025:1025"
     - "8025:8025" # Dashboard
 
-  # cli
+  # php-cli
   pm-php-cli:
     container_name: pm-php-cli
     build:
@@ -23,7 +23,7 @@ services:
   #    environment:
   #      APP_DEBUG: 1
 
-  # fpm
+  # php-fpm
   pm-php-fpm:
     container_name: pm-php-fpm
     build:
@@ -58,6 +58,7 @@ services:
     ports:
     - "54321:5432"
 
+  # pgadmin
   pm-pgadmin:
     container_name: pm-pga
     image: dpage/pgadmin4
@@ -67,15 +68,17 @@ services:
     ports:
     - "${PGADMIN_PORT:-5050}:80"
     depends_on:
-      - pm-postgres
+    - pm-postgres
 
-  pm-node:
-    container_name: pm-node
+  # node-cli
+  pm-node-cli:
+    container_name: pm-node-cli
     image: node:13.2.0-alpine
     volumes:
     - ./:/var/www
     working_dir: /var/www
 
+  # node npm watch
   pm-node-watch:
     container_name: pm-node-watch
     image: node:13.2.0-alpine
@@ -85,39 +88,14 @@ services:
     working_dir: /var/www
     command: sh -c "until [ -f project.pid ] ; do sleep 1; done && npm run watch"
 
-#  # rabbitmq
-#  video-rabbitmq:
-#    container_name: video-rabbit
-#    image: rabbitmq:3-management
-#    environment:
-#      RABBITMQ_ERLANG_COOKIE: SWQOKODSQALRPCLNMEQG
-#      RABBITMQ_DEFAULT_USER: rabbit
-#      RABBITMQ_DEFAULT_PASS: rabbit
-#    ports:
-#    - "1919:15672" # dashboard
-#    - "5672:5672"
-#    volumes:
-#    - ./docker/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
-#
-#  video-php-ws:
-#    container_name: video-php-ws
-#    build:
-#      context: ./docker/php/websocket
-#      dockerfile: Dockerfile
-#    volumes:
-#    - .:/var/www
-#    # - .:/superman:cached
-#    ports:
-#    - "9001:9001"
-#    tty: true # don`t stop
-#
-#  video-php-processor:
-#    container_name: video-php-processor
-#    build:
-#      context: ./docker/php/processor
-#      dockerfile: Dockerfile
-#    volumes:
-#    - .:/var/www
+  # redis
+  pm-redis:
+    container_name: pm-redis
+    image: redis:3.0-alpine
+    volumes:
+    - pm-redis:/data
+    command: redis-server --requirepass secret
 
 volumes:
+  pm-redis:
   composer:
