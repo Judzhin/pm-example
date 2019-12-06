@@ -1,11 +1,45 @@
-{% extends 'base.html.twig' %}
+{% extends 'outer.html.twig' %}
 
-{% block title %}Hello PasswordResetController!{% endblock %}
+{% block title %}PasswordResetController!{% endblock %}
 
 {% block body %}
-    {{ form_start(passwordChangeForm) }}
-    {{ form_row(passwordChangeForm.token) }}
-    {{ form_row(passwordChangeForm.plainPassword) }}
-    <button class="btn btn-primary">Change</button>
-    {{ form_end(passwordChangeForm) }}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mx-4">
+
+                    {{ form_start(passwordConfirmForm, {'attr': {'class': 'card-body p-4'}}) }}
+                    {{ form_row(passwordConfirmForm.token) }}
+
+                    {% include '_flashes.html.twig' %}
+
+                    <h1>Confirm Password Reset</h1>
+
+                    <p class="text-muted">Enter new password for your profile</p>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="icon-lock"></i>
+                            </span>
+                        </div>
+                        {{ form_widget(passwordConfirmForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(passwordConfirmForm.plainPassword) }}
+                    </div>
+
+                    <button class="btn btn-block btn-success" type="submit">Update password</button>
+                    {{ form_end(passwordConfirmForm) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#{{ form_start(passwordConfirmForm) }}#}
+    {#{{ form_row(passwordConfirmForm.token) }}#}
+    {#{{ form_row(passwordConfirmForm.plainPassword) }}#}
+    {#<button class="btn btn-primary">Change</button>#}
+    {#{{ form_end(passwordConfirmForm) }}#}
+
 {% endblock %}

@@ -11,7 +11,9 @@
 
                     {{ form_start(registrationForm, {'attr': {'class': 'card-body p-4'}}) }}
                     <h1>Register</h1>
+
                     <p class="text-muted">Create your account</p>
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
@@ -19,11 +21,12 @@
                         {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
                         {{ form_errors(registrationForm.email) }}
                     </div>
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="icon-lock"></i>
-                                </span>
+                            <span class="input-group-text">
+                                <i class="icon-lock"></i>
+                            </span>
                         </div>
                         {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
                         {{ form_errors(registrationForm.plainPassword) }}

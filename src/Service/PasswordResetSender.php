@@ -56,7 +56,7 @@ class PasswordResetSender
             ->htmlTemplate('emails/password_reset.html.twig')
             // pass variables (name => value) to the template
             ->context([
-                'token' => $user->getConfirmToken()->getValue(),
+                'token' => $user->getResetToken()->getValue(),
                 'expiration_date' => $user->getConfirmToken()->getExpires(),
             ]);
 
