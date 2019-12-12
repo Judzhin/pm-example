@@ -22,7 +22,7 @@ class FacebookController extends AbstractController
     /**
      * Link to this controller to start the "connect" process
      *
-     * @Route("/connect/facebook", name="pm-oauth-facebook")
+     * @Route("/connect/facebook", name="pm-facebook-connect")
      *
      * @param ClientRegistry $clientRegistry
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -44,7 +44,7 @@ class FacebookController extends AbstractController
      * because this is the "redirect_route" you configured
      * in config/packages/knpu_oauth2_client.yaml
      *
-     * @Route("/connect/facebook/check", name="pm-facebook-check")
+     * @Route("/connect/facebook/check", name="pm-facebook-connect-check")
      *
      * @param Request $request
      * @param ClientRegistry $clientRegistry
@@ -52,7 +52,7 @@ class FacebookController extends AbstractController
      */
     public function connectCheckAction(Request $request, ClientRegistry $clientRegistry): Response
     {
-        return $this->redirectToRoute('pm-home');
+        // return $this->redirectToRoute('pm-home');
         // ** if you want to *authenticate* the user, then
         // leave this method blank and create a Guard authenticator
         // (read below)

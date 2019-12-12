@@ -37,7 +37,8 @@ class Handler
     {
         /** @var UserInterface|User $user */
         $user = $this->em->find(User::class, $command->id);
-        $user->changeRole(new Role($command->role));
+        // $user->changeRole(new Role($command->role));
+        $user->setRoles([$command->role]);
         $this->em->flush();
     }
 }

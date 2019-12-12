@@ -44,6 +44,7 @@ class UserRoleCommand extends Command
         $this->repository = $repository;
         $this->validator = $validator;
         $this->handler = $handler;
+        parent::__construct('user:role');
     }
 
     /**
@@ -51,8 +52,8 @@ class UserRoleCommand extends Command
      */
     protected function configure(): void
     {
-        $this->setName('user:role')
-            ->setDefinition('Changes user role');
+        $this
+            ->setDescription('Changes user role');
     }
 
     /**
@@ -60,9 +61,9 @@ class UserRoleCommand extends Command
      *
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int|void
+     * @throws \Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
 
         $helper = $this->getHelper('question');
@@ -98,12 +99,15 @@ class UserRoleCommand extends Command
                     . $violation->getMessage()
                     .'</error>');
             }
-            return;
+
+            exit;
         }
 
         $this->handler->handle($command);
 
         $output->writeln('<info>Done!</info>');
+
+        exit;
     }
 
 }

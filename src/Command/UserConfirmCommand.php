@@ -29,6 +29,7 @@ class UserConfirmCommand extends Command
     public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
+        parent::__construct('user:confirm');
     }
 
     /**
@@ -37,7 +38,6 @@ class UserConfirmCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setName('user:confirm')
             ->setDescription('Confirm signed up user');
     }
 

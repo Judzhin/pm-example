@@ -270,6 +270,24 @@ class User implements UserInterface
     }
 
     /**
+     * @return ArrayCollection
+     */
+    public function getNetworks()
+    {
+        return $this->networks;
+    }
+
+    /**
+     * @param $networks
+     * @return User
+     */
+    public function setNetworks($networks): User
+    {
+        $this->networks = $networks;
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isUndefined(): bool
