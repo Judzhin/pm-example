@@ -96,6 +96,26 @@ services:
     - pm-redis:/data
     command: redis-server --requirepass secret
 
+  # pm-mariadb:
+  #   image: mariadb
+  #   container_name: pm-mariadb
+  #   environment:
+  #     MYSQL_DATABASE: pm
+  #     MYSQL_ROOT_PASSWORD: root
+  #   restart: always
+  #   ports:
+  #   - 3107:3306
+  #
+  # pm-pma:
+  #   image: phpmyadmin/phpmyadmin
+  #   container_name: pm-pma
+  #   ports:
+  #   - 1986:80
+  #   environment:
+  #     PMA_HOST: pm-mariadb
+  #     PMA_USER: root
+  #     PMA_PASSWORD: root
+
 volumes:
   pm-redis:
   composer:

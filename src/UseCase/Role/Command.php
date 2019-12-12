@@ -6,15 +6,33 @@
 
 namespace App\UseCase\Role;
 
+use App\Entity\User;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Class Command
  * @package App\UseCase\Role
  */
 class Command
 {
-    /** @var string */
+    /**
+     * @var null|\Ramsey\Uuid\UuidInterface
+     * @Assert\NotBlank()
+     */
     public $id;
 
-    /** @var string */
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     */
     public $role;
+
+    /**
+     * Command constructor.
+     * @param User $user
+     */
+    public function __construct(User $user)
+    {
+        $this->id = $user->getId();
+    }
 }
