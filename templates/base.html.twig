@@ -11,8 +11,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/pricing/">
 
     {% block stylesheets %}
-        {#<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">#}
-        {#<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">#}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
@@ -36,8 +34,8 @@
 
     <ul class="nav navbar-nav ml-auto mr-4">
         <li class="nav-item text-muted">
-            <a href="{{ path('pm_profile') }}">
-                {{ app.user.username }}
+            <a class="nav-link" href="{{ path('pm_profile') }}" title="{{ app.user.username }}">
+                <i class="icon-user"></i>
             </a>
         </li>
         <li class="nav-item">
@@ -52,9 +50,14 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="main.html">
+                    <a class="nav-link" href="{{ path('pm_home') }}">
                         <i class="nav-icon icon-speedometer"></i> Dashboard
                         {#<span class="badge badge-info">NEW</span>#}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('pm_profile') }}">
+                        <i class="nav-icon icon-user"></i> Profile
                     </a>
                 </li>
                 <li class="nav-divider"></li>

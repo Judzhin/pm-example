@@ -8,7 +8,7 @@ namespace App\UseCase\PasswordReset\Request;
 
 use App\Entity\User;
 use App\Model\User\Email;
-use App\Service\PasswordResetSender;
+use App\Service\Sender\PasswordResetSender;
 use App\Service\TokenGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -30,6 +30,7 @@ class Handler
 
     /**
      * Handler constructor.
+     *
      * @param EntityManagerInterface $em
      * @param TokenGenerator $tokenizer
      * @param PasswordResetSender $sender
@@ -48,7 +49,9 @@ class Handler
     public function handle(Command $command): void
     {
         /** @var UserInterface|User $user */
-        $user = $this->em->getRepository(User::class)->findOneByEmail(new Email($command->email));
+        $user = $this->em
+            ->getRepository(User::class)
+            ->findOneByEmail(new Email($command->email));
 
         $user->requestPasswordReset(
             $this->tokenizer->generate()

@@ -41,6 +41,12 @@ class User implements UserInterface
     private $email = null;
 
     /**
+     * @var Email
+     * @ORM\Column(type="email", length=180, unique=true, nullable=true)
+     */
+    private $newEmail = null;
+
+    /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -56,6 +62,12 @@ class User implements UserInterface
      * @ORM\Embedded(class="EmbeddedToken", columnPrefix="confirm_token_")
      */
     private $confirmToken;
+
+    /**
+     * @var EmbeddedToken
+     * @ORM\Embedded(class="EmbeddedToken", columnPrefix="new_confirm_token_")
+     */
+    private $newConfirmToken;
 
     /**
      * @var EmbeddedToken
@@ -141,6 +153,24 @@ class User implements UserInterface
     }
 
     /**
+     * @return Email
+     */
+    public function getNewEmail(): Email
+    {
+        return $this->newEmail;
+    }
+
+    /**
+     * @param Email $newEmail
+     * @return User
+     */
+    public function setNewEmail(Email $newEmail): User
+    {
+        $this->newEmail = $newEmail;
+        return $this;
+    }
+
+    /**
      * A visual identifier that represents this user.
      *
      * @see UserInterface
@@ -213,6 +243,24 @@ class User implements UserInterface
     public function setConfirmToken(EmbeddedToken $confirmToken = null): self
     {
         $this->confirmToken = $confirmToken;
+        return $this;
+    }
+
+    /**
+     * @return EmbeddedToken
+     */
+    public function getNewConfirmToken(): EmbeddedToken
+    {
+        return $this->newConfirmToken;
+    }
+
+    /**
+     * @param EmbeddedToken $newConfirmToken
+     * @return User
+     */
+    public function setNewConfirmToken(EmbeddedToken $newConfirmToken): User
+    {
+        $this->newConfirmToken = $newConfirmToken;
         return $this;
     }
 
@@ -391,6 +439,20 @@ class User implements UserInterface
         }
 
         $this->resetToken = $passwordResetToken;
+        return $this;
+    }
+
+    /**
+     * @param Email $email
+     * @param EmbeddedToken $newConfirmToken
+     * @return User
+     */
+    public function requestEmailChanging(Email $email, EmbeddedToken $newConfirmToken): self
+    {
+        $this
+            ->setEmail($email)
+            ->setNewConfirmToken($newConfirmToken);
+
         return $this;
     }
 

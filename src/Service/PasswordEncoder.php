@@ -18,20 +18,20 @@ class PasswordEncoder implements PasswordEncoderInterface
     /** @const COST int  */
     const COST = 12;
 
-    /**
-     * @param string $password
-     * @return string
-     * @deprecated use encoderPassword
-     */
-    public function hash(string $password): string
-    {
-        /** @var string $hash */
-        if ($hash = password_hash($password, PASSWORD_ARGON2I, ['cost' => self::COST])) {
-            return $hash;
-        }
-
-        throw new BadCredentialsException('Unable to generate hash.');
-    }
+    // /**
+    //  * @param string $password
+    //  * @return string
+    //  * @deprecated use encoderPassword
+    //  */
+    // public function hash(string $password): string
+    // {
+    //     /** @var string $hash */
+    //     if ($hash = password_hash($password, PASSWORD_ARGON2I, ['cost' => self::COST])) {
+    //         return $hash;
+    //     }
+    //
+    //     throw new BadCredentialsException('Unable to generate hash.');
+    // }
 
     /**
      * @inheritdoc

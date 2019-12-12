@@ -41,7 +41,9 @@ class Handler
     public function handle(Command $command): void
     {
         /** @var UserInterface|User $user */
-        $user = $this->em->getRepository(User::class)->findOneBy(['resetToken.value' => $command->token]);
+        $user = $this->em
+            ->getRepository(User::class)
+            ->findOneBy(['resetToken.value' => $command->token]);
 
         $user->passwordReset(
             new \DateTimeImmutable,

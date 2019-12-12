@@ -4,41 +4,34 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp\Request;
+namespace App\UseCase\Email\Request;
 
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Model\User\Email;
-use App\Service\PasswordEncoder;
-use App\Service\Sender\SignUpTokenSender;
+use App\Service\Sender\EmailChangingSender;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\SignUp\Request
+ * @package App\UseCase\Email\Request
  */
 class Handler
 {
     /** @var EntityManagerInterface */
     protected $em;
 
-    /** @var PasswordEncoder */
-    protected $passwordEncoder;
-
-    /** @var SignUpTokenSender */
+    /** @var EmailChangingSender */
     protected $sender;
 
     /**
      * Handler constructor.
-     *
      * @param EntityManagerInterface $em
-     * @param PasswordEncoder $passwordEncoder
-     * @param SignUpTokenSender $sender
+     * @param EmailChangingSender $sender
      */
-    public function __construct(EntityManagerInterface $em, PasswordEncoder $passwordEncoder, SignUpTokenSender $sender)
+    public function __construct(EntityManagerInterface $em, EmailChangingSender $sender)
     {
         $this->em = $em;
-        $this->passwordEncoder = $passwordEncoder;
         $this->sender = $sender;
     }
 
@@ -52,18 +45,14 @@ class Handler
         $email = new Email($command->email);
 
         if ($this->em->getRepository(User::class)->findOneByEmail($email)) {
-            throw new \DomainException('User already exists.');
+            throw new \DomainException('Email is already in use.');
         }
 
         /** @var User $user */
-        $user = User::signUpByEmail(
-            $email,
-            $this->passwordEncoder->encodePassword($command->plainPassword),
-            EmbeddedToken::create()
-        );
-
-        $this->em->persist($user);
-        $this->sender->send($user);
+        $user = $this->em->find(User::class, $command->id);
+        $user->requestEmailChanging($email, EmbeddedToken::create());
         $this->em->flush();
+
+        $this->sender->send($user);
     }
 }
