@@ -8,6 +8,7 @@ namespace App\UseCase\Email\Request;
 
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
+use App\Exception\DomainException;
 use App\Model\User\Email;
 use App\Service\Sender\EmailChangingSender;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,7 +46,7 @@ class Handler
         $email = new Email($command->email);
 
         if ($this->em->getRepository(User::class)->findOneByEmail($email)) {
-            throw new \DomainException('Email is already in use.');
+            throw DomainException::emailIsAlreadyInUse();
         }
 
         /** @var User $user */

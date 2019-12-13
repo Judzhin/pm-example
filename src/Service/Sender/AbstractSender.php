@@ -7,7 +7,6 @@
 namespace App\Service\Sender;
 
 use App\Entity\User;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
@@ -39,7 +38,7 @@ abstract class AbstractSender
      * @param User $user
      * @return Email
      */
-    public abstract function email(User $user) :Email;
+    public abstract function email(User $user): Email;
 
     /**
      * @param User $user
@@ -62,7 +61,11 @@ abstract class AbstractSender
 
         /** @var Email $email */
         $email = $this->email($user);
-        $email->from($this->from);
+
+        foreach ($this->from as $address => $name) {
+            $email->from(new Address($address, $name));
+        }
+
         $email->to(new Address($user->getEmail()->getValue()));
         $this->mailer->send($email);
     }

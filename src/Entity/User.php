@@ -8,6 +8,7 @@ namespace App\Entity;
 
 use App\Model\Role;
 use App\Model\User\Email;
+use App\Model\User\Token;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
@@ -35,13 +36,13 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @var Email
+     * @var Email|null
      * @ORM\Column(type="email", length=180, unique=true, nullable=true)
      */
     private $email = null;
 
     /**
-     * @var Email
+     * @var Email|null
      * @ORM\Column(type="email", length=180, unique=true, nullable=true)
      */
     private $newEmail = null;
@@ -143,28 +144,28 @@ class User implements UserInterface
     }
 
     /**
-     * @param Email $email
+     * @param Email|null $email
      * @return User
      */
-    public function setEmail(Email $email): self
+    public function setEmail(Email $email = null): self
     {
         $this->email = $email;
         return $this;
     }
 
     /**
-     * @return Email
+     * @return Email|null
      */
-    public function getNewEmail(): Email
+    public function getNewEmail(): ?Email
     {
         return $this->newEmail;
     }
 
     /**
-     * @param Email $newEmail
+     * @param Email|null $newEmail
      * @return User
      */
-    public function setNewEmail(Email $newEmail): User
+    public function setNewEmail(Email $newEmail = null): User
     {
         $this->newEmail = $newEmail;
         return $this;
@@ -247,18 +248,18 @@ class User implements UserInterface
     }
 
     /**
-     * @return EmbeddedToken
+     * @return EmbeddedToken|null
      */
-    public function getNewConfirmToken(): EmbeddedToken
+    public function getNewConfirmToken(): ?EmbeddedToken
     {
         return $this->newConfirmToken;
     }
 
     /**
-     * @param EmbeddedToken $newConfirmToken
+     * @param EmbeddedToken|null $newConfirmToken
      * @return User
      */
-    public function setNewConfirmToken(EmbeddedToken $newConfirmToken): User
+    public function setNewConfirmToken(EmbeddedToken $newConfirmToken = null): User
     {
         $this->newConfirmToken = $newConfirmToken;
         return $this;
@@ -450,8 +451,26 @@ class User implements UserInterface
     public function requestEmailChanging(Email $email, EmbeddedToken $newConfirmToken): self
     {
         $this
-            ->setEmail($email)
+            ->setNewEmail($email)
             ->setNewConfirmToken($newConfirmToken);
+
+        return $this;
+    }
+
+    /**
+     * @param Token $token
+     * @return User
+     */
+    public function confirmEmailChanging(Token $token): self
+    {
+        if ($this->getNewConfirmToken()->getValue() !== $token->getValue()) {
+
+        }
+
+        $this
+            ->setEmail($this->getNewEmail())
+            ->setNewEmail(null);
+        $this->setNewConfirmToken(null);
 
         return $this;
     }

@@ -28,7 +28,10 @@
                     {% if user.email %}
                         <tr>
                             <th>Email</th>
-                            <td>{{ user.email }}</td>
+                            <td>
+                                {{ user.email }}
+                                <a href="{{ path('pm_profile_email') }}">change email</a>
+                            </td>
                         </tr>
                     {% endif %}
                     <tr>

@@ -2,38 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/Sender/AbstractSender.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Sender/EmailChangingSender.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Email/Request/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Email/Request/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Widget/UserStatusWidget.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/emails/change_email.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/widget/user_status.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alter.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exception/DomainException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/User/Token.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/knpu_oauth2_client.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/knpu_oauth2_client.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserConfirmCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UserConfirmCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserRoleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UserRoleCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/OAuth/FacebookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OAuth/FacebookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBAL/Types/EmailType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBAL/Types/EmailType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PasswordEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PasswordEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PasswordResetSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Sender/PasswordResetSender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/SignUpTokenSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Sender/SignUpTokenSender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/PasswordReset/Confirm/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/PasswordReset/Confirm/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/Role/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Role/Command.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/Role/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Role/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Sender/AbstractSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Sender/AbstractSender.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emails/change_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emails/change_email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +44,7 @@
     <session id="-1069879032">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
@@ -70,13 +52,14 @@
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -97,20 +80,20 @@
           <entry key="log" value="2" />
           <entry key="mailer_example" value="6" />
           <entry key="md" value="1" />
-          <entry key="php" value="411" />
+          <entry key="php" value="430" />
           <entry key="php-parse" value="1" />
           <entry key="phpunit" value="1" />
           <entry key="scss" value="11" />
-          <entry key="sh" value="7" />
+          <entry key="sh" value="8" />
           <entry key="simple-phpunit" value="1" />
           <entry key="sql" value="2" />
           <entry key="test" value="3" />
-          <entry key="twig" value="51" />
+          <entry key="twig" value="55" />
           <entry key="validator_example" value="4" />
           <entry key="var-dump-server" value="1" />
           <entry key="xlf" value="1" />
           <entry key="xml" value="3" />
-          <entry key="yaml" value="47" />
+          <entry key="yaml" value="48" />
           <entry key="yml" value="9" />
         </counts>
       </usages-collector>
@@ -118,22 +101,22 @@
         <counts>
           <entry key=".env file" value="14" />
           <entry key="ANSI Aware" value="2" />
-          <entry key="Bash" value="7" />
+          <entry key="Bash" value="8" />
           <entry key="CSS" value="1" />
           <entry key="Dockerfile" value="4" />
           <entry key="Git file" value="5" />
           <entry key="JSON" value="13" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="421" />
+          <entry key="PHP" value="440" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="SCSS" value="11" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="SmartyConfig" value="3" />
-          <entry key="Twig" value="51" />
+          <entry key="Twig" value="55" />
           <entry key="XML" value="7" />
-          <entry key="YAML" value="56" />
+          <entry key="YAML" value="57" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
@@ -152,37 +135,37 @@
           <entry key="json" value="2" />
           <entry key="local" value="55" />
           <entry key="mailer_example" value="2" />
-          <entry key="php" value="29623" />
+          <entry key="php" value="31284" />
           <entry key="scss" value="501" />
-          <entry key="sh" value="707" />
-          <entry key="twig" value="3172" />
+          <entry key="sh" value="710" />
+          <entry key="twig" value="3418" />
           <entry key="txt" value="37" />
           <entry key="validator_example" value="167" />
-          <entry key="yaml" value="1576" />
+          <entry key="yaml" value="1590" />
           <entry key="yml" value="698" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="209" />
-          <entry key="Bash" value="707" />
+          <entry key="Bash" value="710" />
           <entry key="CSS" value="43" />
           <entry key="Dockerfile" value="94" />
           <entry key="HTML" value="14" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="56" />
-          <entry key="PHP" value="29784" />
+          <entry key="PHP" value="31445" />
           <entry key="PLAIN_TEXT" value="389" />
           <entry key="SCSS" value="501" />
           <entry key="SmartyConfig" value="52" />
-          <entry key="Twig" value="3172" />
+          <entry key="Twig" value="3418" />
           <entry key="XML" value="94" />
-          <entry key="YAML" value="2274" />
+          <entry key="YAML" value="2288" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
         <counts>
-          <entry key="PHP Class.type" value="37" />
+          <entry key="PHP Class.type" value="38" />
           <entry key="PHP Interface.type" value="4" />
         </counts>
       </usages-collector>
@@ -193,8 +176,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="31" column="68" lean-forward="true" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+            <state relative-caret-position="334">
+              <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
               <folding>
                 <element signature="e#127#156#0#PHP" expanded="true" />
               </folding>
@@ -203,10 +186,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="470" column="44" lean-forward="true" selection-start-line="470" selection-start-column="44" selection-end-line="470" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core_d.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="299" column="9" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DBAL/Types/EmailType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+              <folding>
+                <element signature="e#116#141#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/Sender/AbstractSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+            <state relative-caret-position="263">
+              <caret line="65" column="37" lean-forward="true" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
               <folding>
                 <element signature="e#120#140#0#PHP" expanded="true" />
               </folding>
@@ -215,55 +228,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+        <entry file="file://$PROJECT_DIR$/vendor/symfony/mime/Address.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="447" column="19" selection-start-line="447" selection-start-column="19" selection-end-line="447" selection-end-column="19" />
+            <state relative-caret-position="131">
+              <caret line="40" column="47" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/symfony/mime/Email.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="118" column="5" lean-forward="true" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Profile/EmailController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
               <folding>
-                <element signature="e#9765#10257#0#PHP" />
-                <element signature="e#10302#10542#0#PHP" />
+                <element signature="e#124#158#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/emails/change_email.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Service/Sender/EmailChangingSender.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="238">
+              <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
               <folding>
-                <element signature="e#119#139#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/emails/signup.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Service/PasswordEncoder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-              <folding>
-                <element signature="e#113#182#0#PHP" expanded="true" />
+                <element signature="e#127#147#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -272,32 +272,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/services.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Service/Sender/SignUpTokenSender.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-              <folding>
-                <element signature="e#120#140#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Service/Sender/PasswordResetSender.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-              <folding>
-                <element signature="e#120#140#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="245">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -306,9 +282,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user&quot;`</find>
-      <find>pm_index</find>
-      <find>has</find>
       <find>render</find>
       <find>User is already signed up</find>
       <find>User is</find>
@@ -336,6 +309,9 @@
       <find>getNet</find>
       <find>brea</find>
       <find>t</find>
+      <find>Changing</find>
+      <find>clear</find>
+      <find>newCon</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -364,14 +340,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/outer.html.twig" />
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/PasswordResetController.php" />
-        <option value="$PROJECT_DIR$/src/Service/PasswordResetSender.php" />
-        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/templates/password_reset/request.html.twig" />
-        <option value="$PROJECT_DIR$/templates/password_reset/confirm.html.twig" />
-        <option value="$PROJECT_DIR$/build.sh" />
         <option value="$PROJECT_DIR$/.env.local" />
         <option value="$PROJECT_DIR$/vendor/.env" />
         <option value="$PROJECT_DIR$/config/packages/assets.yaml" />
@@ -387,7 +355,6 @@
         <option value="$PROJECT_DIR$/src/UseCase/Role/Handler.php" />
         <option value="$PROJECT_DIR$/src/Command/UserRoleCommand.php" />
         <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
-        <option value="$PROJECT_DIR$/templates/profile/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Widget/UserStatusWidget.php" />
         <option value="$PROJECT_DIR$/templates/widget/user_status.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/knpu_oauth2_client.yaml" />
@@ -397,24 +364,33 @@
         <option value="$PROJECT_DIR$/assets/css/app.scss" />
         <option value="$PROJECT_DIR$/assets/css/_variables.scss" />
         <option value="$PROJECT_DIR$/src/UseCase/Email/Request/Command.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Email/Request/FormType.php" />
         <option value="$PROJECT_DIR$/src/Service/SignUpTokenSender.php" />
         <option value="$PROJECT_DIR$/src/Service/Sender/AbstractMailerSender.php" />
-        <option value="$PROJECT_DIR$/src/Service/Sender/AbstractSender.php" />
         <option value="$PROJECT_DIR$/src/Service/Sender/PasswordResetSender.php" />
         <option value="$PROJECT_DIR$/src/Service/Sender/SignUpTokenSender.php" />
         <option value="$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Request/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/PasswordReset/Confirm/Handler.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Service/PasswordEncoder.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/templates/emails/email_change.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/Sender/EmailChangeSender.php" />
         <option value="$PROJECT_DIR$/src/Service/Sender/EmailChangingSender.php" />
+        <option value="$PROJECT_DIR$/alter.sh" />
+        <option value="$PROJECT_DIR$/src/Model/User/Token.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php" />
+        <option value="$PROJECT_DIR$/src/Exception/DomainException.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Profile/EmailController.php" />
+        <option value="$PROJECT_DIR$/templates/profile/email/request.html.twig" />
+        <option value="$PROJECT_DIR$/templates/mail.html.twig" />
+        <option value="$PROJECT_DIR$/templates/emails/change_email.html.twig" />
+        <option value="$PROJECT_DIR$/templates/profile/index.html.twig" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/Service/Sender/AbstractSender.php" />
+        <option value="$PROJECT_DIR$/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/DBAL/Types/EmailType.php" />
       </list>
     </option>
   </component>
@@ -570,7 +546,7 @@
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -599,6 +575,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -609,24 +586,25 @@
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DBAL" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DBAL" type="462c0819:PsiDirectoryNode" />
+              <item name="Types" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -645,19 +623,19 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/src/Model/User" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/templates/emails" />
+      <recent name="$PROJECT_DIR$/src/UseCase/Email/Request" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Service/Sender" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates/emails" />
       <recent name="$PROJECT_DIR$/templates/registration" />
       <recent name="$PROJECT_DIR$/tests/UseCase" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/emails" />
-      <recent name="$PROJECT_DIR$/src/UseCase/Email/Request" />
-      <recent name="$PROJECT_DIR$/src/UseCase/Email/Confirm" />
-      <recent name="$PROJECT_DIR$/vendor" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -679,7 +657,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2074392" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21030043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -692,8 +670,8 @@
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.35783133" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.6223176" visible="true" weight="0.4939759" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.37768242" side_tool="true" weight="0.4939759" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -711,99 +689,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Intermediate commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Command/UserConfirmCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="31" column="44" selection-start-line="31" selection-end-line="31" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Role/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/console/Command/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="157" column="7" selection-start-line="157" selection-start-column="7" selection-end-line="157" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command/UserRoleCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="5" />
-          <folding>
-            <element signature="e#113#133#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Network.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#45#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Widget/UserStatusWidget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
-          <folding>
-            <element signature="e#112#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/widget/user_status.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/knpu_oauth2_client.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -843,9 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          <folding>
-            <element signature="e#1416#1660#2" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,20 +774,6 @@
     <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Command.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/options-resolver/OptionsResolver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -925,16 +793,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/PasswordReset/Confirm/Command.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Request/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="e#127#152#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/twig-bridge/Mime/TemplatedEmail.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -957,20 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/mime/Email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2400">
-          <caret line="173" column="20" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/SignUp/Request/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-          <folding>
-            <element signature="e#128#157#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -984,9 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="573">
           <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding>
-            <element signature="e#135#155#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -997,57 +842,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/emails/signup.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Sender/PasswordResetSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-          <folding>
-            <element signature="e#120#140#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/PasswordEncoder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="645">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
           <folding>
             <element signature="e#113#182#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="447" column="19" selection-start-line="447" selection-start-column="19" selection-end-line="447" selection-end-column="19" />
-          <folding>
-            <element signature="e#9765#10257#0#PHP" />
-            <element signature="e#10302#10542#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Sender/AbstractSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-          <folding>
-            <element signature="e#120#140#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/Sender/SignUpTokenSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="345">
           <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
             <element signature="e#120#140#0#PHP" expanded="true" />
@@ -1055,36 +869,190 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Sender/PasswordResetSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding>
+            <element signature="e#120#140#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alter.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/User/Token.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Confirm/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exception/DomainException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile/email/request.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/change_email.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Request/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="e#127#152#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Sender/EmailChangingSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="e#119#139#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/mime/Email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="118" column="5" lean-forward="true" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/mime/Address.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Request/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="68" lean-forward="true" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+        <state relative-caret-position="334">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
           <folding>
             <element signature="e#127#156#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/emails/signup.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Service/Sender/AbstractSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/emails/change_email.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Sender/EmailChangingSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+        <state relative-caret-position="263">
+          <caret line="65" column="37" lean-forward="true" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
           <folding>
-            <element signature="e#119#139#0#PHP" expanded="true" />
+            <element signature="e#120#140#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Profile/EmailController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+          <folding>
+            <element signature="e#124#158#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core_d.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="299" column="9" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Email/Confirm/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+          <folding>
+            <element signature="e#127#147#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="470" column="44" lean-forward="true" selection-start-line="470" selection-start-column="44" selection-end-line="470" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBAL/Types/EmailType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <folding>
+            <element signature="e#116#141#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

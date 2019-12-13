@@ -30,9 +30,11 @@ class Command
     /**
      * Command constructor.
      * @param string $id
+     * @param string $token
      */
-    public function __construct(string $id)
+    public function __construct(string $id, string $token)
     {
         $this->id = $id;
+        $this->token = $token;
     }
 }

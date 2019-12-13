@@ -34,9 +34,9 @@ class EmailType extends StringType
      *
      * @param mixed $value
      * @param AbstractPlatform $platform
-     * @return string
+     * @return null|string
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): string
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
         return $value instanceof Email ? $value->getValue() : $value;
     }
