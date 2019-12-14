@@ -7,6 +7,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Exception\DomainException;
 use App\Security\FormLoginAuthenticator;
 use App\UseCase\SignUp;
 use Psr\Log\LoggerInterface;
@@ -64,7 +65,7 @@ class RegistrationController extends AbstractController
                 $command->plainPassword = $form->get('plainPassword')->getData();
                 $handler->handle($command);
                 $this->addFlash('success', 'Check your email.');
-            } catch (\DomainException $e) {
+            } catch (DomainException $e) {
                 $this->logger->error($e->getMessage(), ['exception' => $e]);
                 $this->addFlash('error', $this->translator->trans($e->getMessage(), [], 'exceptions'));
             }

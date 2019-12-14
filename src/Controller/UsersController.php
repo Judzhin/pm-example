@@ -29,7 +29,7 @@ class UsersController extends AbstractController
     }
 
     /**
-     * @Route("/users", name="users")
+     * @Route("/users", name="pm_users")
      */
     public function index()
     {

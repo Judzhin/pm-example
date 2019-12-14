@@ -6,6 +6,7 @@
     <option name="directoryToApp" value="src" />
     <option name="pluginEnabled" value="true" />
     <option name="profilerLocalEnabled" value="true" />
+    <option name="profilerLocalUrl" value="http://127.0.0.1:3107" />
     <option name="profilerCsvPath" value="var/cache/dev/profiler/index.csv" />
     <option name="containerFiles">
       <list>
