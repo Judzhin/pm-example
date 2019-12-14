@@ -18,7 +18,32 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(registrationForm.firstName, {'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'First Name'
+                        }}) }}
+                        {{ form_errors(registrationForm.firstName) }}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        {{ form_widget(registrationForm.lastName, {'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Last Name'
+                        }}) }}
+                        {{ form_errors(registrationForm.lastName) }}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        {{ form_widget(registrationForm.email, {'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Email'
+                        }}) }}
                         {{ form_errors(registrationForm.email) }}
                     </div>
 
@@ -28,7 +53,10 @@
                                 <i class="icon-lock"></i>
                             </span>
                         </div>
-                        {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(registrationForm.plainPassword, {'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Password'
+                        }}) }}
                         {{ form_errors(registrationForm.plainPassword) }}
                     </div>
 
@@ -42,7 +70,7 @@
                     <div class="card-footer p-4">
                         <div class="row">
                             <div class="col-12">
-                                <a href="{{ path('pm-oauth-facebook') }}" class="btn btn-block btn-facebook">
+                                <a href="{{ path('pm_facebook_connect') }}" class="btn btn-block btn-facebook">
                                     <span>facebook</span>
                                 </a>
                             </div>

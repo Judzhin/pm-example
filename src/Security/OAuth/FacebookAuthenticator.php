@@ -6,6 +6,7 @@
 
 namespace App\Security\OAuth;
 
+use App\Entity\Name;
 use App\UseCase\SignUp\Network\Command;
 use App\UseCase\SignUp\Network\Handler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -106,7 +107,17 @@ class FacebookAuthenticator extends SocialAuthenticator
         try {
             return $userProvider->loadUserByUsername($username);
         } catch (UsernameNotFoundException $exception) {
-            $this->handler->handle(new Command('facebook', $facebookUser->getId()));
+
+            /** @var Command $command */
+            $command = new Command(
+                'facebook',
+                $facebookUser->getId()
+            );
+            $command->name = new Name(
+                $facebookUser->getFirstName(),
+                $facebookUser->getLastName()
+            );
+            $this->handler->handle($command);
             return $userProvider->loadUserByUsername($username);
         }
 

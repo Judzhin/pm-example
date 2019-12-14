@@ -4,16 +4,23 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp\Request;
+namespace App\UseCase\Name;
 
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Command
- * @package App\UseCase\SignUp\Request
+ * @package App\UseCase\Name
  */
 class Command
 {
+    /**
+     * @var UuidInterface
+     * @Assert\NotBlank()
+     */
+    public $id;
+
     /**
      * @var string
      * @Assert\NotBlank()
@@ -27,16 +34,11 @@ class Command
     public $lastName;
 
     /**
-     * @var string
-     * @Assert\NotBlank()
-     * @Assert\Email()
+     * Command constructor.
+     * @param UuidInterface $id
      */
-    public $email;
-
-    /**
-     * @var string
-     * @Assert\NotBlank()
-     * @Assert\Length(min=6)
-     */
-    public $plainPassword;
+    public function __construct(UuidInterface $id)
+    {
+        $this->id = $id;
+    }
 }

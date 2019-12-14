@@ -4,16 +4,20 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\SignUp\Confirm;
+namespace App\UseCase\Name;
 
+use App\Entity\EmbeddedToken;
+use App\Entity\Name;
 use App\Entity\User;
 use App\Exception\DomainException;
+use App\Model\User\Email;
+use App\Service\PasswordEncoder;
+use App\Service\Sender\SignUpTokenSender;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\SignUp\Request
+ * @package App\UseCase\Name
  */
 class Handler
 {
@@ -22,6 +26,7 @@ class Handler
 
     /**
      * Handler constructor.
+     *
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
@@ -31,18 +36,16 @@ class Handler
 
     /**
      * @param Command $command
-     * @return User
      */
-    public function handle(Command $command): User
+    public function handle(Command $command): void
     {
-        /** @var UserInterface|User $user */
-        if (!$user = $this->em->getRepository(User::class)->findOneBy(['confirmToken.value' => $command->token])) {
-            throw DomainException::incorrectOrConfirmedToken();
-        }
-
-        $user->confirmSignUp();
+        /** @var User $user */
+        $user = $this->em->find(User::class, $command->id);
+        $user->setName(new Name(
+            $command->firstName,
+            $command->lastName
+        ));
+        $this->em->persist($user);
         $this->em->flush();
-
-        return $user;
     }
 }

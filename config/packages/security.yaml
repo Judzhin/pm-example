@@ -64,5 +64,7 @@ security:
   - { path: ^/password-reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
   - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
   - { path: ^/signup, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+  - { path: ^/connect/facebook, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+  - { path: ^/connect/facebook/check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
   # - { path: ^/, roles: IS_AUTHENTICATED_FULLY } #
   - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER] }

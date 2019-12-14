@@ -6,8 +6,10 @@
 
 namespace App\UseCase\SignUp\Network;
 
+use App\Entity\Name;
 use App\Entity\Network;
 use App\Entity\User;
+use App\Exception\DomainException;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -40,11 +42,17 @@ class Handler
             ->setIdentity($command->identity);
 
         if ($this->em->getRepository(User::class)->findOneByNetwork($network)) {
-            throw new \DomainException('User already exists.');
+            throw DomainException::userAlreadyExists();
         }
 
         /** @var User $user */
-        $user = User::signUpByNetwork($network);
+        $user = User::signUpByNetwork(
+            new Name(
+                $command->firstName,
+                $command->lastName
+            ),
+            $network
+        );
 
         $this->em->persist($user);
         $this->em->flush();

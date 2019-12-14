@@ -6,6 +6,8 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Security\FormLoginAuthenticator;
 use App\UseCase\SignUp;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,6 +15,8 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -45,9 +49,6 @@ class RegistrationController extends AbstractController
      * @param SignUp\Request\Handler $handler
      * @return Response
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
      */
     public function register(Request $request, SignUp\Request\Handler $handler): Response
     {
@@ -79,21 +80,39 @@ class RegistrationController extends AbstractController
      *
      * @param string $token
      * @param SignUp\Confirm\Handler $handler
+     * @param GuardAuthenticatorHandler $guardAuthenticatorHandler
+     * @param UserProviderInterface $userProvider
+     * @param Request $request
+     * @param FormLoginAuthenticator $loginAuthenticator
      * @return Response
-     * @throws \Exception
      */
-    public function confirm(string $token, SignUp\Confirm\Handler $handler): Response
+    public function confirm(
+        string $token, SignUp\Confirm\Handler $handler,
+        GuardAuthenticatorHandler $guardAuthenticatorHandler,
+        UserProviderInterface $userProvider,
+        Request $request,
+        FormLoginAuthenticator $loginAuthenticator
+    ): Response
     {
         /** @var SignUp\Confirm\Command $command */
         $command = new SignUp\Confirm\Command($token);
 
         try {
-            $handler->handle($command);
-            $this->addFlash('success', 'Email is successfully confirmed.');
+            /** @var User $user */
+            $user = $handler->handle($command);
+            return $guardAuthenticatorHandler->authenticateUserAndHandleSuccess(
+                $userProvider->loadUserByUsername($user->getEmail()->getValue()),
+                $request,
+                $loginAuthenticator,
+                'main'
+            );
+
+            // $this->addFlash('success', 'Email is successfully confirmed.');
         } catch (\DomainException $e) {
-            $this->logger->error($e->getMessage(), ['exception' => $e]);
+            $this->logger->error($message = $e->getMessage(), ['exception' => $e]);
+            $this->addFlash('error', $message);
         }
 
-        return $this->redirectToRoute('pm_home');
+        return $this->redirectToRoute('pm_register');
     }
 }

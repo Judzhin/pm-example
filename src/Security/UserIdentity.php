@@ -25,6 +25,9 @@ class UserIdentity implements UserInterface, EquatableInterface
     /** @var string */
     private $password;
 
+    /** @var string */
+    private $display;
+
     /** @var array */
     private $roles;
 
@@ -36,14 +39,23 @@ class UserIdentity implements UserInterface, EquatableInterface
      * @param string $id
      * @param string $email
      * @param string $password
+     * @param string $display
      * @param array $roles
      * @param string $status
      */
-    public function __construct(string $id, string $email, string $password, array $roles, string $status)
+    public function __construct(
+        string $id,
+        string $email,
+        string $password,
+        string $display,
+        array $roles,
+        string $status
+    )
     {
         $this->id = $id;
         $this->email = $email;
         $this->password = $password;
+        $this->display = $display;
         $this->roles = $roles;
         $this->status = $status;
     }
@@ -62,6 +74,14 @@ class UserIdentity implements UserInterface, EquatableInterface
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplay(): string
+    {
+        return $this->display;
     }
 
     public function getSalt()

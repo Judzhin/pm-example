@@ -18,6 +18,15 @@
             <table class="table table-bordered mb-0">
                 <tbody>
                     <tr>
+                        <th>Name</th>
+                        <td>
+                            {{ user.name }}
+                            <a href="{{ path('pm_profile_name') }}" class="btn btn-link success">
+                                <i class="icon-pencil"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>ID</th>
                         <td>{{ user.id }}</td>
                     </tr>
@@ -30,7 +39,9 @@
                             <th>Email</th>
                             <td>
                                 {{ user.email }}
-                                <a href="{{ path('pm_profile_email') }}">change email</a>
+                                <a href="{{ path('pm_profile_email') }}" class="btn btn-link success">
+                                    <i class="icon-pencil"></i>
+                                </a>
                             </td>
                         </tr>
                     {% endif %}

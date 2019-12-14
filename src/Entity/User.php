@@ -42,6 +42,12 @@ class User implements UserInterface
     private $email = null;
 
     /**
+     * @var Name
+     * @ORM\Embedded(class="App\Entity\Name")
+     */
+    private $name;
+
+    /**
      * @var Email|null
      * @ORM\Column(type="email", length=180, unique=true, nullable=true)
      */
@@ -105,12 +111,17 @@ class User implements UserInterface
     /**
      * User constructor.
      * @param UuidInterface|null $id
+     * @param Name|null $name
      * @throws \Exception
      */
-    public function __construct(UuidInterface $id = null)
+    public function __construct(UuidInterface $id = null, Name $name = null)
     {
-        if (null !== $id) {
+        if ($id) {
             $this->setId($id);
+        }
+
+        if ($name) {
+            $this->setName($name);
         }
 
         $this->createdAt = new \DateTimeImmutable;
@@ -150,6 +161,24 @@ class User implements UserInterface
     public function setEmail(Email $email = null): self
     {
         $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return Name
+     */
+    public function getName(): Name
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param Name $name
+     * @return User
+     */
+    public function setName(Name $name): User
+    {
+        $this->name = $name;
         return $this;
     }
 
@@ -361,16 +390,18 @@ class User implements UserInterface
     }
 
     /**
+     * @param Name $name
      * @param Email $email
      * @param string $password
      * @param EmbeddedToken|null $confirmToken
      * @return User
      * @throws \Exception
      */
-    public static function signUpByEmail(Email $email, string $password, EmbeddedToken $confirmToken = null): self
+    public static function signUpByEmail(Name $name, Email $email, string $password, EmbeddedToken $confirmToken = null): self
     {
         /** @var UserInterface $user */
         $user = new self;
+        $user->name = $name;
         $user->email = $email;
         $user->password = $password;
         $user->confirmToken = $confirmToken ?? EmbeddedToken::create();
@@ -394,13 +425,16 @@ class User implements UserInterface
     }
 
     /**
+     * @param Name $name
      * @param Network $network
      * @return User
      * @throws \Exception
      */
-    public static function signUpByNetwork(Network $network): self
+    public static function signUpByNetwork(Name $name, Network $network): self
     {
+        /** @var self $user */
         $user = new self;
+        $user->name = $name;
         $user->attachNetwork($network);
         $user->status = self::STATUS_DONE;
 

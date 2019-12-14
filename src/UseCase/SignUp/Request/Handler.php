@@ -7,7 +7,9 @@
 namespace App\UseCase\SignUp\Request;
 
 use App\Entity\EmbeddedToken;
+use App\Entity\Name;
 use App\Entity\User;
+use App\Exception\DomainException;
 use App\Model\User\Email;
 use App\Service\PasswordEncoder;
 use App\Service\Sender\SignUpTokenSender;
@@ -52,14 +54,17 @@ class Handler
         $email = new Email($command->email);
 
         if ($this->em->getRepository(User::class)->findOneByEmail($email)) {
-            throw new \DomainException('User already exists.');
+            throw DomainException::userAlreadyExists();
         }
 
         /** @var User $user */
         $user = User::signUpByEmail(
+            new Name(
+                $command->firstName,
+                $command->lastName
+            ),
             $email,
-            $this->passwordEncoder->encodePassword($command->plainPassword),
-            EmbeddedToken::create()
+            $this->passwordEncoder->encodePassword($command->plainPassword)
         );
 
         $this->em->persist($user);
