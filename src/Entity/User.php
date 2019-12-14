@@ -379,7 +379,8 @@ class User implements UserInterface
      */
     public function isWait(): bool
     {
-        return self::STATUS_WAIT === $this->status;
+        return $this->isUndefined()
+            || self::STATUS_WAIT === $this->status;
     }
 
     /**
@@ -412,11 +413,12 @@ class User implements UserInterface
     }
 
     /**
+     * @param bool $silent
      * @return User
      */
-    public function confirm(): self
+    public function confirm($silent = false): self
     {
-        if (!$this->isWait()) {
+        if (!$silent && !$this->isWait()) {
             throw DomainException::userIsAlreadyConfirmed();
         }
 

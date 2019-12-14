@@ -1,5 +1,4 @@
 // @import "~bootstrap/dist/css/bootstrap.css"; included in coreui
-
 @import "variables";
 @import "~@coreui/coreui/scss/coreui";
 @import "~simple-line-icons/scss/simple-line-icons";
@@ -15,6 +14,26 @@ main {
   .container-fluid {
     padding: 0 20px;
   }
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  & > * {
+    margin-right: 4px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.box {
+  background-color: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .footer {

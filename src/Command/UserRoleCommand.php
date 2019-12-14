@@ -85,7 +85,9 @@ class UserRoleCommand extends Command
         $roles = [RoleValue::USER, RoleValue::ADMIN];
 
         /** @var string $role */
-        $command->role = $helper->ask($input, $output, new ChoiceQuestion('Role:', $roles, 0));
+        $command->roles = [
+            $helper->ask($input, $output, new ChoiceQuestion('Role:', $roles, 0))
+        ];
 
         /** @var  $violations */
         $violations = $this->validator->validate($command);

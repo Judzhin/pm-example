@@ -12,10 +12,10 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class UserStatusWidget
+ * Class UserRolesWidget
  * @package App\Widget
  */
-class UserStatusWidget extends AbstractExtension
+class UserRolesWidget extends AbstractExtension
 {
     /**
      * @inheritdoc
@@ -26,7 +26,7 @@ class UserStatusWidget extends AbstractExtension
     {
         return [
             new TwigFunction(
-                'user_status', [
+                'user_roles', [
                 $this,
                 'onInvoke',
             ], [
@@ -52,9 +52,9 @@ class UserStatusWidget extends AbstractExtension
     public function onInvoke(Environment $twig, User $user): string
     {
         return $twig->render(
-            'widget/user_status.html.twig',
+            'widget/user_roles.html.twig',
             [
-                'status' => $user->getStatus(),
+                'roles' => $user->getRoles(),
             ]
         );
     }

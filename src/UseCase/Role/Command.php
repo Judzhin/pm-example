@@ -25,7 +25,7 @@ class Command
      * @var string
      * @Assert\NotBlank()
      */
-    public $role;
+    public $roles;
 
     /**
      * Command constructor.
@@ -34,5 +34,17 @@ class Command
     public function __construct(User $user)
     {
         $this->id = $user->getId();
+    }
+
+    /**
+     * @param User $user
+     * @return Command
+     */
+    public static function parse(User $user): self
+    {
+        /** @var self $command */
+        $command = new self($user);
+        $command->roles = $user->getRoles();
+        return $command;
     }
 }

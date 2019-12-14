@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ path('pm_home') }}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ path('pm_users') }}">Users</a>
+        </li>
+        <li class="breadcrumb-item active">Profile</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    {% set id = user.id %}
+
+    <div class="controls">
+        <a href="{{ path('pm_user_edit', {'id' : id}) }}" class="btn btn-success btn-sm">
+            Edit User
+        </a>
+        <a href="{{ path('pm_user_roles', {'id' : id}) }}" class="btn btn-primary btn-sm">
+            Change Roles
+        </a>
+    </div>
+
+    <div class="box">
+        <table class="table table-bordered mb-0">
+            <tbody>
+            <tr>
+                <th>Name</th>
+                <td>
+                    {{ user.name }}
+                </td>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <td>{{ id }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% if user.email %}
+                <tr>
+                    <th>Email</th>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>Roles</th>
+                <td>
+
+                    {{ user_roles(user) }}
+
+                    {#<ul>#}
+                        {#{% for role in user.roles %}#}
+                            {#<li>{{ role }}</li>#}
+                        {#{% endfor %}#}
+                    {#</ul>#}
+                </td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ user_status(user) }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {% if user.networks %}
+        <div class="card">
+            <table class="table table-bordered mb-0">
+                <tbody>
+                {% for network in user.networks %}
+                    <tr>
+                        <th>{{ network.network }}</th>
+                        <td>{{ network.identity }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endblock %}

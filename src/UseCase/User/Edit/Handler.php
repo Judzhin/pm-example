@@ -4,16 +4,16 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Role;
+namespace App\UseCase\User\Edit;
 
+use App\Entity\Name;
 use App\Entity\User;
-use App\Model\Role;
+use App\Model\User\Email;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\Role
+ * @package App\UseCase\User\Edit
  */
 class Handler
 {
@@ -33,12 +33,20 @@ class Handler
      * @param Command $command
      * @throws \Exception
      */
-    public function handle(Command $command): void
+    public function handle(Command $command)
     {
-        /** @var UserInterface|User $user */
+        /** @var User $user */
         $user = $this->em->find(User::class, $command->id);
-        // $user->changeRole(new Role($command->role));
-        $user->setRoles($command->roles);
+
+        $user
+            ->setEmail(new Email($command->email))
+            ->setName(
+                new Name(
+                    $command->firstName,
+                    $command->lastName
+                )
+            );
+
         $this->em->flush();
     }
 }

@@ -25,6 +25,14 @@ class DomainException extends \DomainException
     /**
      * @return DomainException
      */
+    public static function userWithThisEmailAlreadyExists(): self
+    {
+        return self::create('User with this email already exists.');
+    }
+
+    /**
+     * @return DomainException
+     */
     public static function userAlreadyExists(): self
     {
         return self::create('User already exists.');
