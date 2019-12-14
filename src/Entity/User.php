@@ -6,6 +6,7 @@
 
 namespace App\Entity;
 
+use App\Exception\DomainException;
 use App\Model\Role;
 use App\Model\User\Email;
 use App\Model\User\Token;
@@ -413,10 +414,10 @@ class User implements UserInterface
     /**
      * @return User
      */
-    public function confirmSignUp(): self
+    public function confirm(): self
     {
         if (!$this->isWait()) {
-            throw new \DomainException('User is already confirmed.');
+            throw DomainException::userIsAlreadyConfirmed();
         }
 
         $this->status = self::STATUS_DONE;

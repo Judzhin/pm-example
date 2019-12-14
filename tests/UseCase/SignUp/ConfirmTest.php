@@ -68,7 +68,7 @@ class ConfirmTest extends TestCase
         /** @var User $user */
         $user = $this->prophesize(User::class);
         $user
-            ->confirmSignUp()
+            ->confirm()
             ->willReturn($user);
 
         $this->repository

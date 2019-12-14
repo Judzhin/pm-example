@@ -40,7 +40,7 @@ class Handler
             throw DomainException::incorrectOrConfirmedToken();
         }
 
-        $user->confirmSignUp();
+        $user->confirm();
         $this->em->flush();
 
         return $user;

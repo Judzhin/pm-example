@@ -62,7 +62,7 @@ class UserConfirmCommand extends Command
             throw new \LogicException('User is not found.');
         }
 
-        $user->confirmSignUp();
+        $user->confirm();
         $output->writeln('<info>Done!</info>>');
     }
 

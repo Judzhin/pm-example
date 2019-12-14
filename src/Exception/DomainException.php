@@ -13,6 +13,15 @@ namespace App\Exception;
  */
 class DomainException extends \DomainException
 {
+
+    /**
+     * @return DomainException
+     */
+    public static function userIsAlreadyConfirmed(): self
+    {
+        return self::create('User is already confirmed.');
+    }
+
     /**
      * @return DomainException
      */

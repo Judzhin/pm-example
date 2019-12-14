@@ -9,4 +9,5 @@ return [
     'User is not found.' => 'Пользователь не найден.',
     'Incorrect or confirmed token.' => 'Некорректный или уже активированный токен.',
     'User already exists.' => 'Пользователь уже существует.',
+    'Date' => 'Дата',
 ];

@@ -44,7 +44,7 @@ class UserFixtures extends Fixture
                 EmbeddedToken::create()
             );
 
-            $user->confirmSignUp();
+            $user->confirm();
             $user->setRoles(['ROLE_ADMIN']);
 
             $manager->persist($user);

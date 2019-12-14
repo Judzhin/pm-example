@@ -113,7 +113,7 @@ class UserBuilder
             );
 
             if ($this->confirmed) {
-                $object->confirmSignUp();
+                $object->confirm();
             }
 
         }
