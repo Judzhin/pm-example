@@ -2,6 +2,10 @@
     <span class="badge badge-secondary">
         Wait
     </span>
+{% elseif 'LOCK' == status %}
+    <span class="badge badge-warning">
+        Locked
+    </span>
 {% elseif 'DONE' == status %}
     <span class="badge badge-success">
         Active

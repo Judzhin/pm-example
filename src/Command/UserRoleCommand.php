@@ -7,6 +7,7 @@
 namespace App\Command;
 
 use App\Entity\User;
+use App\Exception\LogicException;
 use App\Model\Role as RoleValue;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
@@ -75,7 +76,7 @@ class UserRoleCommand extends Command
 
         /** @var User $user */
         if (!$user = $this->repository->findOneByEmail($email)) {
-            throw new \LogicException('User is not found.');
+            throw LogicException::userIsNotFound();
         }
 
         /** @var Role\Command $command */

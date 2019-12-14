@@ -6,6 +6,7 @@
 
 namespace App\Model\User;
 
+use App\Exception\InvalidArgumentException;
 use Webmozart\Assert\Assert;
 
 /**
@@ -24,10 +25,8 @@ class Email
     public function __construct(string $value)
     {
         Assert::notEmpty($value);
-        $this->value = $value;
-
         if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-            throw new \InvalidArgumentException('Incorrect email');
+            throw InvalidArgumentException::incorrectEmail();
         }
 
         $this->value = mb_strtolower($value);

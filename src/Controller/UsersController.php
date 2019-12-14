@@ -10,10 +10,13 @@ use App\Entity;
 use App\Exception\DomainException;
 use App\Repository\UserRepository;
 use App\UseCase\Role;
+use App\UseCase\SignUp;
 use App\UseCase\User;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -72,6 +75,7 @@ class UsersController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $handler->handle($command);
+
                 return $this->redirectToRoute('pm_users');
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
@@ -79,9 +83,12 @@ class UsersController extends AbstractController
             }
         }
 
-        return $this->render('users/create.html.twig', [
-            'form' => $form->createView()
-        ]);
+        return $this->render(
+            'users/create.html.twig',
+            [
+                'form' => $form->createView(),
+            ]
+        );
     }
 
     /**
@@ -102,7 +109,12 @@ class UsersController extends AbstractController
         //     throw $this->createNotFoundException();
         // }
 
-        return $this->render('users/show.html.twig', compact('user'));
+        return $this->render(
+            'users/show.html.twig',
+            [
+                'user' => $user
+            ]
+        );
     }
 
     /**
@@ -127,6 +139,7 @@ class UsersController extends AbstractController
             try {
                 $handler->handle($command);
                 $this->addFlash('success', 'User was successfully updated');
+
                 return $this->redirectToRoute('pm_user_show', ['id' => $user->getId()]);
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
@@ -134,10 +147,13 @@ class UsersController extends AbstractController
             }
         }
 
-        return $this->render('users/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView()
-        ]);
+        return $this->render(
+            'users/edit.html.twig',
+            [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]
+        );
     }
 
     /**
@@ -170,6 +186,7 @@ class UsersController extends AbstractController
             try {
                 $handler->handle($command);
                 $this->addFlash('success', 'Roles was successfully updated');
+
                 return $this->redirectToRoute('pm_user_show', $parameters);
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
@@ -177,9 +194,101 @@ class UsersController extends AbstractController
             }
         }
 
-        return $this->render('users/roles.html.twig', [
-            'user' => $user,
-            'form' => $form->createView()
-        ]);
+        return $this->render(
+            'users/roles.html.twig',
+            [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]
+        );
+    }
+
+    /**
+     * @Route("/{id}/confirm", name="pm_user_confirm", methods={"POST"})
+     *
+     * @param Entity\User $user
+     * @param Request $request
+     * @return Response
+     */
+    public function confirm(Entity\User $user, Request $request): Response
+    {
+        /** @var array $parameters */
+        $parameters = ['id' => $user->getId()];
+
+        if ($user->getId()->toString() === $this->getUser()->getId()) {
+            $this->addFlash('error', 'Unable to confirm for yourself.');
+            return $this->redirectToRoute('pm_user_show', $parameters);
+        }
+
+        if ($this->isCsrfTokenValid('confirm', $request->request->get('_token'))) {
+            try {
+                $user->confirm();
+            } catch (DomainException $exception) {
+                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->addFlash('error', $message);
+            }
+        }
+
+        return $this->redirectToRoute('pm_user_show', $parameters);
+    }
+
+    /**
+     * @Route("/{id}/lock", name="pm_user_lock", methods={"POST"})
+     *
+     * @param Entity\User $user
+     * @param Request $request
+     * @return Response
+     */
+    public function lock(Entity\User $user, Request $request): Response
+    {
+        /** @var array $parameters */
+        $parameters = ['id' => $user->getId()];
+
+        if ($user->getId()->toString() === $this->getUser()->getId()) {
+            $this->addFlash('error', 'Unable to lock yourself.');
+            return $this->redirectToRoute('pm_user_show', $parameters);
+        }
+
+        if ($this->isCsrfTokenValid('lock', $request->request->get('_token'))) {
+            try {
+                $user->locking();
+                $this->getDoctrine()->getManager()->flush();
+            } catch (DomainException $exception) {
+                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->addFlash('error', $message);
+            }
+        }
+
+        return $this->redirectToRoute('pm_user_show', $parameters);
+    }
+
+    /**
+     * @Route("/{id}/unlock", name="pm_user_unlock", methods={"POST"})
+     *
+     * @param Entity\User $user
+     * @param Request $request
+     * @return Response
+     */
+    public function unlock(Entity\User $user, Request $request): Response
+    {
+        /** @var array $parameters */
+        $parameters = ['id' => $user->getId()];
+
+        if ($user->getId()->toString() === $this->getUser()->getId()) {
+            $this->addFlash('error', 'Unable to unlock yourself.');
+            return $this->redirectToRoute('pm_user_show', $parameters);
+        }
+
+        if ($this->isCsrfTokenValid('unlock', $request->request->get('_token'))) {
+            try {
+                $user->unlock();
+                $this->getDoctrine()->getManager()->flush();
+            } catch (DomainException $exception) {
+                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->addFlash('error', $message);
+            }
+        }
+
+        return $this->redirectToRoute('pm_user_show', $parameters);
     }
 }

@@ -89,6 +89,9 @@ class User implements UserInterface
     /** @const STATUS_WAIT */
     private const STATUS_WAIT = 'WAIT';
 
+    /** @const STATUS_LOCK */
+    private const STATUS_LOCK = 'LOCK';
+
     /** @const STATUS_DONE */
     public const STATUS_DONE = 'DONE';
 
@@ -386,6 +389,14 @@ class User implements UserInterface
     /**
      * @return bool
      */
+    public function isLock(): bool
+    {
+        return self::STATUS_LOCK === $this->status;
+    }
+
+    /**
+     * @return bool
+     */
     public function isActive(): bool
     {
         return self::STATUS_DONE === $this->status;
@@ -424,6 +435,34 @@ class User implements UserInterface
 
         $this->status = self::STATUS_DONE;
         $this->confirmToken = null;
+        return $this;
+    }
+
+    /**
+     * @param bool $silent
+     * @return User
+     */
+    public function locking($silent = false): self
+    {
+        if (!$silent && $this->isLock()) {
+            throw DomainException::userIsAlreadyLocked();
+        }
+
+        $this->status = self::STATUS_LOCK;
+        return $this;
+    }
+
+    /**
+     * @param bool $silent
+     * @return User
+     */
+    public function unlock($silent = false): self
+    {
+        if (!$silent && $this->isActive()) {
+            throw DomainException::userIsAlreadyUnlocked();
+        }
+
+        $this->confirm(true);
         return $this;
     }
 

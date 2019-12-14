@@ -13,13 +13,30 @@ namespace App\Exception;
  */
 class DomainException extends \DomainException
 {
+    use FactoryExceptionTrait;
 
     /**
      * @return DomainException
      */
     public static function userIsAlreadyConfirmed(): self
     {
-        return self::create('User is already confirmed.');
+        return self::factory('User is already confirmed.');
+    }
+
+    /**
+     * @return DomainException
+     */
+    public static function userIsAlreadyLocked(): self
+    {
+        return self::factory('User is already locked.');
+    }
+
+    /**
+     * @return DomainException
+     */
+    public static function userIsAlreadyUnlocked(): self
+    {
+        return self::factory('User is already unlocked.');
     }
 
     /**
@@ -27,7 +44,7 @@ class DomainException extends \DomainException
      */
     public static function userWithThisEmailAlreadyExists(): self
     {
-        return self::create('User with this email already exists.');
+        return self::factory('User with this email already exists.');
     }
 
     /**
@@ -35,7 +52,7 @@ class DomainException extends \DomainException
      */
     public static function userAlreadyExists(): self
     {
-        return self::create('User already exists.');
+        return self::factory('User already exists.');
     }
 
     /**
@@ -43,7 +60,7 @@ class DomainException extends \DomainException
      */
     public static function incorrectOrConfirmedToken(): self
     {
-        return self::create('Incorrect or confirmed token.');
+        return self::factory('Incorrect or confirmed token.');
     }
 
     /**
@@ -51,15 +68,6 @@ class DomainException extends \DomainException
      */
     public static function emailIsAlreadyInUse(): self
     {
-        return self::create('Email is already in use.');
-    }
-
-    /**
-     * @param string $message
-     * @return DomainException
-     */
-    private static function create(string $message): self
-    {
-        return new self($message);
+        return self::factory('Email is already in use.');
     }
 }

@@ -22,9 +22,37 @@
         <a href="{{ path('pm_user_edit', {'id' : id}) }}" class="btn btn-success btn-sm">
             Edit User
         </a>
-        <a href="{{ path('pm_user_roles', {'id' : id}) }}" class="btn btn-primary btn-sm">
-            Change Roles
-        </a>
+
+        {% if user.id != app.user.id %}
+
+            <a href="{{ path('pm_user_roles', {'id' : id}) }}" class="btn btn-primary btn-sm">
+                Change Roles
+            </a>
+
+            {% if user.wait %}
+                <form action="{{ path('pm_user_confirm', {'id': id}) }}" method="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token('confirm') }}">
+                    <button type="submit" class="btn btn-info btn-sm">Confirm</button>
+                </form>
+            {% else %}
+                {% if user.active %}
+                    <form action="{{ path('pm_user_lock', {'id': id}) }}" method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token('lock') }}">
+                        <button type="submit" class="btn btn-danger btn-sm">Lock</button>
+                    </form>
+                {% endif %}
+
+                {% if user.lock %}
+                    <form action="{{ path('pm_user_unlock', {'id': id}) }}" method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token('unlock') }}">
+                        <button type="submit" class="btn btn-warning btn-sm">Unlock</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+
+
     </div>
 
     <div class="box">
@@ -87,4 +115,12 @@
             </table>
         </div>
     {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script type="text/javascript">
+    </script>
 {% endblock %}

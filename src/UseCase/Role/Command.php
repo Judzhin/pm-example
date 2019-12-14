@@ -7,6 +7,7 @@
 namespace App\UseCase\Role;
 
 use App\Entity\User;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -16,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Command
 {
     /**
-     * @var null|\Ramsey\Uuid\UuidInterface
+     * @var UuidInterface
      * @Assert\NotBlank()
      */
     public $id;
