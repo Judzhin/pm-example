@@ -6,10 +6,10 @@
 namespace App\UseCase\User\Filter;
 
 /**
- * Class Command
+ * Class Filter
  * @package App\UseCase\User\Filter
  */
-class Command
+class Filter
 {
     /** @var string */
     public $name;

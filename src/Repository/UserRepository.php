@@ -10,11 +10,13 @@ use App\Entity\EmbeddedToken;
 use App\Entity\Network;
 use App\Entity\User;
 use App\Model\User\Email;
-use App\UseCase\User\Filter\Command;
+use App\UseCase\User\Filter\Filter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -30,13 +32,22 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
-    public function __construct(ManagerRegistry $registry)
+    /** @var PaginatorInterface */
+    private $paginator;
+
+    /**
+     * UserRepository constructor.
+     * @param ManagerRegistry $registry
+     * @param PaginatorInterface $paginator
+     */
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, User::class);
+        $this->paginator = $paginator;
     }
 
     /**
-     * Used to upgrade (rehash) the user's password automatically over time.
+     * @inheritdoc
      *
      * @param UserInterface $user
      * @param string $newEncodedPassword
@@ -125,19 +136,18 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     */
 
     /**
-     * @param Command $filter
-     * @param int $offset
+     * @param Filter $filter
+     * @param int $page
      * @param int $limit
-     * @return array
+     * @return PaginationInterface
      */
-    public function findPartBy(Command $filter, int $offset, int $limit): array
+    public function all(Filter $filter, int $page, int $limit): PaginationInterface
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('u');
 
         $qb
             ->orderBy('u.createdAt', 'DESC')
-            ->setFirstResult($offset)
             ->setMaxResults($limit);
 
         if ($filter->name) {
@@ -164,6 +174,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             //)->setParameter('status', $filter->status);
         }
 
-        return $qb->getQuery()->getResult();
+
+        return $this->paginator->paginate($qb, $page, $limit);
     }
 }

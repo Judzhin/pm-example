@@ -12,6 +12,7 @@ use App\Repository\UserRepository;
 use App\UseCase\Role;
 use App\UseCase\SignUp;
 use App\UseCase\User;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -49,21 +50,23 @@ class UsersController extends AbstractController
     public function index(Request $request, UserRepository $repository)
     {
 
-        /** @var User\Filter\Command $filter */
-        $filter = new User\Filter\Command;
+        /** @var User\Filter\Filter $filter */
+        $filter = new User\Filter\Filter;
         $form = $this->createForm(User\Filter\FormType::class, $filter);
         $form->handleRequest($request);
 
-        // /** @var array $users */
-         $users = $repository->findPartBy(
-             $filter, 0, 10 //$offset, $limit
-         );
+        /** @var PaginationInterface $pagination */
+        $pagination = $repository->all(
+            $filter,
+            $request->query->getInt('page', 1),
+            2
+        );
 
         return $this->render(
             'users/index.html.twig',
             [
                 'form' => $form->createView(),
-                'users' => $users,
+                'pagination' => $pagination,
             ]
         // compact('users')
         );

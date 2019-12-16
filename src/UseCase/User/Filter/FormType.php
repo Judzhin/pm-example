@@ -70,7 +70,7 @@ class FormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Command::class,
+            'data_class' => Filter::class,
             'method' => Request::METHOD_GET,
             'csrf_protection' => false
         ]);

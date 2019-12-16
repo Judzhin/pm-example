@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/UseCase/User/Filter/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/User/Filter/FormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pm-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pm-example.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/User/Filter/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/User/Filter/Filter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/User/Filter/FormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/User/Filter/FormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,12 +77,12 @@
           <entry key="gitignore" value="5" />
           <entry key="ini" value="1" />
           <entry key="js" value="7" />
-          <entry key="json" value="13" />
+          <entry key="json" value="15" />
           <entry key="lock" value="1" />
           <entry key="log" value="3" />
           <entry key="mailer_example" value="6" />
           <entry key="md" value="1" />
-          <entry key="php" value="532" />
+          <entry key="php" value="537" />
           <entry key="php-parse" value="1" />
           <entry key="phpunit" value="1" />
           <entry key="scss" value="12" />
@@ -85,12 +90,12 @@
           <entry key="simple-phpunit" value="1" />
           <entry key="sql" value="2" />
           <entry key="test" value="3" />
-          <entry key="twig" value="88" />
+          <entry key="twig" value="89" />
           <entry key="validator_example" value="4" />
           <entry key="var-dump-server" value="1" />
           <entry key="xlf" value="1" />
           <entry key="xml" value="5" />
-          <entry key="yaml" value="52" />
+          <entry key="yaml" value="53" />
           <entry key="yml" value="9" />
         </counts>
       </usages-collector>
@@ -103,18 +108,18 @@
           <entry key="CSV" value="1" />
           <entry key="Dockerfile" value="6" />
           <entry key="Git file" value="5" />
-          <entry key="JSON" value="13" />
+          <entry key="JSON" value="15" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="542" />
+          <entry key="PHP" value="547" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="SCSS" value="12" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="SmartyConfig" value="3" />
-          <entry key="Twig" value="88" />
+          <entry key="Twig" value="89" />
           <entry key="XML" value="9" />
-          <entry key="YAML" value="61" />
+          <entry key="YAML" value="62" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
@@ -130,13 +135,13 @@
           <entry key="env" value="197" />
           <entry key="ini" value="19" />
           <entry key="js" value="56" />
-          <entry key="json" value="2" />
+          <entry key="json" value="4" />
           <entry key="local" value="55" />
           <entry key="mailer_example" value="2" />
-          <entry key="php" value="38677" />
+          <entry key="php" value="38947" />
           <entry key="scss" value="645" />
           <entry key="sh" value="743" />
-          <entry key="twig" value="5083" />
+          <entry key="twig" value="5111" />
           <entry key="txt" value="37" />
           <entry key="validator_example" value="167" />
           <entry key="yaml" value="1724" />
@@ -150,13 +155,13 @@
           <entry key="CSS" value="43" />
           <entry key="Dockerfile" value="98" />
           <entry key="HTML" value="14" />
-          <entry key="JSON" value="2" />
+          <entry key="JSON" value="4" />
           <entry key="JavaScript" value="56" />
-          <entry key="PHP" value="38838" />
+          <entry key="PHP" value="39108" />
           <entry key="PLAIN_TEXT" value="393" />
           <entry key="SCSS" value="645" />
           <entry key="SmartyConfig" value="52" />
-          <entry key="Twig" value="5083" />
+          <entry key="Twig" value="5111" />
           <entry key="XML" value="94" />
           <entry key="YAML" value="2422" />
         </counts>
@@ -172,11 +177,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+            <state relative-caret-position="628">
+              <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
               <folding>
                 <element signature="e#116#131#0#PHP" expanded="true" />
               </folding>
@@ -184,26 +189,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/users/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+            <state relative-caret-position="212">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
-                <element signature="e#112#146#0#PHP" expanded="true" />
+                <element signature="n#table#0;n#div#2;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/FormType.php">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-              <folding>
-                <element signature="e#124#139#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -211,8 +213,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
+            <state relative-caret-position="325">
+              <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
               <folding>
                 <element signature="e#116#145#0#PHP" expanded="true" />
                 <element signature="e#1423#1800#0#PHP" />
@@ -227,51 +229,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+        <entry file="file://$PROJECT_DIR$/config/packages/knp_paginator.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-              <folding>
-                <element signature="e#12#617#0" />
-                <element signature="e#22#104#0" />
-                <element signature="e#558#617#0" />
-                <element signature="e#765#930#0" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/ocramius/package-versions/src/PackageVersions/FallbackVersions.php">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/Filter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-982" />
+            <state relative-caret-position="90">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/ocramius/package-versions/src/PackageVersions/Installer.php">
+        <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-components/src/Knp/Component/Pager/PaginatorInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-961" />
+            <state relative-caret-position="600">
+              <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/ocramius/package-versions/src/PackageVersions/Versions.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle/Resources/config/services.xml">
+        <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-components/src/Knp/Component/Pager/Pagination/PaginationInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4" />
+            <state relative-caret-position="296">
+              <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle/Resources/config/services.xml">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/persistence/lib/Doctrine/Common/Persistence/ManagerRegistry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="158">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/src/KnpPaginatorBundle.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -280,7 +286,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TransportInterface</find>
       <find>ROLE_ADMIN</find>
       <find>UserProvider</find>
       <find>implements UserProviderInterface</find>
@@ -310,6 +315,7 @@
       <find>Role\Han</find>
       <find>active</find>
       <find>isLo</find>
+      <find>knp_paginator</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -323,8 +329,8 @@
       <dir>$PROJECT_DIR$/vendor</dir>
       <dir>$PROJECT_DIR$/tests</dir>
       <dir>$PROJECT_DIR$/templates</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -338,9 +344,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Controller/Profile/NameController.php" />
-        <option value="$PROJECT_DIR$/templates/profile/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/profile/name.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Name.php" />
         <option value="$PROJECT_DIR$/src/Security/UserProvider.php" />
         <option value="$PROJECT_DIR$/src/Security/UserIdentity.php" />
@@ -383,12 +386,15 @@
         <option value="$PROJECT_DIR$/templates/widget/user_status.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Form/UserFilterType.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/User/Filter/Command.php" />
         <option value="$PROJECT_DIR$/src/UseCase/User/Filter/FormType.php" />
-        <option value="$PROJECT_DIR$/templates/users/index.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/User/Filter/Command.php" />
+        <option value="$PROJECT_DIR$/src/UseCase/User/Filter/Filter.php" />
         <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/config/packages/knp_paginator.yaml" />
+        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+        <option value="$PROJECT_DIR$/templates/users/index.html.twig" />
       </list>
     </option>
   </component>
@@ -542,6 +548,9 @@
       <path value="$PROJECT_DIR$/vendor/knpuniversity/oauth2-client-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/scienta/doctrine-json-functions" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -588,13 +597,8 @@
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -620,11 +624,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/packages" />
       <recent name="$PROJECT_DIR$/src/Form" />
       <recent name="$PROJECT_DIR$/src/UseCase/SignUp/Confirm" />
       <recent name="$PROJECT_DIR$/src/Widget" />
       <recent name="$PROJECT_DIR$/templates/widget" />
-      <recent name="$PROJECT_DIR$/templates/users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/UseCase/User/Filter" />
@@ -653,7 +657,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34334764" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34334764" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -666,7 +670,7 @@
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.6223176" visible="true" weight="0.4939759" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.6223176" visible="true" weight="0.4939759" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.37768242" side_tool="true" weight="0.4939759" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -685,64 +689,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Intermediate commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/users/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Create/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#125#145#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Create/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Edit/FormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Edit/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-          <folding>
-            <element signature="e#123#143#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Edit/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-          <folding>
-            <element signature="e#123#143#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Role.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -950,13 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/QueryBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -964,17 +903,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/FormType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
-          <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
           <folding>
             <element signature="e#124#139#0#PHP" expanded="true" />
           </folding>
@@ -984,7 +916,7 @@
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+          <caret line="64" column="7" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
           <folding>
             <element signature="e#112#146#0#PHP" expanded="true" />
           </folding>
@@ -1007,14 +939,19 @@
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle/Resources/config/services.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle/Resources/config/services.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+        <state relative-caret-position="135">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding>
             <element signature="e#12#617#0" />
             <element signature="e#22#104#0" />
@@ -1024,15 +961,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle/Resources/config/services.xml">
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/composer.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/src/KnpPaginatorBundle.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4" />
+        <state relative-caret-position="285">
+          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/persistence/lib/Doctrine/Common/Persistence/ManagerRegistry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-components/src/Knp/Component/Pager/Pagination/PaginationInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-components/src/Knp/Component/Pager/PaginatorInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/Filter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+          <folding>
+            <element signature="e#116#131#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
+        <state relative-caret-position="325">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
           <folding>
             <element signature="e#116#145#0#PHP" expanded="true" />
             <element signature="e#1423#1800#0#PHP" />
@@ -1045,12 +1032,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+    <entry file="file://$PROJECT_DIR$/config/packages/knp_paginator.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+        <state relative-caret-position="180">
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
-            <element signature="e#116#131#0#PHP" expanded="true" />
+            <element signature="n#table#0;n#div#2;n#!!top" />
           </folding>
         </state>
       </provider>
