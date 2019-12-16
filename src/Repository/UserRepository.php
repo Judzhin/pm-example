@@ -10,6 +10,7 @@ use App\Entity\EmbeddedToken;
 use App\Entity\Network;
 use App\Entity\User;
 use App\Model\User\Email;
+use App\UseCase\User\Filter\Command;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr\Join;
@@ -122,4 +123,47 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+
+    /**
+     * @param Command $filter
+     * @param int $offset
+     * @param int $limit
+     * @return array
+     */
+    public function findPartBy(Command $filter, int $offset, int $limit): array
+    {
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('u');
+
+        $qb
+            ->orderBy('u.createdAt', 'DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
+
+        if ($filter->name) {
+            $qb->andWhere(
+                $qb->expr()->like('LOWER(CONCAT(u.name.first, \' \', u.name.last))', ':name')
+            )->setParameter('name', '%'.mb_strtolower($filter->name).'%');
+        }
+
+        if ($filter->email) {
+            $qb->andWhere(
+                $qb->expr()->like('u.email', ':email')
+            )->setParameter('email', '%'.mb_strtolower($filter->email).'%');
+        }
+
+        if ($filter->status) {
+            $qb->andWhere(
+                $qb->expr()->in('u.status', ':status')
+            )->setParameter('status', $filter->status);
+        }
+
+        if ($filter->roles) {
+            //$qb->andWhere(
+            //
+            //)->setParameter('status', $filter->status);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -14,9 +14,7 @@ use App\UseCase\SignUp;
 use App\UseCase\User;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,15 +42,31 @@ class UsersController extends AbstractController
     /**
      * @Route("", name="pm_users")
      *
+     * @param Request $request
      * @param UserRepository $repository
      * @return Response
      */
-    public function index(UserRepository $repository)
+    public function index(Request $request, UserRepository $repository)
     {
-        /** @var array $users */
-        $users = $repository->findAll();
 
-        return $this->render('users/index.html.twig', compact('users'));
+        /** @var User\Filter\Command $filter */
+        $filter = new User\Filter\Command;
+        $form = $this->createForm(User\Filter\FormType::class, $filter);
+        $form->handleRequest($request);
+
+        // /** @var array $users */
+         $users = $repository->findPartBy(
+             $filter, 0, 10 //$offset, $limit
+         );
+
+        return $this->render(
+            'users/index.html.twig',
+            [
+                'form' => $form->createView(),
+                'users' => $users,
+            ]
+        // compact('users')
+        );
     }
 
     /**
@@ -112,7 +126,7 @@ class UsersController extends AbstractController
         return $this->render(
             'users/show.html.twig',
             [
-                'user' => $user
+                'user' => $user,
             ]
         );
     }
@@ -172,6 +186,7 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to change roles for yourself.');
+
             return $this->redirectToRoute('pm_user_show', $parameters);
         }
 
@@ -217,6 +232,7 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to confirm for yourself.');
+
             return $this->redirectToRoute('pm_user_show', $parameters);
         }
 
@@ -246,6 +262,7 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to lock yourself.');
+
             return $this->redirectToRoute('pm_user_show', $parameters);
         }
 
@@ -276,6 +293,7 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to unlock yourself.');
+
             return $this->redirectToRoute('pm_user_show', $parameters);
         }
 

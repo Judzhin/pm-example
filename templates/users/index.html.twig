@@ -19,29 +19,48 @@
         </a>
     </div>
 
+    <div class="card">
+        <div class="card-body">
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-3">{{ form_widget(form.name) }}</div>
+                    <div class="col-md-3">{{ form_widget(form.email) }}</div>
+                    <div class="col-md-2">{{ form_widget(form.status) }}</div>
+                    <div class="col-md-2">{{ form_widget(form.roles) }}</div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                        <a href="{{ path('pm_users') }}" class="btn btn-outline-secondary">Reset</a>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
     <div class="box">
         <table class="table table-bordered table-hover">
             <thead>
-                <tr>
-                    <th>{{ 'Date'|trans }}</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                </tr>
+            <tr>
+                <th>{{ 'Date'|trans }}</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Status</th>
+            </tr>
             </thead>
             <tbody>
-                {% for user in users %}
-                    <tr>
-                        <td>{{ user.createdAt|date('Y-m-d') }}</td>
-                        <td>
-                            <a href="{{ path('pm_user_show', {'id': user.id}) }}">
-                                {{ user.name }}
-                            </a>
-                        </td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user_status(user) }}</td>
-                    </tr>
-                {% endfor %}
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.createdAt|date('Y-m-d') }}</td>
+                    <td>
+                        <a href="{{ path('pm_user_show', {'id': user.id}) }}">
+                            {{ user.name }}
+                        </a>
+                    </td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user_roles(user) }}</td>
+                    <td>{{ user_status(user) }}</td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

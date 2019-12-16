@@ -87,10 +87,10 @@ class User implements UserInterface
     private const STATUS_NONE = 'NONE';
 
     /** @const STATUS_WAIT */
-    private const STATUS_WAIT = 'WAIT';
+    public const STATUS_WAIT = 'WAIT';
 
     /** @const STATUS_LOCK */
-    private const STATUS_LOCK = 'LOCK';
+    public const STATUS_LOCK = 'LOCK';
 
     /** @const STATUS_DONE */
     public const STATUS_DONE = 'DONE';
