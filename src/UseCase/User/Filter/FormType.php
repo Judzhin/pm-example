@@ -6,7 +6,7 @@
 namespace App\UseCase\User\Filter;
 
 use App\Entity;
-use App\Model;
+use App\Model\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -52,8 +52,8 @@ class FormType extends AbstractType
             ])
             ->add('roles', Type\ChoiceType::class, [
                 'choices' => [
-                    'User' => Model\Role::USER,
-                    'Admin' => Model\Role::ADMIN,
+                    'User' => User\Role::USER,
+                    'Admin' => User\Role::ADMIN,
                 ],
                 'multiple' => true,
                 'required' => false,

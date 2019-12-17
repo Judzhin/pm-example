@@ -7,7 +7,7 @@
 namespace App\Entity;
 
 use App\Exception\DomainException;
-use App\Model\Role;
+use App\Model\User\Role;
 use App\Model\User\Email;
 use App\Model\User\Token;
 use Doctrine\Common\Collections\ArrayCollection;

@@ -7,8 +7,8 @@ namespace App\Tests\UseCase\SignUp;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use App\UseCase\SignUp\Confirm\Command;
-use App\UseCase\SignUp\Confirm\Handler;
+use App\UseCase\User\SignUp\Confirm\Command;
+use App\UseCase\User\SignUp\Confirm\Handler;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use PHPUnit\Framework\TestCase;

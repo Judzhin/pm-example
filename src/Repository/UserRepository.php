@@ -96,15 +96,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $this->findOneBy(['email' => $email]);
     }
 
-    /**
-     * @param EmbeddedToken $confirmToken
-     * @return User|null
-     * @deprecated
-     */
-    public function findOneByConfirmToken(EmbeddedToken $confirmToken): ?User
-    {
-        return $this->findOneBy(['confirmToken.value' => $confirmToken->getValue()]);
-    }
+    // /**
+    //  * @param EmbeddedToken $confirmToken
+    //  * @return User|null
+    //  * @deprecated
+    //  */
+    // public function findOneByConfirmToken(EmbeddedToken $confirmToken): ?User
+    // {
+    //     return $this->findOneBy(['confirmToken.value' => $confirmToken->getValue()]);
+    // }
 
     // /**
     //  * @return User[] Returns an array of User objects

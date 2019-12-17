@@ -7,10 +7,10 @@
 namespace App\Tests\Builder\Entity;
 
 use App\Entity\EmbeddedToken;
+use App\Entity\Name;
 use App\Entity\Network;
 use App\Entity\User;
 use App\Model\User\Email;
-use http\Exception\BadMethodCallException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -23,6 +23,9 @@ class UserBuilder
 {
     /** @var UuidInterface */
     private $id;
+
+    /** @var Name */
+    private $name;
 
     /** @var Email */
     private $email;
@@ -49,6 +52,7 @@ class UserBuilder
     public function __construct()
     {
         $this->id = Uuid::uuid4();
+        $this->name = new Name('First', 'Last');
         $this->createdAt = new \DateTimeImmutable;
     }
 
@@ -107,6 +111,7 @@ class UserBuilder
 
         if ($this->email) {
             $object = User::signUpByEmail(
+                $this->name,
                 $this->email,
                 $this->password,
                 $this->confirmToken
@@ -119,7 +124,10 @@ class UserBuilder
         }
 
         if ($this->network) {
-            $object = User::signUpByNetwork($this->network);
+            $object = User::signUpByNetwork(
+                $this->name,
+                $this->network
+            );
         }
 
         if (!$object) {

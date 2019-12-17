@@ -4,16 +4,16 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Tests\UseCase\PasswordReset;
+namespace App\Tests\UseCase\User\PasswordReset;
 
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
-use App\Service\PasswordResetSender;
+use App\Service\Sender\PasswordResetSender;
 use App\Service\TokenGenerator;
-use App\UseCase\PasswordReset\Request\Command;
-use App\UseCase\PasswordReset\Request\Handler;
+use App\UseCase\User\PasswordReset\Request\Command;
+use App\UseCase\User\PasswordReset\Request\Handler;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
@@ -26,7 +26,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class RequestTest extends TestCase
 {
-
     public function testSuccess()
     {
         /** @var EntityManagerInterface|ObjectProphecy $entityManager */

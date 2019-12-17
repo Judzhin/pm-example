@@ -4,13 +4,13 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Model;
+namespace App\Model\User;
 
 use Webmozart\Assert\Assert;
 
 /**
  * Class Role
- * @package App\Model
+ * @package App\Model\User
  */
 class Role
 {

@@ -9,10 +9,10 @@ namespace App\Tests\UseCase\SignUp;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
-use App\Service\SignUpTokenSender;
+use App\Service\Sender\SignUpTokenSender;
 use App\Service\PasswordEncoder;
-use App\UseCase\SignUp\Request\Command;
-use App\UseCase\SignUp\Request\Handler;
+use App\UseCase\User\SignUp\Request\Command;
+use App\UseCase\User\SignUp\Request\Handler;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use PHPUnit\Framework\TestCase;
@@ -62,11 +62,7 @@ class RequestTest extends TestCase
 
     /**
      * @expectedException \DomainException
-     *
      * @throws TransportExceptionInterface
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
      */
     public function testFailure()
     {
@@ -97,11 +93,6 @@ class RequestTest extends TestCase
 
     /**
      * @throws TransportExceptionInterface
-     *
-     * @throws TransportExceptionInterface
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
      */
     public function testSuccess()
     {
@@ -127,6 +118,8 @@ class RequestTest extends TestCase
 
         /** @var Command $command */
         $command = new Command;
+        $command->firstName = 'First';
+        $command->lastName = 'Last';
         $command->email = $email->getValue();
         $command->plainPassword = 'secret';
 
