@@ -40,11 +40,19 @@
         <table class="table table-bordered table-hover">
             <thead>
             <tr>
-                <th>{{ 'Date'|trans }}</th>
-                <th>Name</th>
-                <th>Email</th>
+                <th>
+                    {{ knp_pagination_sortable(pagination, 'Date', 'u.createdAt') }}
+                </th>
+                <th>
+                    {{ knp_pagination_sortable(pagination, 'Name', 'u.name.first') }}
+                </th>
+                <th>
+                    {{ knp_pagination_sortable(pagination, 'Email', 'u.email') }}
+                </th>
                 <th>Roles</th>
-                <th>Status</th>
+                <th>
+                    {{ knp_pagination_sortable(pagination, 'Status', 'u.status') }}
+                </th>
             </tr>
             </thead>
             <tbody>

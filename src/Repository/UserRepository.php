@@ -146,10 +146,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('u');
 
-        $qb
-            ->orderBy('u.createdAt', 'DESC')
-            ->setMaxResults($limit);
-
         if ($filter->name) {
             $qb->andWhere(
                 $qb->expr()->like('LOWER(CONCAT(u.name.first, \' \', u.name.last))', ':name')
@@ -174,7 +170,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             //)->setParameter('status', $filter->status);
         }
 
-
-        return $this->paginator->paginate($qb, $page, $limit);
+        return $this->paginator->paginate($qb, $page, $limit, [
+            PaginatorInterface::SORT_FIELD_WHITELIST => [
+                'u.createdAt', 'u.name.first', 'u.email', 'u.status'
+            ],
+            PaginatorInterface::DEFAULT_SORT_FIELD_NAME => 'u.createdAt',
+            PaginatorInterface::DEFAULT_SORT_DIRECTION => 'desc',
+        ]);
     }
 }

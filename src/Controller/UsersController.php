@@ -28,6 +28,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UsersController extends AbstractController
 {
+    /** @const PER_PAGE */
+    private const PER_PAGE = 10;
+
     /** @var LoggerInterface */
     private $logger;
 
@@ -59,7 +62,7 @@ class UsersController extends AbstractController
         $pagination = $repository->all(
             $filter,
             $request->query->getInt('page', 1),
-            2
+            self::PER_PAGE
         );
 
         return $this->render(
@@ -68,7 +71,6 @@ class UsersController extends AbstractController
                 'form' => $form->createView(),
                 'pagination' => $pagination,
             ]
-        // compact('users')
         );
     }
 
