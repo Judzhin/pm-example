@@ -7,7 +7,7 @@
 namespace App\Controller\Profile;
 
 use App\Exception\DomainException;
-use App\UseCase\Email;
+use App\UseCase\User\Email;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;

@@ -1,10 +1,14 @@
 <?php
+/**
+ * @access protected
+ * @author Judzhin Miles <info[woof-woof]msbios.com>
+ */
 
 namespace App\Controller\Profile;
 
 use App\Entity;
 use App\Exception\DomainException;
-use App\UseCase\Name;
+use App\UseCase\User\Name;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;

@@ -11,7 +11,7 @@ use App\Exception\LogicException;
 use App\Model\Role as RoleValue;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
-use App\UseCase\Role;
+use App\UseCase\User\Role;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

@@ -9,7 +9,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Exception\DomainException;
 use App\Security\FormLoginAuthenticator;
-use App\UseCase\SignUp;
+use App\UseCase\User\SignUp;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
