@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/override/sortable_link.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/override/sortable_link.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translations/exceptions.ru.php" beforeDir="false" afterPath="$PROJECT_DIR$/translations/exceptions.ru.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +90,7 @@
           <entry key="var-dump-server" value="1" />
           <entry key="xlf" value="1" />
           <entry key="xml" value="5" />
-          <entry key="yaml" value="54" />
+          <entry key="yaml" value="55" />
           <entry key="yml" value="9" />
         </counts>
       </usages-collector>
@@ -113,7 +114,7 @@
           <entry key="SmartyConfig" value="3" />
           <entry key="Twig" value="90" />
           <entry key="XML" value="9" />
-          <entry key="YAML" value="63" />
+          <entry key="YAML" value="64" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
@@ -132,7 +133,7 @@
           <entry key="json" value="4" />
           <entry key="local" value="55" />
           <entry key="mailer_example" value="2" />
-          <entry key="php" value="39127" />
+          <entry key="php" value="39142" />
           <entry key="scss" value="645" />
           <entry key="sh" value="743" />
           <entry key="twig" value="5190" />
@@ -151,7 +152,7 @@
           <entry key="HTML" value="14" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="56" />
-          <entry key="PHP" value="39288" />
+          <entry key="PHP" value="39303" />
           <entry key="PLAIN_TEXT" value="393" />
           <entry key="SCSS" value="645" />
           <entry key="SmartyConfig" value="52" />
@@ -171,18 +172,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="67" column="29" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
-              <folding>
-                <element signature="e#116#131#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/users/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -225,11 +214,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/translations/exceptions.ru.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+            <state relative-caret-position="120">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -243,11 +232,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -334,7 +332,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/Security/UserIdentity.php" />
         <option value="$PROJECT_DIR$/src/UseCase/SignUp/Network/Handler.php" />
-        <option value="$PROJECT_DIR$/translations/exceptions.ru.php" />
         <option value="$PROJECT_DIR$/docker/php/fpm/Dockerfile" />
         <option value="$PROJECT_DIR$/docker/php/Dockerfile" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
@@ -383,6 +380,7 @@
         <option value="$PROJECT_DIR$/templates/override/sortable_link.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/knp_paginator.yaml" />
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
+        <option value="$PROJECT_DIR$/translations/exceptions.ru.php" />
       </list>
     </option>
   </component>
@@ -580,18 +578,7 @@
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="translations" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -682,13 +669,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Intermediate commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Widget/UserRolesWidget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/widget/user_roles.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -965,13 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/exceptions.ru.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/Filter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1027,6 +1000,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/exceptions.ru.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
