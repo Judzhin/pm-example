@@ -6,9 +6,9 @@
 
 namespace App\Repository;
 
-use App\Entity\EmbeddedToken;
 use App\Entity\Network;
 use App\Entity\User;
+use App\Exception\UnsupportedUserException;
 use App\Model\User\Email;
 use App\UseCase\User\Filter\Filter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -17,7 +17,7 @@ use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -53,11 +53,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      * @param string $newEncodedPassword
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Throwable
      */
     public function upgradePassword(UserInterface $user, string $newEncodedPassword): void
     {
         if (!$user instanceof User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
+            throw UnsupportedUserException::instanceAreNotSupported(\get_class($user));
         }
 
         $user->setPassword($newEncodedPassword);
