@@ -18,12 +18,13 @@
 
     {% set id = user.id %}
 
-    <div class="controls">
-        <a href="{{ path('pm_user_edit', {'id' : id}) }}" class="btn btn-success btn-sm">
-            Edit User
-        </a>
+    {% if user.id != app.user.id %}
 
-        {% if user.id != app.user.id %}
+        <div class="controls">
+
+            <a href="{{ path('pm_user_edit', {'id' : id}) }}" class="btn btn-success btn-sm">
+                Edit User
+            </a>
 
             <a href="{{ path('pm_user_roles', {'id' : id}) }}" class="btn btn-primary btn-sm">
                 Change Roles
@@ -49,11 +50,9 @@
                     </form>
                 {% endif %}
             {% endif %}
-        {% endif %}
+        </div>
 
-
-
-    </div>
+    {% endif %}
 
     <div class="box">
         <table class="table table-bordered mb-0">

@@ -17,48 +17,42 @@
         <div class="card-body">
             <table class="table table-bordered mb-0">
                 <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        {{ user.name }}
+                        <a href="{{ path('pm_profile_name') }}" class="btn btn-link success">
+                            <i class="icon-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <td>{{ user.id }}</td>
+                </tr>
+                <tr>
+                    <th>Created</th>
+                    <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                {% if user.email %}
                     <tr>
-                        <th>Name</th>
+                        <th>Email</th>
                         <td>
-                            {{ user.name }}
-                            <a href="{{ path('pm_profile_name') }}" class="btn btn-link success">
+                            {{ user.email }}
+                            <a href="{{ path('pm_profile_email') }}" class="btn btn-link success">
                                 <i class="icon-pencil"></i>
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <th>ID</th>
-                        <td>{{ user.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Created</th>
-                        <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
-                    </tr>
-                    {% if user.email %}
-                        <tr>
-                            <th>Email</th>
-                            <td>
-                                {{ user.email }}
-                                <a href="{{ path('pm_profile_email') }}" class="btn btn-link success">
-                                    <i class="icon-pencil"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endif %}
-                    <tr>
-                        <th>Roles</th>
-                        <td>
-                            <ul>
-                                {% for role in user.roles %}
-                                    <li>{{ role }}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Status</th>
-                        <td>{{ user_status(user) }}</td>
-                    </tr>
+                {% endif %}
+                <tr>
+                    <th>Roles</th>
+                    <td>{{ user_roles(user) }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ user_status(user) }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>

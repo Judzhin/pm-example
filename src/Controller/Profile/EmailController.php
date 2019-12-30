@@ -64,7 +64,7 @@ class EmailController extends AbstractController
             }
         }
 
-        return $this->render('profile/email/request.html.twig', [
+        return $this->render('profile/email.html.twig', [
             'form' => $form->createView(),
         ]);
     }

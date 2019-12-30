@@ -6,7 +6,7 @@
 
 namespace App\DBAL\Types;
 
-use App\Model\Role;
+use App\Model\User\Role;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\JsonType;
 

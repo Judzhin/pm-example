@@ -52,7 +52,6 @@ class UsersController extends AbstractController
      */
     public function index(Request $request, UserRepository $repository)
     {
-
         /** @var User\Filter\Filter $filter */
         $filter = new User\Filter\Filter;
         $form = $this->createForm(User\Filter\FormType::class, $filter);
@@ -147,6 +146,14 @@ class UsersController extends AbstractController
      */
     public function edit(Entity\User $user, Request $request, User\Edit\Handler $handler): Response
     {
+        /** @var array $parameters */
+        $parameters = ['id' => $user->getId()];
+
+        if ($user->getId()->toString() === $this->getUser()->getId()) {
+            $this->addFlash('error', 'Unable to edit yourself.');
+            return $this->redirectToRoute('pm_user_show', $parameters);
+        }
+
         /** @var User\Edit\Command $command */
         $command = User\Edit\Command::parse($user);
 
@@ -158,8 +165,7 @@ class UsersController extends AbstractController
             try {
                 $handler->handle($command);
                 $this->addFlash('success', 'User was successfully updated');
-
-                return $this->redirectToRoute('pm_user_show', ['id' => $user->getId()]);
+                return $this->redirectToRoute('pm_user_show', $parameters);
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
@@ -191,7 +197,6 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to change roles for yourself.');
-
             return $this->redirectToRoute('pm_user_show', $parameters);
         }
 
