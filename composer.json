@@ -8,6 +8,7 @@
         "knplabs/knp-paginator-bundle": "^5.0",
         "knpuniversity/oauth2-client-bundle": "^1.31",
         "league/oauth2-facebook": "^2.0",
+        "msbios/exception": "^1.0",
         "predis/predis": "^1.1",
         "ramsey/uuid-doctrine": "^1.5",
         "scienta/doctrine-json-functions": "^4.1",

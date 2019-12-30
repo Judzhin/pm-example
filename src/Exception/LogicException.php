@@ -10,15 +10,13 @@ namespace App\Exception;
  * Class LogicException
  * @package App\Exception
  */
-class LogicException extends \LogicException
+class LogicException extends \MSBios\Exception\LogicException
 {
-    use FactoryExceptionTrait;
-
     /**
-     * @return LogicException
+     * @return \Throwable
      */
-    public static function userIsNotFound(): self
+    public static function userIsNotFound(): \Throwable
     {
-        return self::factory('User is not found.');
+        return self::create('User is not found.');
     }
 }

@@ -144,6 +144,9 @@
     "monolog/monolog": {
         "version": "2.0.1"
     },
+    "msbios/exception": {
+        "version": "v1.0.5"
+    },
     "msbios/msbios": {
         "version": "v1.0.14"
     },

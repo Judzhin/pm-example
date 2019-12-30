@@ -10,15 +10,13 @@ namespace App\Exception;
  * Class InvalidArgumentException
  * @package App\Exception
  */
-class InvalidArgumentException extends \InvalidArgumentException
+class InvalidArgumentException extends \MSBios\Exception\InvalidArgumentException
 {
-    use FactoryExceptionTrait;
-
     /**
-     * @return InvalidArgumentException
+     * @return \Throwable
      */
-    public static function incorrectEmail(): self
+    public static function incorrectEmail(): \Throwable
     {
-        return self::factory('Incorrect email');
+        return self::create('Incorrect email');
     }
 }

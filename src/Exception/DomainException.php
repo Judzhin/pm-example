@@ -11,63 +11,61 @@ namespace App\Exception;
  * Class DomainException
  * @package App\Exception
  */
-class DomainException extends \DomainException
+class DomainException extends \MSBios\Exception\DomainException
 {
-    use FactoryExceptionTrait;
-
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function userIsAlreadyConfirmed(): self
+    public static function userIsAlreadyConfirmed(): \Throwable
     {
-        return self::factory('User is already confirmed.');
+        return self::create('User is already confirmed.');
     }
 
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function userIsAlreadyLocked(): self
+    public static function userIsAlreadyLocked(): \Throwable
     {
-        return self::factory('User is already locked.');
+        return self::create('User is already locked.');
     }
 
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function userIsAlreadyUnlocked(): self
+    public static function userIsAlreadyUnlocked(): \Throwable
     {
-        return self::factory('User is already unlocked.');
+        return self::create('User is already unlocked.');
     }
 
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function userWithThisEmailAlreadyExists(): self
+    public static function userWithThisEmailAlreadyExists(): \Throwable
     {
-        return self::factory('User with this email already exists.');
+        return self::create('User with this email already exists.');
     }
 
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function userAlreadyExists(): self
+    public static function userAlreadyExists(): \Throwable
     {
-        return self::factory('User already exists.');
+        return self::create('User already exists.');
     }
 
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function incorrectOrConfirmedToken(): self
+    public static function incorrectOrConfirmedToken(): \Throwable
     {
-        return self::factory('Incorrect or confirmed token.');
+        return self::create('Incorrect or confirmed token.');
     }
 
     /**
-     * @return DomainException
+     * @return \Throwable
      */
-    public static function emailIsAlreadyInUse(): self
+    public static function emailIsAlreadyInUse(): \Throwable
     {
-        return self::factory('Email is already in use.');
+        return self::create('Email is already in use.');
     }
 }
