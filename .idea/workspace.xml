@@ -240,10 +240,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="-11">
+              <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
               <folding>
                 <element signature="e#6#87#0#PHP" expanded="true" />
+                <element signature="e#116#139#0#PHP" expanded="true" />
                 <element signature="e#1766#2143#0#PHP" />
                 <element signature="e#2149#2270#0#PHP" />
                 <element signature="e#2275#2844#0#PHP" />
@@ -670,7 +671,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1981402" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1029,10 +1029,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="-11">
+          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
           <folding>
             <element signature="e#6#87#0#PHP" expanded="true" />
+            <element signature="e#116#139#0#PHP" expanded="true" />
             <element signature="e#1766#2143#0#PHP" />
             <element signature="e#2149#2270#0#PHP" />
             <element signature="e#2275#2844#0#PHP" />
