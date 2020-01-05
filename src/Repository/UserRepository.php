@@ -3,7 +3,6 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-
 namespace App\Repository;
 
 use App\Entity\Network;

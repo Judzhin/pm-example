@@ -10,7 +10,7 @@ namespace App\Exception;
  * Class LogicException
  * @package App\Exception
  */
-class LogicException extends \MSBios\Exception\LogicException
+class EntityNotFoundException extends \MSBios\Exception\LogicException
 {
     /**
      * @return \Throwable
@@ -18,5 +18,13 @@ class LogicException extends \MSBios\Exception\LogicException
     public static function userIsNotFound(): \Throwable
     {
         return self::create('User is not found.');
+    }
+
+    /**
+     * @return \Throwable
+     */
+    public static function groupIsNotFound(): \Throwable
+    {
+        return self::create('Group is not found.');
     }
 }

@@ -21,10 +21,12 @@ class Email
     /**
      * Email constructor.
      * @param string $value
+     * @throws \Throwable
      */
     public function __construct(string $value)
     {
         Assert::notEmpty($value);
+        
         if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
             throw InvalidArgumentException::incorrectEmail();
         }

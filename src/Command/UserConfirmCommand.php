@@ -6,7 +6,7 @@
 namespace App\Command;
 
 use App\Entity\User;
-use App\Exception\LogicException;
+use App\Exception\EntityNotFoundException;
 use App\Model\User\Email;
 use App\Repository\UserRepository;
 use Symfony\Component\Console\Command\Command;
@@ -60,7 +60,7 @@ class UserConfirmCommand extends Command
 
         /** @var User $user */
         if (!$user = $this->repository->findOneByEmail($email)) {
-            throw LogicException::userIsNotFound();
+            throw EntityNotFoundException::userIsNotFound();
         }
 
         $user->confirm();

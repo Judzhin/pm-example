@@ -61,6 +61,8 @@ security:
   access_control:
   # - { path: ^/admin, roles: ROLE_ADMIN }
   # - { path: ^/profile, roles: ROLE_USER }
+
+  # for not authenticated
   - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
   - { path: ^/password-reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
   - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -70,5 +72,5 @@ security:
   # - { path: ^/, roles: IS_AUTHENTICATED_FULLY } #
 
   # granted
-  - { path: ^/users, roles: ROLE_MANAGE_USERS }
+  # - { path: ^/users, roles: ROLE_MANAGE_USERS } Move to controller annotation
   - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER] }
