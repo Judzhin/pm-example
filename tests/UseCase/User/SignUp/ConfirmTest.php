@@ -6,7 +6,7 @@
 namespace App\Tests\UseCase\SignUp;
 
 use App\Entity\User;
-use App\Repository\UserRepository;
+use App\Repository\GroupRepository;
 use App\UseCase\User\SignUp\Confirm\Command;
 use App\UseCase\User\SignUp\Confirm\Handler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,7 +30,7 @@ class ConfirmTest extends TestCase
         parent::setUp();
 
         $this->entityManager = $this->prophesize(EntityManagerInterface::class);
-        $this->repository = $this->prophesize(UserRepository::class);
+        $this->repository = $this->prophesize(GroupRepository::class);
 
         $this->entityManager
             ->getRepository(User::class)

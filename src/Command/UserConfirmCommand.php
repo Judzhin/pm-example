@@ -8,7 +8,7 @@ namespace App\Command;
 use App\Entity\User;
 use App\Exception\EntityNotFoundException;
 use App\Model\User\Email;
-use App\Repository\UserRepository;
+use App\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,14 +20,14 @@ use Symfony\Component\Console\Question\Question;
  */
 class UserConfirmCommand extends Command
 {
-    /** @var UserRepository */
+    /** @var GroupRepository */
     private $repository;
 
     /**
      * UserConfirmCommand constructor.
-     * @param UserRepository $repository
+     * @param GroupRepository $repository
      */
-    public function __construct(UserRepository $repository)
+    public function __construct(GroupRepository $repository)
     {
         $this->repository = $repository;
         parent::__construct('user:confirm');

@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Work\Member\Create;
+namespace App\UseCase\Work\Member\Group\Create;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class FormType
- * @package App\UseCase\Work\Member\Create
+ * @package App\UseCase\Work\Member\Group\Create
  */
 class FormType extends AbstractType
 {

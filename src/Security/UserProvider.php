@@ -9,6 +9,7 @@ namespace App\Security;
 use App\Entity\Network;
 use App\Entity\User;
 use App\Model\User\Email;
+use App\Repository\GroupRepository;
 use App\Repository\UserRepository;
 use Ramsey\Uuid\Exception\UnsupportedOperationException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
@@ -22,7 +23,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 class UserProvider implements UserProviderInterface
 {
 
-    /** @var UserRepository */
+    /** @var GroupRepository */
     protected $repository;
 
     /**
@@ -38,6 +39,7 @@ class UserProvider implements UserProviderInterface
      * @param string $identity
      * @return User
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Throwable
      */
     private function findUserByIdentity(string $identity): User
     {
@@ -74,11 +76,10 @@ class UserProvider implements UserProviderInterface
     }
 
     /**
-     * @inheritdoc
-     *
      * @param string $username
      * @return UserInterface
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Throwable
      */
     public function loadUserByUsername(string $username): UserInterface
     {
@@ -88,11 +89,10 @@ class UserProvider implements UserProviderInterface
     }
 
     /**
-     * @inheritdoc
-     *
      * @param UserInterface $user
      * @return UserIdentity
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Throwable
      */
     public function refreshUser(UserInterface $user): UserIdentity
     {

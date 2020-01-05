@@ -4,14 +4,14 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Work\Member\Create;
+namespace App\UseCase\Work\Member\Group\Create;
 
 use App\Entity\Work\Member\Group;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\Work\Member\Create
+ * @package App\UseCase\Work\Member\Group\Create
  */
 class Handler
 {

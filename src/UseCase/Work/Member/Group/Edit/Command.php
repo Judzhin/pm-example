@@ -4,14 +4,14 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Work\Member\Edit;
+namespace App\UseCase\Work\Member\Group\Edit;
 
 use App\Entity\Work\Member\Group;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Command
- * @package App\UseCase\Work\Member\Edit
+ * @package App\UseCase\Work\Member\Group\Edit
  */
 class Command
 {

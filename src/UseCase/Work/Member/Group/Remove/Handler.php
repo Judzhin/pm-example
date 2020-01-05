@@ -4,14 +4,14 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Work\Member\Edit;
+namespace App\UseCase\Work\Member\Group\Remove;
 
 use App\Entity\Work\Member\Group;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\Work\Member\Create
+ * @package App\UseCase\Work\Member\Group\Remove
  */
 class Handler
 {
@@ -34,7 +34,7 @@ class Handler
     {
         /** @var Group $group */
         $group = $this->em->find(Group::class, $command->id);
-        $group->setName($command->name);
+        $this->em->remove($group);
         $this->em->flush();
     }
 }

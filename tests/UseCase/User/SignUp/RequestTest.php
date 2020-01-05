@@ -8,7 +8,7 @@ namespace App\Tests\UseCase\SignUp;
 
 use App\Entity\User;
 use App\Model\User\Email;
-use App\Repository\UserRepository;
+use App\Repository\GroupRepository;
 use App\Service\Sender\SignUpTokenSender;
 use App\Service\PasswordEncoder;
 use App\UseCase\User\SignUp\Request\Command;
@@ -46,7 +46,7 @@ class RequestTest extends TestCase
         parent::setUp();
 
         $this->entityManager = $this->prophesize(EntityManagerInterface::class);
-        $this->repository = $this->prophesize(UserRepository::class);
+        $this->repository = $this->prophesize(GroupRepository::class);
 
         $this->entityManager
             ->getRepository(User::class)

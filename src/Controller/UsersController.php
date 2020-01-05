@@ -8,7 +8,7 @@ namespace App\Controller;
 
 use App\Entity;
 use App\Exception\DomainException;
-use App\Repository\UserRepository;
+use App\Repository\GroupRepository;
 use App\UseCase\User\Role;
 use App\UseCase\User\SignUp;
 use App\UseCase\User;
@@ -49,10 +49,10 @@ class UsersController extends AbstractController
      * @Route("", name="pm_users")
      *
      * @param Request $request
-     * @param UserRepository $repository
+     * @param GroupRepository $repository
      * @return Response
      */
-    public function index(Request $request, UserRepository $repository)
+    public function index(Request $request, GroupRepository $repository)
     {
         /** @var User\Filter\Filter $filter */
         $filter = new User\Filter\Filter;
@@ -236,6 +236,7 @@ class UsersController extends AbstractController
      * @param Entity\User $user
      * @param Request $request
      * @return Response
+     * @throws \Throwable
      */
     public function confirm(Entity\User $user, Request $request): Response
     {
@@ -266,6 +267,7 @@ class UsersController extends AbstractController
      * @param Entity\User $user
      * @param Request $request
      * @return Response
+     * @throws \Throwable
      */
     public function lock(Entity\User $user, Request $request): Response
     {
@@ -297,6 +299,7 @@ class UsersController extends AbstractController
      * @param Entity\User $user
      * @param Request $request
      * @return Response
+     * @throws \Throwable
      */
     public function unlock(Entity\User $user, Request $request): Response
     {

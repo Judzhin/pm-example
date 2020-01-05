@@ -10,7 +10,7 @@ use App\Entity\User;
 use App\Exception\EntityNotFoundException;
 use App\Model\Role as RoleValue;
 use App\Model\User\Email;
-use App\Repository\UserRepository;
+use App\Repository\GroupRepository;
 use App\UseCase\User\Role;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  */
 class UserRoleCommand extends Command
 {
-    /** @var UserRepository */
+    /** @var GroupRepository */
     private $repository;
 
     /** @var ValidatorInterface */
@@ -36,11 +36,11 @@ class UserRoleCommand extends Command
 
     /**
      * UserRoleCommand constructor.
-     * @param UserRepository $repository
+     * @param GroupRepository $repository
      * @param ValidatorInterface $validator
      * @param Role\Handler $handler
      */
-    public function __construct(UserRepository $repository, ValidatorInterface $validator, Role\Handler $handler)
+    public function __construct(GroupRepository $repository, ValidatorInterface $validator, Role\Handler $handler)
     {
         $this->repository = $repository;
         $this->validator = $validator;

@@ -13,7 +13,7 @@ use Ramsey\Uuid\UuidInterface;
  * Class Group
  * @package App\Entity\Work\Member
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
  * @ORM\Table(name="work_member_groups")
  */
 class Group
