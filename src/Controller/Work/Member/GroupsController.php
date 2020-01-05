@@ -54,16 +54,11 @@ class GroupsController extends AbstractController
     /**
      * @Route("/{id}", name="pm_work_member_group_show")
      *
-     * @param Entity\Work\Member\Group $group
      * @return Response
      */
-    public function show(Entity\Work\Member\Group $group): Response
+    public function show(): Response
     {
-        return $this->render(
-            'work/member/groups/show.html.twig', [
-                'group' => $group,
-            ]
-        );
+        return $this->redirectToRoute('pm_work_member_groups');
     }
 
     /**
