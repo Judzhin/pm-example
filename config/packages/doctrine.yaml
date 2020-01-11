@@ -3,6 +3,7 @@ doctrine:
     types:
       email: App\DBAL\Types\EmailType
       roles: App\DBAL\Types\RolesType
+      work_member_status: App\DBAL\Types\Work\MemberStatusType
 
     url: '%env(resolve:DATABASE_URL)%'
 

@@ -4,17 +4,16 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Model\User;
+namespace App\Model;
 
 use App\Exception\InvalidArgumentException;
 use Webmozart\Assert\Assert;
 
 /**
  * Class Email
- * @package App\Model\User
- * @deprecated Use only App\Model\Email
+ * @package App\Model
  */
-class Email
+class Email extends \App\Model\User\Email
 {
     /** @var string */
     private $value;
@@ -50,5 +49,4 @@ class Email
     {
         return $this->getValue();
     }
-
 }

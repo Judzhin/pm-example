@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\EmbeddedToken;
+use App\Entity\Name;
 use App\Entity\User;
 use App\Model\User\Email;
 use App\Service\PasswordEncoder;
@@ -29,28 +30,23 @@ class UserFixtures extends Fixture
 
     /**
      * @param ObjectManager $manager
-     * @throws \Exception
+     * @throws \Throwable
      */
     public function load(ObjectManager $manager)
     {
-        /** @var Email $email */
-        $email = new Email('demo@example.com');
-        if (!$manager->getRepository(User::class)->findOneByEmail($email)) {
+        /** @var User $user */
+        $user = User::signUpByEmail(
+            new Name('Judzhin', 'Miles'),
+            new Email('demo@example.com'),
+            $this->passwordEncoder->encodePassword('secret'),
+            EmbeddedToken::create()
+        );
 
-            /** @var User $user */
-            $user = User::signUpByEmail(
-                new Email('demo@example.com'),
-                $this->passwordEncoder->encodePassword('secret'),
-                EmbeddedToken::create()
-            );
+        $user->confirm();
+        $user->setRoles(['ROLE_ADMIN']);
 
-            $user->confirm();
-            $user->setRoles(['ROLE_ADMIN']);
-
-            $manager->persist($user);
-            $manager->flush();
-        }
-
+        $manager->persist($user);
+        $manager->flush();
 
     }
 }

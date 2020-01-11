@@ -8,10 +8,11 @@ namespace App\Controller;
 
 use App\Entity;
 use App\Exception\DomainException;
-use App\Repository\GroupRepository;
+use App\Repository\MemberRepository;
+use App\Repository\UserRepository;
+use App\UseCase\User;
 use App\UseCase\User\Role;
 use App\UseCase\User\SignUp;
-use App\UseCase\User;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -49,10 +50,10 @@ class UsersController extends AbstractController
      * @Route("", name="pm_users")
      *
      * @param Request $request
-     * @param GroupRepository $repository
+     * @param UserRepository $repository
      * @return Response
      */
-    public function index(Request $request, GroupRepository $repository)
+    public function index(Request $request, UserRepository $repository)
     {
         /** @var User\Filter\Filter $filter */
         $filter = new User\Filter\Filter;
@@ -121,20 +122,19 @@ class UsersController extends AbstractController
      * -Entity("user", expr="repository.find(user_id)")
      *
      * @param Entity\User $user
+     * @param MemberRepository $repository
      * @return Response
      */
-    public function show(Entity\User $user): Response
+    public function show(Entity\User $user, MemberRepository $repository): Response
     {
         // if (!$user) {
         //     throw $this->createNotFoundException();
         // }
 
-        return $this->render(
-            'users/show.html.twig',
-            [
-                'user' => $user,
-            ]
-        );
+        /** @var Entity\Work\Member $member */
+        $member = $repository->find($user->getId());
+
+        return $this->render('users/show.html.twig', compact('user', 'member'));
     }
 
     /**

@@ -48,17 +48,7 @@ class GroupsController extends AbstractController
     {
         /** @var array $groups */
         $groups = $repository->all();
-        return $this->render('work/member/groups/index.html.twig', compact('groups'));
-    }
-
-    /**
-     * @Route("/{id}", name="pm_work_member_group_show")
-     *
-     * @return Response
-     */
-    public function show(): Response
-    {
-        return $this->redirectToRoute('pm_work_member_groups');
+        return $this->render('works/members/groups/index.html.twig', compact('groups'));
     }
 
     /**
@@ -87,9 +77,20 @@ class GroupsController extends AbstractController
             }
         }
 
-        return $this->render('work/member/groups/create.html.twig', [
+        return $this->render('works/members/groups/create.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="pm_work_member_group_show")
+     *
+     * @param Entity\Work\Member\Group $group
+     * @return Response
+     */
+    public function show(Entity\Work\Member\Group $group): Response
+    {
+        return $this->redirectToRoute('pm_work_member_groups');
     }
 
     /**
@@ -115,7 +116,7 @@ class GroupsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $handler->handle($command);
-                $this->addFlash('success', 'User was successfully updated');
+                $this->addFlash('success', 'Group was successfully updated');
                 return $this->redirectToRoute('pm_work_member_group_show', $parameters);
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
@@ -124,7 +125,7 @@ class GroupsController extends AbstractController
         }
 
         return $this->render(
-            'work/member/groups/edit.html.twig',
+            'works/members/groups/edit.html.twig',
             [
                 'group' => $group,
                 'form' => $form->createView(),
@@ -133,7 +134,7 @@ class GroupsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="pm_work_member_group_edit")
+     * @Route("/{id}/delete", name="pm_work_member_group_delete")
      *
      * @param Entity\Work\Member\Group $group
      * @param Request $request

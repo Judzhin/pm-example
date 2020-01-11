@@ -18,9 +18,11 @@
 
     {% set id = user.id %}
 
-    {% if user.id != app.user.id %}
 
-        <div class="controls">
+
+    <div class="controls">
+
+        {% if user.id != app.user.id %}
 
             <a href="{{ path('pm_user_edit', {'id' : id}) }}" class="btn btn-success btn-sm">
                 Edit User
@@ -49,10 +51,24 @@
                         <button type="submit" class="btn btn-warning btn-sm">Unlock</button>
                     </form>
                 {% endif %}
-            {% endif %}
-        </div>
 
-    {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+
+        {% if is_granted('ROLE_WORK_MANAGE_MEMBERS') %}
+            {% if member %}
+                <a href="{{ path('pm_work_member', {id: member.id}) }}" class="btn btn-primary btn-sm">
+                    View Member
+                </a>
+            {% else %}
+                <a href="{{ path('pm_work_member_create', {user_id: user.id}) }}" class="btn btn-primary btn-sm">
+                    Create Member
+                </a>
+            {% endif %}
+        {% endif %}
+    </div>
 
     <div class="box">
         <table class="table table-bordered mb-0">
@@ -86,9 +102,9 @@
                     {{ user_roles(user) }}
 
                     {#<ul>#}
-                        {#{% for role in user.roles %}#}
-                            {#<li>{{ role }}</li>#}
-                        {#{% endfor %}#}
+                    {#{% for role in user.roles %}#}
+                    {#<li>{{ role }}</li>#}
+                    {#{% endfor %}#}
                     {#</ul>#}
                 </td>
             </tr>

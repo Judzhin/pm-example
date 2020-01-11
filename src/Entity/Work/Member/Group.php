@@ -6,6 +6,7 @@
 
 namespace App\Entity\Work\Member;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -32,6 +33,19 @@ class Group
      * @ORM\Column(name="name", type="string")
      */
     private $name;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $members;
+
+    /**
+     * Group constructor.
+     */
+    public function __construct()
+    {
+        $this->members = new ArrayCollection;
+    }
 
     /**
      * @return UuidInterface
@@ -66,6 +80,24 @@ class Group
     public function setName(string $name): Group
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMembers()
+    {
+        return $this->members;
+    }
+
+    /**
+     * @param ArrayCollection $members
+     * @return Group
+     */
+    public function setMembers(ArrayCollection $members): Group
+    {
+        $this->members = $members;
         return $this;
     }
 }

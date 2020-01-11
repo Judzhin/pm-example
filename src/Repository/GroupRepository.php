@@ -3,6 +3,7 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
+
 namespace App\Repository;
 
 use App\Entity\Work\Member\Group;
@@ -42,4 +43,15 @@ class GroupRepository extends ServiceEntityRepository
     {
         return $this->findAll();
     }
+
+    /**
+     * @return array
+     */
+    public function assoc(): array
+    {
+        /** @var  $qb */
+        $qb = $this->createQueryBuilder('g');
+        return array_column($qb->getQuery()->getArrayResult(), 'name', 'id');
+    }
+
 }

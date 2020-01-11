@@ -4,20 +4,20 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\DBAL\Types;
+namespace App\DBAL\Types\Work;
 
-use App\Model\Email;
+use App\Model\Work\Member\Status;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 
 /**
- * Class EmailType
- * @package App\DBAL\Types
+ * Class MemberStatusType
+ * @package App\DBAL\Types\Work
  */
-class EmailType extends StringType
+class MemberStatusType extends StringType
 {
     /** @const NAME */
-    public const NAME = 'email';
+    public const NAME = 'work_member_status';
 
     /**
      * @inheritdoc
@@ -38,7 +38,7 @@ class EmailType extends StringType
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
-        return $value instanceof Email ? $value->getValue() : $value;
+        return $value instanceof Status ? $value->getName() : $value;
     }
 
     /**
@@ -46,12 +46,10 @@ class EmailType extends StringType
      *
      * @param mixed $value
      * @param AbstractPlatform $platform
-     * @return Email|null
-     * @throws \Throwable
+     * @return Status
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?Email
+    public function convertToPHPValue($value, AbstractPlatform $platform): Status
     {
-        return !empty($value) ? new Email($value) : null;
+        return new Status($value);
     }
-
 }

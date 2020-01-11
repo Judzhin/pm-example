@@ -68,4 +68,28 @@ class DomainException extends \MSBios\Exception\DomainException
     {
         return self::create('Email is already in use.');
     }
+
+    /**
+     * @return \Throwable
+     */
+    public static function memberIsAlreadyArchived(): \Throwable
+    {
+        return self::create('Member is already archived.');
+    }
+
+    /**
+     * @return \Throwable
+     */
+    public static function memberIsAlreadyActive(): \Throwable
+    {
+        return self::create('Member is already active.');
+    }
+
+    /**
+     * @return \Throwable
+     */
+    public static function memberAlreadyExists(): \Throwable
+    {
+        return self::create('Member already exists.');
+    }
 }
