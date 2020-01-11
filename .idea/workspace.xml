@@ -13,7 +13,6 @@
       <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Create/Command.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Create/FormType.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Create/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/FormType.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Handler.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Filter/Filter.php" afterDir="false" />
@@ -46,6 +45,7 @@
       <change beforePath="$PROJECT_DIR$/src/Exception/DomainException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exception/DomainException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/User/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User/Email.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/GroupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GroupRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/work/member/groups/index.html.twig" beforeDir="false" />
@@ -126,7 +126,7 @@
           <entry key="log" value="3" />
           <entry key="mailer_example" value="6" />
           <entry key="md" value="1" />
-          <entry key="php" value="731" />
+          <entry key="php" value="733" />
           <entry key="php-parse" value="1" />
           <entry key="phpunit" value="1" />
           <entry key="scss" value="12" />
@@ -155,7 +155,7 @@
           <entry key="JSON" value="20" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="741" />
+          <entry key="PHP" value="743" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="SCSS" value="12" />
           <entry key="SQL" value="1" />
@@ -182,7 +182,7 @@
           <entry key="json" value="4" />
           <entry key="local" value="55" />
           <entry key="mailer_example" value="2" />
-          <entry key="php" value="47138" />
+          <entry key="php" value="47239" />
           <entry key="scss" value="645" />
           <entry key="sh" value="743" />
           <entry key="twig" value="5572" />
@@ -201,7 +201,7 @@
           <entry key="HTML" value="14" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="56" />
-          <entry key="PHP" value="47299" />
+          <entry key="PHP" value="47400" />
           <entry key="PLAIN_TEXT" value="394" />
           <entry key="SCSS" value="645" />
           <entry key="SmartyConfig" value="52" />
@@ -224,27 +224,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Work/MembersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="105">
+              <caret line="141" column="43" lean-forward="true" selection-start-line="141" selection-start-column="43" selection-end-line="141" selection-end-column="43" />
               <folding>
                 <element signature="e#121#136#0#PHP" expanded="true" />
                 <element signature="e#891#1021#0#PHP" />
                 <element signature="e#988#1116#0#PHP" />
                 <element signature="e#1255#1913#0#PHP" />
                 <element signature="e#2254#3562#0#PHP" />
-                <element signature="e#4039#5039#0#PHP" />
                 <element signature="e#5203#6176#0#PHP" />
                 <element signature="e#6478#7251#0#PHP" />
+                <element signature="e#7510#8225#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+              <folding>
+                <element signature="e#130#157#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/works/members/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="55" column="10" lean-forward="true" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
+            <state relative-caret-position="250">
+              <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -277,10 +289,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/FormType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Work/Member.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="155" column="17" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
+            <state relative-caret-position="116">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               <folding>
                 <element signature="e#117#137#0#PHP" expanded="true" />
               </folding>
@@ -308,27 +329,6 @@
               <folding>
                 <element signature="e#123#150#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBAL/Types/EmailType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-              <folding>
-                <element signature="e#116#136#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Name.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -431,7 +431,6 @@
         <option value="$PROJECT_DIR$/src/Repository/GroupRepository.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Filter/FormType.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Create/Command.php" />
-        <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Move/Command.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Archived/Handler.php" />
@@ -450,6 +449,7 @@
         <option value="$PROJECT_DIR$/src/Migrations/Version20200111154845.php" />
         <option value="$PROJECT_DIR$/src/Entity/Work/Member.php" />
         <option value="$PROJECT_DIR$/templates/works/members/show.html.twig" />
+        <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" />
       </list>
     </option>
   </component>
@@ -925,23 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#130#157#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/FormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1107,23 +1090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Work/MembersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-          <folding>
-            <element signature="e#121#136#0#PHP" expanded="true" />
-            <element signature="e#891#1021#0#PHP" />
-            <element signature="e#988#1116#0#PHP" />
-            <element signature="e#1255#1913#0#PHP" />
-            <element signature="e#2254#3562#0#PHP" />
-            <element signature="e#4039#5039#0#PHP" />
-            <element signature="e#5203#6176#0#PHP" />
-            <element signature="e#6478#7251#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1165,20 +1131,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/works/members/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/FormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Work/MembersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="141" column="43" lean-forward="true" selection-start-line="141" selection-start-column="43" selection-end-line="141" selection-end-column="43" />
+          <folding>
+            <element signature="e#121#136#0#PHP" expanded="true" />
+            <element signature="e#891#1021#0#PHP" />
+            <element signature="e#988#1116#0#PHP" />
+            <element signature="e#1255#1913#0#PHP" />
+            <element signature="e#2254#3562#0#PHP" />
+            <element signature="e#5203#6176#0#PHP" />
+            <element signature="e#6478#7251#0#PHP" />
+            <element signature="e#7510#8225#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Work/Member.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="155" column="17" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
+        <state relative-caret-position="116">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
           <folding>
             <element signature="e#117#137#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/works/members/show.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="55" column="10" lean-forward="true" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
+        <state relative-caret-position="305">
+          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+          <folding>
+            <element signature="e#130#157#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

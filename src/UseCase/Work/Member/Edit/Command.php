@@ -54,6 +54,11 @@ class Command
      */
     public static function parse(Member $member): self
     {
-
+        /** @var self $command */
+        $command = new self($member->getId());
+        $command->firstName = $member->getName()->getFirst();
+        $command->lastName = $member->getName()->getLast();
+        $command->email = $member->getEmail();
+        return $command;
     }
 }
