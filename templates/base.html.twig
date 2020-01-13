@@ -51,80 +51,81 @@
 <div class="app-body">
     <div class="sidebar">
         <nav class="sidebar-nav">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('pm_home') }}">
-                        <i class="nav-icon icon-speedometer"></i> Dashboard
+            {{ knp_menu_render('sidebar', {'currentClass': 'active'}) }}
+            {#<ul class="nav">#}
+                {#<li class="nav-item">#}
+                    {#<a class="nav-link" href="{{ path('pm_home') }}">#}
+                        {#<i class="nav-icon icon-speedometer"></i> Dashboard#}
                         {#<span class="badge badge-info">NEW</span>#}
-                    </a>
-                </li>
+                    {#</a>#}
+                {#</li>#}
 
-                <li class="nav-title">Work</li>
-                {% if is_granted('ROLE_WORK_MANAGE_MEMBERS') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('pm_work_member_groups') }}">
-                            <i class="nav-icon icon-people"></i> Groups
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('pm_work_members') }}">
-                            <i class="nav-icon icon-people"></i> Members
-                        </a>
-                    </li>
-                {% endif %}
+                {#<li class="nav-title">Work</li>#}
+                {#{% if is_granted('ROLE_WORK_MANAGE_MEMBERS') %}#}
+                    {#<li class="nav-item">#}
+                        {#<a class="nav-link" href="{{ path('pm_work_member_groups') }}">#}
+                            {#<i class="nav-icon icon-people"></i> Groups#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li class="nav-item">#}
+                        {#<a class="nav-link" href="{{ path('pm_work_members') }}">#}
+                            {#<i class="nav-icon icon-people"></i> Members#}
+                        {#</a>#}
+                    {#</li>#}
+                {#{% endif %}#}
 
-                <li class="nav-title">Control</li>
-                {% if is_granted('ROLE_MANAGE_USERS') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('pm_users') }}">
-                            <i class="nav-icon icon-user"></i> Users
-                        </a>
-                    </li>
-                {% endif %}
-                <li class="nav-item d-none">
-                    <a class="nav-link" href="{{ path('pm_profile') }}">
-                        <i class="nav-icon icon-user"></i> Profile
-                    </a>
-                </li>
-                <li class="nav-divider"></li>
-                <li class="nav-title">System Utilization</li>
-                <li class="nav-item px-3 d-compact-none d-minimized-none">
-                    <div class="text-uppercase mb-1">
-                        <small>
-                            <b>CPU Usage</b>
-                        </small>
-                    </div>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">348 Processes. 1/4 Cores.</small>
-                </li>
-                <li class="nav-item px-3 d-compact-none d-minimized-none">
-                    <div class="text-uppercase mb-1">
-                        <small>
-                            <b>Memory Usage</b>
-                        </small>
-                    </div>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">11444GB/16384MB</small>
-                </li>
-                <li class="nav-item px-3 mb-3 d-compact-none d-minimized-none">
-                    <div class="text-uppercase mb-1">
-                        <small>
-                            <b>SSD 1 Usage</b>
-                        </small>
-                    </div>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">243GB/256GB</small>
-                </li>
-            </ul>
+                {#<li class="nav-title">Control</li>#}
+                {#{% if is_granted('ROLE_MANAGE_USERS') %}#}
+                    {#<li class="nav-item">#}
+                        {#<a class="nav-link" href="{{ path('pm_users') }}">#}
+                            {#<i class="nav-icon icon-user"></i> Users#}
+                        {#</a>#}
+                    {#</li>#}
+                {#{% endif %}#}
+                {#<li class="nav-item d-none">#}
+                    {#<a class="nav-link" href="{{ path('pm_profile') }}">#}
+                        {#<i class="nav-icon icon-user"></i> Profile#}
+                    {#</a>#}
+                {#</li>#}
+                {#<li class="nav-divider"></li>#}
+                {#<li class="nav-title">System Utilization</li>#}
+                {#<li class="nav-item px-3 d-compact-none d-minimized-none">#}
+                    {#<div class="text-uppercase mb-1">#}
+                        {#<small>#}
+                            {#<b>CPU Usage</b>#}
+                        {#</small>#}
+                    {#</div>#}
+                    {#<div class="progress progress-xs">#}
+                        {#<div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25"#}
+                             {#aria-valuemin="0" aria-valuemax="100"></div>#}
+                    {#</div>#}
+                    {#<small class="text-muted">348 Processes. 1/4 Cores.</small>#}
+                {#</li>#}
+                {#<li class="nav-item px-3 d-compact-none d-minimized-none">#}
+                    {#<div class="text-uppercase mb-1">#}
+                        {#<small>#}
+                            {#<b>Memory Usage</b>#}
+                        {#</small>#}
+                    {#</div>#}
+                    {#<div class="progress progress-xs">#}
+                        {#<div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70"#}
+                             {#aria-valuemin="0" aria-valuemax="100"></div>#}
+                    {#</div>#}
+                    {#<small class="text-muted">11444GB/16384MB</small>#}
+                {#</li>#}
+                {#<li class="nav-item px-3 mb-3 d-compact-none d-minimized-none">#}
+                    {#<div class="text-uppercase mb-1">#}
+                        {#<small>#}
+                            {#<b>SSD 1 Usage</b>#}
+                        {#</small>#}
+                    {#</div>#}
+                    {#<div class="progress progress-xs">#}
+                        {#<div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95"#}
+                             {#aria-valuemin="0" aria-valuemax="100"></div>#}
+                    {#</div>#}
+                    {#<small class="text-muted">243GB/256GB</small>#}
+                {#</li>#}
+            {#</ul>#}
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>

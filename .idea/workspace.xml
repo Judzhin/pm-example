@@ -2,61 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DBAL/Types/Work/MemberStatusType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Work/Member/GroupFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Email.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Work/Member/Status.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Archived/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Create/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Create/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Create/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Filter/Filter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Filter/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Move/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Move/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Reinstate/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Reinstate/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Remove/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Remove/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/members/_tabs.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/members/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/members/groups/_tabs.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/members/groups/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/members/groups/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/members/move.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_menu.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Menu/SidebarMenu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/override/sidebar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pm-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pm-example.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Work/Member/GroupsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Work/Member/GroupsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Work/MembersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Work/MembersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBAL/Types/EmailType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBAL/Types/EmailType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Member/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Member/Group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/DomainException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exception/DomainException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/User/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GroupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GroupRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MemberRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MemberRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/Work/Member/Archived/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Archived/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Command.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/Work/Member/Group/Remove/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Group/Remove/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UseCase/Work/Member/Move/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/Work/Member/Move/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/roles.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/roles.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/work/member/groups/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/works/members/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/works/members/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/works/members/groups/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/works/members/groups/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/works/members/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/works/members/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/works/members/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/works/members/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +91,7 @@
           <entry key="log" value="3" />
           <entry key="mailer_example" value="6" />
           <entry key="md" value="1" />
-          <entry key="php" value="747" />
+          <entry key="php" value="749" />
           <entry key="php-parse" value="1" />
           <entry key="phpunit" value="1" />
           <entry key="scss" value="12" />
@@ -142,12 +99,12 @@
           <entry key="simple-phpunit" value="1" />
           <entry key="sql" value="2" />
           <entry key="test" value="3" />
-          <entry key="twig" value="113" />
+          <entry key="twig" value="116" />
           <entry key="validator_example" value="4" />
           <entry key="var-dump-server" value="1" />
           <entry key="xlf" value="1" />
           <entry key="xml" value="5" />
-          <entry key="yaml" value="66" />
+          <entry key="yaml" value="69" />
           <entry key="yml" value="14" />
         </counts>
       </usages-collector>
@@ -163,15 +120,15 @@
           <entry key="JSON" value="20" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="757" />
+          <entry key="PHP" value="759" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="SCSS" value="12" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="SmartyConfig" value="3" />
-          <entry key="Twig" value="113" />
+          <entry key="Twig" value="116" />
           <entry key="XML" value="11" />
-          <entry key="YAML" value="80" />
+          <entry key="YAML" value="83" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
@@ -190,13 +147,13 @@
           <entry key="json" value="4" />
           <entry key="local" value="55" />
           <entry key="mailer_example" value="2" />
-          <entry key="php" value="47558" />
+          <entry key="php" value="47864" />
           <entry key="scss" value="645" />
           <entry key="sh" value="743" />
-          <entry key="twig" value="5653" />
+          <entry key="twig" value="5717" />
           <entry key="txt" value="37" />
           <entry key="validator_example" value="167" />
-          <entry key="yaml" value="1926" />
+          <entry key="yaml" value="2015" />
           <entry key="yml" value="700" />
         </counts>
       </usages-collector>
@@ -209,18 +166,18 @@
           <entry key="HTML" value="14" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="56" />
-          <entry key="PHP" value="47719" />
+          <entry key="PHP" value="48025" />
           <entry key="PLAIN_TEXT" value="394" />
           <entry key="SCSS" value="645" />
           <entry key="SmartyConfig" value="52" />
-          <entry key="Twig" value="5653" />
+          <entry key="Twig" value="5717" />
           <entry key="XML" value="94" />
-          <entry key="YAML" value="2626" />
+          <entry key="YAML" value="2715" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
         <counts>
-          <entry key="PHP Class.type" value="44" />
+          <entry key="PHP Class.type" value="45" />
           <entry key="PHP Interface.type" value="4" />
           <entry key="PHP Trait.type" value="1" />
         </counts>
@@ -230,19 +187,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/works/members/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/works/members/groups/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="18" column="89" selection-start-line="18" selection-start-column="89" selection-end-line="18" selection-end-column="89" />
+            <state relative-caret-position="255">
+              <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -251,83 +199,88 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Group/Remove/Handler.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Work/Member/GroupsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="4" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Menu/SidebarMenu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="98" column="11" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="11" />
+              <folding>
+                <element signature="e#110#140#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Work/Member/GroupsController.php">
+        <entry file="file://$PROJECT_DIR$/templates/override/sidebar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="137" selection-start-line="137" selection-end-line="137" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Exception/DomainException.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Work/MembersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="127" selection-start-line="127" selection-end-line="127" />
+            <state relative-caret-position="207">
+              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding>
-                <element signature="e#121#136#0#PHP" expanded="true" />
-                <element signature="e#891#1021#0#PHP" />
-                <element signature="e#988#1116#0#PHP" />
-                <element signature="e#6478#7251#0#PHP" />
-                <element signature="e#7510#8225#0#PHP" />
+                <element signature="e#12#35#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Work/Member/Group.php">
+        <entry file="file://$PROJECT_DIR$/config/packages/knp_menu.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+            <state relative-caret-position="30">
+              <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Work/Member.php">
+        <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle/src/Resources/views/menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="82" />
-              <folding>
-                <element signature="e#117#137#0#PHP" expanded="true" />
-              </folding>
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="110" column="7" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="103" />
+            <state relative-caret-position="185">
+              <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/works/members/show.html.twig">
+        <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-menu/src/Knp/Menu/FactoryInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="252">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -400,10 +353,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" />
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
-        <option value="$PROJECT_DIR$/src/DBAL/Types/MemberStatusType.php" />
-        <option value="$PROJECT_DIR$/src/DBAL/Types/Work/Member/MemberStatusType.php" />
         <option value="$PROJECT_DIR$/src/Model/Email.php" />
         <option value="$PROJECT_DIR$/src/Model/User/Email.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Create/Handler.php" />
@@ -426,7 +375,6 @@
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Edit/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Archived/Handler.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Reinstate/Command.php" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/users/show.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" />
         <option value="$PROJECT_DIR$/templates/works/members/create.html.twig" />
@@ -447,10 +395,15 @@
         <option value="$PROJECT_DIR$/src/Repository/MemberRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/Work/MembersController.php" />
         <option value="$PROJECT_DIR$/src/Entity/Work/Member/Group.php" />
-        <option value="$PROJECT_DIR$/templates/works/members/groups/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Exception/DomainException.php" />
         <option value="$PROJECT_DIR$/src/UseCase/Work/Member/Group/Remove/Handler.php" />
         <option value="$PROJECT_DIR$/src/Controller/Work/Member/GroupsController.php" />
+        <option value="$PROJECT_DIR$/templates/works/members/groups/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/override/sidebar.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/knp_menu.yaml" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Menu/SidebarMenu.php" />
       </list>
     </option>
   </component>
@@ -608,6 +561,8 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/scienta/doctrine-json-functions" />
       <path value="$PROJECT_DIR$/vendor/msbios/exception" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -649,67 +604,24 @@
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Work" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UseCase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UseCase" type="462c0819:PsiDirectoryNode" />
-              <item name="Work" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UseCase" type="462c0819:PsiDirectoryNode" />
-              <item name="Work" type="462c0819:PsiDirectoryNode" />
-              <item name="Member" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="works" type="462c0819:PsiDirectoryNode" />
+              <item name="override" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="works" type="462c0819:PsiDirectoryNode" />
-              <item name="members" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="pm-example" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="works" type="462c0819:PsiDirectoryNode" />
-              <item name="members" type="462c0819:PsiDirectoryNode" />
-              <item name="groups" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -742,11 +654,11 @@
       <recent name="$PROJECT_DIR$/templates/works/members" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/packages" />
       <recent name="$PROJECT_DIR$/templates/works/members" />
       <recent name="$PROJECT_DIR$/src/UseCase/Work/Member/Filter" />
       <recent name="$PROJECT_DIR$/src/Repository" />
       <recent name="$PROJECT_DIR$/src/UseCase/Work/Member" />
-      <recent name="$PROJECT_DIR$/src/Model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -781,7 +693,7 @@
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.6223176" weight="0.52168673" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.6223176" visible="true" weight="0.52168673" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.37768242" side_tool="true" weight="0.4939759" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -800,41 +712,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Intermediate commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/works/members/groups/_tabs.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="5" lean-forward="true" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/works/members/_tabs.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Remove/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Remove/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UseCase/User/Filter/Filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Create/Command.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -922,13 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/GroupRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -995,20 +865,6 @@
           <folding>
             <element signature="e#116#136#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -1179,7 +1035,7 @@
     <entry file="file://$PROJECT_DIR$/src/Entity/Work/Member/Group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1200,34 +1056,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/works/members/groups/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="18" column="89" selection-start-line="18" selection-start-column="89" selection-end-line="18" selection-end-column="89" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Exception/DomainException.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
-          <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+          <caret line="95" column="7" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UseCase/Work/Member/Group/Remove/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/works/members/groups/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Work/Member/GroupsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-menu/src/Knp/Menu/FactoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/knp_menu.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle/src/Resources/views/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/SidebarMenu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="98" column="11" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="11" />
+          <folding>
+            <element signature="e#110#140#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/override/sidebar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#12#35#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
