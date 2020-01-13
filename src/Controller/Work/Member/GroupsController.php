@@ -5,6 +5,7 @@
  */
 namespace App\Controller\Work\Member;
 
+use App\Annotation\UUIDv4;
 use App\Entity;
 use App\Exception\DomainException;
 use App\Repository\GroupRepository;
@@ -83,7 +84,7 @@ class GroupsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="pm_work_member_group_show", requirements={"id"="[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ad][0-9a-f]{3}-[0-9a-f]{12}"})
+     * @Route("/{id}", name="pm_work_member_group_show", requirements={"id"=UUIDv4::PATTERN})
      *
      * @param Entity\Work\Member\Group $group
      * @return Response

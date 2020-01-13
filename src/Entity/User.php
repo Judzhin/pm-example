@@ -7,8 +7,8 @@
 namespace App\Entity;
 
 use App\Exception\DomainException;
+use App\Model\Email;
 use App\Model\User\Role;
-use App\Model\User\Email;
 use App\Model\User\Token;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -426,6 +426,7 @@ class User implements UserInterface
     /**
      * @param bool $silent
      * @return User
+     * @throws \Throwable
      */
     public function confirm($silent = false): self
     {
@@ -441,6 +442,7 @@ class User implements UserInterface
     /**
      * @param bool $silent
      * @return User
+     * @throws \Throwable
      */
     public function locking($silent = false): self
     {
@@ -455,6 +457,7 @@ class User implements UserInterface
     /**
      * @param bool $silent
      * @return User
+     * @throws \Throwable
      */
     public function unlock($silent = false): self
     {
@@ -545,8 +548,8 @@ class User implements UserInterface
 
         $this
             ->setEmail($this->getNewEmail())
-            ->setNewEmail(null);
-        $this->setNewConfirmToken(null);
+            ->setNewEmail(null)
+            ->setNewConfirmToken(null);
 
         return $this;
     }
