@@ -107,7 +107,7 @@ class MembersController extends AbstractController
                 $handler->handle($command);
                 return $this->redirectToRoute('pm_work_member', $parameters);
             } catch (DomainException $exception) {
-                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
             }
         }
@@ -118,7 +118,7 @@ class MembersController extends AbstractController
     }
 
     /**
-     * @Route("/work/member/{id}", name="pm_work_member")
+     * @Route("/work/member/{id}", name="pm_work_member", requirements={"id"="[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ad][0-9a-f]{3}-[0-9a-f]{12}"})
      *
      * @param Entity\Work\Member $member
      * @return Response
@@ -150,7 +150,7 @@ class MembersController extends AbstractController
                 $handler->handle($command);
                 return $this->redirectToRoute('pm_work_member', ['id' => $member->getId()]);
             } catch (DomainException $exception) {
-                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
             }
         }
@@ -184,7 +184,7 @@ class MembersController extends AbstractController
                 $handler->handle($command);
                 return $this->redirectToRoute('pm_work_member', ['id' => $member->getId()]);
             } catch (DomainException $exception) {
-                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
             }
         }
@@ -213,7 +213,7 @@ class MembersController extends AbstractController
             try {
                 $handler->handle($command);
             } catch (DomainException $exception) {
-                $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
             }
         }
@@ -243,7 +243,7 @@ class MembersController extends AbstractController
                 try {
                     $handler->handle($command);
                 } catch (DomainException $exception) {
-                    $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
+                    $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
                     $this->addFlash('error', $message);
                 }
             }

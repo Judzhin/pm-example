@@ -83,14 +83,14 @@ class GroupsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="pm_work_member_group_show")
+     * @Route("/{id}", name="pm_work_member_group_show", requirements={"id"="[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ad][0-9a-f]{3}-[0-9a-f]{12}"})
      *
      * @param Entity\Work\Member\Group $group
      * @return Response
      */
     public function show(Entity\Work\Member\Group $group): Response
     {
-        return $this->redirectToRoute('pm_work_member_groups');
+        return $this->redirectToRoute('pm_work_member_groups', compact('group'));
     }
 
     /**
