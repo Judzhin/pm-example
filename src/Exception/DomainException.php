@@ -92,4 +92,12 @@ class DomainException extends \MSBios\Exception\DomainException
     {
         return self::create('Member already exists.');
     }
+
+    /**
+     * @return \Throwable
+     */
+    public static function groupIsNotEmpty(): \Throwable
+    {
+        return self::create('Group is not empty.');
+    }
 }

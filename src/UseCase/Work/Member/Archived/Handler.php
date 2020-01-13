@@ -35,7 +35,7 @@ class Handler
     {
         /** @var Member $member */
         $member = $this->em->find(Member::class, $command->id);
-        $member->archived();
+        $member->archive();
 
         $this->em->flush();
     }

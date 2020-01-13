@@ -232,9 +232,9 @@ class MembersController extends AbstractController
      */
     public function reinstate(Entity\Work\Member $member, Request $request, Member\Reinstate\Handler $handler): Response
     {
-        if ($this->isCsrfTokenValid('archive', $request->request->get('token'))) {
+        if ($this->isCsrfTokenValid('reinstate', $request->request->get('token'))) {
 
-            if ($member->getId()->getValue() === $this->getUser()->getId()) {
+            if ($member->getId()->toString() === $this->getUser()->getId()) {
                 $this->addFlash('error', 'Unable to reinstate yourself.');
             } else {
                 /** @var Member\Reinstate\Command $command */

@@ -16,7 +16,7 @@
     {{ include('works/members/groups/_tabs.html.twig') }}
 
     <div class="controls">
-        <a href="{{ path('pm_work_member_group_create') }}" class="btn btn-success">Add Group</a>
+        <a href="{{ path('pm_work_member_group_create') }}" class="btn btn-success btn-sm">Add Group</a>
     </div>
 
     <div class="box">
@@ -33,13 +33,13 @@
             {% for group in groups %}
                 <tr>
                     <td>
-                        {% if group.members %}
-                            {#<a href="{{ path('work.members', {'form': {'group': group.id}}) }}">{{ group.name }}</a>#}
+                        {% if group.members|length > 0 %}
+                            <a href="{{ path('pm_work_members', {'form': {'group': group.id}}) }}">{{ group.name }}</a>
                         {% else %}
                             {{ group.name }}
                         {% endif %}
                     </td>
-                    <td>{{ group.members }}</td>
+                    <td>{{ group.members|length }}</td>
                     <td>
                         <div class="d-flex flex-row">
                             <a href="{{ path('pm_work_member_group_edit', {'id': group.id}) }}" class="btn btn-sm btn-primary mr-1"><span class="fa fa-pencil"></span></a>

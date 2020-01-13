@@ -60,7 +60,7 @@
                 <tr>
                     <td>{{ user.createdAt|date('Y-m-d') }}</td>
                     <td>
-                        <a href="{{ path('pm_user_show', {'id': user.id}) }}">
+                        <a href="{{ path('pm_user', {'id': user.id}) }}">
                             {{ user.name }}
                         </a>
                     </td>

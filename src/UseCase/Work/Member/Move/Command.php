@@ -22,11 +22,11 @@ class Command
      */
     public $id;
 
-    ///**
-    // * @var string
-    // * @Assert\NotBlank()
-    // */
-    //public $group;
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     */
+    public $group;
 
     /**
      * Command constructor.
@@ -43,6 +43,9 @@ class Command
      */
     public static function parse(Member $member): self
     {
-        return new self($member->getId());
+        /** @var self $command */
+        $command = new self($member->getId());
+        $command->group = $member->getGroup()->getId()->toString();
+        return $command;
     }
 }

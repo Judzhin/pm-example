@@ -113,7 +113,7 @@ class UsersController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="pm_user_show")
+     * @Route("/{id}", name="pm_user")
      *
      * -Route("/{user_id}")
      * -ParamConverter("user", options={"user_id" = "id"}, class="App\Entity\User")
@@ -153,7 +153,7 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to edit yourself.');
-            return $this->redirectToRoute('pm_user_show', $parameters);
+            return $this->redirectToRoute('pm_user', $parameters);
         }
 
         /** @var User\Edit\Command $command */
@@ -167,7 +167,7 @@ class UsersController extends AbstractController
             try {
                 $handler->handle($command);
                 $this->addFlash('success', 'User was successfully updated');
-                return $this->redirectToRoute('pm_user_show', $parameters);
+                return $this->redirectToRoute('pm_user', $parameters);
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
@@ -199,7 +199,7 @@ class UsersController extends AbstractController
 
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to change roles for yourself.');
-            return $this->redirectToRoute('pm_user_show', $parameters);
+            return $this->redirectToRoute('pm_user', $parameters);
         }
 
         /** @var Role\Command $command */
@@ -214,7 +214,7 @@ class UsersController extends AbstractController
                 $handler->handle($command);
                 $this->addFlash('success', 'Roles was successfully updated');
 
-                return $this->redirectToRoute('pm_user_show', $parameters);
+                return $this->redirectToRoute('pm_user', $parameters);
             } catch (DomainException $exception) {
                 $this->logger->error($message = $exception->getMessage(), ['exception' => $exception]);
                 $this->addFlash('error', $message);
@@ -246,7 +246,7 @@ class UsersController extends AbstractController
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to confirm for yourself.');
 
-            return $this->redirectToRoute('pm_user_show', $parameters);
+            return $this->redirectToRoute('pm_user', $parameters);
         }
 
         if ($this->isCsrfTokenValid('confirm', $request->request->get('_token'))) {
@@ -258,7 +258,7 @@ class UsersController extends AbstractController
             }
         }
 
-        return $this->redirectToRoute('pm_user_show', $parameters);
+        return $this->redirectToRoute('pm_user', $parameters);
     }
 
     /**
@@ -277,7 +277,7 @@ class UsersController extends AbstractController
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to lock yourself.');
 
-            return $this->redirectToRoute('pm_user_show', $parameters);
+            return $this->redirectToRoute('pm_user', $parameters);
         }
 
         if ($this->isCsrfTokenValid('lock', $request->request->get('_token'))) {
@@ -290,7 +290,7 @@ class UsersController extends AbstractController
             }
         }
 
-        return $this->redirectToRoute('pm_user_show', $parameters);
+        return $this->redirectToRoute('pm_user', $parameters);
     }
 
     /**
@@ -309,7 +309,7 @@ class UsersController extends AbstractController
         if ($user->getId()->toString() === $this->getUser()->getId()) {
             $this->addFlash('error', 'Unable to unlock yourself.');
 
-            return $this->redirectToRoute('pm_user_show', $parameters);
+            return $this->redirectToRoute('pm_user', $parameters);
         }
 
         if ($this->isCsrfTokenValid('unlock', $request->request->get('_token'))) {
@@ -322,6 +322,6 @@ class UsersController extends AbstractController
             }
         }
 
-        return $this->redirectToRoute('pm_user_show', $parameters);
+        return $this->redirectToRoute('pm_user', $parameters);
     }
 }

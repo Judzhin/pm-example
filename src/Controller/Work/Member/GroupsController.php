@@ -134,12 +134,13 @@ class GroupsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="pm_work_member_group_delete")
+     * @Route("/{id}/delete", name="pm_work_member_group_delete", methods={"POST"})
      *
      * @param Entity\Work\Member\Group $group
      * @param Request $request
      * @param Group\Remove\Handler $handler
      * @return Response
+     * @throws \Throwable
      */
     public function delete(Entity\Work\Member\Group $group, Request $request, Group\Remove\Handler $handler): Response
     {

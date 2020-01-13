@@ -146,12 +146,28 @@ class Member
     }
 
     /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->status->isActive();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isArchived(): bool
+    {
+        return $this->status->isArchived();
+    }
+
+    /**
      * @return Member
      * @throws \Throwable
      */
-    public function archived(): Member
+    public function archive(): Member
     {
-        if ($this->status->isArchived()) {
+        if ($this->isArchived()) {
             throw DomainException::memberIsAlreadyArchived();
         }
 
@@ -165,7 +181,7 @@ class Member
      */
     public function reinstate(): Member
     {
-        if ($this->status->isActive()) {
+        if ($this->isActive()) {
             throw DomainException::memberIsAlreadyActive();
         }
 

@@ -17,19 +17,19 @@
     <div class="controls">
         <a href="{{ path('pm_work_member_edit', {'id': member.id}) }}" class="btn btn-primary btn-sm">Edit</a>
         <a href="{{ path('pm_work_member_move', {'id': member.id}) }}" class="btn btn-primary btn-sm">Move</a>
-        <a href="{{ path('pm_user_show', {'id': member.id}) }}" class="btn btn-primary btn-sm">View User</a>
-        {#{% if member.active and member.id.value != app.user.id %}#}
-            {#<form action="{{ path('work.members.archive', {'id': member.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">#}
-                {#<input type="hidden" name="token" value="{{ csrf_token('archive') }}" />#}
-                {#<button type="submit" class="btn btn-danger">Archive</button>#}
-            {#</form>#}
-        {#{% endif %}#}
-        {#{% if member.archived %}#}
-            {#<form action="{{ path('work.members.reinstate', {'id': member.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">#}
-                {#<input type="hidden" name="token" value="{{ csrf_token('reinstate') }}" />#}
-                {#<button type="submit" class="btn btn-success">Reinstate</button>#}
-            {#</form>#}
-        {#{% endif %}#}
+        <a href="{{ path('pm_user', {'id': member.id}) }}" class="btn btn-primary btn-sm">View User</a>
+        {% if member.active and member.id != app.user.id %}
+            <form action="{{ path('pm_work_member_archive', {'id': member.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                <input type="hidden" name="token" value="{{ csrf_token('archive') }}" />
+                <button type="submit" class="btn btn-danger btn-sm">Archive</button>
+            </form>
+        {% endif %}
+        {% if member.archived %}
+            <form action="{{ path('pm_work_member_reinstate', {'id': member.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                <input type="hidden" name="token" value="{{ csrf_token('reinstate') }}" />
+                <button type="submit" class="btn btn-success btn-sm">Reinstate</button>
+            </form>
+        {% endif %}
     </div>
 
     <div class="box">

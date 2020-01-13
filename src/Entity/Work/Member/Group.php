@@ -36,6 +36,7 @@ class Group
 
     /**
      * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="App\Entity\Work\Member", mappedBy="group", orphanRemoval=true, cascade={"persist"})
      */
     private $members;
 
