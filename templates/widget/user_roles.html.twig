@@ -1,6 +1,6 @@
 {% for role in roles %}
     <span class="badge badge-secondary">
-        {% if  role is same as('ROLE_ADMIN')  %}
+        {% if role is same as('ROLE_ADMIN') %}
             Admin
         {% elseif role is same as('ROLE_USER') %}
             User

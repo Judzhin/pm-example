@@ -25,29 +25,29 @@ class Status
     public const STATUS_ACTIVE = 'ACTIVE';
 
     /** @var string */
-    private $name = self::STATUS_NONE;
+    private $value = self::STATUS_NONE;
 
     /**
      * Status constructor.
-     * @param string $name
+     * @param string $value
      */
-    public function __construct(string $name)
+    public function __construct(string $value)
     {
-        Assert::oneOf($name, [
+        Assert::oneOf($value, [
             self::STATUS_NONE,
             self::STATUS_ACTIVE,
             self::STATUS_ARCHIVED,
         ]);
 
-        $this->name = $name;
+        $this->value = $value;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getValue(): string
     {
-        return $this->name;
+        return $this->value;
     }
 
     /**
@@ -56,7 +56,7 @@ class Status
      */
     public function isEqual(Member $status): bool
     {
-        return $this->name === $status->getName();
+        return $this->value === $status->getName();
     }
 
     /**
@@ -64,7 +64,7 @@ class Status
      */
     public function isActive(): bool
     {
-        return self::STATUS_ACTIVE === $this->name;
+        return self::STATUS_ACTIVE === $this->value;
     }
 
     /**
@@ -72,7 +72,7 @@ class Status
      */
     public function isArchived():bool
     {
-        return self::STATUS_ARCHIVED === $this->name;
+        return self::STATUS_ARCHIVED === $this->value;
     }
 
     /**
@@ -113,6 +113,6 @@ class Status
      */
     public function __toString()
     {
-        return $this->name;
+        return $this->value;
     }
 }

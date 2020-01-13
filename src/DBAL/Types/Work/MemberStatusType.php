@@ -38,7 +38,7 @@ class MemberStatusType extends StringType
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
-        return $value instanceof Status ? $value->getName() : $value;
+        return $value instanceof Status ? $value->getValue() : $value;
     }
 
     /**

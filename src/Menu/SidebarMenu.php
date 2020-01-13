@@ -65,7 +65,7 @@ class SidebarMenu
                 ->addChild('Members', ['route' => 'pm_work_members'])
                 ->setExtra('routes', [
                     ['route' => 'pm_work_members'],
-                    ['pattern' => '/^pm_work_members\..+/']
+                    ['pattern' => '/^pm_work_member.?/']
                 ])
                 ->setExtra('icon', 'nav-icon icon-people')
                 ->setAttribute('class', 'nav-item')
@@ -82,7 +82,7 @@ class SidebarMenu
                 ->setExtra('icon', 'nav-icon icon-people')
                 ->setExtra('routes', [
                     ['route' => 'pm_users'],
-                    ['pattern' => '/^pm_users\..+/']
+                    ['pattern' => '/^pm_user.?/']
                 ])
                 ->setAttribute('class', 'nav-item')
                 ->setLinkAttribute('class', 'nav-link');
@@ -93,7 +93,7 @@ class SidebarMenu
         //     ->setExtra('icon', 'nav-icon icon-user')
         //     ->setExtra('routes', [
         //         ['route' => 'pm_profile'],
-        //         ['pattern' => '/^profile\..+/']
+        //         ['pattern' => '/^profile.+/']
         //     ])
         //     ->setAttribute('class', 'nav-item')
         //     ->setLinkAttribute('class', 'nav-link');
