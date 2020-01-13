@@ -27,7 +27,6 @@ class Member
      * @var UuidInterface
      *
      * @ORM\Id()
-     * @ORM\GeneratedValue("UUID")
      * @ORM\Column(type="uuid")
      */
     private $id;
