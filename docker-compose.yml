@@ -95,6 +95,8 @@ services:
     volumes:
     - pm-redis:/data
     command: redis-server --requirepass secret
+    ports:
+    - 6379:6379
 
   # pm-mariadb:
   #   image: mariadb

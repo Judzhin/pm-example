@@ -9,7 +9,7 @@ namespace App\UseCase\User\SignUp\Request;
 use App\Entity\Name;
 use App\Entity\User;
 use App\Exception\DomainException;
-use App\Model\Email;
+use App\Model\User\Email;
 use App\Service\PasswordEncoder;
 use App\Service\Sender\SignUpTokenSender;
 use Doctrine\ORM\EntityManagerInterface;
