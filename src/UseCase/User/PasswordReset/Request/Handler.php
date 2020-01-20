@@ -7,10 +7,12 @@
 namespace App\UseCase\User\PasswordReset\Request;
 
 use App\Entity\User;
-use App\Model\User\Email;
+use App\Model\Email;
 use App\Service\Sender\PasswordResetSender;
 use App\Service\TokenGenerator;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -44,7 +46,9 @@ class Handler
 
     /**
      * @param Command $command
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws NonUniqueResultException
+     * @throws TransportExceptionInterface
+     * @throws \Throwable
      */
     public function handle(Command $command): void
     {

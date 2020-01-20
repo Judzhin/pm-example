@@ -8,8 +8,8 @@ namespace App\Tests\UseCase\User\PasswordReset;
 
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
-use App\Model\User\Email;
-use App\Repository\GroupRepository;
+use App\Model\Email;
+use App\Repository\UserRepository;
 use App\Service\Sender\PasswordResetSender;
 use App\Service\TokenGenerator;
 use App\UseCase\User\PasswordReset\Request\Command;
@@ -34,8 +34,8 @@ class RequestTest extends TestCase
         /** @var UserInterface|User|ObjectProphecy $object */
         $object = $this->prophesize(User::class);
 
-        /** @var GroupRepository|ObjectProphecy $repository */
-        $repository = $this->prophesize(GroupRepository::class);
+        /** @var UserRepository|ObjectProphecy $repository */
+        $repository = $this->prophesize(UserRepository::class);
 
         $entityManager
             ->getRepository(Argument::type('string'))

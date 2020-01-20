@@ -9,10 +9,12 @@ namespace App\UseCase\User\SignUp\Request;
 use App\Entity\Name;
 use App\Entity\User;
 use App\Exception\DomainException;
-use App\Model\User\Email;
+use App\Model\Email;
 use App\Service\PasswordEncoder;
 use App\Service\Sender\SignUpTokenSender;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 /**
  * Class Handler
@@ -45,7 +47,9 @@ class Handler
 
     /**
      * @param Command $command
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws NonUniqueResultException
+     * @throws TransportExceptionInterface
+     * @throws \Throwable
      */
     public function handle(Command $command): void
     {

@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Builder/Entity/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builder/Entity/UserBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entity/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/User/PasswordReset/Request/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/User/PasswordReset/Request/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UseCase/User/SignUp/Request/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UseCase/User/SignUp/Request/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UseCase/User/PasswordReset/RequestTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UseCase/User/PasswordReset/RequestTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/UseCase/User/SignUp/RequestTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/UseCase/User/SignUp/RequestTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +324,7 @@
       <workItem from="1579513070858" duration="798000" />
       <workItem from="1579513878391" duration="247000" />
       <workItem from="1579514172003" duration="812000" />
-      <workItem from="1579518626141" duration="1834000" />
+      <workItem from="1579518626141" duration="4380000" />
     </task>
     <servers />
   </component>

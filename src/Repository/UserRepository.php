@@ -3,12 +3,13 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
+
 namespace App\Repository;
 
 use App\Entity\Network;
 use App\Entity\User;
 use App\Exception\UnsupportedUserException;
-use App\Model\User\Email;
+use App\Model\Email;
 use App\UseCase\User\Filter\Filter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -89,10 +90,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * @param Email $email
      * @return User|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findOneByEmail(Email $email): ?User
     {
-        return $this->findOneBy(['email' => $email]);
+        // return $this->findOneBy(['email' => $email]);
+
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('u');
+        $qb
+            ->where($qb->expr()->eq('u.email', ':email'))
+            ->setParameter('email', $email);
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
     // /**
@@ -148,13 +158,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         if ($filter->name) {
             $qb->andWhere(
                 $qb->expr()->like('LOWER(CONCAT(u.name.first, \' \', u.name.last))', ':name')
-            )->setParameter('name', '%'.mb_strtolower($filter->name).'%');
+            )->setParameter('name', '%' . mb_strtolower($filter->name) . '%');
         }
 
         if ($filter->email) {
             $qb->andWhere(
                 $qb->expr()->like('u.email', ':email')
-            )->setParameter('email', '%'.mb_strtolower($filter->email).'%');
+            )->setParameter('email', '%' . mb_strtolower($filter->email) . '%');
         }
 
         if ($filter->status) {
