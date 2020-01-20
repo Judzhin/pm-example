@@ -32,12 +32,12 @@ class GroupFixtures extends Fixture
         // }
 
         /** @var Group $staff */
-        $staff = $manager->persist((new Group)->setName('Our Staff'));
+        $staff = (new Group)->setName('Our Staff');
         $manager->persist($staff);
         $this->setReference(self::REFERENCE_STAFF, $staff);
 
         /** @var Group $customer */
-        $customer = $manager->persist((new Group)->setName('Customers'));
+        $customer = (new Group)->setName('Customers');
         $manager->persist($customer);
         $this->setReference(self::REFERENCE_CUSTOMER, $customer);
 
