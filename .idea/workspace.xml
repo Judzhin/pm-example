@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php/fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php/fpm/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,6 +306,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1010" y="27" width="709" height="807" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1579527054835" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1579531685927">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1579531685927" />
+    <state x="718" y="384" width="540" height="336" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1579532592538">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="718" y="384" width="540" height="336" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1579532592538" />
   </component>
   <component name="masterDetails">
     <states>

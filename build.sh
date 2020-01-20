@@ -30,9 +30,9 @@ echo 'Run load doctrine fixtures';
 docker-compose run --rm pm-php-cli php bin/console doctrine:fixtures:load --no-interaction
 
 echo 'Install Statics Dependencies';
-docker-compose run --rm pm-node yarn add -s bootstrap jquery popper.js
-docker-compose run --rm pm-node yarn add -s --dev sass-loader node-sass
-docker-compose run --rm pm-node yarn add -s @coreui/coreui font-awesome perfect-scrollbar simple-line-icons
+docker-compose run --rm pm-node-cli yarn add -s bootstrap jquery popper.js
+docker-compose run --rm pm-node-cli yarn add -s --dev sass-loader node-sass
+docker-compose run --rm pm-node-cli yarn add -s @coreui/coreui font-awesome perfect-scrollbar simple-line-icons
 
 echo 'All containers are done'
 docker run --rm -v ${PWD}:/var/www --workdir=/var/www alpine touch project.pid

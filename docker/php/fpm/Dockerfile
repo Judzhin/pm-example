@@ -6,6 +6,8 @@ RUN pecl install -o -f redis \
 
 RUN apt-get update && apt-get install -y libpq-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo_pgsql
+    && docker-php-ext-install pdo_pgsql \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
 
 WORKDIR /var/www

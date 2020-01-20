@@ -10,7 +10,6 @@ use App\Service\PasswordEncoder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -88,10 +87,12 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
 
-        $request->getSession()->set(
-            Security::LAST_USERNAME,
-            $credentials['email']
-        );
+        if ($request->hasSession()) {
+            $request->getSession()->set(
+                Security::LAST_USERNAME,
+                $credentials['email']
+            );
+        }
 
         return $credentials;
     }
@@ -105,6 +106,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
     {
         /** @var CsrfToken $token */
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
+
         if (!$this->csrfTokenManager->isTokenValid($token)) {
             throw new InvalidCsrfTokenException;
         }
@@ -167,7 +169,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
     /**
      * @return string
      */
-    protected function getLoginUrl(): string
+    protected function getLoginUrl()
     {
         return $this->urlGenerator->generate('app_login');
     }
