@@ -46,6 +46,7 @@ class Handler
     /**
      * @param Command $command
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws \Throwable
      */
     public function handle(Command $command): void
     {

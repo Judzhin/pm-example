@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
@@ -49,7 +50,8 @@ class RegistrationController extends AbstractController
      * @param Request $request
      * @param SignUp\Request\Handler $handler
      * @return Response
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws TransportExceptionInterface
+     * @throws \Throwable
      */
     public function register(Request $request, SignUp\Request\Handler $handler): Response
     {
