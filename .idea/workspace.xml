@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Work/Member/GroupFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MemberGroupFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Work/MemberFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MemberFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MemberFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Work/MemberFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MemberGroupFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/Work/MemberGroupFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,11 +227,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/DataFixtures/Work" />
       <recent name="$PROJECT_DIR$/src/DataFixtures" />
       <recent name="$PROJECT_DIR$/src/UseCase/Work/Member" />
       <recent name="$PROJECT_DIR$/src/UseCase/Work" />
       <recent name="$PROJECT_DIR$/src/DBAL/Types/Work/Member" />
-      <recent name="$PROJECT_DIR$/src/DBAL/Types/Work" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/DataFixtures/Work" />
@@ -266,7 +266,7 @@
       <workItem from="1579513070858" duration="798000" />
       <workItem from="1579513878391" duration="247000" />
       <workItem from="1579514172003" duration="812000" />
-      <workItem from="1579518626141" duration="6710000" />
+      <workItem from="1579518626141" duration="6802000" />
     </task>
     <servers />
   </component>

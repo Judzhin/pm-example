@@ -4,8 +4,9 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Work;
 
+use App\DataFixtures\UserFixtures;
 use App\Entity\User;
 use App\Entity\Work\Member;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -14,14 +15,15 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Class MemberFixtures
- * @package App\DataFixtures
+ * @package App\DataFixtures\Work
  */
 class MemberFixtures extends Fixture implements DependentFixtureInterface
 {
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
      * @param ObjectManager $manager
+     * @throws \Throwable
      */
     public function load(ObjectManager $manager): void
     {

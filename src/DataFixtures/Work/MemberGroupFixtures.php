@@ -3,7 +3,7 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-namespace App\DataFixtures;
+namespace App\DataFixtures\Work;
 
 use App\Entity\Work\Member\Group;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -11,7 +11,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Class MemberGroupFixtures
- * @package App\DataFixtures
+ * @package App\DataFixtures\Work
  */
 class MemberGroupFixtures extends Fixture
 {
