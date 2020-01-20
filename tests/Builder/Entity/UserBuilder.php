@@ -10,7 +10,7 @@ use App\Entity\EmbeddedToken;
 use App\Entity\Name;
 use App\Entity\Network;
 use App\Entity\User;
-use App\Model\User\Email;
+use App\Model\Email;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -60,8 +60,8 @@ class UserBuilder
      * @param Email|null $email
      * @param null $password
      * @param EmbeddedToken|null $confirmToken
-     * @return UserBuilder
-     * @throws \Exception
+     * @return $this
+     * @throws \Throwable
      */
     public function viaEmail(Email $email = null, $password = null, EmbeddedToken $confirmToken = null): self
     {
@@ -76,7 +76,7 @@ class UserBuilder
 
     /**
      * @param Network|null $network
-     * @return UserBuilder
+     * @return $this
      */
     public function viaNetwork(Network $network = null): self
     {
@@ -90,7 +90,7 @@ class UserBuilder
     }
 
     /**
-     * @return UserBuilder
+     * @return $this
      */
     public function activate(): self
     {
@@ -102,7 +102,7 @@ class UserBuilder
 
     /**
      * @return User
-     * @throws \Exception
+     * @throws \Throwable
      */
     public function build(): User
     {

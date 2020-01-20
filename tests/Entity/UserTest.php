@@ -8,7 +8,7 @@ namespace App\Tests\Entity;
 
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
-use App\Model\User\Email;
+use App\Model\Email;
 use App\Tests\Builder\Entity\UserBuilder;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class UserTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws \Throwable
      */
     public function testInstance()
     {
