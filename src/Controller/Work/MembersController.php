@@ -6,6 +6,7 @@
 
 namespace App\Controller\Work;
 
+use App\Annotation\UUIDv4;
 use App\Entity;
 use App\Exception\DomainException;
 use App\Repository\MemberRepository;
@@ -118,7 +119,7 @@ class MembersController extends AbstractController
     }
 
     /**
-     * @Route("/work/member/{id}", name="pm_work_member", requirements={"id"="[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ad][0-9a-f]{3}-[0-9a-f]{12}"})
+     * @Route("/work/member/{id}", name="pm_work_member", requirements={"id"=UUIDv4::PATTERN})
      *
      * @param Entity\Work\Member $member
      * @return Response
