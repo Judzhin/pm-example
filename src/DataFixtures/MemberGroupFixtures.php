@@ -3,17 +3,17 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-namespace App\DataFixtures\Work\Member;
+namespace App\DataFixtures;
 
 use App\Entity\Work\Member\Group;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
- * Class GroupFixtures
- * @package App\DataFixtures\Work\Member
+ * Class MemberGroupFixtures
+ * @package App\DataFixtures
  */
-class GroupFixtures extends Fixture
+class MemberGroupFixtures extends Fixture
 {
     /** @const REFERENCE_STAFF */
     public const REFERENCE_STAFF = 'group_staff';

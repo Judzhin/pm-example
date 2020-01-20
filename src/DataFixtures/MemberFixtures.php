@@ -4,9 +4,8 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\DataFixtures\Work\Member;
+namespace App\DataFixtures;
 
-use App\DataFixtures\UserFixtures;
 use App\Entity\User;
 use App\Entity\Work\Member;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -15,7 +14,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Class MemberFixtures
- * @package App\DataFixtures\Work\Member
+ * @package App\DataFixtures
  */
 class MemberFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -26,17 +25,16 @@ class MemberFixtures extends Fixture implements DependentFixtureInterface
      */
     public function load(ObjectManager $manager): void
     {
-
         /** @var array $maps */
         $maps = [
-            UserFixtures::REFERENCE_JUDZHIN => GroupFixtures::REFERENCE_STAFF,
-            UserFixtures::REFERENCE_JOHN => GroupFixtures::REFERENCE_STAFF
+            UserFixtures::REFERENCE_JUDZHIN => MemberGroupFixtures::REFERENCE_STAFF,
+            UserFixtures::REFERENCE_JOHN => MemberGroupFixtures::REFERENCE_STAFF
         ];
 
         foreach ($maps as $userInfo => $groupInfo) {
             $manager->persist(self::create(
-                $this->getReference(UserFixtures::REFERENCE_JUDZHIN),
-                $this->getReference(GroupFixtures::REFERENCE_STAFF)
+                $this->getReference($userInfo),
+                $this->getReference($groupInfo)
             ));
         }
 
@@ -47,14 +45,17 @@ class MemberFixtures extends Fixture implements DependentFixtureInterface
      * @param User $user
      * @param Member\Group $group
      * @return Member
+     * @throws \Throwable
      */
     private static function create(User $user, Member\Group $group): Member
     {
         /** @var Member $member */
         return (new Member)
+            ->setId($user->getId())
             ->setEmail($user->getEmail())
             ->setName($user->getName())
-            ->setGroup($group);
+            ->setGroup($group)
+            ->reinstate();
     }
 
     /**
@@ -66,7 +67,7 @@ class MemberFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
-            GroupFixtures::class
+            MemberGroupFixtures::class
         ];
     }
 }
