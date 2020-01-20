@@ -10,6 +10,7 @@ use App\Service\PasswordEncoder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -32,13 +33,13 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
 {
     use TargetPathTrait;
 
-    /** @var EntityManagerInterface  */
+    /** @var EntityManagerInterface */
     private $entityManager;
 
-    /** @var UrlGeneratorInterface  */
+    /** @var UrlGeneratorInterface */
     private $urlGenerator;
 
-    /** @var CsrfTokenManagerInterface  */
+    /** @var CsrfTokenManagerInterface */
     private $csrfTokenManager;
 
     /** @var PasswordEncoder|UserPasswordEncoderInterface */
@@ -55,7 +56,6 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
         EntityManagerInterface $entityManager,
         UrlGeneratorInterface $urlGenerator,
         CsrfTokenManagerInterface $csrfTokenManager,
-        // UserPasswordEncoderInterface $passwordEncoder
         PasswordEncoder $passwordEncoder
     )
     {
@@ -144,15 +144,14 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
      * @param Request $request
      * @param TokenInterface $token
      * @param string $providerKey
-     * @return null|RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @throws \Exception
+     * @return RedirectResponse
      */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey): RedirectResponse
     {
         /** @var string $targetPath */
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
@@ -168,7 +167,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
     /**
      * @return string
      */
-    protected function getLoginUrl()
+    protected function getLoginUrl(): string
     {
         return $this->urlGenerator->generate('app_login');
     }
