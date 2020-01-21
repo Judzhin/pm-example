@@ -189,8 +189,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="289" />
+    <option name="y" value="411" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectId" id="1WhPVq5iOi27vk10op667sQmVJv" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
