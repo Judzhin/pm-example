@@ -107,11 +107,11 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator implements P
         /** @var CsrfToken $token */
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
 
-        $this->csrfTokenManager->isTokenValid($token);
+        // $this->csrfTokenManager->isTokenValid($token);
 
-        //if (!$this->csrfTokenManager->isTokenValid($token)) {
-        //    throw new InvalidCsrfTokenException;
-        //}
+        if (!$this->csrfTokenManager->isTokenValid($token)) {
+            throw new InvalidCsrfTokenException;
+        }
 
         /** @var UserInterface $user */
         if ($user = $userProvider->loadUserByUsername($credentials['email'])) {

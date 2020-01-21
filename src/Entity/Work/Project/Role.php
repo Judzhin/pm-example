@@ -12,13 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class Department
+ * Class Role
  * @package App\Entity\Work\Project
  *
  * @ORM\Entity
- * @ORM\Table(name="work_project_departments")
+ * @ORM\Table(name="work_project_roles")
  */
-class Department
+class Role
 {
     /**
      * @var UuidInterface
@@ -30,7 +30,7 @@ class Department
 
     /**
      * @var Project
-     * @ORM\ManyToOne(targetEntity="App\Model\Work\Entity\Projects\Project\Project", inversedBy="departments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Work\Project", inversedBy="departments")
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=false)
      */
     private $project;
