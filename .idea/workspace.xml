@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Menu/Work/ProjectMenu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Work/Project/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Work/Project/ShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Work/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Work/ProjectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Project/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Project/Department.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu/SidebarMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/SidebarMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191213234442.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191213234442.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +274,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579598880121</updated>
       <workItem from="1579598884541" duration="4751000" />
-      <workItem from="1579609041065" duration="13378000" />
+      <workItem from="1579609041065" duration="13938000" />
     </task>
     <servers />
   </component>

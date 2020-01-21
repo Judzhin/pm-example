@@ -51,14 +51,14 @@ class SidebarMenu
         $menu->addChild('Work')
             ->setAttribute('class', 'nav-title');
 
-        // $menu->addChild('Projects', ['route' => 'work.projects'])
-        //     ->setExtra('routes', [
-        //         ['route' => 'work.projects'],
-        //         ['pattern' => '/^work.projects\..+/']
-        //     ])
-        //     ->setExtra('icon', 'nav-icon icon-briefcase')
-        //     ->setAttribute('class', 'nav-item')
-        //     ->setLinkAttribute('class', 'nav-link');
+        $menu->addChild('Projects', ['route' => 'pm_work_projects'])
+            ->setExtra('routes', [
+                ['route' => 'pm_work_projects'],
+                ['pattern' => '/^pm_work_project.?/']
+            ])
+            ->setExtra('icon', 'nav-icon icon-briefcase')
+            ->setAttribute('class', 'nav-item')
+            ->setLinkAttribute('class', 'nav-link');
 
         if ($this->authorizationChecker->isGranted('ROLE_WORK_MANAGE_MEMBERS')) {
             $menu
