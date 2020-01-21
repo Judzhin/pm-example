@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace App\Entity\Work;
 
 use App\Entity\Work\Project\Department;
+use App\Exception\DomainException;
 use App\Model\Work\Status;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -65,6 +66,16 @@ class Project
      * @ORM\Column(type="integer")
      */
     private $version;
+
+    /**
+     * Project constructor.
+     */
+    public function __construct()
+    {
+        $this->status = Status::active();
+        $this->departments = new ArrayCollection;
+        $this->memberships = new ArrayCollection;
+    }
 
     /**
      * @return UuidInterface
@@ -174,15 +185,6 @@ class Project
         return $this;
     }
 
-     /**
-      * Project constructor.
-      */
-     public function __construct()
-     {
-         $this->status = Status::active();
-         $this->departments = new ArrayCollection;
-         $this->memberships = new ArrayCollection;
-     }
     //
     // // public function edit(string $name, int $sort): void
     // // {
@@ -190,21 +192,23 @@ class Project
     // //     $this->sort = $sort;
     // // }
     //
-    // public function archive(): void
-    // {
-    //     if ($this->isArchived()) {
-    //         throw new \DomainException('Project is already archived.');
-    //     }
-    //     $this->status = Status::archived();
-    // }
-    //
-    // public function reinstate(): void
-    // {
-    //     if ($this->isActive()) {
-    //         throw new \DomainException('Project is already active.');
-    //     }
-    //     $this->status = Status::active();
-    // }
+
+     public function archive(): void
+     {
+         if ($this->isArchived()) {
+             throw new DomainException('Project is already archived.');
+         }
+         $this->setStatus(Status::archived());
+     }
+
+     public function reinstate(): void
+     {
+         if ($this->isActive()) {
+             throw new DomainException('Project is already active.');
+         }
+         $this->setStatus(Status::active());
+     }
+
     //
     // public function addDepartment(DepartmentId $id, string $name): void
     // {

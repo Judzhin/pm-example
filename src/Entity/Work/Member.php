@@ -10,6 +10,7 @@ use App\Entity\Name;
 use App\Entity\Work\Member\Group;
 use App\Exception\DomainException;
 use App\Model\Email;
+use App\Model\Work\Status;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -142,7 +143,7 @@ class Member
             throw DomainException::memberIsAlreadyArchived();
         }
 
-        $this->status = Status::archived();
+        $this->setStatus(Status::archived());
         return $this;
     }
 
@@ -156,7 +157,7 @@ class Member
             throw DomainException::memberIsAlreadyActive();
         }
 
-        $this->status = Status::active();
+        $this->setStatus(Status::active());
         return $this;
     }
 }
