@@ -6,7 +6,6 @@
 
 namespace App\Controller\Work;
 
-use App\Annotation\UUIDv4;
 use App\Entity;
 use App\Exception\DomainException;
 use App\Repository\ProjectRepository;

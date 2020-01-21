@@ -30,7 +30,7 @@ class Department
 
     /**
      * @var Project
-     * @ORM\ManyToOne(targetEntity="App\Model\Work\Entity\Projects\Project\Project", inversedBy="departments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Work\Project", inversedBy="departments")
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=false)
      */
     private $project;
