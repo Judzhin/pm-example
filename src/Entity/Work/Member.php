@@ -10,7 +10,6 @@ use App\Entity\Name;
 use App\Entity\Work\Member\Group;
 use App\Exception\DomainException;
 use App\Model\Email;
-use App\Model\Work\Member\Status;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -51,11 +50,7 @@ class Member
      */
     private $email;
 
-    /**
-     * @var Status
-     * @ORM\Column(type="work_member_status")
-     */
-    private $status;
+    use StatusTrait;
 
     /**
      * Member constructor.
@@ -135,30 +130,6 @@ class Member
     {
         $this->email = $email;
         return $this;
-    }
-
-    /**
-     * @return Status
-     */
-    public function getStatus(): Status
-    {
-        return $this->status;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isActive(): bool
-    {
-        return $this->status->isActive();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isArchived(): bool
-    {
-        return $this->status->isArchived();
     }
 
     /**

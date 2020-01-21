@@ -42,11 +42,7 @@ class Project
      */
     private $sort;
 
-    /**
-     * @var Status
-     * @ORM\Column(type="work_status", length=16)
-     */
-    private $status;
+    use StatusTrait;
 
     /**
      * @var ArrayCollection|Department[]
@@ -125,24 +121,6 @@ class Project
     }
 
     /**
-     * @return Status
-     */
-    public function getStatus(): Status
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param Status $status
-     * @return Project
-     */
-    public function setStatus(Status $status): Project
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
      * @return Department[]|ArrayCollection
      */
     public function getDepartments()
@@ -196,15 +174,15 @@ class Project
         return $this;
     }
 
-    // /**
-    //  * Project constructor.
-    //  */
-    // public function __construct()
-    // {
-    //     $this->status = Status::active();
-    //     $this->departments = new ArrayCollection;
-    //     $this->memberships = new ArrayCollection;
-    // }
+     /**
+      * Project constructor.
+      */
+     public function __construct()
+     {
+         $this->status = Status::active();
+         $this->departments = new ArrayCollection;
+         $this->memberships = new ArrayCollection;
+     }
     //
     // // public function edit(string $name, int $sort): void
     // // {
