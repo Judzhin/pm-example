@@ -34,7 +34,7 @@
                 <tr>
                     <td>
                         {% if group.members|length > 0 %}
-                            <a href="{{ path('pm_work_members', {'form': {'group': group.id}}) }}">{{ group.name }}</a>
+                            <a href="{{ path('pm_work_members', {"group": group.id} ) }}">{{ group.name }}</a>
                         {% else %}
                             {{ group.name }}
                         {% endif %}
