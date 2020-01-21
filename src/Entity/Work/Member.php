@@ -21,7 +21,7 @@ use Ramsey\Uuid\UuidInterface;
  * @ORM\Entity()
  * @ORM\Table(name="work_members")
  */
-class Member
+class Member implements StatusAwareInterface
 {
     /**
      * @var UuidInterface
@@ -51,14 +51,14 @@ class Member
      */
     private $email;
 
-    use StatusTrait;
+    use StatusAwareTrait;
 
     /**
      * Member constructor.
      */
     public function __construct()
     {
-        $this->status = Status::default();
+        $this->setStatus(Status::default());
     }
 
     /**

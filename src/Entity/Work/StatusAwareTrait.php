@@ -7,24 +7,23 @@ declare(strict_types=1);
 
 namespace App\Entity\Work;
 
-use App\Model\Work\Status;
 use App\Model\Work\StatusInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Trait StatusTrait
+ * Trait StatusAwareTrait
  * @package App\Entity\Work
  */
-trait StatusTrait
+trait StatusAwareTrait
 {
     /**
-     * @var Status
+     * @var StatusInterface
      * @ORM\Column(type="work_status", length=16)
      */
     private $status;
 
     /**
-     * @return Status
+     * @return StatusInterface
      */
     public function getStatus(): StatusInterface
     {
@@ -32,10 +31,10 @@ trait StatusTrait
     }
 
     /**
-     * @param Status $status
+     * @param StatusInterface $status
      * @return $this
      */
-    public function setStatus(Status $status): self
+    public function setStatus(StatusInterface $status): self
     {
         $this->status = $status;
         return $this;

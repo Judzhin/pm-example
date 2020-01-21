@@ -6,27 +6,28 @@
 
 namespace App\Widget;
 
-use App\Entity\Work\Member;
+use App\Entity\Work\StatusAwareInterface;
 use Twig\Environment;
+use Twig\Error;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class MemberStatusWidget
+ * Class WorkStatusWidget
  * @package App\Widget
  */
-class MemberStatusWidget extends AbstractExtension
+class WorkStatusWidget extends AbstractExtension
 {
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
-     * @return array|\Twig\TwigFunction[]
+     * @return array
      */
     public function getFunctions(): array
     {
         return [
             new TwigFunction(
-                'member_status', [
+                'work_status', [
                 $this,
                 'onInvoke',
             ], [
@@ -40,21 +41,21 @@ class MemberStatusWidget extends AbstractExtension
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
      * @param Environment $twig
-     * @param Member $member
+     * @param StatusAwareInterface $aware
      * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws Error\LoaderError
+     * @throws Error\RuntimeError
+     * @throws Error\SyntaxError
      */
-    public function onInvoke(Environment $twig, Member $member): string
+    public function onInvoke(Environment $twig, StatusAwareInterface $aware): string
     {
         return $twig->render(
             'widget/member_status.html.twig',
             [
-                'status' => $member->getStatus(),
+                'status' => $aware->getStatus(),
             ]
         );
     }

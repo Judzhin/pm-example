@@ -21,5 +21,5 @@ interface StatusInterface
      * @param StatusInterface $status
      * @return bool
      */
-    public function isEqual(self $status): bool;
+    public function isEqual(StatusInterface $status): bool;
 }

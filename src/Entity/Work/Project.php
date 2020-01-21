@@ -21,7 +21,7 @@ use Ramsey\Uuid\UuidInterface;
  * @ORM\Entity
  * @ORM\Table(name="work_projects")
  */
-class Project
+class Project implements StatusAwareInterface
 {
     /**
      * @var UuidInterface
@@ -43,7 +43,7 @@ class Project
      */
     private $sort;
 
-    use StatusTrait;
+    use StatusAwareTrait;
 
     /**
      * @var ArrayCollection|Department[]
@@ -72,7 +72,7 @@ class Project
      */
     public function __construct()
     {
-        $this->status = Status::active();
+        $this->setStatus(Status::active());
         $this->departments = new ArrayCollection;
         $this->memberships = new ArrayCollection;
     }
