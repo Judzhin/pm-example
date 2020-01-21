@@ -34,7 +34,7 @@ trait StatusAwareTrait
      * @param StatusInterface $status
      * @return $this
      */
-    public function setStatus(StatusInterface $status): self
+    public function setStatus(StatusInterface $status)
     {
         $this->status = $status;
         return $this;
@@ -49,7 +49,8 @@ trait StatusAwareTrait
     }
 
     /**
-    */
+     * @return bool
+     */
     public function isArchived(): bool
     {
         return $this->status->isArchived();

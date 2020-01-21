@@ -17,15 +17,15 @@ use App\Model\Work\StatusInterface;
 interface StatusAwareInterface
 {
     /**
-     * @return Status
+     * @return StatusInterface
      */
-    public function getStatus();
+    public function getStatus(): StatusInterface;
 
     /**
      * @param StatusInterface $status
-     * @return $this
+     * @return mixed
      */
-    public function setStatus(StatusInterface $status): self;
+    public function setStatus(StatusInterface $status);
 
     /**
      * @return bool
@@ -33,6 +33,7 @@ interface StatusAwareInterface
     public function isActive(): bool;
 
     /**
+     * @return bool
      */
     public function isArchived(): bool;
 }

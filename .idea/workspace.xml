@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Work/ProjectsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/Work/ProjectFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Work/StatusAwareTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ProjectRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Filter/Filter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Filter/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/projects/_tabs.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/projects/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/projects/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/projects/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/projects/move.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/works/projects/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/StatusTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/StatusAwareInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Work/StatusInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Work/StatusInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Widget/MemberStatusWidget.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Widget/WorkStatusWidget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Work/StatusAwareInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/StatusAwareInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Work/StatusAwareTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/StatusAwareTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/works/members/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/works/members/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +275,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579598880121</updated>
       <workItem from="1579598884541" duration="4751000" />
-      <workItem from="1579609041065" duration="12100000" />
+      <workItem from="1579609041065" duration="12480000" />
     </task>
     <servers />
   </component>
