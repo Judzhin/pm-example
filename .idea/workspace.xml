@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Archived/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Archived/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Create/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Create/FormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Create/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Edit/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Edit/FormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Edit/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Reinstate/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Reinstate/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Remove/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UseCase/Work/Project/Remove/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Project.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +234,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/judzhin/Projects/_tutorials/pm-example/var/cache/dev/profiler/index.csv&#10;/Users/judzhin/Projects/_tutorials/pm-example/yarn-error.log&#10;/Users/judzhin/Projects/_tutorials/pm-example/vendor/knplabs/knp-paginator-bundle/composer.json" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity/Work" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UseCase/Work" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="" />
@@ -237,11 +247,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/UseCase/Work" />
       <recent name="$PROJECT_DIR$/src/Entity/Work" />
       <recent name="$PROJECT_DIR$/src/Entity/Work/Project" />
       <recent name="$PROJECT_DIR$/src/DBAL/Types" />
       <recent name="$PROJECT_DIR$/src/Model/Work" />
-      <recent name="$PROJECT_DIR$/src/Model/Work/Project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/UseCase/Work/Member" />
@@ -274,7 +284,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579598880121</updated>
       <workItem from="1579598884541" duration="4751000" />
-      <workItem from="1579609041065" duration="5753000" />
+      <workItem from="1579609041065" duration="7742000" />
     </task>
     <servers />
   </component>
@@ -302,6 +312,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="639" y="283" width="722" height="538" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1579607685083" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1579615516390">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1579615516390" />
   </component>
   <component name="masterDetails">
     <states>
