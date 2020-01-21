@@ -4,17 +4,15 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Model\Work\Member;
+namespace App\Model\Work;
 
-use App\Entity\Work\Member;
 use Webmozart\Assert\Assert;
 
 /**
  * Class Status
- * @package App\Model\Work\Member
- * @deprecated
+ * @package App\Model\Work
  */
-class Status
+class Status implements StatusInterface
 {
     /** @const STATUS_NONE */
     public const STATUS_NONE = 'NONE';
@@ -52,12 +50,12 @@ class Status
     }
 
     /**
-     * @param Member $status
+     * @param StatusInterface $status
      * @return bool
      */
-    public function isEqual(Member $status): bool
+    public function isEqual(StatusInterface $status): bool
     {
-        return $this->value === $status->getName();
+        return $this->value === $status->getValue();
     }
 
     /**

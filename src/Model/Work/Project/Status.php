@@ -4,14 +4,14 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Model\Work\Member;
+namespace App\Model\Work\Project;
 
 use App\Entity\Work\Member;
 use Webmozart\Assert\Assert;
 
 /**
  * Class Status
- * @package App\Model\Work\Member
+ * @package App\Model\Work\Project
  * @deprecated
  */
 class Status

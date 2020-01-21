@@ -4,21 +4,21 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\DBAL\Types\Work;
+namespace App\DBAL\Types;
 
-use App\Model\Work\Member\Status;
+use App\Model\Work\Status;
+use App\Model\Work\StatusInterface;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 
 /**
- * Class MemberStatusType
- * @package App\DBAL\Types\Work
- * @deprecated use WorkStatusType
+ * Class WorkStatusType
+ * @package App\DBAL\Types
  */
-class MemberStatusType extends StringType
+class WorkStatusType extends StringType
 {
     /** @const NAME */
-    public const NAME = 'work_member_status';
+    public const NAME = 'work_status';
 
     /**
      * @inheritdoc
@@ -39,7 +39,7 @@ class MemberStatusType extends StringType
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
-        return $value instanceof Status ? $value->getValue() : $value;
+        return $value instanceof StatusInterface ? $value->getValue() : $value;
     }
 
     /**
@@ -49,7 +49,7 @@ class MemberStatusType extends StringType
      * @param AbstractPlatform $platform
      * @return Status
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): Status
+    public function convertToPHPValue($value, AbstractPlatform $platform): StatusInterface
     {
         return new Status($value);
     }
