@@ -19,13 +19,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShowController extends AbstractController
 {
     /**
-     * @Route("/work/project/{id}", name="pm_work_member", requirements={"id"=UUIDv4::PATTERN})
+     * @Route("/work/project/{id}", name="pm_work_project", requirements={"id"=UUIDv4::PATTERN})
      *
      * @param Project $project
      * @return Response
      */
     public function show(Project $project): Response
     {
-        return $this->render('works/members/show.html.twig', compact('member'));
+        return $this->render('works/members/show.html.twig', compact('project'));
     }
 }

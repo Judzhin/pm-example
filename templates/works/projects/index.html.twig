@@ -41,7 +41,7 @@
             <tbody>
             {% for project in pagination %}
                 <tr>
-                    <td><a href="{{ path('pm_work_project', {'id': member.id}) }}">{{ member.name }}</a></td>
+                    <td><a href="{{ path('pm_work_project', {'id': project.id}) }}">{{ project.name }}</a></td>
                     <td>{{ work_status(project) }}</td>
                 </tr>
             {% endfor %}

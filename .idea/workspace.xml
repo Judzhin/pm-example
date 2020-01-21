@@ -2,10 +2,146 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ead167-a3d7-436a-ae53-b29a3ebb4edd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/pm-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pm-example.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/SidebarMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/SidebarMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191213234442.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191213234442.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Work/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Work/Project.php" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/public/build/" />
+    <ignored path="$PROJECT_DIR$/vendor/composer/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/cache/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/collections/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/common/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/data-fixtures/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/dbal/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/event-manager/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/inflector/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/instantiator/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/lexer/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/migrations/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/orm/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/persistence/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/reflection/" />
+    <ignored path="$PROJECT_DIR$/vendor/easycorp/easy-log-handler/" />
+    <ignored path="$PROJECT_DIR$/vendor/egulias/email-validator/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/promises/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/psr7/" />
+    <ignored path="$PROJECT_DIR$/vendor/jdorn/sql-formatter/" />
+    <ignored path="$PROJECT_DIR$/vendor/knplabs/knp-components/" />
+    <ignored path="$PROJECT_DIR$/vendor/knplabs/knp-menu/" />
+    <ignored path="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/knpuniversity/oauth2-client-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/oauth2-client/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/oauth2-facebook/" />
+    <ignored path="$PROJECT_DIR$/vendor/monolog/monolog/" />
+    <ignored path="$PROJECT_DIR$/vendor/msbios/exception/" />
+    <ignored path="$PROJECT_DIR$/vendor/msbios/msbios/" />
+    <ignored path="$PROJECT_DIR$/vendor/nikic/php-parser/" />
+    <ignored path="$PROJECT_DIR$/vendor/ocramius/package-versions/" />
+    <ignored path="$PROJECT_DIR$/vendor/ocramius/proxy-manager/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver/" />
+    <ignored path="$PROJECT_DIR$/vendor/predis/predis/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/cache/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/container/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/event-dispatcher/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/http-message/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/link/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/log/" />
+    <ignored path="$PROJECT_DIR$/vendor/ralouphie/getallheaders/" />
+    <ignored path="$PROJECT_DIR$/vendor/ramsey/uuid/" />
+    <ignored path="$PROJECT_DIR$/vendor/ramsey/uuid-doctrine/" />
+    <ignored path="$PROJECT_DIR$/vendor/scienta/doctrine-json-functions/" />
+    <ignored path="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/asset/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/browser-kit/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/cache/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/cache-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/config/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/console/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/css-selector/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/debug-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/debug-pack/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/dependency-injection/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/doctrine-bridge/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/dom-crawler/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/dotenv/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/error-handler/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/expression-language/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/filesystem/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/finder/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/flex/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/form/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/framework-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-client/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-client-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-foundation/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-kernel/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/inflector/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/intl/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/mailer/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/maker-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/messenger/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/mime/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/monolog-bridge/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/monolog-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/notifier/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/options-resolver/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/orm-pack/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/phpunit-bridge/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php73/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/process/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/profiler-pack/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/property-access/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/property-info/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/routing/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/security-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/security-core/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/security-csrf/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/security-guard/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/security-http/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/serializer/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/serializer-pack/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/service-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/stopwatch/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/string/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/test-pack/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/translation/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/translation-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/twig-bridge/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/twig-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/twig-pack/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/validator/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/var-dumper/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/var-exporter/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/web-link/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/yaml/" />
+    <ignored path="$PROJECT_DIR$/vendor/twig/extra-bundle/" />
+    <ignored path="$PROJECT_DIR$/vendor/twig/twig/" />
+    <ignored path="$PROJECT_DIR$/vendor/webmozart/assert/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-code/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-config/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-loader/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-math/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-modulemanager/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-stdlib/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +149,6 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -31,6 +164,67 @@
     <expand />
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1069879032">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="php" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PHP" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PHP" value="13" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200121201723.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="33" selection-start-line="33" selection-end-line="34" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Work/Project.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -44,11 +238,35 @@
       </map>
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Migrations/Version20200121201723.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Work/Project.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
     <exe-path />
     <annotation-enable>false</annotation-enable>
     <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Brew PHP 7.1">
     <include_path>
@@ -215,6 +433,43 @@
     </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pm-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pm-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -253,6 +508,18 @@
       <recent name="$PROJECT_DIR$/templates/works/members" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
@@ -280,8 +547,36 @@
     </task>
     <servers />
   </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <layout>
+      <window_info id="npm" side_tool="true" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.50843376" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Intermediate commit" />
@@ -312,6 +607,29 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1579615516390" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200121201723.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="33" selection-start-line="33" selection-end-line="34" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Work/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
