@@ -119,17 +119,6 @@ class ProjectsController extends AbstractController
     }
 
     /**
-     * @Route("/work/project/{id}", name="pm_work_member", requirements={"id"=UUIDv4::PATTERN})
-     *
-     * @param Entity\Work\Member $member
-     * @return Response
-     */
-    public function show(Entity\Work\Member $member): Response
-    {
-        return $this->render('works/members/show.html.twig', compact('member'));
-    }
-
-    /**
      * @Route("/work/project/edit/{id}", name="pm_work_member_edit")
      *
      * @param Entity\Work\Member $member
