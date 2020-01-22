@@ -54,7 +54,7 @@ class ProjectMenu
             ])
             ->setExtra('routes', [
                 ['route' => 'pm_work_project'],
-                ['pattern' => '/^pm_work_project\.?/']
+                ['pattern' => '/^pm_work_project/']
             ])
             ->setAttribute('class', 'nav-item')
             ->setLinkAttribute('class', 'nav-link');
