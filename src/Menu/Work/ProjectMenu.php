@@ -6,6 +6,7 @@
 
 namespace App\Menu\Work;
 
+use App\Entity\Work\Project;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -39,57 +40,69 @@ class ProjectMenu
      */
     public function build(array $options): ItemInterface
     {
-//        /** @var ItemInterface $menu */
-//        $menu = $this->factory->createItem('root')
-//            ->setChildrenAttributes(['class' => 'nav']);
-//
-//        $menu
-//            ->addChild('Dashboard', ['route' => 'pm_home'])
-//            ->setExtra('icon', 'nav-icon icon-speedometer')
-//            ->setAttribute('class', 'nav-item')
-//            ->setLinkAttribute('class', 'nav-link');
-//
-//        $menu->addChild('Work')
-//            ->setAttribute('class', 'nav-title');
-//
-//        if ($this->authorizationChecker->isGranted('ROLE_WORK_MANAGE_MEMBERS')) {
-//            $menu
-//                ->addChild('Members', ['route' => 'pm_work_members'])
-//                ->setExtra('routes', [
-//                    ['route' => 'pm_work_members'],
-//                    ['pattern' => '/^pm_work_member.?/']
-//                ])
-//                ->setExtra('icon', 'nav-icon icon-people')
-//                ->setAttribute('class', 'nav-item')
-//                ->setLinkAttribute('class', 'nav-link');
-//        }
-//
-//        $menu
-//            ->addChild('Control')
-//            ->setAttribute('class', 'nav-title');
-//
-//        if ($this->authorizationChecker->isGranted('ROLE_MANAGE_USERS')) {
-//            $menu
-//                ->addChild('Users', ['route' => 'pm_users'])
-//                ->setExtra('icon', 'nav-icon icon-people')
-//                ->setExtra('routes', [
-//                    ['route' => 'pm_users'],
-//                    ['pattern' => '/^pm_user.?/']
-//                ])
-//                ->setAttribute('class', 'nav-item')
-//                ->setLinkAttribute('class', 'nav-link');
-//        }
-//
-//        // $menu
-//        //     ->addChild('Profile', ['route' => 'pm_profile'])
-//        //     ->setExtra('icon', 'nav-icon icon-user')
-//        //     ->setExtra('routes', [
-//        //         ['route' => 'pm_profile'],
-//        //         ['pattern' => '/^profile.+/']
-//        //     ])
-//        //     ->setAttribute('class', 'nav-item')
-//        //     ->setLinkAttribute('class', 'nav-link');
-//        return $menu;
+        /** @var ItemInterface $menu */
+        $menu = $this->factory->createItem('root')
+            ->setChildrenAttributes(['class' => 'nav nav-tabs mb-4']);
+
+        /** @var Project $project */
+        $project = $options['project'];
+
+        $menu
+            ->addChild('Dashboard', [
+                'route' => 'pm_work_project',
+                'routeParameters' => ['id' => $project->getId()]
+            ])
+            ->setExtra('routes', [
+                ['route' => 'pm_work_project'],
+                ['pattern' => '/^pm_work_project\.?/']
+            ])
+            ->setAttribute('class', 'nav-item')
+            ->setLinkAttribute('class', 'nav-link');
+
+        //$menu
+        //    ->addChild('Actions', [
+        //        'route' => 'work.projects.project.actions',
+        //        'routeParameters' => ['project_id' => $options['project_id']]
+        //    ])
+        //    ->setAttribute('class', 'nav-item')
+        //    ->setLinkAttribute('class', 'nav-link');
+        //
+        //$menu
+        //    ->addChild('Tasks', [
+        //        'route' => 'work.projects.project.tasks',
+        //        'routeParameters' => ['project_id' => $options['project_id']]
+        //    ])
+        //    ->setExtra('routes', [
+        //        ['route' => 'work.projects.project.tasks'],
+        //        ['pattern' => '/^work.projects.project.tasks\..+/']
+        //    ])
+        //    ->setAttribute('class', 'nav-item')
+        //    ->setLinkAttribute('class', 'nav-link');
+        //
+        //$menu
+        //    ->addChild('Calendar', [
+        //        'route' => 'work.projects.project.calendar',
+        //        'routeParameters' => ['project_id' => $options['project_id']]
+        //    ])
+        //    ->setAttribute('class', 'nav-item')
+        //    ->setLinkAttribute('class', 'nav-link');
+        //
+
+        if ($this->authorizationChecker->isGranted('ROLE_WORK_MANAGE_PROJECTS')) {
+            $menu
+                ->addChild('Settings', [
+                    'route' => 'pm_work_project_setting',
+                    'routeParameters' => ['id' => $project->getId()]
+                ])
+                ->setExtra('routes', [
+                    ['route' => 'pm_work_project_setting'],
+                    ['pattern' => '/^pm_work_project_setting\.?/']
+                ])
+                ->setAttribute('class', 'nav-item')
+                ->setLinkAttribute('class', 'nav-link');
+        }
+
+        return $menu;
     }
 
 }
