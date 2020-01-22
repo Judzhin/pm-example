@@ -64,7 +64,7 @@ class UserConfirmCommand extends Command
         }
 
         $user->confirm();
-        $output->writeln('<info>Done!</info>>');
+        $output->writeln('<info>Done!</info>');
     }
 
 }
