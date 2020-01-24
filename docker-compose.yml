@@ -18,7 +18,7 @@ services:
       context: ./docker/php
       dockerfile: Dockerfile
     volumes:
-    - .:/var/www
+    - ./app:/var/www
     - composer:/root/.composer/cache
   #    environment:
   #      APP_DEBUG: 1
@@ -30,7 +30,7 @@ services:
       context: ./docker/php/fpm
       dockerfile: Dockerfile
     volumes:
-    - .:/var/www
+    - ./app:/var/www
 
   # nginx
   pm-nginx:
@@ -39,7 +39,7 @@ services:
       context: ./docker/nginx
       dockerfile: Dockerfile
     volumes:
-    - .:/var/www
+    - ./app:/var/www
     ports:
     - "3107:80"
     depends_on:
@@ -50,7 +50,7 @@ services:
     container_name: pm-pgsql
     image: postgres:12.1-alpine
     volumes:
-    - ./var/data:/var/lib/postgresql/data
+    - ./app/var/data:/var/lib/postgresql/data
     environment:
     - "POSTGRES_USER=postgres"
     - "POSTGRES_PASSWORD=postgres"
@@ -75,7 +75,7 @@ services:
     container_name: pm-node-cli
     image: node:13.2.0-alpine
     volumes:
-    - ./:/var/www
+    - ./app:/var/www
     working_dir: /var/www
 
   # node npm watch
@@ -84,7 +84,7 @@ services:
     image: node:13.2.0-alpine
     restart: always
     volumes:
-    - ./:/var/www
+    - ./app:/var/www
     working_dir: /var/www
     command: sh -c "until [ -f project.pid ] ; do sleep 1; done && npm run watch"
 
