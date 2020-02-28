@@ -34,7 +34,7 @@ class Member implements StatusAwareInterface
     /**
      * @var Group
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Work\Member\Group")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Work\Member\Group", inversedBy="members")
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id", nullable=false)
      */
     private $group;

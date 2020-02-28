@@ -108,10 +108,10 @@ populate: ## Reset and populate the elasticsearch index
 # L86+4 => templates/blog/posts/_51.html.twig
 
 list-index: ## List all indexes on the cluster
-	$(EXEC_FPM)  curl http://localhost:9209/_cat/indices?v
+	$(EXEC_FPM) curl http://localhost:9209/_cat/indices?v
 
 delete-index: ## Delete a given index (replace index by the index name to delete)
-	$(EXEC_FPM)  curl -X DELETE "localhost:9209/index?pretty"
+	$(EXEC_FPM) curl -X DELETE "localhost:9209/index?pretty"
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
 up: docker-compose.yaml ## Start the docker hub (MySQL,redis,adminer,elasticsearch,head,Kibana)
@@ -140,9 +140,9 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 	$(SYMFONY) doctrine:database:create --if-not-exists
 	$(SYMFONY) doctrine:schema:drop --force
 	$(SYMFONY) doctrine:schema:create
-	$(SYMFONY) doctrine:schema:validate
+	## $(SYMFONY) doctrine:schema:validate
 	$(SYMFONY) doctrine:fixtures:load -n
-	$(SYMFONY) doctrine:schema:validate
+	## $(SYMFONY) doctrine:schema:validate
 
 init-snippet: ## Initialize a new snippet
 	$(SYMFONY) $(PROJECT):init-snippet
