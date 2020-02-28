@@ -15,19 +15,19 @@ echo 'Start rebuild containers';
 docker-compose up -d --build
 
 echo 'Install Composer Dependencies';
-docker-compose run --rm pm-php-cli composer install
+docker-compose run --rm pm-php-fpm composer install
 
 echo 'Require Encore Dependency';
-docker-compose run --rm pm-php-cli composer require encore
+docker-compose run --rm pm-php-fpm composer require encore
 
 echo 'Run update postgresql';
-docker-compose run --rm pm-php-cli php bin/console doctrine:schema:update --force
+docker-compose run --rm pm-php-fpm php bin/console doctrine:schema:update --force
 
 echo 'Run doctrine migrations';
-docker-compose run --rm pm-php-cli php bin/console doctrine:migrations:migrate --no-interaction
+docker-compose run --rm pm-php-fpm php bin/console doctrine:migrations:migrate --no-interaction
 
 echo 'Run load doctrine fixtures';
-docker-compose run --rm pm-php-cli php bin/console doctrine:fixtures:load --no-interaction
+docker-compose run --rm pm-php-fpm php bin/console doctrine:fixtures:load --no-interaction
 
 echo 'Install Statics Dependencies';
 docker-compose run --rm pm-node-cli yarn add -s bootstrap jquery popper.js

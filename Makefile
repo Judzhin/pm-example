@@ -33,7 +33,9 @@ GIT           = git
 GIT_AUTHOR    = COil
 SYMFONY       = $(EXEC_PHP) bin/console
 SYMFONY_BIN   = ./symfony
-COMPOSER      = $(EXEC_PHP) composer.phar
+# COMPOSER      = $(EXEC_PHP) composer.phar
+COMPOSER      = composer
+NPM			  = npm
 DOCKER        = docker-compose
 BREW          = brew
 .DEFAULT_GOAL = help
@@ -47,31 +49,22 @@ wait: ## Sleep 5 seconds
 	sleep 5
 
 ## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————
-install: composer.lock ## Install vendors according to the current composer.lock file
-	$(COMPOSER) install
+install: app/composer.lock ## Install vendors according to the current composer.lock file
+	$(DOCKER) run --rm pm-php-fpm $(COMPOSER) install
 
-update: composer.json ## Update vendors according to the composer.json file
+update: app/composer.json ## Update vendors according to the composer.json file
 	$(COMPOSER) update
 
-### —— PHP 🐘 (macOS with brew) —————————————————————————————————————————————————
-#php-upgrade: ## Upgrade PHP to the last version
-#	$(BREW) upgrade php
-#
-#php-set-7-2: ## Set php 7.2 as the current PHP version
-#	$(BREW) unlink php@7.3 && brew unlink php@7.4
-#	$(BREW) link php@7.2 --force
-#
-#php-set-7-3: ## Set php 7.3 as the current PHP version
-#	$(BREW) unlink php@7.2 && brew unlink php@7.4
-#	$(BREW) link php@7.3 --force
-#
-#php-set-7-4: ## Set php 7.4 as the current PHP version
-#	$(BREW) unlink php@7.2 && brew unlink php@7.3
-#	$(BREW) link php@7.4 --force
+## —— Node 🧙‍♂️ ————————————————————————————————————————————————————————————
+npm-install: app/yarn.lock ## Install vendors according to the current yarn.lock file
+	$(DOCKER) run --rm pm-node-cli $(NPM) install
+
+npm-update: app/package.json ## Update vendors according to the package.json file
+	$(DOCKER) run --rm pm-node-cli $(NPM) update
 
 ## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
 sf: ## List all Symfony commands
-	docker-compose run --rm pm-php-cli $(SYMFONY)
+	docker-compose run --rm pm-php-fpm $(SYMFONY)
 
 cc: ## Clear the cache. DID YOU CLEAR YOUR CACHE????
 	$(SYMFONY) c:c
@@ -80,7 +73,7 @@ warmup: ## Warmump the cache
 	$(SYMFONY) cache:warmup
 
 fix-perms: ## Fix permissions of all var files
-	chmod -R 777 var/*
+	chmod -R 777 app/var/*
 
 assets: purge ## Install the assets with symlinks in the public folder
 	$(SYMFONY) assets:install public/ --symlink --relative
@@ -119,6 +112,7 @@ delete-index: ## Delete a given index (replace index by the index name to delete
 	curl -X DELETE "localhost:9209/index?pretty"
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
+
 up: docker-compose.yaml ## Start the docker hub (MySQL,redis,adminer,elasticsearch,head,Kibana)
 	$(DOCKER) -f docker-compose.yaml up -d
 
@@ -126,6 +120,8 @@ down: docker-compose.yaml ## Stop the docker hub
 	$(DOCKER) down --remove-orphans
 
 ## —— Project 🐝 ———————————————————————————————————————————————————————————————
+deploy-development: install
+
 run: up wait reload serve ## Start docker, load fixtures, populate the Elasticsearch index and start the web server
 
 reload: load-fixtures populate ## Reload fixtures and repopulate the Elasticserch index
