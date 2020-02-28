@@ -25,20 +25,22 @@
 # https://blog.theodo.fr/2018/05/why-you-need-a-makefile-on-your-project/
 
 # Setup ————————————————————————————————————————————————————————————————————————
-SHELL         = bash
-PROJECT       = strangebuzz
-EXEC_PHP      = php
-REDIS         = redis-cli
-GIT           = git
-GIT_AUTHOR    = COil
-SYMFONY       = $(EXEC_PHP) bin/console
-SYMFONY_BIN   = ./symfony
+SHELL          = bash
+PROJECT        = strangebuzz
+EXEC_FPM       = docker-compose run --rm pm-php-fpm
+EXEC_PHP       = $(EXEC_FPM) php
+EXEC_NPM       = docker-compose run --rm pm-node-cli npm
+REDIS          = redis-cli
+GIT            = git
+GIT_AUTHOR     = COil
+SYMFONY        = $(EXEC_PHP) bin/console
+SYMFONY_BIN    = $(EXEC_FPM) ./symfony
 # COMPOSER      = $(EXEC_PHP) composer.phar
-COMPOSER      = composer
-NPM			  = npm
-DOCKER        = docker-compose
-BREW          = brew
-.DEFAULT_GOAL = help
+COMPOSER       = $(EXEC_FPM) composer
+NPM			   = npm
+DOCKER         = docker-compose
+
+.DEFAULT_GOAL  = help
 #.PHONY       = # Not needed for now
 
 ## —— 🐝 The Strangebuzz Symfony Makefile 🐝 ———————————————————————————————————
@@ -50,21 +52,21 @@ wait: ## Sleep 5 seconds
 
 ## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————
 install: app/composer.lock ## Install vendors according to the current composer.lock file
-	$(DOCKER) run --rm pm-php-fpm $(COMPOSER) install
+	$(COMPOSER) install
 
 update: app/composer.json ## Update vendors according to the composer.json file
 	$(COMPOSER) update
 
 ## —— Node 🧙‍♂️ ————————————————————————————————————————————————————————————
 npm-install: app/yarn.lock ## Install vendors according to the current yarn.lock file
-	$(DOCKER) run --rm pm-node-cli $(NPM) install
+	$(EXEC_NPM) install
 
 npm-update: app/package.json ## Update vendors according to the package.json file
-	$(DOCKER) run --rm pm-node-cli $(NPM) update
+	$(EXEC_NPM)  update
 
 ## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
 sf: ## List all Symfony commands
-	docker-compose run --rm pm-php-fpm $(SYMFONY)
+	$(SYMFONY)
 
 cc: ## Clear the cache. DID YOU CLEAR YOUR CACHE????
 	$(SYMFONY) c:c
@@ -79,11 +81,11 @@ assets: purge ## Install the assets with symlinks in the public folder
 	$(SYMFONY) assets:install public/ --symlink --relative
 
 purge: ## Purge cache and logs
-	rm -rf var/cache/* var/logs/*
+	$(EXEC_FPM) rm -rf var/cache/* var/logs/*
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 bin-install: ## Download and install the binary in the project (file is ignored)
-	curl -sS https://get.symfony.com/cli/installer | bash
+	$(EXEC_FPM) curl -sS https://get.symfony.com/cli/installer | bash
 	mv ~/.symfony/bin/symfony .
 
 cert-install: symfony ## Install the local HTTPS certificates
@@ -106,13 +108,12 @@ populate: ## Reset and populate the elasticsearch index
 # L86+4 => templates/blog/posts/_51.html.twig
 
 list-index: ## List all indexes on the cluster
-	curl http://localhost:9209/_cat/indices?v
+	$(EXEC_FPM)  curl http://localhost:9209/_cat/indices?v
 
 delete-index: ## Delete a given index (replace index by the index name to delete)
-	curl -X DELETE "localhost:9209/index?pretty"
+	$(EXEC_FPM)  curl -X DELETE "localhost:9209/index?pretty"
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
-
 up: docker-compose.yaml ## Start the docker hub (MySQL,redis,adminer,elasticsearch,head,Kibana)
 	$(DOCKER) -f docker-compose.yaml up -d
 

@@ -9,19 +9,20 @@ if [ -f $FILE ]; then
 fi
 
 echo 'Clear dependency file'
-docker run --rm -v ${PWD}:/var/www --workdir=/var/www alpine rm -f project.pid
+docker run --rm -v ${PWD}:/var/www/html --workdir=/var/www/html alpine rm -f project.pid
 
 echo 'Start rebuild containers';
 docker-compose up -d --build
 
 echo 'Install Composer Dependencies';
-docker-compose run --rm pm-php-fpm composer install
+make install
 
 echo 'Require Encore Dependency';
 docker-compose run --rm pm-php-fpm composer require encore
 
 echo 'Run update postgresql';
-docker-compose run --rm pm-php-fpm php bin/console doctrine:schema:update --force
+# docker-compose run --rm pm-php-fpm php bin/console doctrine:schema:update --force
+make load-fixtures
 
 echo 'Run doctrine migrations';
 docker-compose run --rm pm-php-fpm php bin/console doctrine:migrations:migrate --no-interaction
