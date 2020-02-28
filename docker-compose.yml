@@ -17,6 +17,9 @@ services:
     build:
       context: .
       dockerfile: docker/php-fpm/Dockerfile
+      target: development
+      args:
+        ENVIRONMENT: development
     volumes:
       - ./app:/var/www/html:rw
       - ~/.ssh:/root/.ssh:ro

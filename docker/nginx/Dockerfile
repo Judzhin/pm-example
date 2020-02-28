@@ -8,7 +8,7 @@ COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY docker/nginx/default_${ENVIRONMENT}.conf /etc/nginx/conf.d/default.conf
 
 # ENTRYPOINT ["dumb-init", "--rewrite", "15:3"]
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
 
 # ADD docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 

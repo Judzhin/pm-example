@@ -1,9 +1,7 @@
 server {
     listen 80;
     index index.php index.html;
-    access_log /var/www/var/log/nginx-access.log;
-    error_log /var/www/var/log/nginx-error.log;
-    root /var/www/public;
+    root /var/www/html/public;
 
     # location ~* \.(?:ico|gif|jpe?g|png|woff2?|eot|otf|ttf|svg|js|css)$ {
     #     access_log off;
@@ -25,4 +23,8 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
+
+    access_log /var/www/html/var/log/nginx-access.log;
+    error_log /var/www/html/var/log/nginx-error.log;
+
 }
