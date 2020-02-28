@@ -116,6 +116,7 @@ class UserProvider implements UserProviderInterface
     public function supportsClass(string $class): bool
     {
         return UserIdentity::class === $class;
+
         // return $class instanceof UserIdentity;
     }
 }
