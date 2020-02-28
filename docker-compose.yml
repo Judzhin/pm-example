@@ -8,55 +8,48 @@ services:
     image: mailhog/mailhog
     restart: unless-stopped
     ports:
-    - "1025:1025"
-    - "8025:8025" # Dashboard
-
-  # php-cli
-  pm-php-cli:
-    container_name: pm-php-cli
-    build:
-      context: ./docker/php
-      dockerfile: Dockerfile
-    volumes:
-    - ./app:/var/www
-    - composer:/root/.composer/cache
-  #    environment:
-  #      APP_DEBUG: 1
+      - 1025:1025
+      - 8025:8025 # Dashboard
 
   # php-fpm
   pm-php-fpm:
     container_name: pm-php-fpm
     build:
-      context: ./docker/php/fpm
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: docker/php-fpm/Dockerfile
     volumes:
-    - ./app:/var/www
+      - ./app:/var/www/html:rw
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.composer:/root/.composer:ro
 
   # nginx
   pm-nginx:
     container_name: pm-nginx
     build:
-      context: ./docker/nginx
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+      target: development
+      args:
+        ENVIRONMENT: development
     volumes:
-    - ./app:/var/www
+      - ./app:/var/www/html
     ports:
-    - "3107:80"
+      - 3107:80
     depends_on:
-    - pm-php-fpm
+      - pm-php-fpm
 
   # postgres host.docker.internal
   pm-postgres:
     container_name: pm-pgsql
     image: postgres:12.1-alpine
     volumes:
-    - ./app/var/data:/var/lib/postgresql/data
+      - ./app/var/data:/var/lib/postgresql/data
     environment:
-    - "POSTGRES_USER=postgres"
-    - "POSTGRES_PASSWORD=postgres"
-    - "POSTGRES_DB=pm"
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-pm}
     ports:
-    - "54321:5432"
+      - 54321:5432
 
   # pgadmin
   pm-pgadmin:
@@ -66,17 +59,17 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-pgadmin}
     ports:
-    - "${PGADMIN_PORT:-5050}:80"
+      - ${PGADMIN_PORT:-5050}:80
     depends_on:
-    - pm-postgres
+      - pm-postgres
 
   # node-cli
   pm-node-cli:
     container_name: pm-node-cli
     image: node:13.2.0-alpine
     volumes:
-    - ./app:/var/www
-    working_dir: /var/www
+      - ./app:/var/www/html
+    working_dir: /var/www/html
 
   # node npm watch
   pm-node-watch:
@@ -84,8 +77,8 @@ services:
     image: node:13.2.0-alpine
     restart: always
     volumes:
-    - ./app:/var/www
-    working_dir: /var/www
+      - ./app:/var/www/html
+    working_dir: /var/www/html
     command: sh -c "until [ -f project.pid ] ; do sleep 1; done && npm run watch"
 
   # redis
@@ -93,10 +86,10 @@ services:
     container_name: pm-redis
     image: redis:3.0-alpine
     volumes:
-    - pm-redis:/data
+      - pm-redis:/data
     command: redis-server --requirepass secret
     ports:
-    - 6379:6379
+      - 6379:6379
 
   # pm-mariadb:
   #   image: mariadb
@@ -120,4 +113,3 @@ services:
 
 volumes:
   pm-redis:
-  composer:
