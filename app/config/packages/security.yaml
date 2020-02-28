@@ -13,9 +13,9 @@ security:
     app_user_provider:
       # custom provider
       id: App\Security\UserProvider
-      # entity:
-      #   class: App\Entity\User
-      #   property: email
+#      entity:
+#        class: App\Entity\User
+#        property: email
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -26,7 +26,7 @@ security:
 
       # override default user checker
       user_checker: App\Security\UserChecker
-
+      provider: app_user_provider
       guard:
         authenticators:
         - App\Security\FormLoginAuthenticator

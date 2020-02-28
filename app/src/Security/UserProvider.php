@@ -23,7 +23,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
  */
 class UserProvider implements UserProviderInterface
 {
-
     /** @var GroupRepository */
     protected $repository;
 
@@ -116,6 +115,7 @@ class UserProvider implements UserProviderInterface
      */
     public function supportsClass(string $class): bool
     {
-        return $class instanceof UserIdentity;
+        return UserIdentity::class === $class;
+        // return $class instanceof UserIdentity;
     }
 }
