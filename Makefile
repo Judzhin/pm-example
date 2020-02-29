@@ -120,6 +120,8 @@ up: docker-compose.yaml ## Start the docker hub (MySQL,redis,adminer,elasticsear
 down: docker-compose.yaml ## Stop the docker hub
 	$(DOCKER) down --remove-orphans
 
+rebuild: down up ## Stop and start the docker hub
+
 ## —— Project 🐝 ———————————————————————————————————————————————————————————————
 deploy-development: install
 
