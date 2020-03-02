@@ -44,18 +44,18 @@ class SettingMenu
             ->setChildrenAttributes(['class' => 'nav nav-tabs mb-4']);
 
         if ($this->authorizationChecker->isGranted('ROLE_WORK_MANAGE_PROJECTS')) {
-//            $menu
-//                ->addChild('Common', [
-//                    'route' => 'work.projects.project.settings',
-//                    'routeParameters' => ['project_id' => $options['project_id']]
-//                ])
-//                ->setExtra('routes', [
-//                    ['route' => 'work.projects.project.settings'],
-//                    ['route' => 'work.projects.project.settings.edit'],
-//                ])
-//                ->setAttribute('class', 'nav-item')
-//                ->setLinkAttribute('class', 'nav-link');
-//
+            $menu
+                ->addChild('Common', [
+                    'route' => 'pm_work_project_setting_departments',
+                    'routeParameters' => ['project_id' => $options['project_id']]
+                ])
+                ->setExtra('routes', [
+                    ['route' => 'pm_work_project_setting_departments'],
+                    ['route' => 'pm_work_project_setting_department_edit'],
+                ])
+                ->setAttribute('class', 'nav-item')
+                ->setLinkAttribute('class', 'nav-link');
+
 //            $menu
 //                ->addChild('Departments', [
 //                    'route' => 'work.projects.project.settings.departments',
