@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Work\Project\Department\Create;
+namespace App\UseCase\Work\Project\Department\Edit;
 
 use App\Entity\Work\Project;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,7 +35,7 @@ class Handler
     {
         /** @var Project\Department $department */
         $department = (new Project\Department)
-            // ->setProject($command->project)
+            ->setProject($command->project)
             ->setName($command->name);
 
         $command->project->addDepartment($department);

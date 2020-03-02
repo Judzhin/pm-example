@@ -6,6 +6,7 @@
 
 namespace App\UseCase\Work\Project\Department\Create;
 
+use App\Entity\Work\Project;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -15,14 +16,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Command
 {
     /**
-     * @var string
+     * @var Project
      * @Assert\NotBlank()
      */
-    public $name;
+    public $project;
 
     /**
      * @var string
      * @Assert\NotBlank()
      */
-    public $sort;
+    public $name;
 }

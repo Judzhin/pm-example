@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('pm_home') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('pm_work_projects') }}">Projects</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('pm_work_project', {'id': project.id}) }}">{{ project.name }}</a>
+        <li class="breadcrumb-item">
+            <a href="{{ path('pm_work_project_setting', {'id': project.id}) }}">Setting</a>
+        </li>
+        <li class="breadcrumb-item active">Departments</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    {% include 'works/projects/_tabs.html.twig' %}
+
+{#    {% include 'works/projects/project/setting/_tabs.html.twig' %}#}
+
+    <div class="controls">
+        <a href="{{ path('pm_work_project_setting_department_create', {project_id: project.id}) }}" class="btn btn-success">
+            Add New Department
+        </a>
+    </div>
+
+    <div class="box">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for department in project.departments %}
+                <tr>
+                    <td><a href="#">{{ department.name }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

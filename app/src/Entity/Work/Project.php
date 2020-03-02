@@ -179,7 +179,7 @@ class Project implements StatusAwareInterface
             }
         }
 
-        $this->departments->add($department);
+        $this->departments->add($department->setProject($this));
 
         return $this;
     }

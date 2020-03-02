@@ -12,6 +12,7 @@ use App\UseCase\Work\Project\Archived;
 use App\UseCase\Work\Project\Edit;
 use App\UseCase\Work\Project\Reinstate;
 use App\UseCase\Work\Project\Remove;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +24,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller\Work\Project\Setting
  *
  * @Route("/work/project/{id}/setting", requirements={"id"=UUIDv4::PATTERN})
+ * @IsGranted("ROLE_WORK_MANAGE_PROJECTS")
  */
 class SettingController extends AbstractController
 {

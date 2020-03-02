@@ -18,12 +18,21 @@ class ProjectFixtures extends Fixture
 {
     /**
      * @param ObjectManager $manager
+     * @throws \Throwable
      */
     public function load(ObjectManager $manager): void
     {
-        /** @var string $name */
-        foreach (['First Project', 'Second Project', 'Third Project'] as $name) {
-            $manager->persist(self::create($name));
+        /** @var string $projectName */
+        foreach (['First Project', 'Second Project', 'Third Project'] as $key => $projectName) {
+            $manager->persist($project = self::create($projectName));
+
+            if (!$key) {
+                foreach (['Development', 'Marketing'] as $depName) {
+                    $project->addDepartment((new Project\Department)
+                        ->setName($depName));
+                }
+            }
+
         }
 
         $manager->flush();
