@@ -10,6 +10,7 @@ use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;
 use App\UseCase\Work\Project\Archived;
 use App\UseCase\Work\Project\Edit;
+use App\UseCase\Work\Project\Reinstate;
 use App\UseCase\Work\Project\Remove;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -77,51 +78,59 @@ class SettingController extends AbstractController
      */
     public function archive(Project $project, Request $request, Archived\Handler $handler): Response
     {
+        /** @var array $arguments */
+        $arguments = ['id' => $project->getId()];
+
         if (!$this->isCsrfTokenValid('archive', $request->request->get('token'))) {
-            return $this->redirectToRoute('work.projects.project.show', ['id' => $project->getId()]);
+            return $this->redirectToRoute('pm_work_project', $arguments);
         }
 
         // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
 
-//        $command = new Archive\Command($project->getId()->getValue());
-//
-//        try {
-//            $handler->handle($command);
-//        } catch (\DomainException $e) {
-//            $this->errors->handle($e);
-//            $this->addFlash('error', $e->getMessage());
-//        }
-//
-//        return $this->redirectToRoute('work.projects.project.settings', ['project_id' => $project->getId()]);
+        /** @var Archived\Command $command */
+        $command = new Archived\Command($project->getId());
+
+        try {
+            $handler->handle($command);
+        } catch (\DomainException $e) {
+            // $this->errors->handle($e);
+            // $this->addFlash('error', $e->getMessage());
+        }
+
+        return $this->redirectToRoute('pm_work_project_setting', $arguments);
     }
 
-//    /**
-//     * @Route("/reinstate", name=".reinstate", methods={"POST"})
-//     * @param Project $project
-//     * @param Request $request
-//     * @param Reinstate\Handler $handler
-//     * @return Response
-//     */
-//    public function reinstate(Project $project, Request $request, Reinstate\Handler $handler): Response
-//    {
-//        if (!$this->isCsrfTokenValid('reinstate', $request->request->get('token'))) {
-//            return $this->redirectToRoute('work.projects.project.settings', ['project_id' => $project->getId()]);
-//        }
-//
-//        $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
-//
-//        $command = new Reinstate\Command($project->getId()->getValue());
-//
-//        try {
-//            $handler->handle($command);
-//        } catch (\DomainException $e) {
-//            $this->errors->handle($e);
-//            $this->addFlash('error', $e->getMessage());
-//        }
-//
-//        return $this->redirectToRoute('work.projects.project.settings', ['project_id' => $project->getId()]);
-//    }
-//
+    /**
+     * @Route("/reinstate", name="pm_work_project_setting_reinstate", methods={"POST"})
+     *
+     * @param Project $project
+     * @param Request $request
+     * @param Reinstate\Handler $handler
+     * @return Response
+     * @throws \Throwable
+     */
+    public function reinstate(Project $project, Request $request, Reinstate\Handler $handler): Response
+    {
+        /** @var array $arguments */
+        $arguments = ['id' => $project->getId()];
+
+        if (!$this->isCsrfTokenValid('reinstate', $request->request->get('token'))) {
+            return $this->redirectToRoute('work.projects.project.settings', $arguments);
+        }
+
+        // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
+
+        /** @var Reinstate\Command $command */
+        $command = new Reinstate\Command($project->getId());
+
+        try {
+            $handler->handle($command);
+        } catch (\DomainException $e) {
+        }
+
+        return $this->redirectToRoute('pm_work_project_setting', $arguments);
+    }
+
     /**
      * @Route("/delete", name="pm_work_project_setting_delete", methods={"POST"})
      *

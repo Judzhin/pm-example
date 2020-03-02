@@ -23,16 +23,16 @@
             Edit
         </a>
         {% if project.active and project.id != app.user.id %}
-            {#            <form action="{{ path('work.projects.project.settings.archive', {'project_id': project.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">#}
-            {#                <input type="hidden" name="token" value="{{ csrf_token('archive') }}" />#}
-            {#                <button type="submit" class="btn btn-danger">Archive</button>#}
-            {#            </form>#}
+            <form action="{{ path('pm_work_project_setting_archive', {'id': project.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                <input type="hidden" name="token" value="{{ csrf_token('archive') }}" />
+                <button type="submit" class="btn btn-danger">Archive</button>
+            </form>
         {% endif %}
         {% if project.archived %}
-            {#            <form action="{{ path('work.projects.project.settings.reinstate', {'project_id': project.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">#}
-            {#                <input type="hidden" name="token" value="{{ csrf_token('reinstate') }}" />#}
-            {#                <button type="submit" class="btn btn-success">Reinstate</button>#}
-            {#            </form>#}
+            <form action="{{ path('pm_work_project_setting_reinstate', {'id': project.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                <input type="hidden" name="token" value="{{ csrf_token('reinstate') }}" />
+                <button type="submit" class="btn btn-success">Reinstate</button>
+            </form>
         {% endif %}
         <form action="{{ path('pm_work_project_setting_delete', {'id': project.id}) }}" method="post"
               onsubmit="return confirm('Are you sure?')">

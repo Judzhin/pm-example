@@ -7,6 +7,7 @@
 namespace App\UseCase\Work\Project\Edit;
 
 use App\Entity\Work\Project;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -23,9 +24,9 @@ class Command extends \App\UseCase\Work\Project\Create\Command
 
     /**
      * Command constructor.
-     * @param string $id
+     * @param UuidInterface $id
      */
-    public function __construct(string $id)
+    public function __construct(UuidInterface $id)
     {
         $this->id = $id;
     }
