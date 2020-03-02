@@ -9,6 +9,7 @@ namespace App\Controller\Work\Project\Setting;
 use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;
 use App\UseCase\Work\Project\Department\Create;
+use App\UseCase\Work\Project\Department\Edit;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -59,7 +60,9 @@ class DepartmentsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $handler->handle($command);
-            return $this->redirectToRoute('pm_work_project_setting_departments', ['project_id' => $project->getId()]);
+            return $this->redirectToRoute('pm_work_project_setting_departments', [
+                'project_id' => $project->getId()
+            ]);
         }
 
         return $this->render('works/projects/project/setting/departments/create.html.twig', [
@@ -68,36 +71,38 @@ class DepartmentsController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @Route("/edit", name="pm_work_project_setting_edit")
-//     *
-//     * @param Project $project
-//     * @param Request $request
-//     * @param Edit\Handler $handler
-//     * @return Response
-//     */
-//    public function edit(Project $project, Request $request, Edit\Handler $handler): Response
-//    {
-//        /** @var array $parameters */
-//        $parameters = ['id' => $project->getId()];
-//
-//        /** @var Edit\Command $command */
-//        $command = Edit\Command::parse($project);
-//
-//        /** @var FormInterface|Edit\FormType $form */
-//        $form = $this->createForm(Edit\FormType::class, $command);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid())  {
-//            $handler->handle($command);
-//            return $this->redirectToRoute('pm_work_project', $parameters);
-//        }
-//
-//        return $this->render('works/projects/project/setting/edit.html.twig', [
-//            'form' => $form->createView(),
-//            'project' => $project
-//        ]);
-//    }
+    /**
+     * @Route("/{id}/edit", name="pm_work_project_setting_department_edit")
+     *
+     * @param Project\Department $department
+     * @param Request $request
+     * @param Edit\Handler $handler
+     * @return Response
+     * @throws \Throwable@Route("/{id}/edit", name="pm_work_project_setting_department_edit")
+     */
+    public function edit(Project\Department $department, Request $request, Edit\Handler $handler): Response
+    {
+        /** @var array $parameters */
+        $parameters = ['project_id' => $project = $department->getProject()->getId()];
+
+        /** @var Edit\Command $command */
+        $command = Edit\Command::parse($department);
+
+        /** @var FormInterface|Edit\FormType $form */
+        $form = $this->createForm(Edit\FormType::class, $command);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())  {
+            $handler->handle($command);
+            return $this->redirectToRoute('pm_work_project_setting_departments', $parameters);
+        }
+
+        return $this->render('works/projects/project/setting/departments/edit.html.twig', [
+            'form' => $form->createView(),
+            'project' => $department->getProject(),
+            'department' => $department
+        ]);
+    }
 //
 //    /**
 //     * @Route("/archive", name="pm_work_project_setting_archive", methods={"POST"})

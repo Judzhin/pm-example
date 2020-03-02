@@ -31,12 +31,24 @@
             <thead>
             <tr>
                 <th>Name</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             {% for department in project.departments %}
                 <tr>
                     <td><a href="#">{{ department.name }}</a></td>
+                    <td>
+                        <div class="d-flex flex-row">
+                            <a href="{{ path('pm_work_project_setting_department_edit', {'id': department.id, 'project_id': project.id}) }}" class="btn btn-sm btn-primary mr-1">
+                                <span class="fa fa-pencil"></span>
+                            </a>
+{#                            <form action="{{ path('pm_work_project_setting_department_delete', {'id': department.id, 'project_id': project.id}) }}" method="post" onsubmit="return confirm('Are you sure?')">#}
+{#                                <input type="hidden" name="token" value="{{ token }}" />#}
+{#                                <button type="submit" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></button>#}
+{#                            </form>#}
+                        </div>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

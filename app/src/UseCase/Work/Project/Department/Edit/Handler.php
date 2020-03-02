@@ -35,10 +35,11 @@ class Handler
     {
         /** @var Project\Department $department */
         $department = (new Project\Department)
+            ->setId($command->id)
             ->setProject($command->project)
             ->setName($command->name);
 
-        $command->project->addDepartment($department);
+        $command->project->editDepartment($department);
         $this->em->flush();
     }
 }

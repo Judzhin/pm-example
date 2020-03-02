@@ -191,9 +191,18 @@ class Project implements StatusAwareInterface
      */
     public function editDepartment(Department $department): self
     {
+        /**
+         * @param Department $current
+         * @param Department $department
+         * @return bool
+         */
+        $isEqual = function (Department $current, Department $department): bool {
+            return $current->getId()->toString() === $department->getId()->toString();
+        };
+
         /** @var Department $current */
         foreach ($this->departments as $current) {
-            if ($current->getId()->equals($department->getId())) {
+        if ($isEqual($current, $department)) {
                 $current->setName($department->getName());
                 return $this;
             }

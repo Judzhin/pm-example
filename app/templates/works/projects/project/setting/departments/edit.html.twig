@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groups{% endblock %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        {% set params = {'id': project.id} %}
+        <li class="breadcrumb-item"><a href="{{ path('pm_home') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('pm_work_projects') }}">Projects</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('pm_work_project', params) }}">{{ project.name }}</a>
+        <li class="breadcrumb-item">
+            <a href="{{ path('pm_work_project_setting', params) }}">Setting</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ path('pm_work_project_setting_departments', { 'project_id': project.id}) }}">Departments</a>
+        </li>
+        <li class="breadcrumb-item active">{{ department.name }}</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary">Save</button>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}
