@@ -43,9 +43,9 @@ class GroupsController extends AbstractController
      * @Route("", name="pm_work_member_groups")
      *
      * @param GroupRepository $repository
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function index(GroupRepository $repository)
+    public function index(GroupRepository $repository): Response
     {
         /** @var array $groups */
         $groups = $repository->all();

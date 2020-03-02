@@ -6,6 +6,7 @@
 
 namespace App\UseCase\Work\Project\Edit;
 
+use App\Entity\Work\Project;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -29,17 +30,17 @@ class Command extends \App\UseCase\Work\Project\Create\Command
         $this->id = $id;
     }
 
-    ///**
-    // * @param Member $member
-    // * @return Command
-    // */
-    //public static function parse(Member $member): self
-    //{
-    //    /** @var self $command */
-    //    $command = new self($member->getId());
-    //    $command->firstName = $member->getName()->getFirst();
-    //    $command->lastName = $member->getName()->getLast();
-    //    $command->email = $member->getEmail();
-    //    return $command;
-    //}
+    /**
+     * @param Project $project
+     *
+     * @return static
+     */
+    public static function parse(Project $project): self
+    {
+        /** @var self $command */
+        $command = new self($project->getId());
+        $command->name = $project->getName();
+        $command->sort = $project->getSort();
+        return $command;
+    }
 }

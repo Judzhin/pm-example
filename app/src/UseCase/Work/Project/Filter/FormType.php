@@ -24,6 +24,7 @@ class FormType extends AbstractType
 
     /**
      * FormType constructor.
+     *
      * @param ProjectRepository $repository
      */
     public function __construct(ProjectRepository $repository)
@@ -32,6 +33,8 @@ class FormType extends AbstractType
     }
 
     /**
+     * @inheritDoc
+     *
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -57,6 +60,8 @@ class FormType extends AbstractType
     }
 
     /**
+     * @inheritDoc
+     *
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver): void

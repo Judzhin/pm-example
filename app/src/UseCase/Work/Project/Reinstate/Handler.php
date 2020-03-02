@@ -20,6 +20,7 @@ class Handler
 
     /**
      * Handler constructor.
+     *
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
@@ -36,7 +37,6 @@ class Handler
         /** @var Project $project */
         $project = $this->em->find(Project::class, $command->id);
         $project->reinstate();
-
         $this->em->flush();
     }
 }

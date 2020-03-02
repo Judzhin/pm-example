@@ -87,7 +87,6 @@ class ProjectMenu
         //    ])
         //    ->setAttribute('class', 'nav-item')
         //    ->setLinkAttribute('class', 'nav-link');
-        //
 
         if ($this->authorizationChecker->isGranted('ROLE_WORK_MANAGE_PROJECTS')) {
             $menu

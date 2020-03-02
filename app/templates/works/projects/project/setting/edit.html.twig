@@ -5,16 +5,12 @@
 {% block breadcrumbs %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ path('pm_home') }}">Home</a></li>
-        {#<li class="breadcrumb-item"><a href="{{ path('pm_works') }}">Work</a></li>#}
-        <li class="breadcrumb-item"><a href="{{ path('pm_work_members') }}">Members</a></li>
-        {#<li class="breadcrumb-item"><a href="{{ path('pm_work_member_groups') }}">Groups</a></li>#}
-        <li class="breadcrumb-item active">{{ member.name }}</li>
+        <li class="breadcrumb-item"><a href="{{ path('pm_work_projects') }}">Projects</a></li>
+        <li class="breadcrumb-item active">{{ project.name }}</li>
     </ol>
 {% endblock %}
 
 {% block body %}
-
-    {{ include('works/members/_tabs.html.twig') }}
 
     <div class="card">
         <div class="card-body">

@@ -50,30 +50,37 @@ class ProjectRepository extends ServiceEntityRepository
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('p');
 
-        // if ($filter->name) {
-        //     $qb->andWhere(
-        //         $qb->expr()->like('LOWER(CONCAT(m.name.first, \' \', m.name.last))', ':name')
-        //     )->setParameter('name', '%'.mb_strtolower($filter->name).'%');
-        // }
-        //
-        // if ($filter->email) {
-        //     $qb->andWhere(
-        //         $qb->expr()->like('m.email', ':email')
-        //     )->setParameter('email', '%'.mb_strtolower($filter->email).'%');
-        // }
-        //
-        // if ($filter->status) {
-        //     $qb->andWhere(
-        //         $qb->expr()->in('m.status', ':status')
-        //     )->setParameter('status', $filter->status);
-        // }
+         if ($filter->name) {
+             $qb->andWhere(
+                 $qb->expr()->like('LOWER(p.name)', ':name')
+             )->setParameter('name', '%'.mb_strtolower($filter->name).'%');
+         }
+
+         if ($filter->status) {
+             $qb->andWhere(
+                 $qb->expr()->in('p.status', ':status')
+             )->setParameter('status', $filter->status);
+         }
 
         return $this->paginator->paginate($qb, $page, $limit, [
             PaginatorInterface::SORT_FIELD_WHITELIST => [
-                'p.name', 'm.status'
+                'p.name', 'p.status'
             ],
             // PaginatorInterface::DEFAULT_SORT_FIELD_NAME => 'u.createdAt',
             // PaginatorInterface::DEFAULT_SORT_DIRECTION => 'desc',
         ]);
+    }
+
+    /**
+     * @return int
+     */
+    public function findMaxSort(): int
+    {
+        /** @var Project $entity */
+        if ($entity = $this->findOneBy([], ['sort' => 'DESC'])) {
+            return $entity->getSort();
+        }
+
+        return 0;
     }
 }

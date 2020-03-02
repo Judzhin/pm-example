@@ -28,17 +28,6 @@ class ProjectController extends AbstractController
      */
     public function show(Project $project): Response
     {
-        return $this->render('works/projects/show.html.twig', compact('project'));
-    }
-
-    /**
-     * @Route("/setting", name="pm_work_project_setting")
-     *
-     * @param Project $project
-     * @return Response
-     */
-    public function setting(Project $project): Response
-    {
-        return $this->render('works/projects/setting.html.twig', compact('project'));
+        return $this->render('works/projects/project/show.html.twig', compact('project'));
     }
 }
