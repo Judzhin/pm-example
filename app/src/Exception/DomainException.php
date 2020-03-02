@@ -96,6 +96,22 @@ class DomainException extends \MSBios\Exception\DomainException
     /**
      * @return \Throwable
      */
+    public static function departmentAlreadyExists(): \Throwable
+    {
+        return self::create('Department already exists.');
+    }
+
+    /**
+     * @return \Throwable
+     */
+    public static function departmentIsNotFound(): \Throwable
+    {
+        return self::create('Department is not found.');
+    }
+
+    /**
+     * @return \Throwable
+     */
     public static function groupIsNotEmpty(): \Throwable
     {
         return self::create('Group is not empty.');

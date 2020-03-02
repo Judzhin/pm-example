@@ -152,6 +152,90 @@ class Project implements StatusAwareInterface
     }
 
     /**
+     * @param array $departments
+     * @return $this
+     * @throws \Throwable
+     */
+    public function addDepartments(array $departments): self
+    {
+        /** @var Department $department */
+        foreach ($departments as $department) {
+            $this->addDepartment($department);
+        }
+        return $this;
+    }
+
+    /**
+     * @param Department $department
+     * @return $this
+     * @throws \Throwable
+     */
+    public function addDepartment(Department $department): self
+    {
+        /** @var Department $current */
+        foreach ($this->departments as $current) {
+            if ($department->isEqual($current)) {
+                throw DomainException::departmentAlreadyExists();
+            }
+        }
+
+        $this->departments->add($department);
+
+        return $this;
+    }
+
+    /**
+     * @param Department $department
+     * @return $this
+     * @throws \Throwable
+     */
+    public function editDepartment(Department $department): self
+    {
+        /** @var Department $current */
+        foreach ($this->departments as $current) {
+            if ($current->getId()->equals($department->getId())) {
+                $current->setName($department->getName());
+                return $this;
+            }
+        }
+
+        throw DomainException::departmentIsNotFound();
+    }
+
+    /**
+     * @param array $departments
+     * @return $this
+     * @throws \Throwable
+     */
+    public function removeDepartments(array $departments): self
+    {
+        /** @var Department $department */
+        foreach ($departments as $department) {
+            $this->addDepartment($department);
+        }
+        return $this;
+    }
+
+    /**
+     * @param Department $department
+     * @return $this
+     * @throws \Throwable
+     */
+    public function removeDepartment(Department $department): self
+    {
+        /** @var Department $current */
+        foreach ($this->departments as $current) {
+            if ($department->isEqual($current)) {
+                $this->departments->removeElement($current);
+                return $this;
+            }
+        }
+
+        throw DomainException::departmentIsNotFound();
+
+    }
+
+    /**
      * @return Membership[]|ArrayCollection
      */
     public function getMemberships()
@@ -195,21 +279,21 @@ class Project implements StatusAwareInterface
     // // }
     //
 
-     public function archive(): void
-     {
-         if ($this->isArchived()) {
-             throw new DomainException('Project is already archived.');
-         }
-         $this->setStatus(Status::archived());
-     }
+    public function archive(): void
+    {
+        if ($this->isArchived()) {
+            throw new DomainException('Project is already archived.');
+        }
+        $this->setStatus(Status::archived());
+    }
 
-     public function reinstate(): void
-     {
-         if ($this->isActive()) {
-             throw new DomainException('Project is already active.');
-         }
-         $this->setStatus(Status::active());
-     }
+    public function reinstate(): void
+    {
+        if ($this->isActive()) {
+            throw new DomainException('Project is already active.');
+        }
+        $this->setStatus(Status::active());
+    }
 
     //
     // public function addDepartment(DepartmentId $id, string $name): void
