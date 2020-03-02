@@ -10,6 +10,7 @@ use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;
 use App\UseCase\Work\Project\Department\Create;
 use App\UseCase\Work\Project\Department\Edit;
+use App\UseCase\Work\Project\Department\Remove;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -82,9 +83,6 @@ class DepartmentsController extends AbstractController
      */
     public function edit(Project\Department $department, Request $request, Edit\Handler $handler): Response
     {
-        /** @var array $parameters */
-        $parameters = ['project_id' => $project = $department->getProject()->getId()];
-
         /** @var Edit\Command $command */
         $command = Edit\Command::parse($department);
 
@@ -94,7 +92,9 @@ class DepartmentsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())  {
             $handler->handle($command);
-            return $this->redirectToRoute('pm_work_project_setting_departments', $parameters);
+            return $this->redirectToRoute('pm_work_project_setting_departments', [
+                'project_id' => $department->getProject()->getId()
+            ]);
         }
 
         return $this->render('works/projects/project/setting/departments/edit.html.twig', [
@@ -103,86 +103,24 @@ class DepartmentsController extends AbstractController
             'department' => $department
         ]);
     }
-//
-//    /**
-//     * @Route("/archive", name="pm_work_project_setting_archive", methods={"POST"})
-//     *
-//     * @param Project $project
-//     * @param Request $request
-//     * @param Archived\Handler $handler
-//     * @return Response
-//     */
-//    public function archive(Project $project, Request $request, Archived\Handler $handler): Response
-//    {
-//        /** @var array $arguments */
-//        $arguments = ['id' => $project->getId()];
-//
-//        if (!$this->isCsrfTokenValid('archive', $request->request->get('token'))) {
-//            return $this->redirectToRoute('pm_work_project', $arguments);
-//        }
-//
-//        // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
-//
-//        /** @var Archived\Command $command */
-//        $command = new Archived\Command($project->getId());
-//
-//        try {
-//            $handler->handle($command);
-//        } catch (\DomainException $e) {
-//            // $this->errors->handle($e);
-//            // $this->addFlash('error', $e->getMessage());
-//        }
-//
-//        return $this->redirectToRoute('pm_work_project_setting', $arguments);
-//    }
-//
-//    /**
-//     * @Route("/reinstate", name="pm_work_project_setting_reinstate", methods={"POST"})
-//     *
-//     * @param Project $project
-//     * @param Request $request
-//     * @param Reinstate\Handler $handler
-//     * @return Response
-//     * @throws \Throwable
-//     */
-//    public function reinstate(Project $project, Request $request, Reinstate\Handler $handler): Response
-//    {
-//        /** @var array $arguments */
-//        $arguments = ['id' => $project->getId()];
-//
-//        if (!$this->isCsrfTokenValid('reinstate', $request->request->get('token'))) {
-//            return $this->redirectToRoute('work.projects.project.settings', $arguments);
-//        }
-//
-//        // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
-//
-//        /** @var Reinstate\Command $command */
-//        $command = new Reinstate\Command($project->getId());
-//
-//        try {
-//            $handler->handle($command);
-//        } catch (\DomainException $e) {
-//        }
-//
-//        return $this->redirectToRoute('pm_work_project_setting', $arguments);
-//    }
-//
-//    /**
-//     * @Route("/delete", name="pm_work_project_setting_delete", methods={"POST"})
-//     *
-//     * @param Project $project
-//     * @param Request $request
-//     * @param Remove\Handler $handler
-//     * @return Response
-//     */
-//    public function delete(Project $project, Request $request, Remove\Handler $handler): Response
-//    {
-//        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
-//            return $this->redirectToRoute('pm_work_project_setting', ['id' => $project->getId()]);
-//        }
-//
-//        // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
-//
+
+    /**
+     * @Route("/delete", name="pm_work_project_setting_department_delete", methods={"POST"})
+     *
+     * @param Project $project
+     * @param Request $request
+     * @param Remove\Handler $handler
+     * @return Response
+     * @throws \Throwable
+     */
+    public function delete(Project $project, Request $request, Remove\Handler $handler): Response
+    {
+        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
+            return $this->redirectToRoute('pm_work_project_setting', ['id' => $project->getId()]);
+        }
+
+        // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
+
 //        /** @var Remove\Command $command */
 //        $command = new Remove\Command($project->getId()->toString());
 //
@@ -192,7 +130,7 @@ class DepartmentsController extends AbstractController
 //            // $this->errors->handle($e);
 //            // $this->addFlash('error', $e->getMessage());
 //        }
-//
-//        return $this->redirectToRoute('pm_work_projects');
-//    }
+
+        return $this->redirectToRoute('pm_work_project_setting_departments');
+    }
 }

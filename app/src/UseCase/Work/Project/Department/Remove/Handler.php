@@ -4,14 +4,15 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\Work\Project\Department\Create;
+namespace App\UseCase\Work\Project\Department\Remove;
 
 use App\Entity\Work\Project;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\Work\Project\Create
+ *
+ * @package App\UseCase\Work\Project\Department\Remove
  */
 class Handler
 {
@@ -35,9 +36,11 @@ class Handler
     {
         /** @var Project\Department $department */
         $department = (new Project\Department)
+            ->setId($command->id)
+            ->setProject($command->project)
             ->setName($command->name);
 
-        $command->project->addDepartment($department);
+        $command->project->editDepartment($department);
         $this->em->flush();
     }
 }
