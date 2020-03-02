@@ -47,6 +47,19 @@ class MemberRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param Member $member
+     * @return $this
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function add(Member $member): self
+    {
+        $this->_em->persist($member);
+        $this->_em->flush();
+        return $this;
+    }
+
+    /**
      * @param Filter $filter
      * @param int $page
      * @param int $limit

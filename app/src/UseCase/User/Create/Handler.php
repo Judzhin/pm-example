@@ -9,7 +9,8 @@ namespace App\UseCase\User\Create;
 use App\Entity\Name;
 use App\Entity\User;
 use App\Exception\DomainException;
-use App\Model\User\Email;
+use App\Model\Email;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -19,28 +20,28 @@ use Doctrine\ORM\EntityManagerInterface;
 class Handler
 {
     /** @var EntityManagerInterface */
-    protected $em;
+    protected $users;
 
     /**
      * Handler constructor.
-     * @param EntityManagerInterface $em
+     *
+     * @param UserRepository $users
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(UserRepository $users)
     {
-        $this->em = $em;
+        $this->users = $users;
     }
 
     /**
      * @param Command $command
-     * @throws \Exception
+     * @throws \Throwable
      */
     public function handle(Command $command)
     {
-
         /** @var Email $email */
         $email = new Email($command->email);
 
-        if ($this->em->getRepository(User::class)->findOneByEmail($email)) {
+        if ($this->users->findOneByEmail($email)) {
             throw DomainException::userWithThisEmailAlreadyExists();
         }
 
@@ -54,7 +55,6 @@ class Handler
         $user->setPassword('');
         $user->confirm(true);
 
-        $this->em->persist($user);
-        $this->em->flush();
+        $this->users->add($user);
     }
 }

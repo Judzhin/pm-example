@@ -9,7 +9,7 @@ namespace App\UseCase\User\Email\Request;
 use App\Entity\EmbeddedToken;
 use App\Entity\User;
 use App\Exception\DomainException;
-use App\Model\User\Email;
+use App\Model\Email;
 use App\Service\Sender\EmailChangingSender;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
@@ -40,6 +40,7 @@ class Handler
     /**
      * @param Command $command
      * @throws TransportExceptionInterface
+     * @throws \Throwable
      */
     public function handle(Command $command): void
     {

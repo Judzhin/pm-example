@@ -11,6 +11,7 @@ use App\Entity\Work\Member;
 use App\Entity\Work\Member\Group;
 use App\Exception\DomainException;
 use App\Model\Email;
+use App\Repository\MemberRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -37,7 +38,10 @@ class Handler
      */
     public function handle(Command $command): void
     {
-        if ($this->em->find(Member::class, $command->id)) {
+        /** @var MemberRepository $members */
+        $members = $this->em->getRepository(Member::class);
+
+        if ($members->find($command->id)) {
             throw DomainException::memberAlreadyExists();
         }
 
@@ -56,7 +60,6 @@ class Handler
                 )
             );
 
-        $this->em->persist($member);
-        $this->em->flush();
+        $members->add($member);
     }
 }

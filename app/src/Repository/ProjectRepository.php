@@ -40,6 +40,19 @@ class ProjectRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param Project $project
+     * @return $this
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function add(Project $project): self
+    {
+        $this->_em->persist($project);
+        $this->_em->flush();
+        return $this;
+    }
+
+    /**
      * @param Filter $filter
      * @param int $page
      * @param int $limit

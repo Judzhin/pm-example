@@ -27,6 +27,7 @@ class GroupRepository extends ServiceEntityRepository
 
     /**
      * GroupRepository constructor.
+     *
      * @param ManagerRegistry $registry
      * @param PaginatorInterface $paginator
      */
@@ -34,6 +35,19 @@ class GroupRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Group::class);
         $this->paginator = $paginator;
+    }
+
+    /**
+     * @param Group $group
+     * @return $this
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function add(Group $group): self
+    {
+        $this->_em->persist($group);
+        $this->_em->flush();
+        return $this;
     }
 
     /**

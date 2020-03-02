@@ -4,16 +4,14 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\UseCase\User\Edit;
+namespace App\UseCase\Work\Project\Create;
 
-use App\Entity\Name;
-use App\Entity\User;
-use App\Model\Email;
+use App\Entity\Work\Project;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class Handler
- * @package App\UseCase\User\Edit
+ * @package App\UseCase\Work\Project\Create
  */
 class Handler
 {
@@ -33,20 +31,14 @@ class Handler
      * @param Command $command
      * @throws \Throwable
      */
-    public function handle(Command $command)
+    public function handle(Command $command): void
     {
-        /** @var User $user */
-        $user = $this->em->find(User::class, $command->id);
+        /** @var Project $project */
+        $project = (new Project)
+            ->setName($command->name)
+            ->setSort($command->sort);
 
-        $user
-            ->setEmail(new Email($command->email))
-            ->setName(
-                new Name(
-                    $command->firstName,
-                    $command->lastName
-                )
-            );
-
+        $this->em->persist($project);
         $this->em->flush();
     }
 }

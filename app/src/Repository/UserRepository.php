@@ -46,6 +46,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
+     * @param User $user
+     * @return $this
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function add(User $user): self
+    {
+        $this->_em->persist($user);
+        $this->_em->flush();
+        return $this;
+    }
+
+    /**
      * @inheritdoc
      *
      * @param UserInterface $user
