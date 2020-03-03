@@ -42,6 +42,12 @@ class Role
     private $name;
 
     /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $permissions;
+
+    /**
      * @return UuidInterface
      */
     public function getId(): UuidInterface

@@ -17,13 +17,18 @@ services:
     build:
       context: .
       dockerfile: docker/php-fpm/Dockerfile
-      target: development
+      target: dev
       args:
-        ENVIRONMENT: development
+        APP_ENV: dev
+    environment:
+      XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1"
+      PHP_IDE_CONFIG: "serverName=pm.dev"
     volumes:
       - ./app:/var/www/html:rw
       - ~/.ssh:/root/.ssh:ro
       - ~/.composer:/root/.composer:ro
+    networks:
+      - internal
 
   # nginx
   pm-nginx:
@@ -31,15 +36,17 @@ services:
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
-      target: development
+      target: dev
       args:
-        ENVIRONMENT: development
+        APP_ENV: dev
     volumes:
       - ./app:/var/www/html
     ports:
       - 3107:80
     depends_on:
       - pm-php-fpm
+    networks:
+      - internal
 
   # postgres host.docker.internal
   pm-postgres:
@@ -53,6 +60,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-pm}
     ports:
       - 54321:5432
+    networks:
+      - internal
 
   # pgadmin
   pm-pgadmin:
@@ -116,3 +125,11 @@ services:
 
 volumes:
   pm-redis:
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.220.0/28

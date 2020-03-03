@@ -6,8 +6,6 @@
 
 namespace App\Controller\Work;
 
-use App\Entity;
-use App\Exception\DomainException;
 use App\Repository\ProjectRepository;
 use App\UseCase\Work\Project;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -28,7 +26,7 @@ class ProjectsController extends AbstractController
     private const PER_PAGE = 10;
 
     /** @var ProjectRepository */
-    private $repository;
+    private $projects;
 
     /** @var LoggerInterface */
     private $logger;
@@ -36,12 +34,12 @@ class ProjectsController extends AbstractController
     /**
      * ProjectsController constructor.
      *
-     * @param ProjectRepository $repository
+     * @param ProjectRepository $projects
      * @param LoggerInterface $logger
      */
-    public function __construct(ProjectRepository $repository, LoggerInterface $logger)
+    public function __construct(ProjectRepository $projects, LoggerInterface $logger)
     {
-        $this->repository = $repository;
+        $this->projects = $projects;
         $this->logger = $logger;
     }
 
@@ -61,17 +59,14 @@ class ProjectsController extends AbstractController
         $form->handleRequest($request);
 
         /** @var PaginationInterface $pagination */
-        $pagination = $this->repository->all(
+        $pagination = $this->projects->all(
             $filter, $request->query->getInt('page', 1), self::PER_PAGE
         );
 
-        return $this->render(
-            'works/projects/index.html.twig',
-            [
-                'form' => $form->createView(),
-                'pagination' => $pagination,
-            ]
-        );
+        return $this->render('works/projects/index.html.twig', [
+            'form' => $form->createView(),
+            'pagination' => $pagination,
+        ]);
     }
 
     /**
@@ -88,7 +83,7 @@ class ProjectsController extends AbstractController
 
         /** @var Project\Create\Command $command */
         $command = new Project\Create\Command;
-        $command->sort = $this->repository->findMaxSort() + 1;
+        $command->sort = $this->projects->findMaxSort() + 1;
 
         /** @var FormInterface|Project\Create\FormType $form */
         $form = $this->createForm(Project\Create\FormType::class, $command);

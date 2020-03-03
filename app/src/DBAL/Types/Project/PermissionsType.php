@@ -4,21 +4,23 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\DBAL\Types;
+namespace App\DBAL\Types\Project;
 
 use App\Model\User\Role;
+use App\Model\Work\Project\Permission;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\JsonType;
 
 /**
- * Class RolesType
- * @package App\DBAL\Types
+ * Class PermissionsType
+ *
+ * @package App\DBAL\Types\Project
  */
-class RolesType extends JsonType
+class PermissionsType extends JsonType
 {
     /** @const NAME */
-    public const NAME = 'roles';
+    public const NAME = 'project_permissions';
 
     /**
      * @inheritdoc
@@ -46,7 +48,7 @@ class RolesType extends JsonType
              * @var Role|string $item
              */
             foreach ($value as $key => $item) {
-                if ($item instanceof Role) {
+                if ($item instanceof Permission) {
                     $value[$key] = $item->getValue();
                 }
             }
@@ -73,7 +75,7 @@ class RolesType extends JsonType
          * @var string $name
          */
         foreach ($value as $key => $name) {
-            $value[$key] = new Role($name);
+            $value[$key] = new Permission($name);
         }
 
         return $value;

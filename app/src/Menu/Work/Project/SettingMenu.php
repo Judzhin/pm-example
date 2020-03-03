@@ -46,27 +46,27 @@ class SettingMenu
         if ($this->authorizationChecker->isGranted('ROLE_WORK_MANAGE_PROJECTS')) {
             $menu
                 ->addChild('Common', [
+                    'route' => 'pm_work_project_setting',
+                    'routeParameters' => ['id' => $options['project_id']]
+                ])
+                ->setExtra('routes', [
+                    ['route' => 'pm_work_project_setting'],
+                    ['route' => 'pm_work_project_setting'],
+                ])
+                ->setAttribute('class', 'nav-item')
+                ->setLinkAttribute('class', 'nav-link');
+
+            $menu
+                ->addChild('Departments', [
                     'route' => 'pm_work_project_setting_departments',
                     'routeParameters' => ['project_id' => $options['project_id']]
                 ])
                 ->setExtra('routes', [
                     ['route' => 'pm_work_project_setting_departments'],
-                    ['route' => 'pm_work_project_setting_department_edit'],
+                    ['pattern' => '/^pm_work_project_setting_departments\..+/']
                 ])
                 ->setAttribute('class', 'nav-item')
                 ->setLinkAttribute('class', 'nav-link');
-
-//            $menu
-//                ->addChild('Departments', [
-//                    'route' => 'work.projects.project.settings.departments',
-//                    'routeParameters' => ['project_id' => $options['project_id']]
-//                ])
-//                ->setExtra('routes', [
-//                    ['route' => 'work.projects.project.settings.departments'],
-//                    ['pattern' => '/^work.projects.project.settings.departments\..+/']
-//                ])
-//                ->setAttribute('class', 'nav-item')
-//                ->setLinkAttribute('class', 'nav-link');
 //
 //            $menu
 //                ->addChild('Members', [
