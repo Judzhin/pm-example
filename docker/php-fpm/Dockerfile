@@ -29,3 +29,6 @@ RUN pecl install xdebug \
 
 # PROD env (kubernetes)
 FROM scratch as prod
+
+USER www-data:www-data
+CMD ["php-fpm"]

@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace App\Entity\Work\Project;
 
 use App\Entity\Work\Project;
+use App\Model\Work\Project\Permission;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -42,10 +44,18 @@ class Role
     private $name;
 
     /**
-     * @var string
+     * @var ArrayCollection|Permission[]
      * @ORM\Column(type="string")
      */
     private $permissions;
+
+    /**
+     * Role constructor.
+     */
+    public function __construct()
+    {
+        $this->permissions = new ArrayCollection;
+    }
 
     /**
      * @return UuidInterface
@@ -57,9 +67,9 @@ class Role
 
     /**
      * @param UuidInterface $id
-     * @return Department
+     * @return Role
      */
-    public function setId(UuidInterface $id): Department
+    public function setId(UuidInterface $id): Role
     {
         $this->id = $id;
         return $this;
@@ -75,9 +85,9 @@ class Role
 
     /**
      * @param Project $project
-     * @return Department
+     * @return Role
      */
-    public function setProject(Project $project): Department
+    public function setProject(Project $project): Role
     {
         $this->project = $project;
         return $this;
@@ -93,12 +103,41 @@ class Role
 
     /**
      * @param string $name
-     * @return Department
+     * @return Role
      */
-    public function setName(string $name): Department
+    public function setName(string $name): Role
     {
         $this->name = $name;
         return $this;
+    }
+
+    /**
+     * @return Permission[]|ArrayCollection
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * @param Permission[]|ArrayCollection $permissions
+     * @return Role
+     */
+    public function setPermissions($permissions): Role
+    {
+        $this->permissions = $permissions;
+        return $this;
+    }
+
+    /**
+     * @param Permission $permission
+     * @return bool
+     */
+    public function hasPermission(Permission $permission): bool
+    {
+        return $this->permissions->exists(static function (Permission $current) use ($permission) {
+            return $permission->isValueEqual($current);
+        });
     }
 
     /**

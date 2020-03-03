@@ -8,6 +8,7 @@ namespace App\DBAL\Types\Project;
 
 use App\Model\User\Role;
 use App\Model\Work\Project\Permission;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\JsonType;
@@ -33,25 +34,17 @@ class PermissionsType extends JsonType
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
-     * @param $value
+     * @param mixed $value
      * @param AbstractPlatform $platform
      * @return string
      * @throws ConversionException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): string
     {
-        if (is_array($value)) {
-            /**
-             * @var int $key
-             * @var Role|string $item
-             */
-            foreach ($value as $key => $item) {
-                if ($item instanceof Permission) {
-                    $value[$key] = $item->getValue();
-                }
-            }
+        if ($value instanceof ArrayCollection) {
+            $value = array_map([self::class, 'deserialize'], $value->toArray());
         }
 
         return parent::convertToDatabaseValue($value, $platform);
@@ -62,23 +55,34 @@ class PermissionsType extends JsonType
      *
      * @param $value
      * @param AbstractPlatform $platform
-     * @return array|null
+     * @return array|ArrayCollection|null
      * @throws ConversionException
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?array
+    public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        /** @var array $value */
-        $value = parent::convertToPHPValue($value, $platform);
-
-        /**
-         * @var int $key
-         * @var string $name
-         */
-        foreach ($value as $key => $name) {
-            $value[$key] = new Permission($name);
+        if (!is_array($value = parent::convertToPHPValue($value, $platform))) {
+            return $value;
         }
 
-        return $value;
+        return new ArrayCollection(array_filter(array_map([self::class, 'serialize'], $value)));
+    }
+
+    /**
+     * @param Permission $permission
+     * @return string
+     */
+    private static function deserialize(Permission $permission): string
+    {
+        return $permission->getValue();
+    }
+
+    /**
+     * @param string $value
+     * @return Permission|null
+     */
+    private static function serialize(string $value): ?Permission
+    {
+        return in_array($value, Permission::values(), true) ? new Permission($value) : null;
     }
 
 }
