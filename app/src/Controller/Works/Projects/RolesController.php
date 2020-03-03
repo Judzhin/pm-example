@@ -22,12 +22,10 @@ class RolesController extends AbstractController
 {
     /**
      * @Route("", name="pm_work_projects_roles")
-     *
-     * @param Project $project
      * @return Response
      */
-    public function show(Project $project): Response
+    public function show(): Response
     {
-        return $this->render('works/projects/project/show.html.twig', compact('project'));
+        return $this->render('works/projects/roles/index.html.twig', []);
     }
 }
