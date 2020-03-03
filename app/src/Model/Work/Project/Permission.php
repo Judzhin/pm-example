@@ -16,7 +16,7 @@ use Webmozart\Assert\Assert;
 class Permission
 {
     /** @const MANAGE_PROJECT_MEMBERS */
-    private const MANAGE_PROJECT_MEMBERS = 'manage_project_members';
+    public const MANAGE_PROJECT_MEMBERS = 'manage_project_members';
 
     /**
      * @var string

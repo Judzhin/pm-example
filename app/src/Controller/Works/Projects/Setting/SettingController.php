@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Controller\Work\Project\Setting;
+namespace App\Controller\Works\Projects\Setting;
 
 use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;

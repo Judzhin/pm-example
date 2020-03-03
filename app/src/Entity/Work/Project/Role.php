@@ -26,16 +26,17 @@ class Role
      * @var UuidInterface
      *
      * @ORM\Id()
+     * @ORM\GeneratedValue("UUID")
      * @ORM\Column(type="uuid")
      */
     private $id;
 
-    /**
-     * @var Project
-     * @ORM\ManyToOne(targetEntity="App\Entity\Work\Project", inversedBy="departments")
-     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=false)
-     */
-    private $project;
+//    /**
+//     * @var Project
+//     * @ORM\ManyToOne(targetEntity="App\Entity\Work\Project", inversedBy="departments")
+//     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=false)
+//     */
+//    private $project;
 
     /**
      * @var string

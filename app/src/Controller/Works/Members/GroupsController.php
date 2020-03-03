@@ -3,7 +3,7 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-namespace App\Controller\Work\Member;
+namespace App\Controller\Works\Members;
 
 use App\Annotation\UUIDv4;
 use App\Entity;
