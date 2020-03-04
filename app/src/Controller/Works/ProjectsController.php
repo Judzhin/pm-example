@@ -6,7 +6,7 @@
 
 namespace App\Controller\Works;
 
-use App\Repository\ProjectRepository;
+use App\ReadModel\Work\ProjectFetcher;
 use App\UseCase\Work\Project;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Psr\Log\LoggerInterface;
@@ -25,7 +25,7 @@ class ProjectsController extends AbstractController
     /** @const PER_PAGE */
     private const PER_PAGE = 10;
 
-    /** @var ProjectRepository */
+    /** @var ProjectFetcher */
     private $projects;
 
     /** @var LoggerInterface */
@@ -34,10 +34,10 @@ class ProjectsController extends AbstractController
     /**
      * ProjectsController constructor.
      *
-     * @param ProjectRepository $projects
+     * @param ProjectFetcher $projects
      * @param LoggerInterface $logger
      */
-    public function __construct(ProjectRepository $projects, LoggerInterface $logger)
+    public function __construct(ProjectFetcher $projects, LoggerInterface $logger)
     {
         $this->projects = $projects;
         $this->logger = $logger;
@@ -83,7 +83,7 @@ class ProjectsController extends AbstractController
 
         /** @var Project\Create\Command $command */
         $command = new Project\Create\Command;
-        $command->sort = $this->projects->findMaxSort() + 1;
+        $command->sort = $this->projects->maxSort() + 1;
 
         /** @var FormInterface|Project\Create\FormType $form */
         $form = $this->createForm(Project\Create\FormType::class, $command);
@@ -98,104 +98,4 @@ class ProjectsController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-//    /**
-//     * @Route("/work/project/edit/{id}", name="pm_work_member_edit")
-//     *
-//     * @param Entity\Work\Member $member
-//     * @param Request $request
-//     * @param Project\Edit\Handler $handler
-//     * @return Response
-//     */
-//    public function edit(Entity\Work\Member $member, Request $request, Project\Edit\Handler $handler): Response
-//    {
-////        /** @var Project\Edit\Command $command */
-////        $command = Project\Edit\Command::parse($member);
-////
-////        /** @var FormInterface $form */
-////        $form = $this->createForm(Project\Edit\FormType::class, $command);
-////        $form->handleRequest($request);
-////
-////        if ($form->isSubmitted() && $form->isValid()) {
-////            try {
-////                $handler->handle($command);
-////                return $this->redirectToRoute('pm_work_member', ['id' => $member->getId()]);
-////            } catch (DomainException $exception) {
-////                $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
-////                $this->addFlash('error', $message);
-////            }
-////        }
-////
-////        return $this->render('works/members/edit.html.twig', [
-////            'member' => $member,
-////            'form' => $form->createView(),
-////        ]);
-//    }
-//
-//    /**
-//     * @Route("/work/project/archive/{id}", name="pm_work_project_archive", methods={"POST"})
-//     *
-//     * @param Entity\Work\Member $member
-//     * @param Request $request
-//     * @param Project\Archived\Handler $handler
-//     * @return Response
-//     * @throws \Throwable
-//     */
-//    public function archive(Entity\Work\Member $member, Request $request, Project\Archived\Handler $handler): Response
-//    {
-//        if ($this->isCsrfTokenValid('archive', $request->request->get('token'))) {
-//            /** @var Project\Archived\Command $command */
-//            $command = new Project\Archived\Command($member->getId());
-//
-//            try {
-//                $handler->handle($command);
-//            } catch (DomainException $exception) {
-//                $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
-//                $this->addFlash('error', $message);
-//            }
-//        }
-//
-//        return $this->redirectToRoute('pm_work_member', ['id' => $member->getId()]);
-//    }
-//
-////    /**
-////     * @Route("/work/project/reinstate/{id}", name="pm_work_member_reinstate", methods={"POST"})
-////     *
-////     * @param Entity\Work\Member $member
-////     * @param Request $request
-////     * @param Project\Reinstate\Handler $handler
-////     * @return Response
-////     * @throws \Throwable
-////     */
-////    public function reinstate(Entity\Work\Member $member, Request $request, Project\Reinstate\Handler $handler): Response
-////    {
-////        if ($this->isCsrfTokenValid('reinstate', $request->request->get('token'))) {
-////
-////            if ($member->getId()->toString() === $this->getUser()->getId()) {
-////                $this->addFlash('error', 'Unable to reinstate yourself.');
-////            } else {
-////                /** @var Project\Reinstate\Command $command */
-////                $command = new Project\Reinstate\Command($member->getId());
-////
-////                try {
-////                    $handler->handle($command);
-////                } catch (DomainException $exception) {
-////                    $this->logger->warning($message = $exception->getMessage(), ['exception' => $exception]);
-////                    $this->addFlash('error', $message);
-////                }
-////            }
-////
-////        }
-////
-////        return $this->redirectToRoute('pm_work_member', ['id' => $member->getId()]);
-////    }
-//
-//    /**
-//     * @Route("{id}", name="pm_work_project_delete", methods={"DELETE"})
-//     * @return Response
-//     */
-//    public function delete(): Response
-//    {
-//        return $this->redirectToRoute('pm_work_member', ['id' => 1]);
-//    }
 }

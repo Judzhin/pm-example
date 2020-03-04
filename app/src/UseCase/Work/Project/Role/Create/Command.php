@@ -6,7 +6,6 @@
 
 namespace App\UseCase\Work\Project\Role\Create;
 
-use App\Entity\Work\Project;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -15,5 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Command
 {
+    /** @var string */
+    public $name;
+
+    /** @var array */
+    public $permissions;
 
 }

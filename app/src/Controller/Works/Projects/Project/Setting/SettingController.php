@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Controller\Works\Projects\Setting;
+namespace App\Controller\Works\Projects\Project\Setting;
 
 use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;
@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SettingController
- * @package App\Controller\Work\Project\Setting
+ * @package App\Controller\Works\Projects\Project\Setting
  *
  * @Route("/work/project/{id}/setting", requirements={"id"=UUIDv4::PATTERN})
  * @IsGranted("ROLE_WORK_MANAGE_PROJECTS")

@@ -13,6 +13,9 @@ use App\Model\Work\Status;
  */
 class Filter
 {
+    /** @var string */
     public $name;
+
+    /** @var string string  */
     public $status = Status::STATUS_ACTIVE;
 }

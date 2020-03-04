@@ -6,10 +6,12 @@
 
 namespace App\UseCase\Work\Project\Role\Create;
 
+use App\Model\Work\Project\Permission;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class FormType
@@ -27,6 +29,13 @@ class FormType extends AbstractType
     {
         $builder
             ->add('name', Type\TextType::class)
+            ->add('permissions', Type\ChoiceType::class, [
+                'choices' => array_combine(Permission::values(), Permission::values()),
+                'required' => false,
+                'expanded' => true,
+                'multiple' => true,
+                // 'translation_domain' => '',
+            ])
         ;
     }
 

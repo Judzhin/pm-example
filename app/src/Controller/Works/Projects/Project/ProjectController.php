@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace App\Controller\Works\Projects;
+namespace App\Controller\Works\Projects\Project;
 
 use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;
@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class ProjectController
- * @package App\Controller\Work\Project
+ * @package App\Controller\Works\Projects\Project
  *
  * @Route("/work/project/{id}", requirements={"id"=UUIDv4::PATTERN})
  */
