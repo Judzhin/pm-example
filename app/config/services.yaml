@@ -56,6 +56,10 @@ services:
     tags:
       - { name: knp_menu.menu_builder, method: build, alias: sidebar}
 
+  App\Menu\WorkMenu:
+    tags:
+      - { name: knp_menu.menu_builder, method: build, alias: work}
+
   App\Menu\Work\ProjectMenu:
     tags:
       - { name: knp_menu.menu_builder, method: build, alias: work_project}

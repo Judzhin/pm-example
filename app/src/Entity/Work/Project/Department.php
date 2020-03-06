@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace App\Entity\Work\Project;
 
 use App\Entity\Work\Project;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -41,6 +42,19 @@ class Department
      * @ORM\Column(type="string")
      */
     private $name;
+
+    /**
+     * @var
+     */
+    private $members;
+
+    /**
+     * Department constructor.
+     */
+    public function __construct()
+    {
+        $this->members = new ArrayCollection;
+    }
 
     /**
      * @return UuidInterface
@@ -97,11 +111,40 @@ class Department
     }
 
     /**
-     * @param Department $name
+     * @return mixed
+     */
+    public function getMembers()
+    {
+        return $this->members;
+    }
+
+    /**
+     * @param $members
+     * @return $this
+     */
+    public function setMembers($members): self
+    {
+        $this->members = $members;
+        return $this;
+    }
+
+    /**
+     * @param Department $department
      * @return bool
      */
-    public function isEqual(Department $name): bool
+    public function isEqualName(Department $department): bool
     {
-        return $this->name === $name->getName();
+        return $this->getName() === $department->getName();
     }
+
+    /**
+     * @param Department $department
+     * @return bool
+     */
+    public function isEqual(Department $department): bool
+    {
+        return $this->getId()->toString() === $department->getId()->toString();
+        // return $this->getId()->equals($department->getId());
+    }
+
 }

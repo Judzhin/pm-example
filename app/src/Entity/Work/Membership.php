@@ -39,6 +39,7 @@ class Membership
 
     /**
      * @var Member
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Work\Member")
      * @ORM\JoinColumn(name="member_id", referencedColumnName="id", nullable=false)
      */
@@ -46,6 +47,7 @@ class Membership
 
     /**
      * @var ArrayCollection|Department[]
+     *
      * @ORM\ManyToMany(targetEntity="App\Entity\Work\Project\Department")
      * @ORM\JoinTable(name="work_memberships_departments",
      *     joinColumns={@ORM\JoinColumn(name="membership_id", referencedColumnName="id")},
@@ -80,9 +82,11 @@ class Membership
     {
         $this->guardDepartments($departments);
 
+        /** @var  $current */
         $current = $this->departments->toArray();
         $new = $departments;
 
+        /** @var \Closure $compare */
         $compare = static function (Department $a, Department $b): int {
             return $a->getId()->getValue() <=> $b->getId()->getValue();
         };
@@ -125,7 +129,9 @@ class Membership
      */
     public function isForMember(Member $member): bool
     {
-        return $this->member->getId()->isEqual($member->getId()->toString());
+        return $this->member->isEqual($member);
+        // return $this->member->getId()->equals($member->getId());
+        // return $this->member->getId()->isEqual($member->getId()->toString());
     }
 
     /**
@@ -134,14 +140,20 @@ class Membership
      */
     public function isForDepartment(Department $department): bool
     {
+        /** @var Department $item */
         foreach ($this->departments as $item) {
-            if ($item->getId()->isEqual($department->getId()->toString())) {
+            if ($item->isEqual($department)) {
+                // if ($item->getId()->equals($department->getId())) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * @param string $permission
+     * @return bool
+     */
     public function isGranted(string $permission): bool
     {
         foreach ($this->roles as $role) {

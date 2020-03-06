@@ -160,4 +160,14 @@ class Member implements StatusAwareInterface
         $this->setStatus(Status::active());
         return $this;
     }
+
+    /**
+     * @param Member $member
+     * @return bool
+     */
+    public function isEqual(self $member): bool
+    {
+        return $this->getId()->toString() === $member->getId()->toString();
+        // return $this->getId()->equals($member->getId());
+    }
 }

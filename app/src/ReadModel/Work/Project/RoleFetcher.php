@@ -15,22 +15,21 @@ class RoleFetcher
     /** @var RoleRepository */
     private $roles;
 
-    /** @var PaginatorInterface */
-    private $paginator;
-
     /**
      * RoleFetcher constructor.
+     *
      * @param RoleRepository $roles
-     * @param PaginatorInterface $paginator
      */
-    public function __construct(RoleRepository $roles, PaginatorInterface $paginator)
+    public function __construct(RoleRepository $roles)
     {
         $this->roles = $roles;
-        $this->paginator = $paginator;
     }
 
-    public function all()
+    /**
+     * @return array
+     */
+    public function all(): array
     {
-
+        return $this->roles->findAll();
     }
 }

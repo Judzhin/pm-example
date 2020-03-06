@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace App\Entity\Work;
 
 use App\Entity\Work\Project\Department;
+use App\Entity\Work\Project\Role;
 use App\Exception\DomainException;
 use App\Model\Work\Status;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -125,9 +126,9 @@ class Project implements StatusAwareInterface
 
     /**
      * @param int $sort
-     * @return Project
+     * @return $this
      */
-    public function setSort(int $sort): Project
+    public function setSort(int $sort): self
     {
         $this->sort = $sort;
         return $this;
@@ -145,7 +146,7 @@ class Project implements StatusAwareInterface
      * @param Department[]|ArrayCollection $departments
      * @return Project
      */
-    public function setDepartments($departments)
+    public function setDepartments($departments): self
     {
         $this->departments = $departments;
         return $this;
@@ -174,7 +175,7 @@ class Project implements StatusAwareInterface
     {
         /** @var Department $current */
         foreach ($this->departments as $current) {
-            if ($department->isEqual($current)) {
+            if ($department->isEqualName($current)) {
                 throw DomainException::departmentAlreadyExists();
             }
         }
@@ -196,13 +197,13 @@ class Project implements StatusAwareInterface
          * @param Department $department
          * @return bool
          */
-        $isEqual = function (Department $current, Department $department): bool {
+        $isEqual = static function (Department $current, Department $department): bool {
             return $current->getId()->toString() === $department->getId()->toString();
         };
 
         /** @var Department $current */
         foreach ($this->departments as $current) {
-        if ($isEqual($current, $department)) {
+            if ($isEqual($current, $department)) {
                 $current->setName($department->getName());
                 return $this;
             }
@@ -234,7 +235,7 @@ class Project implements StatusAwareInterface
     {
         /** @var Department $current */
         foreach ($this->departments as $current) {
-            if ($department->isEqual($current)) {
+            if ($department->isEqualName($current)) {
                 $this->departments->removeElement($current);
                 return $this;
             }
@@ -263,6 +264,78 @@ class Project implements StatusAwareInterface
     }
 
     /**
+     * @param UuidInterface $id
+     * @return bool
+     */
+    public function hasMember(UuidInterface $id): bool
+    {
+        foreach ($this->memberships as $membership) {
+            if ($membership->isForMember($id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param Member $member
+     * @param Department[] $departments
+     * @param Role[] $roles
+     * @throws \Exception
+     */
+    public function addMember(Member $member, array $departments, array $roles): void
+    {
+        /** @var Membership $membership */
+        foreach ($this->memberships as $membership) {
+            if ($membership->isForMember($member)) {
+                throw new \DomainException('Member already exists.');
+            }
+        }
+
+        $this->memberships->add(new Membership(
+            $this, $member, array_map([$this, 'getDepartment'], $departments), $roles
+        ));
+    }
+
+    /**
+     * @param MemberId $member
+     * @param DepartmentId[] $departmentIds
+     * @param Role[] $roles
+     */
+    public function editMember(MemberId $member, array $departmentIds, array $roles): void
+    {
+        foreach ($this->memberships as $membership) {
+            if ($membership->isForMember($member)) {
+                $membership->changeDepartments(array_map([$this, 'getDepartment'], $departmentIds));
+                $membership->changeRoles($roles);
+                return;
+            }
+        }
+        throw new \DomainException('Member is not found.');
+    }
+
+    public function removeMember(MemberId $member): void
+    {
+        foreach ($this->memberships as $membership) {
+            if ($membership->isForMember($member)) {
+                $this->memberships->removeElement($membership);
+                return;
+            }
+        }
+        throw new \DomainException('Member is not found.');
+    }
+
+    public function isMemberGranted(MemberId $id, string $permission): bool
+    {
+        foreach ($this->memberships as $membership) {
+            if ($membership->isForMember($id)) {
+                return $membership->isGranted($permission);
+            }
+        }
+        return false;
+    }
+
+    /**
      * @return mixed
      */
     public function getVersion()
@@ -280,22 +353,21 @@ class Project implements StatusAwareInterface
         return $this;
     }
 
-    //
-    // // public function edit(string $name, int $sort): void
-    // // {
-    // //     $this->name = $name;
-    // //     $this->sort = $sort;
-    // // }
-    //
-
+    /**
+     *
+     */
     public function archive(): void
     {
         if ($this->isArchived()) {
             throw new DomainException('Project is already archived.');
         }
+
         $this->setStatus(Status::archived());
     }
 
+    /**
+     *
+     */
     public function reinstate(): void
     {
         if ($this->isActive()) {
@@ -304,108 +376,7 @@ class Project implements StatusAwareInterface
         $this->setStatus(Status::active());
     }
 
-    //
-    // public function addDepartment(DepartmentId $id, string $name): void
-    // {
-    //     foreach ($this->departments as $department) {
-    //         if ($department->isNameEqual($name)) {
-    //             throw new \DomainException('Department already exists.');
-    //         }
-    //     }
-    //     $this->departments->add(new Department($this, $id, $name));
-    // }
-    //
-    // public function editDepartment(DepartmentId $id, string $name): void
-    // {
-    //     foreach ($this->departments as $current) {
-    //         if ($current->getId()->isEqual($id)) {
-    //             $current->edit($name);
-    //             return;
-    //         }
-    //     }
-    //     throw new \DomainException('Department is not found.');
-    // }
-    //
-    // public function removeDepartment(DepartmentId $id): void
-    // {
-    //     foreach ($this->departments as $department) {
-    //         if ($department->getId()->isEqual($id)) {
-    //             foreach ($this->memberships as $membership) {
-    //                 if ($membership->isForDepartment($id)) {
-    //                     throw new \DomainException('Unable to remove department with members.');
-    //                 }
-    //             }
-    //             $this->departments->removeElement($department);
-    //             return;
-    //         }
-    //     }
-    //     throw new \DomainException('Department is not found.');
-    // }
-    //
-    // public function hasMember(MemberId $id): bool
-    // {
-    //     foreach ($this->memberships as $membership) {
-    //         if ($membership->isForMember($id)) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-    //
-    // /**
-    //  * @param Member $member
-    //  * @param DepartmentId[] $departmentIds
-    //  * @param Role[] $roles
-    //  * @throws \Exception
-    //  */
-    // public function addMember(Member $member, array $departmentIds, array $roles): void
-    // {
-    //     foreach ($this->memberships as $membership) {
-    //         if ($membership->isForMember($member->getId())) {
-    //             throw new \DomainException('Member already exists.');
-    //         }
-    //     }
-    //     $departments = array_map([$this, 'getDepartment'], $departmentIds);
-    //     $this->memberships->add(new Membership($this, $member, $departments, $roles));
-    // }
-    //
-    ///**
-    // * @param MemberId $member
-    // * @param DepartmentId[] $departmentIds
-    // * @param Role[] $roles
-    // */
-    //public function editMember(MemberId $member, array $departmentIds, array $roles): void
-    //{
-    //    foreach ($this->memberships as $membership) {
-    //        if ($membership->isForMember($member)) {
-    //            $membership->changeDepartments(array_map([$this, 'getDepartment'], $departmentIds));
-    //            $membership->changeRoles($roles);
-    //            return;
-    //        }
-    //    }
-    //    throw new \DomainException('Member is not found.');
-    //}
-    //
-    //public function removeMember(MemberId $member): void
-    //{
-    //    foreach ($this->memberships as $membership) {
-    //        if ($membership->isForMember($member)) {
-    //            $this->memberships->removeElement($membership);
-    //            return;
-    //        }
-    //    }
-    //    throw new \DomainException('Member is not found.');
-    //}
-    //
-    //public function isMemberGranted(MemberId $id, string $permission): bool
-    //{
-    //    foreach ($this->memberships as $membership) {
-    //        if ($membership->isForMember($id)) {
-    //            return $membership->isGranted($permission);
-    //        }
-    //    }
-    //    return false;
-    //}
+
     //
     //public function isArchived(): bool
     //{

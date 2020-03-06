@@ -17,6 +17,8 @@ class Permission
 {
     /** @const MANAGE_PROJECT_MEMBERS */
     public const MANAGE_PROJECT_MEMBERS = 'manage_project_members';
+    public const VIEW_TASKS = 'view_tasks';
+    public const MANAGE_TASKS = 'manage_tasks';
 
     /**
      * @var string
@@ -40,7 +42,9 @@ class Permission
     public static function values(): array
     {
         return [
-            self::MANAGE_PROJECT_MEMBERS
+            self::MANAGE_PROJECT_MEMBERS,
+            self::VIEW_TASKS,
+            self::MANAGE_TASKS
         ];
     }
 

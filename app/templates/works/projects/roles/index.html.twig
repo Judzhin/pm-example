@@ -12,52 +12,43 @@
 
 {% block body %}
 
-    <h1>Roles</h1>
+    {{ include('works/projects/_tabs.html.twig') }}
 
-{#    <div class="controls">#}
-{#        <a href="{{ path('pm_work_project_create') }}" class="btn btn-success btn-sm">#}
-{#            Add New Project#}
-{#        </a>#}
-{#    </div>#}
+    <div class="controls">
+        <a href="{{ path('pm_work_project_create') }}" class="btn btn-success btn-sm">
+            Add Role
+        </a>
+    </div>
 
-{#    <div class="card">#}
-{#        <div class="card-body">#}
-
-{#            {{ form_start(form) }}#}
-{#            <div class="row">#}
-{#                <div class="col-md-2">{{ form_widget(form.name) }}</div>#}
-{#                <div class="col-md-2">{{ form_widget(form.status) }}</div>#}
-{#                <div class="col-md-2">#}
-{#                    <button type="submit" class="btn btn-primary">Filter</button>#}
-{#                    <a href="{{ path('pm_work_projects') }}" class="btn btn-outline-secondary">Reset</a>#}
-{#                </div>#}
-{#            </div>#}
-{#            {{ form_end(form) }}#}
-
-{#        </div>#}
-{#    </div>#}
-
-{#    <div class="box">#}
-{#        <table class="table table-bordered table-hover">#}
-{#            <thead>#}
-{#            <tr>#}
-{#                <th>{{ knp_pagination_sortable(pagination, 'Name', 'name') }}</th>#}
-{#                <th>{{ knp_pagination_sortable(pagination, 'Status', 'status') }}</th>#}
-{#            </tr>#}
-{#            </thead>#}
-{#            <tbody>#}
-{#            {% for project in pagination %}#}
-{#                <tr>#}
-{#                    <td><a href="{{ path('pm_work_project', {'id': project.id}) }}">{{ project.name }}</a></td>#}
-{#                    <td>{{ work_status(project) }}</td>#}
-{#                </tr>#}
-{#            {% endfor %}#}
-{#            </tbody>#}
-{#        </table>#}
-{#    </div>#}
-
-{#    <div class="navigation">#}
-{#        {{ knp_pagination_render(pagination) }}#}
-{#    </div>#}
+    <div class="box">
+        <div style="overflow: auto">
+            <table class="table table-bordered table-hover mb-0">
+                <thead>
+                <tr>
+                    <th></th>
+                    {% for role in roles %}
+                        <th style="text-align: center">
+                            {{ role.name }}
+                        </th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for permission in permissions %}
+                    <tr>
+                        <td>{{ permission|trans({}, 'work_permissions') }}</td>
+                        {% for role in roles %}
+                            <td style="text-align: center">
+                                {% if permission in role.permissions %}
+                                    <span class="fa fa-check"></span>
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 {% endblock %}

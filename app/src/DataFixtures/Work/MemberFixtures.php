@@ -19,6 +19,12 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class MemberFixtures extends Fixture implements DependentFixtureInterface
 {
+    /** @const REFERENCE_JUDZHIN */
+    public const REFERENCE_JUDZHIN = UserFixtures::REFERENCE_JUDZHIN;
+
+    /** @const REFERENCE_JOHN */
+    public const REFERENCE_JOHN = UserFixtures::REFERENCE_JOHN;
+
     /**
      * @inheritDoc
      *
@@ -33,11 +39,17 @@ class MemberFixtures extends Fixture implements DependentFixtureInterface
             UserFixtures::REFERENCE_JOHN => MemberGroupFixtures::REFERENCE_STAFF
         ];
 
+        /**
+         * @var string $userInfo
+         * @var string $groupInfo
+         */
         foreach ($maps as $userInfo => $groupInfo) {
-            $manager->persist(self::create(
+            $manager->persist($member = self::create(
                 $this->getReference($userInfo),
                 $this->getReference($groupInfo)
             ));
+
+            $this->setReference($userInfo, $member);
         }
 
         $manager->flush();
