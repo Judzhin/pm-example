@@ -104,18 +104,20 @@ class DepartmentsController extends AbstractController
     }
 
     /**
-     * @Route("/delete", name="pm_work_project_setting_department_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="pm_work_project_setting_department_delete", methods={"POST"})
      *
-     * @param Project $project
+     * @param Project\Department $department
      * @param Request $request
      * @param Remove\Handler $handler
      * @return Response
-     * @throws \Throwable
      */
-    public function delete(Project $project, Request $request, Remove\Handler $handler): Response
+    public function delete(Project\Department $department, Request $request, Remove\Handler $handler): Response
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
-            return $this->redirectToRoute('pm_work_project_setting', ['id' => $project->getId()]);
+            return $this->redirectToRoute('pm_work_project_setting', [
+                'project_id' => $department->getProject()->getId(),
+                'id' => $department->getId()
+            ]);
         }
 
         // $this->denyAccessUnlessGranted(ProjectAccess::EDIT, $project);
@@ -130,6 +132,8 @@ class DepartmentsController extends AbstractController
 //            // $this->addFlash('error', $e->getMessage());
 //        }
 
-        return $this->redirectToRoute('pm_work_project_setting_departments');
+        return $this->redirectToRoute('pm_work_project_setting_departments', [
+            'project_id' => $department->getProject()->getId()
+        ]);
     }
 }

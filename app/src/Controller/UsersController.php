@@ -8,6 +8,7 @@ namespace App\Controller;
 
 use App\Entity;
 use App\Exception\DomainException;
+use App\ReadModel\UserFetcher;
 use App\Repository\MemberRepository;
 use App\Repository\UserRepository;
 use App\UseCase\User;
@@ -50,10 +51,10 @@ class UsersController extends AbstractController
      * @Route("", name="pm_users")
      *
      * @param Request $request
-     * @param UserRepository $repository
+     * @param UserFetcher $userFetcher
      * @return Response
      */
-    public function index(Request $request, UserRepository $repository)
+    public function index(Request $request, UserFetcher $userFetcher)
     {
         /** @var User\Filter\Filter $filter */
         $filter = new User\Filter\Filter;
@@ -61,7 +62,7 @@ class UsersController extends AbstractController
         $form->handleRequest($request);
 
         /** @var PaginationInterface $pagination */
-        $pagination = $repository->all(
+        $pagination = $userFetcher->all(
             $filter,
             $request->query->getInt('page', 1),
             self::PER_PAGE

@@ -1,0 +1,80 @@
+<?php
+
+namespace App\UseCase\Work\Project\Membership\Assign;
+
+
+use App\ReadModel\Work\MemberFetcher;
+use App\ReadModel\Work\Project\DepartmentFetcher;
+use App\ReadModel\Work\Project\RoleFetcher;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+/**
+ * Class FormType
+ *
+ * @package App\UseCase\Work\Project\Membership\Assign
+ */
+class FormType extends AbstractType
+{
+    /** @var MemberFetcher */
+    private $members;
+
+    /** @var DepartmentFetcher */
+    private $departments;
+
+    /** @var RoleFetcher */
+    private $roles;
+
+    /**
+     * FormType constructor.
+     * @param MemberFetcher $members
+     * @param DepartmentFetcher $departments
+     * @param RoleFetcher $roles
+     */
+    public function __construct(MemberFetcher $members, DepartmentFetcher $departments, RoleFetcher $roles)
+    {
+        $this->members = $members;
+        $this->departments = $departments;
+        $this->roles = $roles;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $members = [];
+        foreach ($this->members->activeGroupedList() as $item) {
+            $members[$item['group']][$item['name']] = $item['id'];
+        }
+
+        $builder
+            ->add('member', Type\ChoiceType::class, [
+                'choices' => $members,
+            ])
+            ->add('departments', Type\ChoiceType::class, [
+                'choices' => array_flip($this->departments->listOfProject($options['project'])),
+                'expanded' => true,
+                'multiple' => true,
+            ])
+            ->add('roles', Type\ChoiceType::class, [
+                'choices' => array_flip($this->roles->allList()),
+                'expanded' => true,
+                'multiple' => true,
+            ]);
+    }
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults(array(
+            'data_class' => Command::class,
+        ));
+        $resolver->setRequired(['project']);
+    }
+}

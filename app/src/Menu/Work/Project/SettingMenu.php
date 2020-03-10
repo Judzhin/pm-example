@@ -40,6 +40,7 @@ class SettingMenu
      */
     public function build(array $options): ItemInterface
     {
+        /** @var ItemInterface $menu */
         $menu = $this->factory->createItem('root')
             ->setChildrenAttributes(['class' => 'nav nav-tabs mb-4']);
 
@@ -67,18 +68,18 @@ class SettingMenu
                 ])
                 ->setAttribute('class', 'nav-item')
                 ->setLinkAttribute('class', 'nav-link');
-//
-//            $menu
-//                ->addChild('Members', [
-//                    'route' => 'work.projects.project.settings.members',
-//                    'routeParameters' => ['project_id' => $options['project_id']]
-//                ])
-//                ->setExtra('routes', [
-//                    ['route' => 'work.projects.project.settings.members'],
-//                    ['pattern' => '/^work.projects.project.settings.members\..+/']
-//                ])
-//                ->setAttribute('class', 'nav-item')
-//                ->setLinkAttribute('class', 'nav-link');
+
+            $menu
+                ->addChild('Members', [
+                    'route' => 'pm_work_project_setting_members',
+                    'routeParameters' => ['project_id' => $options['project_id']]
+                ])
+                ->setExtra('routes', [
+                    ['route' => 'pm_work_project_setting_members'],
+                    ['pattern' => '/^pm_work_project_setting_members\..+/']
+                ])
+                ->setAttribute('class', 'nav-item')
+                ->setLinkAttribute('class', 'nav-link');
         }
 
         return $menu;
