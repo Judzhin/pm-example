@@ -297,43 +297,43 @@ class Project implements StatusAwareInterface
         ));
     }
 
-    /**
-     * @param MemberId $member
-     * @param DepartmentId[] $departmentIds
-     * @param Role[] $roles
-     */
-    public function editMember(MemberId $member, array $departmentIds, array $roles): void
-    {
-        foreach ($this->memberships as $membership) {
-            if ($membership->isForMember($member)) {
-                $membership->changeDepartments(array_map([$this, 'getDepartment'], $departmentIds));
-                $membership->changeRoles($roles);
-                return;
-            }
-        }
-        throw new \DomainException('Member is not found.');
-    }
-
-    public function removeMember(MemberId $member): void
-    {
-        foreach ($this->memberships as $membership) {
-            if ($membership->isForMember($member)) {
-                $this->memberships->removeElement($membership);
-                return;
-            }
-        }
-        throw new \DomainException('Member is not found.');
-    }
-
-    public function isMemberGranted(MemberId $id, string $permission): bool
-    {
-        foreach ($this->memberships as $membership) {
-            if ($membership->isForMember($id)) {
-                return $membership->isGranted($permission);
-            }
-        }
-        return false;
-    }
+//    /**
+//     * @param MemberId $member
+//     * @param DepartmentId[] $departmentIds
+//     * @param Role[] $roles
+//     */
+//    public function editMember(MemberId $member, array $departmentIds, array $roles): void
+//    {
+//        foreach ($this->memberships as $membership) {
+//            if ($membership->isForMember($member)) {
+//                $membership->changeDepartments(array_map([$this, 'getDepartment'], $departmentIds));
+//                $membership->changeRoles($roles);
+//                return;
+//            }
+//        }
+//        throw new \DomainException('Member is not found.');
+//    }
+//
+//    public function removeMember(MemberId $member): void
+//    {
+//        foreach ($this->memberships as $membership) {
+//            if ($membership->isForMember($member)) {
+//                $this->memberships->removeElement($membership);
+//                return;
+//            }
+//        }
+//        throw new \DomainException('Member is not found.');
+//    }
+//
+//    public function isMemberGranted(MemberId $id, string $permission): bool
+//    {
+//        foreach ($this->memberships as $membership) {
+//            if ($membership->isForMember($id)) {
+//                return $membership->isGranted($permission);
+//            }
+//        }
+//        return false;
+//    }
 
     /**
      * @return mixed

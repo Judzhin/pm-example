@@ -35,7 +35,7 @@ class DepartmentsController extends AbstractController
      * @param Project $project
      * @return Response
      */
-    public function show(Project $project): Response
+    public function index(Project $project): Response
     {
         return $this->render('works/projects/project/setting/departments/index.html.twig', compact('project'));
     }
@@ -79,7 +79,7 @@ class DepartmentsController extends AbstractController
      * @param Request $request
      * @param Edit\Handler $handler
      * @return Response
-     * @throws \Throwable@Route("/{id}/edit", name="pm_work_project_setting_department_edit")
+     * @throws \Throwable
      */
     public function edit(Project\Department $department, Request $request, Edit\Handler $handler): Response
     {
@@ -99,7 +99,6 @@ class DepartmentsController extends AbstractController
 
         return $this->render('works/projects/project/setting/departments/edit.html.twig', [
             'form' => $form->createView(),
-            'project' => $department->getProject(),
             'department' => $department
         ]);
     }

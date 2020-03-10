@@ -14,6 +14,7 @@ use Twig\TwigFunction;
 
 /**
  * Class WorkStatusWidget
+ *
  * @package App\Widget
  */
 class WorkStatusWidget extends AbstractExtension
@@ -53,7 +54,7 @@ class WorkStatusWidget extends AbstractExtension
     public function onInvoke(Environment $twig, StatusAwareInterface $aware): string
     {
         return $twig->render(
-            'widget/member_status.html.twig',
+            'widget/work_status.html.twig',
             [
                 'status' => $aware->getStatus(),
             ]

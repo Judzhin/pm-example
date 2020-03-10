@@ -9,6 +9,7 @@ namespace App\Controller\Works;
 use App\Annotation\UUIDv4;
 use App\Entity;
 use App\Exception\DomainException;
+use App\ReadModel\Work\MemberFetcher;
 use App\Repository\MemberRepository;
 use App\UseCase\Work\Member;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -37,10 +38,11 @@ class MembersController extends AbstractController
 
     /**
      * MembersController constructor.
-     * @param MemberRepository $repository
+     *
+     * @param MemberFetcher $repository
      * @param LoggerInterface $logger
      */
-    public function __construct(MemberRepository $repository, LoggerInterface $logger)
+    public function __construct(MemberFetcher $repository, LoggerInterface $logger)
     {
         $this->repository = $repository;
         $this->logger = $logger;
