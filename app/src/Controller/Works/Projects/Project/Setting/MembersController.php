@@ -8,9 +8,11 @@ namespace App\Controller\Works\Projects\Project\Setting;
 
 use App\Annotation\UUIDv4;
 use App\Entity\Work\Project;
+use App\UseCase\Work\Project\Membership;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,25 +39,33 @@ class MembersController extends AbstractController
     }
 
     /**
-     * @Route("/assign", name=".assign")
+     * @Route("/assign", name="pm_work_project_setting_member_assign")
+     *
      * @param Project $project
      * @param Request $request
-     * @param Membership\Add\Handler $handler
+     * @param Membership\Assign\Handler $handler
      * @return Response
      */
-    public function assign(Project $project, Request $request, Membership\Add\Handler $handler): Response
+    public function assign(Project $project, Request $request, Membership\Assign\Handler $handler): Response
     {
         // $this->denyAccessUnlessGranted(ProjectAccess::MANAGE_MEMBERS, $project);
+
+        if (!$project->getDepartments()) {
+
+        }
 
 //        if (!$project->getDepartments()) {
 //            $this->addFlash('error', 'Add departments before adding members.');
 //            return $this->redirectToRoute('work.projects.project.settings.members', ['project_id' => $project->getId()]);
 //        }
 //
-//        $command = new Membership\Add\Command($project->getId()->getValue());
-//
-//        $form = $this->createForm(Membership\Add\Form::class, $command, ['project' => $project->getId()->getValue()]);
-//        $form->handleRequest($request);
+        /** @var Membership\Assign\Command $command */
+        $command = new Membership\Assign\Command;
+        $command->project = $project->getId()->toString();
+
+        /** @var FormInterface $form */
+        $form = $this->createForm(Membership\Assign\FormType::class, $command, ['project' => $project->getId()->toString()]);
+        $form->handleRequest($request);
 //
 //        if ($form->isSubmitted() && $form->isValid()) {
 //            try {

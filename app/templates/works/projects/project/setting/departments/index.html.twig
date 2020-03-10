@@ -16,7 +16,7 @@
 
 {% block body %}
 
-    {% include 'works/projects/_tabs.html.twig' %}
+    {{ include('works/projects/project/_tabs.html.twig', {'project' : project}) }}
 
     {% include 'works/projects/project/setting/_tabs.html.twig' %}
 

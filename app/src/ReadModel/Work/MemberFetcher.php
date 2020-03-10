@@ -44,6 +44,10 @@ class MemberFetcher
     {
         /** @var QueryBuilder $qb */
         $qb = $this->members->createQueryBuilder('m');
+
+        return $qb
+            ->getQuery()
+            ->getArrayResult();
     }
 
     /**
