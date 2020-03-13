@@ -13,9 +13,9 @@ security:
     app_user_provider:
       # custom provider
       id: App\Security\UserProvider
-#      entity:
-#        class: App\Entity\User
-#        property: email
+  #      entity:
+  #        class: App\Entity\User
+  #        property: email
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -29,7 +29,7 @@ security:
       provider: app_user_provider
       guard:
         authenticators:
-        - App\Security\FormLoginAuthenticator
+          - App\Security\FormLoginAuthenticator
         # - App\Security\OAuth\FacebookAuthenticator
         entry_point: App\Security\FormLoginAuthenticator
 
@@ -56,26 +56,26 @@ security:
     # ROLE_SUPER_ADMIN: [ROLE_ADMIN]
     # ROLE_ADMIN: [ROLE_USER, ROLE_MANAGE_USERS, ROLE_WORK_MANAGE_MEMBERS]
     ROLE_ADMIN:
-    - ROLE_USER
-    - ROLE_MANAGE_USERS
-    - ROLE_WORK_MANAGE_MEMBERS
-    - ROLE_WORK_MANAGE_PROJECTS
+      - ROLE_USER
+      - ROLE_MANAGE_USERS
+      - ROLE_WORK_MANAGE_MEMBERS
+      - ROLE_WORK_MANAGE_PROJECTS
 
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-  # - { path: ^/admin, roles: ROLE_ADMIN }
-  # - { path: ^/profile, roles: ROLE_USER }
+    # - { path: ^/admin, roles: ROLE_ADMIN }
+    # - { path: ^/profile, roles: ROLE_USER }
 
-  # for not authenticated
-  - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  - { path: ^/password-reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  - { path: ^/signup, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  - { path: ^/connect/facebook, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  - { path: ^/connect/facebook/check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  # - { path: ^/, roles: IS_AUTHENTICATED_FULLY } #
+    # for not authenticated
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/password-reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/signup, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/connect/facebook, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/connect/facebook/check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    # - { path: ^/, roles: IS_AUTHENTICATED_FULLY } #
 
-  # granted
-  # - { path: ^/users, roles: ROLE_MANAGE_USERS } Move to controller annotation
-  - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER] }
+    # granted
+    # - { path: ^/users, roles: ROLE_MANAGE_USERS } Move to controller annotation
+    - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER] }
